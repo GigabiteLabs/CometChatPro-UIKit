@@ -8,35 +8,33 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CCPMessenger'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of CCPMessenger.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
+  s.version          = '0.1.1'
+  s.summary          = 'A unified framework for CometChat Pro UIKit and binary framework.'
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+'A framework for CometChat Pro that combines the CometChat Pro UIKit library and public binary framework.'
                        DESC
 
-  s.homepage         = 'https://github.com/DanBurkhardt/CCPMessenger'
+  s.homepage         = 'https://github.com/GigabiteLabs/CCPMessenger'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'DanBurkhardt' => 'dan@gigabitelabs.com' }
-  s.source           = { :git => 'https://github.com/DanBurkhardt/CCPMessenger.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'GigabiteLabs' => 'engineering@gigabitelabs.com' }
+  s.source           = { :git => 'https://github.com/GigabiteLabs/CCPMessenger.git', :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/gigabitelabs'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '13.0'
+  s.osx.deployment_target  = '10.15'
+  s.swift_version = '4.2'
 
   s.source_files = 'CCPMessenger/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'CCPMessenger' => ['CCPMessenger/Assets/*.png']
-  # }
+  s.resource_bundles = {
+      'CCPMessenger' => ['CCPMessenger/Assets/**/*.{plist,png,xcassets,xib,storyboard,strings,wav,otf}']
+  }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.public_header_files = 'CCPMessenger/Classes/**/*.h'
+  s.ios.frameworks = 'UIKit'
+  s.osx.framework  = 'AppKit'
+  s.dependency 'CometChatPro', '2.0.12-Xcode11.4'
+  s.dependency 'Firebase/Messaging'
+  s.dependency 'SwiftyJSON'
 end

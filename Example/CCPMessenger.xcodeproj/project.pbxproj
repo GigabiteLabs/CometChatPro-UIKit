@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		122704CDDCC36AEF76A926E5 /* Pods_CCPMessenger_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E19F67EA2643C03C0CB09C /* Pods_CCPMessenger_Tests.framework */; };
+		376A2E5F24BABB0200E4568E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 376A2E5E24BABB0200E4568E /* GoogleService-Info.plist */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		7822804060ECE720AE7C9B47 /* Pods_CCPMessenger_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1F889635AEF5B9047D8004 /* Pods_CCPMessenger_Example.framework */; };
+		9081C987FEA118E250C8214D /* libPods-CCPMessenger_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E13780687BC0AAAB724CFC53 /* libPods-CCPMessenger_Example.a */; };
+		FA41887AA7205FF2E86A7C91 /* libPods-CCPMessenger_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BAE109C5DD1EEE13798D0B /* libPods-CCPMessenger_Tests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,9 +28,75 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00D0659E179AF4226BF10086 /* CCPMessenger.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = CCPMessenger.podspec; path = ../CCPMessenger.podspec; sourceTree = "<group>"; };
-		16B2852E296E61825D52304B /* Pods-CCPMessenger_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCPMessenger_Example.debug.xcconfig"; path = "Target Support Files/Pods-CCPMessenger_Example/Pods-CCPMessenger_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		4873E9FE069A1C0FEDC1E4F2 /* Pods-CCPMessenger_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCPMessenger_Tests.release.xcconfig"; path = "Target Support Files/Pods-CCPMessenger_Tests/Pods-CCPMessenger_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		00D0659E179AF4226BF10086 /* CCPMessenger.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CCPMessenger.podspec; path = ../CCPMessenger.podspec; sourceTree = "<group>"; };
+		376A2B8F24BA740000E4568E /* CCPMessenger_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CCPMessenger_Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		376A2BA124BA773D00E4568E /* CCPMessenger_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CCPMessenger_Example.entitlements; sourceTree = "<group>"; };
+		376A2D6224BA938400E4568E /* RightAudioMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightAudioMessageBubble.xib; sourceTree = "<group>"; };
+		376A2D6424BA938400E4568E /* LeftAudioMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftAudioMessageBubble.xib; sourceTree = "<group>"; };
+		376A2D6724BA938400E4568E /* LeftFileMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftFileMessageBubble.xib; sourceTree = "<group>"; };
+		376A2D6924BA938400E4568E /* RightFileMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightFileMessageBubble.xib; sourceTree = "<group>"; };
+		376A2D6C24BA938400E4568E /* LeftTextMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftTextMessageBubble.xib; sourceTree = "<group>"; };
+		376A2D6E24BA938400E4568E /* RightTextMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightTextMessageBubble.xib; sourceTree = "<group>"; };
+		376A2D7124BA938400E4568E /* RightVideoMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightVideoMessageBubble.xib; sourceTree = "<group>"; };
+		376A2D7324BA938400E4568E /* LeftVideoMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftVideoMessageBubble.xib; sourceTree = "<group>"; };
+		376A2D7624BA938400E4568E /* LeftLinkPreviewBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftLinkPreviewBubble.xib; sourceTree = "<group>"; };
+		376A2D7824BA938400E4568E /* RightLinkPreviewBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightLinkPreviewBubble.xib; sourceTree = "<group>"; };
+		376A2D7B24BA938400E4568E /* RightImageMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightImageMessageBubble.xib; sourceTree = "<group>"; };
+		376A2D7D24BA938400E4568E /* LeftImageMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftImageMessageBubble.xib; sourceTree = "<group>"; };
+		376A2D7F24BA938400E4568E /* ActionMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionMessageBubble.xib; sourceTree = "<group>"; };
+		376A2D8224BA938400E4568E /* LeftReplyMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftReplyMessageBubble.xib; sourceTree = "<group>"; };
+		376A2D8424BA938400E4568E /* RightReplyMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightReplyMessageBubble.xib; sourceTree = "<group>"; };
+		376A2D8624BA938400E4568E /* SharedMediaView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SharedMediaView.xib; sourceTree = "<group>"; };
+		376A2D8724BA938400E4568E /* SharedMediaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SharedMediaCell.xib; sourceTree = "<group>"; };
+		376A2D8924BA938400E4568E /* ChatView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatView.xib; sourceTree = "<group>"; };
+		376A2D8B24BA938400E4568E /* AudioVisualizationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioVisualizationView.xib; sourceTree = "<group>"; };
+		376A2D8D24BA938400E4568E /* CometChatMessageList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CometChatMessageList.xib; sourceTree = "<group>"; };
+		376A2D8F24BA938400E4568E /* ProgressIndicatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressIndicatorView.xib; sourceTree = "<group>"; };
+		376A2D9124BA938400E4568E /* CometChatDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CometChatDetailView.xib; sourceTree = "<group>"; };
+		376A2D9324BA938400E4568E /* CometChatCreateGroup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CometChatCreateGroup.xib; sourceTree = "<group>"; };
+		376A2D9524BA938400E4568E /* AdministratorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdministratorView.xib; sourceTree = "<group>"; };
+		376A2D9724BA938400E4568E /* CometChatCallDetailLogView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CometChatCallDetailLogView.xib; sourceTree = "<group>"; };
+		376A2D9924BA938400E4568E /* NotificationsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationsView.xib; sourceTree = "<group>"; };
+		376A2D9A24BA938400E4568E /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		376A2D9C24BA938400E4568E /* CometChatConversationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CometChatConversationView.xib; sourceTree = "<group>"; };
+		376A2D9E24BA938400E4568E /* SmartReplyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmartReplyCell.xib; sourceTree = "<group>"; };
+		376A2DA024BA938400E4568E /* CometChatOutgoingCall.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CometChatOutgoingCall.xib; sourceTree = "<group>"; };
+		376A2DA224BA938400E4568E /* CometChatCallsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CometChatCallsView.xib; sourceTree = "<group>"; };
+		376A2DA424BA938400E4568E /* IncomingCall.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = IncomingCall.wav; sourceTree = "<group>"; };
+		376A2DA524BA938400E4568E /* OutgoingCall.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = OutgoingCall.wav; sourceTree = "<group>"; };
+		376A2DA624BA938500E4568E /* IncomingMessage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = IncomingMessage.wav; sourceTree = "<group>"; };
+		376A2DA724BA938500E4568E /* NewAnnouncement.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = NewAnnouncement.wav; sourceTree = "<group>"; };
+		376A2DA824BA938500E4568E /* IncomingMessageOther.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = IncomingMessageOther.wav; sourceTree = "<group>"; };
+		376A2DA924BA938500E4568E /* OutgoingMessege.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = OutgoingMessege.wav; sourceTree = "<group>"; };
+		376A2DAB24BA938500E4568E /* AddMemberView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMemberView.xib; sourceTree = "<group>"; };
+		376A2DAD24BA938500E4568E /* CometChatUserView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CometChatUserView.xib; sourceTree = "<group>"; };
+		376A2DAE24BA938500E4568E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		376A2DB024BA938500E4568E /* MembersView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MembersView.xib; sourceTree = "<group>"; };
+		376A2DB224BA938500E4568E /* CometChatSettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CometChatSettingsView.xib; sourceTree = "<group>"; };
+		376A2DB424BA938500E4568E /* CometChatGroupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CometChatGroupView.xib; sourceTree = "<group>"; };
+		376A2DB624BA938500E4568E /* SF-Pro-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Thin.otf"; sourceTree = "<group>"; };
+		376A2DB724BA938500E4568E /* SF-Pro-Display-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		376A2DB824BA938500E4568E /* SF-Pro-Display-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-RegularItalic.otf"; sourceTree = "<group>"; };
+		376A2DB924BA938500E4568E /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
+		376A2DBA24BA938500E4568E /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
+		376A2DBB24BA938500E4568E /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
+		376A2DBC24BA938500E4568E /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
+		376A2DBD24BA938500E4568E /* SF-Pro-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Heavy.otf"; sourceTree = "<group>"; };
+		376A2DBE24BA938500E4568E /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
+		376A2DBF24BA938500E4568E /* SF-Pro-Display-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-MediumItalic.otf"; sourceTree = "<group>"; };
+		376A2DC024BA938500E4568E /* SF-Pro-Display-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-HeavyItalic.otf"; sourceTree = "<group>"; };
+		376A2DC124BA938500E4568E /* SF-Pro-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Ultralight.otf"; sourceTree = "<group>"; };
+		376A2DC224BA938500E4568E /* SF-Pro-Display-UltralightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-UltralightItalic.otf"; sourceTree = "<group>"; };
+		376A2DC324BA938500E4568E /* SF-Pro-Display-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-LightItalic.otf"; sourceTree = "<group>"; };
+		376A2DC424BA938500E4568E /* SF-Pro-Display-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-BlackItalic.otf"; sourceTree = "<group>"; };
+		376A2DC524BA938500E4568E /* SF-Pro-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Black.otf"; sourceTree = "<group>"; };
+		376A2DC624BA938500E4568E /* SF-Pro-Display-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-ThinItalic.otf"; sourceTree = "<group>"; };
+		376A2DC724BA938500E4568E /* SF-Pro-Display-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-BoldItalic.otf"; sourceTree = "<group>"; };
+		376A2DC924BA938500E4568E /* CometChatIncomingCall.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CometChatIncomingCall.xib; sourceTree = "<group>"; };
+		376A2DCB24BA938500E4568E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		376A2DCD24BA938500E4568E /* SupportView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SupportView.xib; sourceTree = "<group>"; };
+		376A2E5E24BABB0200E4568E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		50BAE109C5DD1EEE13798D0B /* libPods-CCPMessenger_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CCPMessenger_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* CCPMessenger_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCPMessenger_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,13 +106,13 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* CCPMessenger_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CCPMessenger_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		62E19F67EA2643C03C0CB09C /* Pods_CCPMessenger_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CCPMessenger_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6BF718450D6F30306B545251 /* Pods-CCPMessenger_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCPMessenger_Tests.debug.xcconfig"; path = "Target Support Files/Pods-CCPMessenger_Tests/Pods-CCPMessenger_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		97BFC5A15F8FDCBB9E89F5DC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		CC1F889635AEF5B9047D8004 /* Pods_CCPMessenger_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CCPMessenger_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D7795187EF3F9227A55AE457 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		ECE96E6E6FF6A2CB00C53EFB /* Pods-CCPMessenger_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCPMessenger_Example.release.xcconfig"; path = "Target Support Files/Pods-CCPMessenger_Example/Pods-CCPMessenger_Example.release.xcconfig"; sourceTree = "<group>"; };
+		97BFC5A15F8FDCBB9E89F5DC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		BBB46377E7467DABAE3A86E3 /* Pods-CCPMessenger_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCPMessenger_Example.debug.xcconfig"; path = "Target Support Files/Pods-CCPMessenger_Example/Pods-CCPMessenger_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		C2182B283BF165DD8F716FCF /* Pods-CCPMessenger_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCPMessenger_Example.release.xcconfig"; path = "Target Support Files/Pods-CCPMessenger_Example/Pods-CCPMessenger_Example.release.xcconfig"; sourceTree = "<group>"; };
+		D241F507442C3F8C9E9308DC /* Pods-CCPMessenger_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCPMessenger_Tests.debug.xcconfig"; path = "Target Support Files/Pods-CCPMessenger_Tests/Pods-CCPMessenger_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		D7795187EF3F9227A55AE457 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		E13780687BC0AAAB724CFC53 /* libPods-CCPMessenger_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CCPMessenger_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E71EECDE25F078E2962ED632 /* Pods-CCPMessenger_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCPMessenger_Tests.release.xcconfig"; path = "Target Support Files/Pods-CCPMessenger_Tests/Pods-CCPMessenger_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7822804060ECE720AE7C9B47 /* Pods_CCPMessenger_Example.framework in Frameworks */,
+				9081C987FEA118E250C8214D /* libPods-CCPMessenger_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,31 +128,482 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				122704CDDCC36AEF76A926E5 /* Pods_CCPMessenger_Tests.framework in Frameworks */,
+				FA41887AA7205FF2E86A7C91 /* libPods-CCPMessenger_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		41434E1548CDF326FD8D6B76 /* Frameworks */ = {
+		06D85F949A2754F7672867BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CC1F889635AEF5B9047D8004 /* Pods_CCPMessenger_Example.framework */,
-				62E19F67EA2643C03C0CB09C /* Pods_CCPMessenger_Tests.framework */,
+				E13780687BC0AAAB724CFC53 /* libPods-CCPMessenger_Example.a */,
+				50BAE109C5DD1EEE13798D0B /* libPods-CCPMessenger_Tests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		376A2D5E24BA938400E4568E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D5F24BA938400E4568E /* MessageView */,
+				376A2D8524BA938400E4568E /* SharedMediaView */,
+				376A2D8824BA938400E4568E /* ChatView */,
+				376A2D8A24BA938400E4568E /* AudioVisualizationView */,
+				376A2D8C24BA938400E4568E /* MessageList */,
+				376A2D8E24BA938400E4568E /* ProgressIndicatorView */,
+				376A2D9024BA938400E4568E /* DetailView */,
+				376A2D9224BA938400E4568E /* CreateGroup */,
+				376A2D9424BA938400E4568E /* AdministratorView */,
+				376A2D9624BA938400E4568E /* CallDetailLogView */,
+				376A2D9824BA938400E4568E /* NotificationsView */,
+				376A2D9A24BA938400E4568E /* .gitkeep */,
+				376A2D9B24BA938400E4568E /* ConversationView */,
+				376A2D9D24BA938400E4568E /* SmartReplyView */,
+				376A2D9F24BA938400E4568E /* OutgoingCall */,
+				376A2DA124BA938400E4568E /* CallsView */,
+				376A2DA324BA938400E4568E /* Ringtones */,
+				376A2DAA24BA938500E4568E /* AddMemberView */,
+				376A2DAC24BA938500E4568E /* UserView */,
+				376A2DAE24BA938500E4568E /* Images.xcassets */,
+				376A2DAF24BA938500E4568E /* MembersView */,
+				376A2DB124BA938500E4568E /* SettingsView */,
+				376A2DB324BA938500E4568E /* GroupView */,
+				376A2DB524BA938500E4568E /* Fonts */,
+				376A2DC824BA938500E4568E /* IncomingCall */,
+				376A2DCA24BA938500E4568E /* Localization */,
+				376A2DCC24BA938500E4568E /* Privacy&SupportView */,
+			);
+			name = Assets;
+			path = ../CCPMessenger/Assets;
+			sourceTree = "<group>";
+		};
+		376A2D5F24BA938400E4568E /* MessageView */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D6024BA938400E4568E /* AudioMessageBubble */,
+				376A2D6524BA938400E4568E /* FileMessageBubble */,
+				376A2D6A24BA938400E4568E /* TextMessageBubble */,
+				376A2D6F24BA938400E4568E /* VideoMessageBubble */,
+				376A2D7424BA938400E4568E /* LinkPreviewBubble */,
+				376A2D7924BA938400E4568E /* ImageMessageBubble */,
+				376A2D7E24BA938400E4568E /* ActionMessageBubble */,
+				376A2D8024BA938400E4568E /* ReplyMessageBubble */,
+			);
+			path = MessageView;
+			sourceTree = "<group>";
+		};
+		376A2D6024BA938400E4568E /* AudioMessageBubble */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D6124BA938400E4568E /* RightAudioMessageBubble */,
+				376A2D6324BA938400E4568E /* LeftAudioMessageBubble */,
+			);
+			path = AudioMessageBubble;
+			sourceTree = "<group>";
+		};
+		376A2D6124BA938400E4568E /* RightAudioMessageBubble */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D6224BA938400E4568E /* RightAudioMessageBubble.xib */,
+			);
+			path = RightAudioMessageBubble;
+			sourceTree = "<group>";
+		};
+		376A2D6324BA938400E4568E /* LeftAudioMessageBubble */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D6424BA938400E4568E /* LeftAudioMessageBubble.xib */,
+			);
+			path = LeftAudioMessageBubble;
+			sourceTree = "<group>";
+		};
+		376A2D6524BA938400E4568E /* FileMessageBubble */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D6624BA938400E4568E /* LeftFileMessageBubble */,
+				376A2D6824BA938400E4568E /* RightFileMessageBubble */,
+			);
+			path = FileMessageBubble;
+			sourceTree = "<group>";
+		};
+		376A2D6624BA938400E4568E /* LeftFileMessageBubble */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D6724BA938400E4568E /* LeftFileMessageBubble.xib */,
+			);
+			path = LeftFileMessageBubble;
+			sourceTree = "<group>";
+		};
+		376A2D6824BA938400E4568E /* RightFileMessageBubble */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D6924BA938400E4568E /* RightFileMessageBubble.xib */,
+			);
+			path = RightFileMessageBubble;
+			sourceTree = "<group>";
+		};
+		376A2D6A24BA938400E4568E /* TextMessageBubble */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D6B24BA938400E4568E /* LeftTextMessageBubble */,
+				376A2D6D24BA938400E4568E /* RightTextMessageBubble */,
+			);
+			path = TextMessageBubble;
+			sourceTree = "<group>";
+		};
+		376A2D6B24BA938400E4568E /* LeftTextMessageBubble */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D6C24BA938400E4568E /* LeftTextMessageBubble.xib */,
+			);
+			path = LeftTextMessageBubble;
+			sourceTree = "<group>";
+		};
+		376A2D6D24BA938400E4568E /* RightTextMessageBubble */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D6E24BA938400E4568E /* RightTextMessageBubble.xib */,
+			);
+			path = RightTextMessageBubble;
+			sourceTree = "<group>";
+		};
+		376A2D6F24BA938400E4568E /* VideoMessageBubble */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D7024BA938400E4568E /* RightVideoMessageBubble */,
+				376A2D7224BA938400E4568E /* LeftVideoMessageBubble */,
+			);
+			path = VideoMessageBubble;
+			sourceTree = "<group>";
+		};
+		376A2D7024BA938400E4568E /* RightVideoMessageBubble */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D7124BA938400E4568E /* RightVideoMessageBubble.xib */,
+			);
+			path = RightVideoMessageBubble;
+			sourceTree = "<group>";
+		};
+		376A2D7224BA938400E4568E /* LeftVideoMessageBubble */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D7324BA938400E4568E /* LeftVideoMessageBubble.xib */,
+			);
+			path = LeftVideoMessageBubble;
+			sourceTree = "<group>";
+		};
+		376A2D7424BA938400E4568E /* LinkPreviewBubble */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D7524BA938400E4568E /* LeftLinkPreviewBubble */,
+				376A2D7724BA938400E4568E /* RightLinkPreviewBubble */,
+			);
+			path = LinkPreviewBubble;
+			sourceTree = "<group>";
+		};
+		376A2D7524BA938400E4568E /* LeftLinkPreviewBubble */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D7624BA938400E4568E /* LeftLinkPreviewBubble.xib */,
+			);
+			path = LeftLinkPreviewBubble;
+			sourceTree = "<group>";
+		};
+		376A2D7724BA938400E4568E /* RightLinkPreviewBubble */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D7824BA938400E4568E /* RightLinkPreviewBubble.xib */,
+			);
+			path = RightLinkPreviewBubble;
+			sourceTree = "<group>";
+		};
+		376A2D7924BA938400E4568E /* ImageMessageBubble */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D7A24BA938400E4568E /* RightImageMessageBubble */,
+				376A2D7C24BA938400E4568E /* LeftImageMessageBubble */,
+			);
+			path = ImageMessageBubble;
+			sourceTree = "<group>";
+		};
+		376A2D7A24BA938400E4568E /* RightImageMessageBubble */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D7B24BA938400E4568E /* RightImageMessageBubble.xib */,
+			);
+			path = RightImageMessageBubble;
+			sourceTree = "<group>";
+		};
+		376A2D7C24BA938400E4568E /* LeftImageMessageBubble */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D7D24BA938400E4568E /* LeftImageMessageBubble.xib */,
+			);
+			path = LeftImageMessageBubble;
+			sourceTree = "<group>";
+		};
+		376A2D7E24BA938400E4568E /* ActionMessageBubble */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D7F24BA938400E4568E /* ActionMessageBubble.xib */,
+			);
+			path = ActionMessageBubble;
+			sourceTree = "<group>";
+		};
+		376A2D8024BA938400E4568E /* ReplyMessageBubble */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D8124BA938400E4568E /* LeftReplyMessageBubble */,
+				376A2D8324BA938400E4568E /* RightReplyMessageBubble */,
+			);
+			path = ReplyMessageBubble;
+			sourceTree = "<group>";
+		};
+		376A2D8124BA938400E4568E /* LeftReplyMessageBubble */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D8224BA938400E4568E /* LeftReplyMessageBubble.xib */,
+			);
+			path = LeftReplyMessageBubble;
+			sourceTree = "<group>";
+		};
+		376A2D8324BA938400E4568E /* RightReplyMessageBubble */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D8424BA938400E4568E /* RightReplyMessageBubble.xib */,
+			);
+			path = RightReplyMessageBubble;
+			sourceTree = "<group>";
+		};
+		376A2D8524BA938400E4568E /* SharedMediaView */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D8624BA938400E4568E /* SharedMediaView.xib */,
+				376A2D8724BA938400E4568E /* SharedMediaCell.xib */,
+			);
+			path = SharedMediaView;
+			sourceTree = "<group>";
+		};
+		376A2D8824BA938400E4568E /* ChatView */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D8924BA938400E4568E /* ChatView.xib */,
+			);
+			path = ChatView;
+			sourceTree = "<group>";
+		};
+		376A2D8A24BA938400E4568E /* AudioVisualizationView */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D8B24BA938400E4568E /* AudioVisualizationView.xib */,
+			);
+			path = AudioVisualizationView;
+			sourceTree = "<group>";
+		};
+		376A2D8C24BA938400E4568E /* MessageList */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D8D24BA938400E4568E /* CometChatMessageList.xib */,
+			);
+			path = MessageList;
+			sourceTree = "<group>";
+		};
+		376A2D8E24BA938400E4568E /* ProgressIndicatorView */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D8F24BA938400E4568E /* ProgressIndicatorView.xib */,
+			);
+			path = ProgressIndicatorView;
+			sourceTree = "<group>";
+		};
+		376A2D9024BA938400E4568E /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D9124BA938400E4568E /* CometChatDetailView.xib */,
+			);
+			path = DetailView;
+			sourceTree = "<group>";
+		};
+		376A2D9224BA938400E4568E /* CreateGroup */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D9324BA938400E4568E /* CometChatCreateGroup.xib */,
+			);
+			path = CreateGroup;
+			sourceTree = "<group>";
+		};
+		376A2D9424BA938400E4568E /* AdministratorView */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D9524BA938400E4568E /* AdministratorView.xib */,
+			);
+			path = AdministratorView;
+			sourceTree = "<group>";
+		};
+		376A2D9624BA938400E4568E /* CallDetailLogView */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D9724BA938400E4568E /* CometChatCallDetailLogView.xib */,
+			);
+			path = CallDetailLogView;
+			sourceTree = "<group>";
+		};
+		376A2D9824BA938400E4568E /* NotificationsView */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D9924BA938400E4568E /* NotificationsView.xib */,
+			);
+			path = NotificationsView;
+			sourceTree = "<group>";
+		};
+		376A2D9B24BA938400E4568E /* ConversationView */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D9C24BA938400E4568E /* CometChatConversationView.xib */,
+			);
+			path = ConversationView;
+			sourceTree = "<group>";
+		};
+		376A2D9D24BA938400E4568E /* SmartReplyView */ = {
+			isa = PBXGroup;
+			children = (
+				376A2D9E24BA938400E4568E /* SmartReplyCell.xib */,
+			);
+			path = SmartReplyView;
+			sourceTree = "<group>";
+		};
+		376A2D9F24BA938400E4568E /* OutgoingCall */ = {
+			isa = PBXGroup;
+			children = (
+				376A2DA024BA938400E4568E /* CometChatOutgoingCall.xib */,
+			);
+			path = OutgoingCall;
+			sourceTree = "<group>";
+		};
+		376A2DA124BA938400E4568E /* CallsView */ = {
+			isa = PBXGroup;
+			children = (
+				376A2DA224BA938400E4568E /* CometChatCallsView.xib */,
+			);
+			path = CallsView;
+			sourceTree = "<group>";
+		};
+		376A2DA324BA938400E4568E /* Ringtones */ = {
+			isa = PBXGroup;
+			children = (
+				376A2DA424BA938400E4568E /* IncomingCall.wav */,
+				376A2DA524BA938400E4568E /* OutgoingCall.wav */,
+				376A2DA624BA938500E4568E /* IncomingMessage.wav */,
+				376A2DA724BA938500E4568E /* NewAnnouncement.wav */,
+				376A2DA824BA938500E4568E /* IncomingMessageOther.wav */,
+				376A2DA924BA938500E4568E /* OutgoingMessege.wav */,
+			);
+			path = Ringtones;
+			sourceTree = "<group>";
+		};
+		376A2DAA24BA938500E4568E /* AddMemberView */ = {
+			isa = PBXGroup;
+			children = (
+				376A2DAB24BA938500E4568E /* AddMemberView.xib */,
+			);
+			path = AddMemberView;
+			sourceTree = "<group>";
+		};
+		376A2DAC24BA938500E4568E /* UserView */ = {
+			isa = PBXGroup;
+			children = (
+				376A2DAD24BA938500E4568E /* CometChatUserView.xib */,
+			);
+			path = UserView;
+			sourceTree = "<group>";
+		};
+		376A2DAF24BA938500E4568E /* MembersView */ = {
+			isa = PBXGroup;
+			children = (
+				376A2DB024BA938500E4568E /* MembersView.xib */,
+			);
+			path = MembersView;
+			sourceTree = "<group>";
+		};
+		376A2DB124BA938500E4568E /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				376A2DB224BA938500E4568E /* CometChatSettingsView.xib */,
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
+		376A2DB324BA938500E4568E /* GroupView */ = {
+			isa = PBXGroup;
+			children = (
+				376A2DB424BA938500E4568E /* CometChatGroupView.xib */,
+			);
+			path = GroupView;
+			sourceTree = "<group>";
+		};
+		376A2DB524BA938500E4568E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				376A2DB624BA938500E4568E /* SF-Pro-Display-Thin.otf */,
+				376A2DB724BA938500E4568E /* SF-Pro-Display-SemiboldItalic.otf */,
+				376A2DB824BA938500E4568E /* SF-Pro-Display-RegularItalic.otf */,
+				376A2DB924BA938500E4568E /* SF-Pro-Display-Light.otf */,
+				376A2DBA24BA938500E4568E /* SF-Pro-Display-Regular.otf */,
+				376A2DBB24BA938500E4568E /* SF-Pro-Display-Bold.otf */,
+				376A2DBC24BA938500E4568E /* SF-Pro-Display-Medium.otf */,
+				376A2DBD24BA938500E4568E /* SF-Pro-Display-Heavy.otf */,
+				376A2DBE24BA938500E4568E /* SF-Pro-Display-Semibold.otf */,
+				376A2DBF24BA938500E4568E /* SF-Pro-Display-MediumItalic.otf */,
+				376A2DC024BA938500E4568E /* SF-Pro-Display-HeavyItalic.otf */,
+				376A2DC124BA938500E4568E /* SF-Pro-Display-Ultralight.otf */,
+				376A2DC224BA938500E4568E /* SF-Pro-Display-UltralightItalic.otf */,
+				376A2DC324BA938500E4568E /* SF-Pro-Display-LightItalic.otf */,
+				376A2DC424BA938500E4568E /* SF-Pro-Display-BlackItalic.otf */,
+				376A2DC524BA938500E4568E /* SF-Pro-Display-Black.otf */,
+				376A2DC624BA938500E4568E /* SF-Pro-Display-ThinItalic.otf */,
+				376A2DC724BA938500E4568E /* SF-Pro-Display-BoldItalic.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		376A2DC824BA938500E4568E /* IncomingCall */ = {
+			isa = PBXGroup;
+			children = (
+				376A2DC924BA938500E4568E /* CometChatIncomingCall.xib */,
+			);
+			path = IncomingCall;
+			sourceTree = "<group>";
+		};
+		376A2DCA24BA938500E4568E /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				376A2DCB24BA938500E4568E /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		376A2DCC24BA938500E4568E /* Privacy&SupportView */ = {
+			isa = PBXGroup;
+			children = (
+				376A2DCD24BA938500E4568E /* SupportView.xib */,
+			);
+			path = "Privacy&SupportView";
 			sourceTree = "<group>";
 		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				376A2D5E24BA938400E4568E /* Assets */,
+				376A2BA124BA773D00E4568E /* CCPMessenger_Example.entitlements */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for CCPMessenger */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				B1F35FAC5E3D033BC20CBD4A /* Pods */,
-				41434E1548CDF326FD8D6B76 /* Frameworks */,
+				06D85F949A2754F7672867BB /* Frameworks */,
+				376A2B8F24BA740000E4568E /* CCPMessenger_Example-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +619,7 @@
 		607FACD21AFB9204008FA782 /* Example for CCPMessenger */ = {
 			isa = PBXGroup;
 			children = (
+				376A2E5E24BABB0200E4568E /* GoogleService-Info.plist */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -124,7 +642,6 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -151,12 +668,11 @@
 		B1F35FAC5E3D033BC20CBD4A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				16B2852E296E61825D52304B /* Pods-CCPMessenger_Example.debug.xcconfig */,
-				ECE96E6E6FF6A2CB00C53EFB /* Pods-CCPMessenger_Example.release.xcconfig */,
-				6BF718450D6F30306B545251 /* Pods-CCPMessenger_Tests.debug.xcconfig */,
-				4873E9FE069A1C0FEDC1E4F2 /* Pods-CCPMessenger_Tests.release.xcconfig */,
+				BBB46377E7467DABAE3A86E3 /* Pods-CCPMessenger_Example.debug.xcconfig */,
+				C2182B283BF165DD8F716FCF /* Pods-CCPMessenger_Example.release.xcconfig */,
+				D241F507442C3F8C9E9308DC /* Pods-CCPMessenger_Tests.debug.xcconfig */,
+				E71EECDE25F078E2962ED632 /* Pods-CCPMessenger_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -167,11 +683,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "CCPMessenger_Example" */;
 			buildPhases = (
-				36BEC9D890F0768DECEA6B07 /* [CP] Check Pods Manifest.lock */,
+				C63A34D268EEC60B9530C12A /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				2DBAB87156343D9D71A14617 /* [CP] Embed Pods Frameworks */,
+				D59CF2FE8F01F648B30A969C /* [CP] Embed Pods Frameworks */,
+				779DA1B8E68A1BED67BC1ECE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -186,11 +703,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "CCPMessenger_Tests" */;
 			buildPhases = (
-				2C108C87F6EB3A0BAFD938B1 /* [CP] Check Pods Manifest.lock */,
+				C9605BA9CEB7DBFB6C983A3D /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				A231A2426165FF5958242E50 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -214,10 +730,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0900;
+						DevelopmentTeam = QYU2SZHRLR;
+						LastSwiftMigration = 1150;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = QYU2SZHRLR;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -228,6 +746,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -248,6 +767,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				376A2E5F24BABB0200E4568E /* GoogleService-Info.plist in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
@@ -263,47 +783,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2C108C87F6EB3A0BAFD938B1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CCPMessenger_Tests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2DBAB87156343D9D71A14617 /* [CP] Embed Pods Frameworks */ = {
+		779DA1B8E68A1BED67BC1ECE /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CCPMessenger_Example/Pods-CCPMessenger_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CCPMessenger/CCPMessenger.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-CCPMessenger_Example/Pods-CCPMessenger_Example-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/CCPMessenger/CCPMessenger.bundle",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CCPMessenger.framework",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CCPMessenger.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CCPMessenger_Example/Pods-CCPMessenger_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CCPMessenger_Example/Pods-CCPMessenger_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		36BEC9D890F0768DECEA6B07 /* [CP] Check Pods Manifest.lock */ = {
+		C63A34D268EEC60B9530C12A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -325,28 +823,48 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A231A2426165FF5958242E50 /* [CP] Embed Pods Frameworks */ = {
+		C9605BA9CEB7DBFB6C983A3D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CCPMessenger_Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D59CF2FE8F01F648B30A969C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CCPMessenger_Tests/Pods-CCPMessenger_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FBSnapshotTestCase/FBSnapshotTestCase.framework",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Nimble-Snapshots/Nimble_Snapshots.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-CCPMessenger_Example/Pods-CCPMessenger_Example-frameworks.sh",
+				"${PODS_ROOT}/CometChatPro/CometChatPro.framework",
+				"${PODS_ROOT}/CometChatPro/Vendors/JitsiMeet.framework",
+				"${PODS_ROOT}/CometChatPro/Vendors/WebRTC.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble_Snapshots.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CometChatPro.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JitsiMeet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebRTC.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CCPMessenger_Tests/Pods-CCPMessenger_Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CCPMessenger_Example/Pods-CCPMessenger_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -365,7 +883,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,7 +961,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -490,7 +1007,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -500,38 +1017,54 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 16B2852E296E61825D52304B /* Pods-CCPMessenger_Example.debug.xcconfig */;
+			baseConfigurationReference = BBB46377E7467DABAE3A86E3 /* Pods-CCPMessenger_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = CCPMessenger_Example.entitlements;
+				DEVELOPMENT_TEAM = QYU2SZHRLR;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CCPMessenger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "CCPMessenger_Example-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ECE96E6E6FF6A2CB00C53EFB /* Pods-CCPMessenger_Example.release.xcconfig */;
+			baseConfigurationReference = C2182B283BF165DD8F716FCF /* Pods-CCPMessenger_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = CCPMessenger_Example.entitlements;
+				DEVELOPMENT_TEAM = QYU2SZHRLR;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CCPMessenger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "CCPMessenger_Example-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6BF718450D6F30306B545251 /* Pods-CCPMessenger_Tests.debug.xcconfig */;
+			baseConfigurationReference = D241F507442C3F8C9E9308DC /* Pods-CCPMessenger_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = QYU2SZHRLR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -552,8 +1085,9 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4873E9FE069A1C0FEDC1E4F2 /* Pods-CCPMessenger_Tests.release.xcconfig */;
+			baseConfigurationReference = E71EECDE25F078E2962ED632 /* Pods-CCPMessenger_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = QYU2SZHRLR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",

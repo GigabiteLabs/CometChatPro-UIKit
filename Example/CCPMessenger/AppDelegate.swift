@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import CCPMessenger
+import CometChatPro
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,8 +18,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        FirebaseApp.configure()
+        configCometChat()
         return true
+    }
+    
+    func configCometChat() {
+        // Override point for customization after application launch.
+        CCPConfig.shared.apiKey = "e42664b7cd8a1ca4df5afcb42d459b22c1571880"
+        CCPConfig.shared.appId = "21075774089df29"
+        CCPConfig.shared.region = "US"
+        let user: CCPUser = .init(firstname: "test", lastname: "dan", uid: "UUID-TEST")
+        let mySettings = AppSettings.AppSettingsBuilder().subscribePresenceForAllUsers().setRegion(region: CCPConfig.shared.region).build()
+        let _ = CometChat(appId: CCPConfig.shared.appId,appSettings: mySettings,onSuccess: { (isSuccess) in
+        if (isSuccess) {
+            print("Chat intialized successfully.")
+            CCPHandler.shared.login(user: user) { (success) in
+                print("login success: \(success)")
+            }
+        } }){(error) in print("Chat failed intialise with error: \(error.errorDescription)") }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
