@@ -230,7 +230,8 @@ public class CometChatMessageList: UIViewController, AVAudioRecorderDelegate, AV
                 setupNavigationBar(withTitle: user.name?.capitalized ?? "")
                 setupNavigationBar(withSubtitle: NSLocalizedString("OFFLINE", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""))
                 setupNavigationBar(withImage: user.avatar ?? "", name: user.name ?? "", bool: true)
-            @unknown default:break
+            default:
+                break
             }
             self.refreshMessageList(forID: user.uid ?? "" , type: .user, scrollToBottom: true)
             
@@ -604,7 +605,7 @@ public class CometChatMessageList: UIViewController, AVAudioRecorderDelegate, AV
             if type == "reply" {
                 detectedExtension = .reply
             }else{
-                detectedExtension = .none
+                detectedExtension = CometChatExtension.none
             }
         }else if let metaData = message.metaData , let injected = metaData["@injected"] as? [String : Any], let cometChatExtension =  injected["extensions"] as? [String : Any], let linkPreviewDictionary = cometChatExtension["link-preview"] as? [String : Any], let linkArray = linkPreviewDictionary["links"] as? [[String: Any]], let _ = linkArray[safe: 0] {
             
@@ -681,7 +682,7 @@ public class CometChatMessageList: UIViewController, AVAudioRecorderDelegate, AV
         UIFont.loadAllFonts(bundleIdentifierString: CCPType.bundle.bundleIdentifier ?? "")
         let viewType: CCPNibs = .CometChatMessageList
         let nib = CometChatMessageList.sourceNib(viewType)
-        let view = nib.instantiate(withOwner: nil, options: nil)[0] as! UIView
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.view  = view
     }
@@ -1460,53 +1461,21 @@ public class CometChatMessageList: UIViewController, AVAudioRecorderDelegate, AV
      [CometChatMessageList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-4-comet-chat-message-list)
      */
     private func registerCells(){
-        
-        let leftTextMessageBubble  = UINib.init(nibName: "LeftTextMessageBubble", bundle: nil)
-        self.tableView?.register(leftTextMessageBubble, forCellReuseIdentifier: "leftTextMessageBubble")
-        
-        let rightTextMessageBubble  = UINib.init(nibName: "RightTextMessageBubble", bundle: nil)
-        self.tableView?.register(rightTextMessageBubble, forCellReuseIdentifier: "rightTextMessageBubble")
-        
-        let leftImageMessageBubble  = UINib.init(nibName: "LeftImageMessageBubble", bundle: nil)
-        self.tableView?.register(leftImageMessageBubble, forCellReuseIdentifier: "leftImageMessageBubble")
-        
-        let rightImageMessageBubble  = UINib.init(nibName: "RightImageMessageBubble", bundle: nil)
-        self.tableView?.register(rightImageMessageBubble, forCellReuseIdentifier: "rightImageMessageBubble")
-        
-        let leftVideoMessageBubble  = UINib.init(nibName: "LeftVideoMessageBubble", bundle: nil)
-        self.tableView?.register(leftVideoMessageBubble, forCellReuseIdentifier: "leftVideoMessageBubble")
-        
-        let rightVideoMessageBubble  = UINib.init(nibName: "RightVideoMessageBubble", bundle: nil)
-        self.tableView?.register(rightVideoMessageBubble, forCellReuseIdentifier: "rightVideoMessageBubble")
-        
-        let leftFileMessageBubble  = UINib.init(nibName: "LeftFileMessageBubble", bundle: nil)
-        self.tableView?.register(leftFileMessageBubble, forCellReuseIdentifier: "leftFileMessageBubble")
-        
-        let rightFileMessageBubble  = UINib.init(nibName: "RightFileMessageBubble", bundle: nil)
-        self.tableView?.register(rightFileMessageBubble, forCellReuseIdentifier: "rightFileMessageBubble")
-        
-        let leftAudioMessageBubble  = UINib.init(nibName: "LeftAudioMessageBubble", bundle: nil)
-        self.tableView?.register(leftAudioMessageBubble, forCellReuseIdentifier: "leftAudioMessageBubble")
-        
-        let rightAudioMessageBubble  = UINib.init(nibName: "RightAudioMessageBubble", bundle: nil)
-        self.tableView?.register(rightAudioMessageBubble, forCellReuseIdentifier: "rightAudioMessageBubble")
-        
-        let actionMessageBubble  = UINib.init(nibName: "ActionMessageBubble", bundle: nil)
-        self.tableView?.register(actionMessageBubble, forCellReuseIdentifier: "actionMessageBubble")
-        
-        let leftLinkPreviewBubble = UINib.init(nibName: "LeftLinkPreviewBubble", bundle: nil)
-        self.tableView?.register(leftLinkPreviewBubble, forCellReuseIdentifier: "leftLinkPreviewBubble")
-        
-        let rightLinkPreviewBubble = UINib.init(nibName: "RightLinkPreviewBubble", bundle: nil)
-        self.tableView?.register(rightLinkPreviewBubble, forCellReuseIdentifier: "rightLinkPreviewBubble")
-        
-        let leftReplyMessageBubble = UINib.init(nibName: "LeftReplyMessageBubble", bundle: nil)
-        self.tableView?.register(leftReplyMessageBubble, forCellReuseIdentifier: "leftReplyMessageBubble")
-        
-        
-        let rightReplyMessageBubble = UINib.init(nibName: "RightReplyMessageBubble", bundle: nil)
-        self.tableView?.register(rightReplyMessageBubble, forCellReuseIdentifier: "rightReplyMessageBubble")
-        
+        tableView?.register(.LeftTextMessageBubble)
+        tableView?.register(.RightTextMessageBubble)
+        tableView?.register(.LeftImageMessageBubble)
+        tableView?.register(.RightImageMessageBubble)
+        tableView?.register(.LeftVideoMessageBubble)
+        tableView?.register(.RightVideoMessageBubble)
+        tableView?.register(.LeftFileMessageBubble)
+        tableView?.register(.RightFileMessageBubble)
+        tableView?.register(.LeftAudioMessageBubble)
+        tableView?.register(.RightAudioMessageBubble)
+        tableView?.register(.ActionMessageBubble)
+        tableView?.register(.LeftLinkPreviewBubble)
+        tableView?.register(.RightLinkPreviewBubble)
+        tableView?.register(.LeftReplyMessageBubble)
+        tableView?.register(.RightReplyMessageBubble)
     }
     
     /**
@@ -2159,13 +2128,13 @@ extension CometChatMessageList: UITableViewDelegate , UITableViewDataSource {
         if let message = chatMessages[indexPath.section][safe: indexPath.row] {
             if message.messageCategory == .message {
                 if message.deletedAt > 0.0 && message.senderUid != LoggedInUser.uid {
-                    let  deletedCell = tableView.dequeueReusableCell(withIdentifier: "leftTextMessageBubble", for: indexPath) as! LeftTextMessageBubble
+                    let  deletedCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.LeftTextMessageBubble.rawValue, for: indexPath) as! LeftTextMessageBubble
                     deletedCell.deletedMessage = message
                     return deletedCell
                     
                 }else if message.deletedAt > 0.0 && message.senderUid == LoggedInUser.uid {
                     
-                    let deletedCell = tableView.dequeueReusableCell(withIdentifier: "rightTextMessageBubble", for: indexPath) as! RightTextMessageBubble
+                    let deletedCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.RightTextMessageBubble.rawValue, for: indexPath) as! RightTextMessageBubble
                     deletedCell.deletedMessage = message
                     if  chatMessages[indexPath.section][safe: indexPath.row] == filteredMessages.last || tableView.isLast(for: indexPath){
                         deletedCell.receiptStack.isHidden = false
@@ -2180,21 +2149,21 @@ extension CometChatMessageList: UITableViewDelegate , UITableViewDataSource {
                             let isContainsExtension = didExtensionDetected(message: textMessage)
                             switch isContainsExtension {
                             case .linkPreview:
-                                let receiverCell = tableView.dequeueReusableCell(withIdentifier: "leftLinkPreviewBubble", for: indexPath) as! LeftLinkPreviewBubble
+                                let receiverCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.LeftLinkPreviewBubble.rawValue, for: indexPath) as! LeftLinkPreviewBubble
                                 let linkPreviewMessage = message as? TextMessage
                                 receiverCell.linkPreviewMessage = linkPreviewMessage
                                 receiverCell.linkPreviewDelegate = self
                                 self.addSwipeGestureForMessage(cell: receiverCell, message: message)
                                 return receiverCell
                             case .reply:
-                                let receiverCell = tableView.dequeueReusableCell(withIdentifier: "leftReplyMessageBubble", for: indexPath) as! LeftReplyMessageBubble
+                                let receiverCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.LeftReplyMessageBubble.rawValue, for: indexPath) as! LeftReplyMessageBubble
                                 receiverCell.indexPath = indexPath
                                 receiverCell.delegate = self
                                 receiverCell.textMessage = textMessage
                                 self.addSwipeGestureForMessage(cell: receiverCell, message: message)
                                 return receiverCell
                             case .smartReply,.messageTranslation, .profanityFilter, .sentimentAnalysis, .none:
-                                let receiverCell = tableView.dequeueReusableCell(withIdentifier: "leftTextMessageBubble", for: indexPath) as! LeftTextMessageBubble
+                                let receiverCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.LeftTextMessageBubble.rawValue, for: indexPath) as! LeftTextMessageBubble
                                 receiverCell.indexPath = indexPath
                                 receiverCell.delegate = self
                                 receiverCell.textMessage = textMessage
@@ -2211,7 +2180,7 @@ extension CometChatMessageList: UITableViewDelegate , UITableViewDataSource {
                             let isContainsExtension = didExtensionDetected(message: textMessage)
                             switch isContainsExtension {
                             case .linkPreview:
-                                let senderCell = tableView.dequeueReusableCell(withIdentifier: "rightLinkPreviewBubble", for: indexPath) as! RightLinkPreviewBubble
+                                let senderCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.RightLinkPreviewBubble.rawValue, for: indexPath) as! RightLinkPreviewBubble
                                 let linkPreviewMessage = message as? TextMessage
                                 senderCell.linkPreviewMessage = linkPreviewMessage
                                 senderCell.linkPreviewDelegate = self
@@ -2223,7 +2192,7 @@ extension CometChatMessageList: UITableViewDelegate , UITableViewDataSource {
                                 }
                                 return senderCell
                             case .reply:
-                                let senderCell = tableView.dequeueReusableCell(withIdentifier: "rightReplyMessageBubble", for: indexPath) as! RightReplyMessageBubble
+                                let senderCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.RightReplyMessageBubble.rawValue, for: indexPath) as! RightReplyMessageBubble
                                 senderCell.textMessage = textMessage
                                 senderCell.indexPath = indexPath
                                 self.addSwipeGestureForMessage(cell: senderCell, message: message)
@@ -2236,7 +2205,7 @@ extension CometChatMessageList: UITableViewDelegate , UITableViewDataSource {
                                 return senderCell
                                 
                             case .smartReply,.messageTranslation, .profanityFilter, .sentimentAnalysis, .none:
-                                let senderCell = tableView.dequeueReusableCell(withIdentifier: "rightTextMessageBubble", for: indexPath) as! RightTextMessageBubble
+                                let senderCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.RightTextMessageBubble.rawValue, for: indexPath) as! RightTextMessageBubble
                                 senderCell.textMessage = textMessage
                                 senderCell.indexPath = indexPath
                                 self.addSwipeGestureForMessage(cell: senderCell, message: message)
@@ -2259,7 +2228,7 @@ extension CometChatMessageList: UITableViewDelegate , UITableViewDataSource {
                             switch isContainsExtension {
                             case .linkPreview, .smartReply, .messageTranslation, .profanityFilter,.sentimentAnalysis, .reply: break
                             case .thumbnailGeneration, .imageModeration,.none:
-                                let receiverCell = tableView.dequeueReusableCell(withIdentifier: "leftImageMessageBubble", for: indexPath) as! LeftImageMessageBubble
+                                let receiverCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.LeftImageMessageBubble.rawValue, for: indexPath) as! LeftImageMessageBubble
                                 receiverCell.mediaMessage = imageMessage
                                 self.addSwipeGestureForMessage(cell: receiverCell, message: message)
                                 return receiverCell
@@ -2273,7 +2242,7 @@ extension CometChatMessageList: UITableViewDelegate , UITableViewDataSource {
                             switch isContainsExtension {
                             case .linkPreview, .smartReply, .messageTranslation, .profanityFilter,.sentimentAnalysis, .reply: break
                             case .thumbnailGeneration, .imageModeration,.none:
-                                let senderCell = tableView.dequeueReusableCell(withIdentifier: "rightImageMessageBubble", for: indexPath) as! RightImageMessageBubble
+                                let senderCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.RightImageMessageBubble.rawValue, for: indexPath) as! RightImageMessageBubble
                                 senderCell.mediaMessage = imageMessage
                                 self.addSwipeGestureForMessage(cell: senderCell, message: message)
                                 if  chatMessages[indexPath.section][safe: indexPath.row] == filteredMessages.last || tableView.isLast(for: indexPath){
@@ -2290,7 +2259,7 @@ extension CometChatMessageList: UITableViewDelegate , UITableViewDataSource {
                             switch isContainsExtension {
                             case .linkPreview, .smartReply, .messageTranslation, .profanityFilter,.sentimentAnalysis, .imageModeration, .reply: break
                             case .thumbnailGeneration,.none:
-                                let receiverCell = tableView.dequeueReusableCell(withIdentifier: "leftVideoMessageBubble", for: indexPath) as! LeftVideoMessageBubble
+                                let receiverCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.LeftVideoMessageBubble.rawValue, for: indexPath) as! LeftVideoMessageBubble
                                 receiverCell.mediaMessage = videoMessage
                                 self.addSwipeGestureForMessage(cell: receiverCell, message: message)
                                 return receiverCell
@@ -2302,7 +2271,7 @@ extension CometChatMessageList: UITableViewDelegate , UITableViewDataSource {
                             switch isContainsExtension {
                             case .linkPreview, .smartReply, .messageTranslation, .profanityFilter,.sentimentAnalysis, .imageModeration, .reply: break
                             case .thumbnailGeneration,.none:
-                                let senderCell = tableView.dequeueReusableCell(withIdentifier: "rightVideoMessageBubble", for: indexPath) as! RightVideoMessageBubble
+                                let senderCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.RightVideoMessageBubble.rawValue, for: indexPath) as! RightVideoMessageBubble
                                 senderCell.mediaMessage = videoMessage
                                 self.addSwipeGestureForMessage(cell: senderCell, message: message)
                                 if  chatMessages[indexPath.section][safe: indexPath.row] == filteredMessages.last || tableView.isLast(for: indexPath){
@@ -2316,13 +2285,13 @@ extension CometChatMessageList: UITableViewDelegate , UITableViewDataSource {
                     case .audio where message.senderUid != LoggedInUser.uid:
                         
                         if let audioMessage = message as? MediaMessage {
-                            let  receiverCell = tableView.dequeueReusableCell(withIdentifier: "leftAudioMessageBubble", for: indexPath) as! LeftAudioMessageBubble
+                            let  receiverCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.LeftAudioMessageBubble.rawValue, for: indexPath) as! LeftAudioMessageBubble
                             receiverCell.audioMessage = audioMessage
                             return receiverCell
                         }
                     case .audio where message.senderUid == LoggedInUser.uid:
                         if let audioMessage = message as? MediaMessage {
-                            let senderCell = tableView.dequeueReusableCell(withIdentifier: "rightAudioMessageBubble", for: indexPath) as! RightAudioMessageBubble
+                            let senderCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.RightAudioMessageBubble.rawValue, for: indexPath) as! RightAudioMessageBubble
                             senderCell.audioMessage = audioMessage
                             self.addSwipeGestureForMessage(cell: senderCell, message: message)
                             if  chatMessages[indexPath.section][safe: indexPath.row] == filteredMessages.last || tableView.isLast(for: indexPath){
@@ -2334,14 +2303,14 @@ extension CometChatMessageList: UITableViewDelegate , UITableViewDataSource {
                         }
                     case .file where message.senderUid != LoggedInUser.uid:
                         if let fileMessage = message as? MediaMessage {
-                            let  receiverCell = tableView.dequeueReusableCell(withIdentifier: "leftFileMessageBubble", for: indexPath) as! LeftFileMessageBubble
+                            let  receiverCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.LeftFileMessageBubble.rawValue, for: indexPath) as! LeftFileMessageBubble
                             receiverCell.fileMessage = fileMessage
                             self.addSwipeGestureForMessage(cell: receiverCell, message: message)
                             return receiverCell
                         }
                     case .file where message.senderUid == LoggedInUser.uid:
                         if let fileMessage = message as? MediaMessage {
-                            let senderCell = tableView.dequeueReusableCell(withIdentifier: "rightFileMessageBubble", for: indexPath) as! RightFileMessageBubble
+                            let senderCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.RightFileMessageBubble.rawValue, for: indexPath) as! RightFileMessageBubble
                             senderCell.fileMessage = fileMessage
                             self.addSwipeGestureForMessage(cell: senderCell, message: message)
                             if  chatMessages[indexPath.section][safe: indexPath.row] == filteredMessages.last || tableView.isLast(for: indexPath){
@@ -2363,19 +2332,19 @@ extension CometChatMessageList: UITableViewDelegate , UITableViewDataSource {
                 }
             }else if message.messageCategory == .action {
                 //  ActionMessage Cell
-                let  actionMessageCell = tableView.dequeueReusableCell(withIdentifier: "actionMessageBubble", for: indexPath) as! ActionMessageBubble
+                let  actionMessageCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.ActionMessageBubble.rawValue, for: indexPath) as! ActionMessageBubble
                 let actionMessage = message as? ActionMessage
                 actionMessageCell.message.text = actionMessage?.message
                 return actionMessageCell
             }else if message.messageCategory == .call {
                 //  CallMessage Cell
-                let  actionMessageCell = tableView.dequeueReusableCell(withIdentifier: "actionMessageBubble", for: indexPath) as! ActionMessageBubble
+                let  actionMessageCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.ActionMessageBubble.rawValue, for: indexPath) as! ActionMessageBubble
                 actionMessageCell.call = message
                 return actionMessageCell
             }else if message.messageCategory == .custom {
                 
                 //  CustomMessage Cell
-                let  receiverCell = tableView.dequeueReusableCell(withIdentifier: "actionMessageBubble", for: indexPath) as! ActionMessageBubble
+                let  receiverCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.ActionMessageBubble.rawValue, for: indexPath) as! ActionMessageBubble
                 let customMessage = message as? CustomMessage
                 receiverCell.message.text = NSLocalizedString("CUSTOM_MESSAGE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "") +  "\(String(describing: customMessage?.customData))"
                 return receiverCell
@@ -2948,7 +2917,7 @@ extension CometChatMessageList : ChatViewInternalDelegate {
         
         // Added ActionSheet support for iPad
         if self.chatView.frame.origin.y != 0 { dismissKeyboard() }
-        if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad ){
+        if ( UIDevice.current.userInterfaceIdiom == .pad ){
             if let currentPopoverpresentioncontroller =
                 actionSheetController.popoverPresentationController{
                 currentPopoverpresentioncontroller.sourceView = self.chatView.attachment

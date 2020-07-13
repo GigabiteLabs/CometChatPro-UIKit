@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +18,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CometChatCreateGroup" customModule="CometChat_KitchenSink" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CometChatCreateGroup" customModule="CCPMessenger" customModuleProvider="target">
             <connections>
                 <outlet property="backgroundView" destination="i5M-Pr-FkT" id="Eaf-2G-egX"/>
                 <outlet property="createGroup" destination="mfw-lp-U2S" id="FDY-Ez-pyw"/>
@@ -38,7 +37,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pdW-1k-bM5" customClass="Avatar" customModule="CometChat_KitchenSink" customModuleProvider="target">
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pdW-1k-bM5" customClass="Avatar" customModule="CCPMessenger" customModuleProvider="target">
                     <rect key="frame" x="142" y="54" width="130" height="110"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="130" id="jTd-RH-a9X"/>
@@ -131,7 +130,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downArrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="9k8-9K-SB5">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downArrow" translatesAutoresizingMaskIntoConstraints="NO" id="9k8-9K-SB5">
                                     <rect key="frame" x="347" y="16.5" width="17" height="17"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="17" id="cJQ-HJ-T8V"/>
@@ -244,6 +243,6 @@
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="96"/>
         <image name="defaultAvatar.jpg" width="240" height="240"/>
-        <image name="downArrow.png" width="18" height="11"/>
+        <image name="downArrow" width="18" height="11"/>
     </resources>
 </document>

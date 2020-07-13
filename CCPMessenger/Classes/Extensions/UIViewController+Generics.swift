@@ -11,6 +11,15 @@ internal extension UIViewController {
     /// Returns Nib of the cell
     class func sourceNib(_ name: CCPNibs) -> UINib {
         let bundle = Bundle(for: CCPType.self).podResource(name: "CCPMessenger")
+        print("Looking for source nib for: \(name.rawValue)")
+        print("bundle for NIB: \(bundle)")
+        print("resourcePath: \(bundle.resourcePath)")
+        do {
+            let contents = try FileManager.default.contentsOfDirectory(atPath: bundle.bundlePath)
+            print(contents)
+        } catch {
+            print(error)
+        }
         let nib = UINib(nibName: name.rawValue, bundle: bundle)
         return nib
     }

@@ -21,7 +21,7 @@ class ViewController: UIViewController {
 //        let bundle = CCPType.bundle.bundleIdentifier
 //        print("bundle identifier: \(bundle)")
 //        print("bundle path: \(CCPType.bundle.bundlePath)")
-//        UIFont.loadAllFonts(bundleIdentifierString: CCPType.bundleId)
+        UIFont.loadAllFonts(bundleIdentifierString: CCPType.bundleId)
     }
 
     override func didReceiveMemoryWarning() {

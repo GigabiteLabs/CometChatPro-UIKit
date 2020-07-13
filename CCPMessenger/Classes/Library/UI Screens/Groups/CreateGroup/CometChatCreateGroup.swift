@@ -80,13 +80,13 @@ class CometChatCreateGroup: UIViewController {
     private func setupSuperView(){
         if #available(iOS 13.0, *) {
             view.backgroundColor = .systemBackground
-            typeView.layer.borderColor = UIColor.systemFill.cgColor
+            //typeView.layer.borderColor = UIColor.systemFill.cgColor
         } else {
             view.backgroundColor = .white
-            typeView.layer.borderColor = UIColor.lightGray.cgColor
+            //typeView.layer.borderColor = UIColor.lightGray.cgColor
         }
-        typeView.layer.borderWidth = 1
-        typeView.clipsToBounds = true
+        //typeView.layer.borderWidth = 1
+        //typeView.clipsToBounds = true
     }
     
     
