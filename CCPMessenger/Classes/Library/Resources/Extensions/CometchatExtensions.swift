@@ -251,12 +251,12 @@ extension String {
         
         if secondsAgo < oneDay  {
             
-            return NSLocalizedString("TODAY", comment: "")
+            return NSLocalizedString("TODAY", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
             
         } else if secondsAgo < twoDays {
             let day = secondsAgo/day
             if day == 1 {
-                return NSLocalizedString("YESTERDAY", comment: "")
+                return NSLocalizedString("YESTERDAY", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
             }else{
                 let formatter = DateFormatter()
                 formatter.dateFormat = "EEE"

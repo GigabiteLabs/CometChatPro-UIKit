@@ -84,15 +84,15 @@ class CometChatConversationView: UITableViewCell {
                     case .image where currentConversation.conversationType == .group:
                         message.text = senderName! + ":  " + NSLocalizedString("HAS_SENT_AN_IMAGE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                     case .video  where currentConversation.conversationType == .user:
-                        message.text = NSLocalizedString("HAS_SENT_A_VIDEO", comment: "")
+                        message.text = NSLocalizedString("HAS_SENT_A_VIDEO", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                     case .video  where currentConversation.conversationType == .group:
                         message.text = senderName! + ":  " + NSLocalizedString("HAS_SENT_A_VIDEO", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                     case .audio  where currentConversation.conversationType == .user:
-                        message.text = NSLocalizedString("HAS_SENT_A_AUDIO", comment: "")
+                        message.text = NSLocalizedString("HAS_SENT_A_AUDIO", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                     case .audio  where currentConversation.conversationType == .group:
                         message.text = senderName! + ":  " + NSLocalizedString("HAS_SENT_A_AUDIO", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                     case .file  where currentConversation.conversationType == .user:
-                        message.text = NSLocalizedString("HAS_SENT_A_FILE", comment: "")
+                        message.text = NSLocalizedString("HAS_SENT_A_FILE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                     case .file  where currentConversation.conversationType == .group:
                         message.text = senderName! + ":  " + NSLocalizedString("HAS_SENT_A_FILE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                     case .custom where currentConversation.conversationType == .user:

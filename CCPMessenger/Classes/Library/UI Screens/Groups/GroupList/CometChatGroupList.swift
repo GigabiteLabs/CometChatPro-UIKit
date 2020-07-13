@@ -83,7 +83,7 @@ public class CometChatGroupList: UIViewController {
      */
     @objc public func set(title : String, mode: UINavigationItem.LargeTitleDisplayMode){
         if navigationController != nil{
-            navigationItem.title = NSLocalizedString(title, comment: "")
+            navigationItem.title = NSLocalizedString(title, tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
             navigationItem.largeTitleDisplayMode = mode
             switch mode {
             case .automatic:
@@ -315,7 +315,7 @@ public class CometChatGroupList: UIViewController {
     @objc func didCreateGroupPressed(){
         let createGroup = CometChatCreateGroup()
         let navigationController: UINavigationController = UINavigationController(rootViewController: createGroup)
-        createGroup.set(title: NSLocalizedString("CREATE_GROUP", comment: ""), mode: .automatic)
+        createGroup.set(title: NSLocalizedString("CREATE_GROUP", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), mode: .automatic)
         self.present(navigationController, animated: true, completion: nil)
         
     }
@@ -484,7 +484,7 @@ extension CometChatGroupList: UITableViewDelegate , UITableViewDataSource {
     private func joinGroup(withGuid: String, name: String, groupType: CometChat.groupType, password: String, indexPath: IndexPath) {
         CometChat.joinGroup(GUID: withGuid, groupType: groupType, password: password, onSuccess: { (group) in
             DispatchQueue.main.async {
-                let message = NSLocalizedString("YOU_JOINED", comment: "") +  (name) + "."
+                let message = NSLocalizedString("YOU_JOINED", tableName: nil, bundle: CCPType.bundle, value: "", comment: "") +  (name) + "."
                 let snackbar: CometChatSnackbar = CometChatSnackbar.init(message: message, duration: .short)
                 snackbar.show()
                 self.tableView.deselectRow(at: indexPath, animated: true)

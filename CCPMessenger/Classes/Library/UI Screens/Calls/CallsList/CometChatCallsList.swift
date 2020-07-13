@@ -85,7 +85,7 @@ public class CometChatCallsList: UIViewController {
      */
     @objc public func set(title : String, mode: UINavigationItem.LargeTitleDisplayMode){
         if navigationController != nil{
-            navigationItem.title = NSLocalizedString(title, comment: "")
+            navigationItem.title = NSLocalizedString(title, tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
             navigationItem.largeTitleDisplayMode = mode
             switch mode {
             case .automatic:
@@ -109,7 +109,7 @@ public class CometChatCallsList: UIViewController {
      */
     private func refreshCalls(){
         DispatchQueue.main.async {
-            self.tableView.setEmptyMessage(NSLocalizedString("", comment: ""))
+            self.tableView.setEmptyMessage(NSLocalizedString("", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""))
             self.activityIndicator?.startAnimating()
             self.activityIndicator?.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: self.tableView.bounds.width, height: CGFloat(44))
             self.tableView.tableFooterView = self.activityIndicator
@@ -413,7 +413,7 @@ extension CometChatCallsList: UITableViewDelegate , UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if calls.isEmpty  {
-            self.tableView.setEmptyMessage(NSLocalizedString("No History Found.", comment: ""))
+            self.tableView.setEmptyMessage(NSLocalizedString("No History Found.", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""))
         } else{
             self.tableView.restore()
         }
@@ -504,7 +504,7 @@ extension CometChatCallsList: UITableViewDelegate , UITableViewDataSource {
     public func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
            return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { suggestedActions in
                if  let selectedCell = (tableView.cellForRow(at: indexPath) as? CometChatCallsView){
-                   let audioCall = UIAction(title: NSLocalizedString("AUDIO_CALL", comment: ""), image: .fromBundle(named: "audioCall")) { action in
+                   let audioCall = UIAction(title: NSLocalizedString("AUDIO_CALL", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), image: .fromBundle(named: "audioCall")) { action in
                     if let user = selectedCell.currentUser {
                            CometChatCallManager().makeCall(call: .audio, to: user)
                        }
@@ -513,7 +513,7 @@ extension CometChatCallsList: UITableViewDelegate , UITableViewDataSource {
                        }
                    }
                    
-                   let videoCall = UIAction(title: NSLocalizedString("VIDEO_CALL", comment: ""), image: .fromBundle(named: "videoCall")) { action in
+                   let videoCall = UIAction(title: NSLocalizedString("VIDEO_CALL", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), image: .fromBundle(named: "videoCall")) { action in
                        if let user = selectedCell.currentUser {
                            CometChatCallManager().makeCall(call: .video, to: user)
                        }

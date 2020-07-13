@@ -119,7 +119,7 @@ public class CometChatConversationList: UIViewController {
      */
     private func refreshConversations(){
         DispatchQueue.main.async {
-            self.tableView.setEmptyMessage(NSLocalizedString("", comment: ""))
+            self.tableView.setEmptyMessage(NSLocalizedString("", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""))
             self.activityIndicator?.startAnimating()
             self.activityIndicator?.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: self.tableView.bounds.width, height: CGFloat(44))
             self.tableView.tableFooterView = self.activityIndicator
@@ -336,7 +336,7 @@ extension CometChatConversationList: UITableViewDelegate , UITableViewDataSource
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if conversations.isEmpty {
-            self.tableView.setEmptyMessage(NSLocalizedString("No Chats Found.", comment: ""))
+            self.tableView.setEmptyMessage(NSLocalizedString("No Chats Found.", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""))
         } else{
             self.tableView.restore()
         }

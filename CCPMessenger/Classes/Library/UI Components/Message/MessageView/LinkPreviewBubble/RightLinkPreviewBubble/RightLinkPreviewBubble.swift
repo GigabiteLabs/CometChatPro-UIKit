@@ -48,10 +48,10 @@ class RightLinkPreviewBubble: UITableViewCell {
             parseLinkPreviewForMessage(message: linkPreviewMessage)
             if let url = url {
                 if url.contains("youtube")  ||  url.contains("youtu.be") {
-                    visitButton.setTitle(NSLocalizedString("VIEW_ON_YOUTUBE", comment: ""), for: .normal)
+                    visitButton.setTitle(NSLocalizedString("VIEW_ON_YOUTUBE", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), for: .normal)
                     playbutton.isHidden = false
                 }else{
-                    visitButton.setTitle(NSLocalizedString("Visit", comment: ""), for: .normal)
+                    visitButton.setTitle(NSLocalizedString("Visit", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), for: .normal)
                     playbutton.isHidden = true
                 }
             }
@@ -76,7 +76,7 @@ class RightLinkPreviewBubble: UITableViewCell {
                 timeStamp.text = String().setMessageTime(time: Int(linkPreviewMessage?.sentAt ?? 0))
             }else if linkPreviewMessage.sentAt == 0 {
                 receipt.image = .fromBundle(named: "wait")
-                timeStamp.text = NSLocalizedString("SENDING", comment: "")
+                timeStamp.text = NSLocalizedString("SENDING", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
             }
         }
     }

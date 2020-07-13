@@ -73,7 +73,7 @@ public class CometChatAddMembers: UIViewController {
        */
     @objc public func set(title : String, mode: UINavigationItem.LargeTitleDisplayMode){
          if navigationController != nil{
-          navigationItem.title = NSLocalizedString(title, comment: "")
+          navigationItem.title = NSLocalizedString(title, tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
           navigationItem.largeTitleDisplayMode = mode
           switch mode {
           case .automatic:
@@ -158,9 +158,9 @@ public class CometChatAddMembers: UIViewController {
                 navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
                 self.navigationController?.navigationBar.isTranslucent = true
                   }
-                let closeButton = UIBarButtonItem(title: NSLocalizedString("CLOSE", comment: ""), style: .plain, target: self, action: #selector(closeButtonPressed))
+                let closeButton = UIBarButtonItem(title: NSLocalizedString("CLOSE", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), style: .plain, target: self, action: #selector(closeButtonPressed))
                 self.navigationItem.rightBarButtonItem = closeButton
-            self.set(title: NSLocalizedString("ADD_MEMBERS", comment: ""), mode: .automatic)
+            self.set(title: NSLocalizedString("ADD_MEMBERS", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), mode: .automatic)
             self.setLargeTitleDisplayMode(.always)
             }
         }

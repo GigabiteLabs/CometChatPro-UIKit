@@ -35,7 +35,7 @@ class CometChatPrivacyAndSecurity: UIViewController {
         self.setupItems()
         self.fetchBlockedUsersCount()
         self.addObservers()
-        self.set(title: NSLocalizedString("PRIVACY_AND_SECURITY", comment: ""), mode: .automatic)
+        self.set(title: NSLocalizedString("PRIVACY_AND_SECURITY", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), mode: .automatic)
     }
     
     
@@ -59,7 +59,7 @@ class CometChatPrivacyAndSecurity: UIViewController {
     */
     @objc public func set(title : String, mode: UINavigationItem.LargeTitleDisplayMode){
            if navigationController != nil{
-               navigationItem.title = NSLocalizedString(title, comment: "")
+               navigationItem.title = NSLocalizedString(title, tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                navigationItem.largeTitleDisplayMode = mode
                switch mode {
                case .automatic:
@@ -171,11 +171,11 @@ class CometChatPrivacyAndSecurity: UIViewController {
         blockedUserRequest?.fetchNext(onSuccess: { (blockedUsers) in
             if let count =  blockedUsers?.count {
                 if  count == 0 {
-                    self.blockUsersCount =  NSLocalizedString("0_USERS", comment: "")
+                    self.blockUsersCount =  NSLocalizedString("0_USERS", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 }else if count > 0 && count < 100 {
-                    self.blockUsersCount = "\(count) " + NSLocalizedString("USERS", comment: "")
+                    self.blockUsersCount = "\(count) " + NSLocalizedString("USERS", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 }else{
-                    self.blockUsersCount = "100+ " + NSLocalizedString("USERS", comment: "")
+                    self.blockUsersCount = "100+ " + NSLocalizedString("USERS", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 }
                 DispatchQueue.main.async { self.tableView.reloadData() }
             }
@@ -227,7 +227,7 @@ extension CometChatPrivacyAndSecurity : UITableViewDelegate , UITableViewDataSou
         if section == 0 {
             sectionTitle.text =  ""
         }else if section == 1{
-            sectionTitle.text =  NSLocalizedString("PRIVACY", comment: "")
+            sectionTitle.text =  NSLocalizedString("PRIVACY", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
         }
         sectionTitle.font = UIFont(name: "SFProDisplay-Medium", size: 13)
         if #available(iOS 13.0, *) {
@@ -266,18 +266,18 @@ extension CometChatPrivacyAndSecurity : UITableViewDelegate , UITableViewDataSou
         let cell = UITableViewCell()
         if indexPath.section == 0 && indexPath.row == 0 {
             let blockedUserCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.AdministratorView.rawValue, for: indexPath) as! AdministratorView
-            blockedUserCell.title.text = NSLocalizedString("BLOCKED_USERS", comment: "")
+            blockedUserCell.title.text = NSLocalizedString("BLOCKED_USERS", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
             return blockedUserCell
         }else{
             switch privacy[safe:indexPath.row] {
             case CometChatPrivacyAndSecurity.GROUP_CELL:
                 let groupsCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.AdministratorView.rawValue, for: indexPath) as! AdministratorView
-                groupsCell.title.text = NSLocalizedString("Groups", comment: "")
+                groupsCell.title.text = NSLocalizedString("Groups", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 return groupsCell
                 
             case CometChatPrivacyAndSecurity.CALLS_CELL:
                 let callsCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.AdministratorView.rawValue, for: indexPath) as! AdministratorView
-                callsCell.title.text = NSLocalizedString("CALLS", comment: "")
+                callsCell.title.text = NSLocalizedString("CALLS", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 return callsCell
             default: break
             }

@@ -292,21 +292,21 @@ extension SharedMediaView : UICollectionViewDelegate , UICollectionViewDataSourc
         switch self.mediaSelection.selectedSegmentIndex {
         case 0:
             if photos.isEmpty  {
-                self.collectionView.setEmptyMessage(NSLocalizedString("NO_PHOTOS", comment: ""))
+                self.collectionView.setEmptyMessage(NSLocalizedString("NO_PHOTOS", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""))
             } else{
                 self.collectionView.restore()
             }
             return photos.count
         case 1:
             if videos.isEmpty  {
-                self.collectionView.setEmptyMessage(NSLocalizedString("NO_VIDEOS", comment: ""))
+                self.collectionView.setEmptyMessage(NSLocalizedString("NO_VIDEOS", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""))
             } else{
                 self.collectionView.restore()
             }
             return videos.count
         case 2:
             if docs.isEmpty  {
-                self.collectionView.setEmptyMessage(NSLocalizedString("NO_DOCUMENTS", comment: ""))
+                self.collectionView.setEmptyMessage(NSLocalizedString("NO_DOCUMENTS", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""))
             } else{
                 self.collectionView.restore()
             }

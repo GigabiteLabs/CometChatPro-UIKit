@@ -60,7 +60,7 @@ class CometChatCreateGroup: UIViewController {
     */
     @objc public func set(title : String, mode: UINavigationItem.LargeTitleDisplayMode){
           if navigationController != nil{
-              navigationItem.title = NSLocalizedString(title, comment: "")
+              navigationItem.title = NSLocalizedString(title, tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
               navigationItem.largeTitleDisplayMode = mode
               switch mode {
               case .automatic:
@@ -108,7 +108,7 @@ class CometChatCreateGroup: UIViewController {
                 navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
                 self.navigationController?.navigationBar.isTranslucent = true
             }
-            let closeButton = UIBarButtonItem(title: NSLocalizedString("CLOSE", comment: ""), style: .plain, target: self, action: #selector(closeButtonPressed))
+            let closeButton = UIBarButtonItem(title: NSLocalizedString("CLOSE", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), style: .plain, target: self, action: #selector(closeButtonPressed))
             self.navigationItem.rightBarButtonItem = closeButton
         }
     }
@@ -195,27 +195,27 @@ class CometChatCreateGroup: UIViewController {
     @IBAction func didSelectGroupPressed(_ sender: Any) {
         let actionSheetController: UIAlertController = UIAlertController(title: nil, message: "Choose one of the group type to create group.", preferredStyle: .actionSheet)
         
-        let publicGroup: UIAlertAction = UIAlertAction(title: NSLocalizedString("PUBLIC", comment: "")  + " Group", style: .default) { action -> Void in
+        let publicGroup: UIAlertAction = UIAlertAction(title: NSLocalizedString("PUBLIC", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")  + " Group", style: .default) { action -> Void in
             self.groupType = .public
-            self.selectedGroupType.text = NSLocalizedString("PUBLIC", comment: "")  + " Group"
+            self.selectedGroupType.text = NSLocalizedString("PUBLIC", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")  + " Group"
             self.passwordView.isHidden = true
             self.password.text = ""
         }
         
-        let passwordProtectedGroup: UIAlertAction = UIAlertAction(title: NSLocalizedString("PASSWORD_PROTECTED", comment: "")  + " Group", style: .default) { action -> Void in
+        let passwordProtectedGroup: UIAlertAction = UIAlertAction(title: NSLocalizedString("PASSWORD_PROTECTED", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")  + " Group", style: .default) { action -> Void in
             self.groupType = .password
-            self.selectedGroupType.text = NSLocalizedString("PASSWORD_PROTECTED", comment: "")  + " Group"
+            self.selectedGroupType.text = NSLocalizedString("PASSWORD_PROTECTED", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")  + " Group"
             self.passwordView.isHidden = false
         }
         
-        let privateGroup: UIAlertAction = UIAlertAction(title: NSLocalizedString("PRIVATE", comment: "") + " Group", style: .default) { action -> Void in
+        let privateGroup: UIAlertAction = UIAlertAction(title: NSLocalizedString("PRIVATE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "") + " Group", style: .default) { action -> Void in
             self.groupType = .private
-            self.selectedGroupType.text = NSLocalizedString("PRIVATE", comment: "") + " Group"
+            self.selectedGroupType.text = NSLocalizedString("PRIVATE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "") + " Group"
             self.passwordView.isHidden = true
             self.password.text = ""
         }
         
-        let cancelAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("CANCEL", comment: ""), style: .cancel) { action -> Void in
+        let cancelAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("CANCEL", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), style: .cancel) { action -> Void in
         }
         cancelAction.setValue(UIColor.red, forKey: "titleTextColor")
         actionSheetController.addAction(publicGroup)
@@ -252,7 +252,7 @@ class CometChatCreateGroup: UIViewController {
         }else{
             
             guard let name = name.text else {
-                let snackbar: CometChatSnackbar = CometChatSnackbar.init(message: NSLocalizedString("ENTER_GROUP_NAME", comment: ""), duration: .short)
+                let snackbar: CometChatSnackbar = CometChatSnackbar.init(message: NSLocalizedString("ENTER_GROUP_NAME", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), duration: .short)
                 snackbar.show()
                 return
             }

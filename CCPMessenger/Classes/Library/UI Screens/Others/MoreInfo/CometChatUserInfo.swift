@@ -52,7 +52,7 @@ public class CometChatUserInfo: UIViewController {
      */
     @objc public func set(title : String, mode: UINavigationItem.LargeTitleDisplayMode){
         if navigationController != nil{
-            navigationItem.title = NSLocalizedString(title, comment: "")
+            navigationItem.title = NSLocalizedString(title, tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
             navigationItem.largeTitleDisplayMode = mode
             switch mode {
             case .automatic:
@@ -211,7 +211,7 @@ extension CometChatUserInfo: UITableViewDelegate , UITableViewDataSource {
         if section == 0 {
             sectionTitle.text =  ""
         }else if section == 1{
-            sectionTitle.text =  NSLocalizedString("PREFERENCES", comment: "")
+            sectionTitle.text =  NSLocalizedString("PREFERENCES", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
         }else if section == 2{
             sectionTitle.text =  ""
         }
@@ -275,7 +275,7 @@ extension CometChatUserInfo: UITableViewDelegate , UITableViewDataSource {
             userCell.userStatus.font =  UIFont(name: "SFProDisplay-Regular", size: 15)
             userCell.user = CometChat.getLoggedInUser()
             userCell.userStatus.isHidden = false
-            userCell.userStatus.text = NSLocalizedString("ONLINE", comment: "")
+            userCell.userStatus.text = NSLocalizedString("ONLINE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
             userCell.separatorInset = UIEdgeInsets(top: 0, left: tableView.frame.size.width, bottom: 0, right: 0)
             return userCell
             

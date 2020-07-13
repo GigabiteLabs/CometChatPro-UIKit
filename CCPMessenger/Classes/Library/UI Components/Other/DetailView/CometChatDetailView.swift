@@ -40,11 +40,11 @@ class CometChatDetailView: UITableViewCell {
             name.text = currentUser.name
                 switch currentUser.status {
                 case .online:
-                    detail.text = NSLocalizedString("ONLINE", comment: "")
+                    detail.text = NSLocalizedString("ONLINE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 case .offline:
-                     detail.text = NSLocalizedString("OFFLINE", comment: "")
+                     detail.text = NSLocalizedString("OFFLINE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 @unknown default:
-                    detail.text = NSLocalizedString("OFFLINE", comment: "")
+                    detail.text = NSLocalizedString("OFFLINE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 }
                  icon.set(image: currentUser.avatar ?? "", with: currentUser.name ?? "")
         }
@@ -57,11 +57,11 @@ class CometChatDetailView: UITableViewCell {
                 name.text = currentGroup.name
                 switch currentGroup.groupType {
                 case .public:
-                    detail.text = NSLocalizedString("PUBLIC", comment: "")
+                    detail.text = NSLocalizedString("PUBLIC", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 case .private:
-                    detail.text = NSLocalizedString("PRIVATE", comment: "")
+                    detail.text = NSLocalizedString("PRIVATE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 case .password:
-                    detail.text = NSLocalizedString("PASSWORD_PROTECTED", comment: "")
+                    detail.text = NSLocalizedString("PASSWORD_PROTECTED", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 @unknown default:
                     break
                 }

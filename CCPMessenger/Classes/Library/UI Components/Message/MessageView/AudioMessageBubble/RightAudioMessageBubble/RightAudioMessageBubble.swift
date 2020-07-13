@@ -39,9 +39,9 @@ class RightAudioMessageBubble: UITableViewCell {
         didSet {
                    receiptStack.isHidden = true
                    if audioMessage.sentAt == 0 {
-                       timeStamp.text = NSLocalizedString("SENDING", comment: "")
+                       timeStamp.text = NSLocalizedString("SENDING", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                        name.text = "Audio File"
-                       size.text = NSLocalizedString("calculating...", comment: "")
+                       size.text = NSLocalizedString("calculating...", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                    }else{
                        timeStamp.text = String().setMessageTime(time: audioMessage.sentAt)
                        name.text = "Audio File"
@@ -62,7 +62,7 @@ class RightAudioMessageBubble: UITableViewCell {
                        timeStamp.text = String().setMessageTime(time: Int(audioMessage?.sentAt ?? 0))
                        }else if audioMessage.sentAt == 0 {
                           receipt.image = .fromBundle(named: "wait")
-                          timeStamp.text = NSLocalizedString("SENDING", comment: "")
+                          timeStamp.text = NSLocalizedString("SENDING", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                        }
                }
     }

@@ -43,12 +43,12 @@ class CometChatUserView: UITableViewCell {
             if  user?.status != nil {
                 switch user?.status {
                 case .online:
-                    userStatus.text = NSLocalizedString("ONLINE", comment: "")
+                    userStatus.text = NSLocalizedString("ONLINE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 case .offline:
-                    userStatus.text = NSLocalizedString("OFFLINE", comment: "")
+                    userStatus.text = NSLocalizedString("OFFLINE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 case .none: break
                 @unknown default:
-                    userStatus.text = NSLocalizedString("OFFLINE", comment: "")
+                    userStatus.text = NSLocalizedString("OFFLINE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 }
             }
             

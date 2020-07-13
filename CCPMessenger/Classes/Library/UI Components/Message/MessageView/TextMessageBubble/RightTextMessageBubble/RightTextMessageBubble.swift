@@ -54,7 +54,7 @@ class RightTextMessageBubble: UITableViewCell {
                     timeStamp.text = String().setMessageTime(time: Int(textMessage?.sentAt ?? 0))
                 }else if textmessage.sentAt == 0 {
                     receipt.image = .fromBundle(named: "wait")
-                    timeStamp.text = NSLocalizedString("SENDING", comment: "")
+                    timeStamp.text = NSLocalizedString("SENDING", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 }
             }
             receipt.contentMode = .scaleAspectFit
@@ -66,12 +66,12 @@ class RightTextMessageBubble: UITableViewCell {
         didSet {
            
             switch deletedMessage?.messageType {
-            case .text:  message.text = NSLocalizedString("YOU_DELETED_THIS_MESSAGE", comment: "")
-            case .image: message.text = NSLocalizedString("YOU_DELETED_THIS_IMAGE", comment: "")
-            case .video: message.text = NSLocalizedString("YOU_DELETED_THIS_VIDEO", comment: "")
-            case .audio: message.text =  NSLocalizedString("YOU_DELETED_THIS_AUDIO", comment: "")
-            case .file:  message.text = NSLocalizedString("YOU_DELETED_THIS_FILE", comment: "")
-            case .custom: message.text = NSLocalizedString("YOU_DELETED_THIS_CUSTOM_MESSAGE", comment: "")
+            case .text:  message.text = NSLocalizedString("YOU_DELETED_THIS_MESSAGE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
+            case .image: message.text = NSLocalizedString("YOU_DELETED_THIS_IMAGE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
+            case .video: message.text = NSLocalizedString("YOU_DELETED_THIS_VIDEO", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
+            case .audio: message.text =  NSLocalizedString("YOU_DELETED_THIS_AUDIO", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
+            case .file:  message.text = NSLocalizedString("YOU_DELETED_THIS_FILE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
+            case .custom: message.text = NSLocalizedString("YOU_DELETED_THIS_CUSTOM_MESSAGE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
             case .groupMember: break
             @unknown default: break }
             message.textColor = .darkGray

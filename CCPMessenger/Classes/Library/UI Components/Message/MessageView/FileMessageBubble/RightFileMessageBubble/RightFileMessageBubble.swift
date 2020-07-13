@@ -40,10 +40,10 @@ class RightFileMessageBubble: UITableViewCell {
         didSet {
                    receiptStack.isHidden = true
                    if fileMessage.sentAt == 0 {
-                       timeStamp.text = NSLocalizedString("SENDING", comment: "")
-                       name.text = NSLocalizedString("---", comment: "")
-                       type.text = NSLocalizedString("---", comment: "")
-                       size.text = NSLocalizedString("---", comment: "")
+                       timeStamp.text = NSLocalizedString("SENDING", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
+                       name.text = NSLocalizedString("---", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
+                       type.text = NSLocalizedString("---", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
+                       size.text = NSLocalizedString("---", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                    }else{
                        timeStamp.text = String().setMessageTime(time: fileMessage.sentAt)
                     name.text = fileMessage.attachment?.fileName.capitalized
@@ -64,7 +64,7 @@ class RightFileMessageBubble: UITableViewCell {
                        timeStamp.text = String().setMessageTime(time: Int(fileMessage?.sentAt ?? 0))
                        }else if fileMessage.sentAt == 0 {
                           receipt.image = .fromBundle(named: "wait")
-                          timeStamp.text = NSLocalizedString("SENDING", comment: "")
+                          timeStamp.text = NSLocalizedString("SENDING", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                        }
                }
     }

@@ -41,7 +41,7 @@ class RightVideoMessageBubble: UITableViewCell {
         didSet {
             receiptStack.isHidden = true
             if mediaMessage.sentAt == 0 {
-                timeStamp.text = NSLocalizedString("SENDING", comment: "")
+                timeStamp.text = NSLocalizedString("SENDING", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 activityIndicator.isHidden = false
                 activityIndicator.startAnimating()
             }else{
@@ -60,7 +60,7 @@ class RightVideoMessageBubble: UITableViewCell {
             timeStamp.text = String().setMessageTime(time: Int(mediaMessage?.sentAt ?? 0))
             }else if mediaMessage.sentAt == 0 {
                receipt.image = .fromBundle(named: "wait")
-               timeStamp.text = NSLocalizedString("SENDING", comment: "")
+               timeStamp.text = NSLocalizedString("SENDING", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
             }
             parseThumbnailForVideo(forMessage: mediaMessage)
         }

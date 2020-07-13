@@ -78,7 +78,7 @@ public class CometChatAddAdministrators: UIViewController {
      */
     @objc public func set(title : String, mode: UINavigationItem.LargeTitleDisplayMode){
         if navigationController != nil{
-            navigationItem.title = NSLocalizedString(title, comment: "")
+            navigationItem.title = NSLocalizedString(title, tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
             navigationItem.largeTitleDisplayMode = mode
             switch mode {
             case .automatic:
@@ -199,12 +199,12 @@ public class CometChatAddAdministrators: UIViewController {
                 navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
                 self.navigationController?.navigationBar.isTranslucent = true
             }
-            let closeButton = UIBarButtonItem(title: NSLocalizedString("CLOSE", comment: ""), style: .plain, target: self, action: #selector(closeButtonPressed))
+            let closeButton = UIBarButtonItem(title: NSLocalizedString("CLOSE", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), style: .plain, target: self, action: #selector(closeButtonPressed))
             self.navigationItem.rightBarButtonItem = closeButton
             
             switch mode {
-            case .fetchGroupMembers: self.set(title: NSLocalizedString("MAKE_GROUP_ADMIN", comment: ""), mode: .automatic)
-            case .fetchAdministrators: self.set(title: NSLocalizedString("ADMINISTRATORS", comment: ""), mode: .automatic)
+            case .fetchGroupMembers: self.set(title: NSLocalizedString("MAKE_GROUP_ADMIN", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), mode: .automatic)
+            case .fetchAdministrators: self.set(title: NSLocalizedString("ADMINISTRATORS", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), mode: .automatic)
             case .none: break
             }
             self.setLargeTitleDisplayMode(.always)
@@ -319,14 +319,14 @@ extension CometChatAddAdministrators: UITableViewDelegate , UITableViewDataSourc
         if mode == .fetchAdministrators {
             if indexPath.section == 0 {
                 let addAdminCell = tableView.dequeueReusableCell(withIdentifier: "addMemberView", for: indexPath) as! AddMemberView
-                addAdminCell.textLabel?.text = NSLocalizedString("ADD_ADMIN", comment: "")
+                addAdminCell.textLabel?.text = NSLocalizedString("ADD_ADMIN", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 return addAdminCell
             }else{
                 let  admin = administrators[safe:indexPath.row]
                 let membersCell = tableView.dequeueReusableCell(withIdentifier: "membersView", for: indexPath) as! MembersView
                 membersCell.member = admin
                 if admin?.uid == currentGroup?.owner {
-                    membersCell.scope.text = NSLocalizedString("OWNER", comment: "")
+                    membersCell.scope.text = NSLocalizedString("OWNER", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 }
                 return membersCell
             }
@@ -362,14 +362,14 @@ extension CometChatAddAdministrators: UITableViewDelegate , UITableViewDataSourc
                 }else{
                     if  let selectedCell = tableView.cellForRow(at: indexPath) as? MembersView {
                         if let member = selectedCell.member{
-                            let removeAdmin = UIAction(title: NSLocalizedString("DISMISS_AS_ADMIN", comment: ""), image: UIImage(systemName: "trash"), attributes: .destructive) { action in
+                            let removeAdmin = UIAction(title: NSLocalizedString("DISMISS_AS_ADMIN", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), image: UIImage(systemName: "trash"), attributes: .destructive) { action in
                                 
                                 CometChat.updateGroupMemberScope(UID: member.uid ?? "", GUID: self.currentGroup?.guid ?? "", scope: .participant, onSuccess: { (success) in
                                     
                                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "didRefreshMembers"), object: nil, userInfo: ["guid":self.currentGroup?.guid ?? ""])
                                     
                                     DispatchQueue.main.async {
-                                        let message =  (member.name ?? "") + NSLocalizedString("is removed from admin privilege.", comment: "")
+                                        let message =  (member.name ?? "") + NSLocalizedString("is removed from admin privilege.", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                                         let snackbar: CometChatSnackbar = CometChatSnackbar.init(message: message, duration: .short)
                                         snackbar.show()
                                         if let group = self.currentGroup {
@@ -398,7 +398,7 @@ extension CometChatAddAdministrators: UITableViewDelegate , UITableViewDataSourc
                             if self.currentGroup?.owner == LoggedInUser.uid {
                                 
                                 if member.uid != LoggedInUser.uid {
-                                    return UIMenu(title: NSLocalizedString("REMOVE", comment: "") + "\(memberName)" + NSLocalizedString("AS_ADMIN_FROM", comment: "") + "\(groupName)" + NSLocalizedString("GROUP?" , comment: ""), children: [removeAdmin])
+                                    return UIMenu(title: NSLocalizedString("REMOVE", comment: "") + "\(memberName)" + NSLocalizedString("AS_ADMIN_FROM", comment: "") + "\(groupName)" + NSLocalizedString("GROUP?" , tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), children: [removeAdmin])
                                 }
                             }
                         }
@@ -407,14 +407,14 @@ extension CometChatAddAdministrators: UITableViewDelegate , UITableViewDataSourc
             }else{
                 if  let selectedCell = tableView.cellForRow(at: indexPath) as? MembersView {
                     if let member = selectedCell.member {
-                        let removeAdmin = UIAction(title: NSLocalizedString("ASSIGN_AS_ADMIN", comment: ""), image: UIImage(systemName: "add"), attributes: .destructive) { action in
+                        let removeAdmin = UIAction(title: NSLocalizedString("ASSIGN_AS_ADMIN", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), image: UIImage(systemName: "add"), attributes: .destructive) { action in
                             
                             CometChat.updateGroupMemberScope(UID: member.uid ?? "", GUID: self.currentGroup?.guid ?? "", scope: .admin, onSuccess: { (success) in
                                 
                                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "didRefreshMembers"), object: nil, userInfo: ["guid":self.currentGroup?.guid ?? ""])
                                 
                                 DispatchQueue.main.async {
-                                    let message =  (member.name ?? "") + NSLocalizedString("IS_NOW_ADMIN", comment: "")
+                                    let message =  (member.name ?? "") + NSLocalizedString("IS_NOW_ADMIN", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                                     let snackbar: CometChatSnackbar = CometChatSnackbar.init(message: message, duration: .short)
                                     snackbar.show()
                                     if let group = self.currentGroup {
@@ -438,7 +438,7 @@ extension CometChatAddAdministrators: UITableViewDelegate , UITableViewDataSourc
                         }
                         let memberName = (tableView.cellForRow(at: indexPath) as? MembersView)?.member?.name ?? ""
                         let groupName = self.currentGroup?.name ?? ""
-                        return UIMenu(title: NSLocalizedString("ADD" , comment: "") + "\(memberName)" + NSLocalizedString(" as admin in ", comment: "") + "\(groupName)" + NSLocalizedString("GROUP?", comment: "") , children: [removeAdmin])
+                        return UIMenu(title: NSLocalizedString("ADD" , comment: "") + "\(memberName)" + NSLocalizedString(" as admin in ", comment: "") + "\(groupName)" + NSLocalizedString("GROUP?", tableName: nil, bundle: CCPType.bundle, value: "", comment: "") , children: [removeAdmin])
                     }
                 }
             }
@@ -467,13 +467,13 @@ extension CometChatAddAdministrators: UITableViewDelegate , UITableViewDataSourc
                 
                 if  let selectedCell = tableView.cellForRow(at: indexPath) as? MembersView {
                     if let member = selectedCell.member {
-                        let alert = UIAlertController(title: NSLocalizedString("REMOVE", comment: ""), message: "Remove \(String(describing: member.name!.capitalized))" + NSLocalizedString(
+                        let alert = UIAlertController(title: NSLocalizedString("REMOVE", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), message: "Remove \(String(describing: member.name!.capitalized))" + NSLocalizedString(
                         "AS_A_ADMIN", comment: ""), preferredStyle: .alert)
                         
-                        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: { action in
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), style: .default, handler: { action in
                             
                             CometChat.updateGroupMemberScope(UID: member.uid ?? "", GUID: self.currentGroup?.guid ?? "", scope: .participant, onSuccess: { (success) in
-                                let message =  (member.name ?? "") + NSLocalizedString("REMOVE_FROM_ADMIN_PREVILEDGE", comment: "")
+                                let message =  (member.name ?? "") + NSLocalizedString("REMOVE_FROM_ADMIN_PREVILEDGE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                                 let snackbar: CometChatSnackbar = CometChatSnackbar.init(message: message, duration: .short)
                                 snackbar.show()
                                 DispatchQueue.main.async {
@@ -496,7 +496,7 @@ extension CometChatAddAdministrators: UITableViewDelegate , UITableViewDataSourc
                                 print("updateGroupMemberScope error: \(String(describing: error?.errorDescription))")
                             }
                         }))
-                        alert.addAction(UIAlertAction(title: NSLocalizedString("CANCEL", comment: ""), style: .cancel, handler: { action in
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("CANCEL", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), style: .cancel, handler: { action in
                         }))
                         self.present(alert, animated: true)
                     }
@@ -509,17 +509,17 @@ extension CometChatAddAdministrators: UITableViewDelegate , UITableViewDataSourc
                 if  let selectedCell = tableView.cellForRow(at: indexPath) as? MembersView {
                     
                     if let member = selectedCell.member {
-                        let alert = UIAlertController(title: NSLocalizedString("ADD" , comment: ""), message: "Add \(String(describing: member.name!.capitalized))" + NSLocalizedString(
+                        let alert = UIAlertController(title: NSLocalizedString("ADD" , tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), message: "Add \(String(describing: member.name!.capitalized))" + NSLocalizedString(
                         "AS_A_ADMIN", comment: ""), preferredStyle: .alert)
                         
-                        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: { action in
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), style: .default, handler: { action in
                             
                             CometChat.updateGroupMemberScope(UID: member.uid ?? "", GUID: self.currentGroup?.guid ?? "", scope: .admin, onSuccess: { (success) in
                                 
                                 DispatchQueue.main.async {
                                     self.navigationController?.popViewController(animated: true)
                                     self.mode = .fetchGroupMembers
-                                    let message =  (member.name ?? "") + NSLocalizedString("IS_NOW_ADMIN", comment: "")
+                                    let message =  (member.name ?? "") + NSLocalizedString("IS_NOW_ADMIN", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                                      let snackbar: CometChatSnackbar = CometChatSnackbar.init(message: message, duration: .short)
                                     snackbar.show()
                                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "didRefreshMembers"), object: nil, userInfo: nil)
@@ -539,7 +539,7 @@ extension CometChatAddAdministrators: UITableViewDelegate , UITableViewDataSourc
                                 print("updateGroupMemberScope error: \(String(describing: error?.errorDescription))")
                             }
                         }))
-                        alert.addAction(UIAlertAction(title: NSLocalizedString("CANCEL", comment: ""), style: .cancel, handler: { action in
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("CANCEL", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), style: .cancel, handler: { action in
                         }))
                         self.present(alert, animated: true)
                     }

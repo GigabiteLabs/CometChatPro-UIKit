@@ -82,12 +82,12 @@ class LeftReplyMessageBubble: UITableViewCell {
                 }
                 if (currentMessage.sender?.name) != nil {
                     switch currentMessage.messageType {
-                    case .text:  message.text =  NSLocalizedString("THIS_MESSAGE_DELETED", comment: "")
-                    case .image: message.text = NSLocalizedString("THIS_IMAGE_DELETED", comment: "")
-                    case .video: message.text = NSLocalizedString("THIS_VIDEO_DELETED", comment: "")
-                    case .audio: message.text =  NSLocalizedString("THIS_AUDIO_DELETED", comment: "")
-                    case .file:  message.text = NSLocalizedString("THIS_FILE_DELETED", comment: "")
-                    case .custom: message.text = NSLocalizedString("THIS_CUSTOM_MESSAGE_DELETED", comment: "")
+                    case .text:  message.text =  NSLocalizedString("THIS_MESSAGE_DELETED", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
+                    case .image: message.text = NSLocalizedString("THIS_IMAGE_DELETED", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
+                    case .video: message.text = NSLocalizedString("THIS_VIDEO_DELETED", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
+                    case .audio: message.text =  NSLocalizedString("THIS_AUDIO_DELETED", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
+                    case .file:  message.text = NSLocalizedString("THIS_FILE_DELETED", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
+                    case .custom: message.text = NSLocalizedString("THIS_CUSTOM_MESSAGE_DELETED", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                     case .groupMember: break
                     @unknown default: break }}
                 receiptStack.isHidden = true
@@ -178,7 +178,7 @@ class LeftReplyMessageBubble: UITableViewCell {
                         sentimentAnalysisView.isHidden = false
                         message.textColor = UIColor.white
                         message.font = UIFont (name: "SFProDisplay-Regular", size: 15)
-                        message.text = NSLocalizedString("MAY_CONTAIN_NEGATIVE_SENTIMENT", comment: "")
+                        message.text = NSLocalizedString("MAY_CONTAIN_NEGATIVE_SENTIMENT", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                         spaceConstraint.constant = 10
                         widthconstraint.constant = 45
                     }else{

@@ -71,10 +71,10 @@ class LeftLinkPreviewBubble: UITableViewCell, WKNavigationDelegate {
             parseLinkPreviewForMessage(message: linkPreviewMessage)
             if let url = url {
                 if url.contains("youtube")  ||  url.contains("youtu.be") {
-                    visitButton.setTitle(NSLocalizedString("VIEW_ON_YOUTUBE", comment: ""), for: .normal)
+                    visitButton.setTitle(NSLocalizedString("VIEW_ON_YOUTUBE", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), for: .normal)
                     playbutton.isHidden = false
                 }else{
-                    visitButton.setTitle(NSLocalizedString("Visit", comment: ""), for: .normal)
+                    visitButton.setTitle(NSLocalizedString("Visit", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), for: .normal)
                     playbutton.isHidden = true
                 }
             }
