@@ -44,6 +44,7 @@ public enum CCPNibs: String, CaseIterable {
     case ProgressIndicatorView
     case CometChatSettingsView
     case SharedMediaCell
+    case SharedMediaView
     case SmartReplyCell
     case CometChatUserView
 }

@@ -178,27 +178,35 @@ class CometChatGroupDetail: UIViewController {
      - Copyright:  ©  2020 CometChat Inc.
      */
     private func registerCells(){
-        let CometChatDetailView  = UINib.init(nibName: "CometChatDetailView", bundle: nil)
-        self.tableView.register(CometChatDetailView, forCellReuseIdentifier: "detailView")
+        let detailViewType: CCPNibs = .CometChatDetailView
+        let ccDetailView  = CometChatDetailView.sourceNib(detailViewType)
+        self.tableView.register(ccDetailView, forCellReuseIdentifier: detailViewType.rawValue)
         
-        let NotificationsView  = UINib.init(nibName: "NotificationsView", bundle: nil)
-        self.tableView.register(NotificationsView, forCellReuseIdentifier: "notificationsView")
+        let notificationsViewType: CCPNibs = .NotificationsView
+        let ccNotificationsView  = NotificationsView.sourceNib(notificationsViewType)
+        self.tableView.register(ccNotificationsView, forCellReuseIdentifier: notificationsViewType.rawValue)
         
-        let AdministratorView  = UINib.init(nibName: "AdministratorView", bundle: nil)
-        self.tableView.register(AdministratorView, forCellReuseIdentifier: "administratorView")
+        let adminViewType = CCPNibs.AdministratorView
+        let ccAdminView  = AdministratorView.sourceNib(adminViewType)
+        self.tableView.register(ccAdminView, forCellReuseIdentifier: adminViewType.rawValue)
         
-        let AddMemberView  = UINib.init(nibName: "AddMemberView", bundle: nil)
-        self.tableView.register(AddMemberView, forCellReuseIdentifier: "addMemberView")
+        let addMemberViewType: CCPNibs = .AddMemberView
+        let ccAddMemberView = AddMemberView.sourceNib(addMemberViewType)
+        self.tableView.register(ccAddMemberView, forCellReuseIdentifier: addMemberViewType.rawValue)
         
-        let MembersView  = UINib.init(nibName: "MembersView", bundle: nil)
-        self.tableView.register(MembersView, forCellReuseIdentifier: "membersView")
         
-        let SupportView  = UINib.init(nibName: "SupportView", bundle: nil)
-        self.tableView.register(SupportView, forCellReuseIdentifier: "supportView")
+        let membersViewType: CCPNibs = .MembersView
+        let ccMembersView = MembersView.sourceNib(membersViewType)
+        self.tableView.register(ccMembersView, forCellReuseIdentifier: membersViewType.rawValue)
         
-        let SharedMediaView  = UINib.init(nibName: "SharedMediaView", bundle: nil)
-        self.tableView.register(SharedMediaView, forCellReuseIdentifier: "sharedMediaView")
+        let supportViewType: CCPNibs = .SupportView
+        let ccSupportView  = SupportView.sourceNib(supportViewType)
+        self.tableView.register(ccSupportView, forCellReuseIdentifier: supportViewType.rawValue)
         
+        
+        let sharedMediaViewType: CCPNibs = .SharedMediaView
+        let ccSharedMediaView = SharedMediaView.sourceNib(sharedMediaViewType)
+        self.tableView.register(ccSharedMediaView, forCellReuseIdentifier: sharedMediaViewType.rawValue)
     }
     
     
@@ -424,7 +432,7 @@ extension CometChatGroupDetail: UITableViewDelegate , UITableViewDataSource {
         case 0:
             switch settingsItems[safe:indexPath.row] {
             case CometChatGroupDetail.GROUP_INFO_CELL:
-                let groupDetail = tableView.dequeueReusableCell(withIdentifier: "detailView", for: indexPath) as! CometChatDetailView
+                let groupDetail = tableView.dequeueReusableCell(withIdentifier: CCPNibs.CometChatDetailView.rawValue, for: indexPath) as! CometChatDetailView
                 groupDetail.group = currentGroup
                 groupDetail.detailViewDelegate = self
                 groupDetail.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
@@ -439,19 +447,19 @@ extension CometChatGroupDetail: UITableViewDelegate , UITableViewDataSource {
                 return groupDetail
             
             case CometChatGroupDetail.ADMINISTRATOR_CELL:
-                let administratorCell = tableView.dequeueReusableCell(withIdentifier: "administratorView", for: indexPath) as! AdministratorView
+                let administratorCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.AdministratorView.rawValue, for: indexPath) as! AdministratorView
                 administratorCell.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
                 administratorCell.title.text = "Administrators"
                 return administratorCell
                 
             case CometChatGroupDetail.MODERATORS_CELL:
-                let administratorCell = tableView.dequeueReusableCell(withIdentifier: "administratorView", for: indexPath) as! AdministratorView
+                let administratorCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.AdministratorView.rawValue, for: indexPath) as! AdministratorView
                 administratorCell.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
                 administratorCell.title.text = "Moderators"
                 return administratorCell
                 
             case CometChatGroupDetail.BANNED_MEMBER_CELL:
-                let administratorCell = tableView.dequeueReusableCell(withIdentifier: "administratorView", for: indexPath) as! AdministratorView
+                let administratorCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.AdministratorView.rawValue, for: indexPath) as! AdministratorView
                 administratorCell.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
                 administratorCell.title.text = "Banned Members"
                 return administratorCell
@@ -459,14 +467,14 @@ extension CometChatGroupDetail: UITableViewDelegate , UITableViewDataSource {
             }
             
         case 1:
-            let addMemberCell = tableView.dequeueReusableCell(withIdentifier: "addMemberView",for: indexPath) as! AddMemberView
+            let addMemberCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.AddMemberView.rawValue,for: indexPath) as! AddMemberView
             addMemberCell.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
             return addMemberCell
             
         case 2:
             
             if let member = members[safe: indexPath.row] {
-                let membersCell = tableView.dequeueReusableCell(withIdentifier: "membersView", for: indexPath) as! MembersView
+                let membersCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.MembersView.rawValue, for: indexPath) as! MembersView
                 membersCell.member = member
                 if member.uid == currentGroup?.owner {
                     membersCell.scope.text = NSLocalizedString("Owner", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
@@ -477,13 +485,13 @@ extension CometChatGroupDetail: UITableViewDelegate , UITableViewDataSource {
         case 3:
             switch supportItems[safe:indexPath.row] {
             case CometChatGroupDetail.DELETE_AND_EXIT_CELL:
-                let supportCell = tableView.dequeueReusableCell(withIdentifier: "supportView", for: indexPath) as! SupportView
+                let supportCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.SupportView.rawValue, for: indexPath) as! SupportView
                 supportCell.textLabel?.text = NSLocalizedString("DELETE_&_EXIT", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 supportCell.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
                 return supportCell
                 
             case CometChatGroupDetail.EXIT_CELL:
-                let supportCell = tableView.dequeueReusableCell(withIdentifier: "supportView", for: indexPath) as! SupportView
+                let supportCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.SupportView.rawValue, for: indexPath) as! SupportView
                 supportCell.textLabel?.text = NSLocalizedString("LEAVE_GROUP", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 supportCell.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
                 return supportCell
@@ -491,7 +499,7 @@ extension CometChatGroupDetail: UITableViewDelegate , UITableViewDataSource {
             }
         case 4:
             if let group = currentGroup {
-                let sharedMediaCell = tableView.dequeueReusableCell(withIdentifier: "sharedMediaView", for: indexPath) as! SharedMediaView
+                let sharedMediaCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.SharedMediaView.rawValue, for: indexPath) as! SharedMediaView
                 sharedMediaCell.refreshMediaMessages(for: group, type: .group)
                 sharedMediaCell.sharedMediaDelegate = self
                 return sharedMediaCell

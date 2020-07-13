@@ -318,12 +318,12 @@ extension CometChatAddAdministrators: UITableViewDelegate , UITableViewDataSourc
         let cell = UITableViewCell()
         if mode == .fetchAdministrators {
             if indexPath.section == 0 {
-                let addAdminCell = tableView.dequeueReusableCell(withIdentifier: "addMemberView", for: indexPath) as! AddMemberView
+                let addAdminCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.AddMemberView.rawValue, for: indexPath) as! AddMemberView
                 addAdminCell.textLabel?.text = NSLocalizedString("ADD_ADMIN", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 return addAdminCell
             }else{
                 let  admin = administrators[safe:indexPath.row]
-                let membersCell = tableView.dequeueReusableCell(withIdentifier: "membersView", for: indexPath) as! MembersView
+                let membersCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.MembersView.rawValue, for: indexPath) as! MembersView
                 membersCell.member = admin
                 if admin?.uid == currentGroup?.owner {
                     membersCell.scope.text = NSLocalizedString("OWNER", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
@@ -333,7 +333,7 @@ extension CometChatAddAdministrators: UITableViewDelegate , UITableViewDataSourc
             
         }else if mode == .fetchGroupMembers {
             let  member =  groupMembers[safe:indexPath.row]
-            let membersCell = tableView.dequeueReusableCell(withIdentifier: "membersView", for: indexPath) as! MembersView
+            let membersCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.MembersView.rawValue, for: indexPath) as! MembersView
             membersCell.member = member
             return membersCell
         }
