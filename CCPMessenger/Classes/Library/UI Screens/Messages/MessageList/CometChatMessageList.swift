@@ -93,7 +93,7 @@ public class CometChatMessageList: UIViewController, AVAudioRecorderDelegate, AV
     }
     
     // MARK: - Declaration of Outlets
-    
+
     @IBOutlet weak var reactionView: LiveReaction!
     @IBOutlet weak var reaction: UIButton!
     @IBOutlet weak var microhone: UIButton!

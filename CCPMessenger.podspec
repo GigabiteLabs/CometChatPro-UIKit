@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
   }
 
   s.public_header_files = 'CCPMessenger/Classes/**/*.h'
-  s.ios.frameworks = 'UIKit'
+  s.ios.frameworks = 'UIKit', 'QuartzCore', 'AVKit', 'AVFoundation', 'QuickLook', 'AudioToolbox', 'Foundation', 'Accelerate', 'CoreImage', 'CoreGraphics', 'WebKit'
   s.osx.framework  = 'AppKit'
   s.dependency 'CometChatPro', '2.0.12-Xcode11.4'
   s.dependency 'Firebase/Messaging'

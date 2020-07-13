@@ -33,7 +33,7 @@ public class CometChatAddMembers: UIViewController {
     
     override public func loadView() {
         super.loadView()
-        UIFont.loadAllFonts(bundleIdentifierString: CCPType.bundle.bundleIdentifier ?? "")
+        UIFont.loadAllFonts(bundleIdentifierString: Bundle.main.bundleIdentifier ?? "")
         view.backgroundColor = .white
         safeArea = view.layoutMarginsGuide
         self.setupTableView()

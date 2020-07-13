@@ -91,7 +91,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CCPMessenger: 0e4ebdfd2f19a69b8062cda72bebebeaf53cfd42
+  CCPMessenger: 4b92d341f9a1c2b685f559415bdd9451ccf0980f
   CometChatPro: 3eed774fe7a77f825927ab724b2d23d02946ef87
   Firebase: 919186c8e119dd9372a45fd1dd17a8a942bc1892
   FirebaseCore: 8cd4f8ea22075e0ee582849b1cf79d8816506085

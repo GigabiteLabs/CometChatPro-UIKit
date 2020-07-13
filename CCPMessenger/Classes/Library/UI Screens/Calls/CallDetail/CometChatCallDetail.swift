@@ -13,7 +13,7 @@ import AVFoundation
 import CometChatPro
 
 /*  ----------------------------------------------------------------------------------------- */
-
+// TODO: refactor localized strings.
 class CometChatCallDetail: UIViewController {
     
     // MARK: - Declaration of Variables
@@ -217,22 +217,25 @@ class CometChatCallDetail: UIViewController {
      - Copyright:  ©  2020 CometChat Inc.
      */
     private func registerCells(){
+        let detailViewType: CCPNibs = .CometChatDetailView
+        let ccDetailView  = CometChatDetailView.sourceNib(detailViewType)
+        self.tableView.register(ccDetailView, forCellReuseIdentifier: detailViewType.rawValue)
         
-        let CometChatDetailView  = UINib.init(nibName: "CometChatDetailView", bundle: nil)
-        self.tableView.register(CometChatDetailView, forCellReuseIdentifier: "detailView")
+        let callDetailLogViewType: CCPNibs = .CometChatCallDetailLogView
+        let ccCallDetailLogView  = CometChatCallDetailLogView.sourceNib(callDetailLogViewType)
+        self.tableView.register(ccCallDetailLogView, forCellReuseIdentifier: callDetailLogViewType.rawValue)
         
-        let CometChatCallDetailLogView  = UINib.init(nibName: "CometChatCallDetailLogView", bundle: nil)
-        self.tableView.register(CometChatCallDetailLogView, forCellReuseIdentifier: "detailLogView")
+        let notificationsViewType: CCPNibs = .NotificationsView
+        let ccNotificationsView  = NotificationsView.sourceNib(notificationsViewType)
+        self.tableView.register(ccNotificationsView, forCellReuseIdentifier: notificationsViewType.rawValue)
         
-        let NotificationsView  = UINib.init(nibName: "NotificationsView", bundle: nil)
-        self.tableView.register(NotificationsView, forCellReuseIdentifier: "notificationsView")
+        let supportViewType: CCPNibs = .SupportView
+        let ccSupportView  = SupportView.sourceNib(supportViewType)
+        self.tableView.register(ccSupportView, forCellReuseIdentifier: supportViewType.rawValue)
         
-        let SupportView  = UINib.init(nibName: "SupportView", bundle: nil)
-        self.tableView.register(SupportView, forCellReuseIdentifier: "supportView")
-        
-        let ProgressIndicatorView  = UINib.init(nibName: "ProgressIndicatorView", bundle: nil)
-        self.tableView.register(ProgressIndicatorView, forCellReuseIdentifier: "progressIndicatorView")
-        
+        let progIndicatorViewType: CCPNibs = .ProgressIndicatorView
+        let indicatorView  = ProgressIndicatorView.sourceNib(progIndicatorViewType)
+        self.tableView.register(indicatorView, forCellReuseIdentifier: progIndicatorViewType.rawValue)
     }
     
     
@@ -344,14 +347,14 @@ extension CometChatCallDetail: UITableViewDelegate , UITableViewDataSource {
             switch settingItems[safe:indexPath.row] {
             case CometChatCallDetail.CALL_INFO_CELL:
                 if currentUser != nil {
-                    let userDetail = tableView.dequeueReusableCell(withIdentifier: "detailView", for: indexPath) as! CometChatDetailView
+                    let userDetail = tableView.dequeueReusableCell(withIdentifier: CCPNibs.CometChatDetailView.rawValue, for: indexPath) as! CometChatDetailView
                     userDetail.detailViewDelegate = self
                     userDetail.user = currentUser
                     userDetail.call.isHidden = false
                     userDetail.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
                     return userDetail
                 }else if currentGroup != nil {
-                    let groupDetail = tableView.dequeueReusableCell(withIdentifier: "detailView", for: indexPath) as! CometChatDetailView
+                    let groupDetail = tableView.dequeueReusableCell(withIdentifier: CCPNibs.CometChatDetailView.rawValue, for: indexPath) as! CometChatDetailView
                     groupDetail.group = currentGroup
                     groupDetail.detailViewDelegate = self
                     groupDetail.call.isHidden = false
@@ -363,19 +366,19 @@ extension CometChatCallDetail: UITableViewDelegate , UITableViewDataSource {
             }
         case 1:
             if calls.isEmpty {
-                let progressIndicatorView = tableView.dequeueReusableCell(withIdentifier: "progressIndicatorView", for: indexPath) as! ProgressIndicatorView
+                let progressIndicatorView = tableView.dequeueReusableCell(withIdentifier: CCPNibs.ProgressIndicatorView.rawValue, for: indexPath) as! ProgressIndicatorView
                 
                 return progressIndicatorView
             }else{
                 let call = calls[safe: indexPath.row]
-                let detailLogCell = tableView.dequeueReusableCell(withIdentifier: "detailLogView", for: indexPath) as! CometChatCallDetailLogView
+                let detailLogCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.CometChatCallDetailLogView.rawValue, for: indexPath) as! CometChatCallDetailLogView
                 detailLogCell.call = call
                 return detailLogCell
             }
         case 2:
             switch actionsItems[safe:indexPath.row] {
             case CometChatCallDetail.SEND_MESSAGE_CELL:
-                let supportCell = tableView.dequeueReusableCell(withIdentifier: "supportView", for: indexPath) as! SupportView
+                let supportCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.SupportView.rawValue, for: indexPath) as! SupportView
                 supportCell.textLabel?.text = NSLocalizedString("SEND_MESSAGE", comment: "")
                 supportCell.textLabel?.textColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
                 supportCell.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
@@ -386,7 +389,7 @@ extension CometChatCallDetail: UITableViewDelegate , UITableViewDataSource {
         case 3:
             switch supportItems[safe:indexPath.row] {
             case CometChatCallDetail.BLOCK_USER_CELL:
-                let supportCell = tableView.dequeueReusableCell(withIdentifier: "supportView", for: indexPath) as! SupportView
+                let supportCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.SupportView.rawValue, for: indexPath) as! SupportView
                 if currentUser?.blockedByMe == true {
                     supportCell.textLabel?.text = NSLocalizedString("UNBLOCK_USER", comment: "")
                     supportCell.textLabel?.textColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
@@ -398,7 +401,7 @@ extension CometChatCallDetail: UITableViewDelegate , UITableViewDataSource {
                 return supportCell
                 
             case CometChatCallDetail.LEAVE_GROUP_CELL:
-                let supportCell = tableView.dequeueReusableCell(withIdentifier: "supportView", for: indexPath) as! SupportView
+                let supportCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.SupportView.rawValue, for: indexPath) as! SupportView
                 supportCell.textLabel?.text = NSLocalizedString("LEAVE_GROUP", comment: "")
                 supportCell.textLabel?.textColor = .red
                 supportCell.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)

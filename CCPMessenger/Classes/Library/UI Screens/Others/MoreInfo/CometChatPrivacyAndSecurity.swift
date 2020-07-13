@@ -133,8 +133,9 @@ class CometChatPrivacyAndSecurity: UIViewController {
     - Copyright:  ©  2020 CometChat Inc.
     */
     private func registerCells(){
-        let AdministratorView  = UINib.init(nibName: "AdministratorView", bundle: nil)
-        self.tableView.register(AdministratorView, forCellReuseIdentifier: "administratorView")
+        let adminViewType = CCPNibs.AdministratorView
+        let ccAdminView  = AdministratorView.sourceNib(adminViewType)
+        self.tableView.register(ccAdminView, forCellReuseIdentifier: adminViewType.rawValue)
     }
     
     
@@ -264,18 +265,18 @@ extension CometChatPrivacyAndSecurity : UITableViewDelegate , UITableViewDataSou
         
         let cell = UITableViewCell()
         if indexPath.section == 0 && indexPath.row == 0 {
-            let blockedUserCell = tableView.dequeueReusableCell(withIdentifier: "administratorView", for: indexPath) as! AdministratorView
+            let blockedUserCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.AdministratorView.rawValue, for: indexPath) as! AdministratorView
             blockedUserCell.title.text = NSLocalizedString("BLOCKED_USERS", comment: "")
             return blockedUserCell
         }else{
             switch privacy[safe:indexPath.row] {
             case CometChatPrivacyAndSecurity.GROUP_CELL:
-                let groupsCell = tableView.dequeueReusableCell(withIdentifier: "administratorView", for: indexPath) as! AdministratorView
+                let groupsCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.AdministratorView.rawValue, for: indexPath) as! AdministratorView
                 groupsCell.title.text = NSLocalizedString("Groups", comment: "")
                 return groupsCell
                 
             case CometChatPrivacyAndSecurity.CALLS_CELL:
-                let callsCell = tableView.dequeueReusableCell(withIdentifier: "administratorView", for: indexPath) as! AdministratorView
+                let callsCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.AdministratorView.rawValue, for: indexPath) as! AdministratorView
                 callsCell.title.text = NSLocalizedString("CALLS", comment: "")
                 return callsCell
             default: break

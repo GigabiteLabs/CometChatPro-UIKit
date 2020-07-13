@@ -148,7 +148,7 @@ import CometChatPro
         */
     @objc public func incrementCount() {
         let currentCount = self.getCount
-        self.set(count: currentCount + 1)
+        let _ = self.set(count: currentCount + 1)
         self.isHidden = false
     }
     

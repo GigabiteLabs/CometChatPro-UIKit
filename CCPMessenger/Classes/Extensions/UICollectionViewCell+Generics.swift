@@ -9,5 +9,9 @@ import Foundation
 
 internal extension UICollectionViewCell {
     /// Returns Nib of the cell 
-
+    class func sourceNib(_ name: CCPNibs) -> UINib {
+        let bundle = Bundle(for: CCPType.self).podResource(name: "CCPMessenger")
+        let nib = UINib(nibName: name.rawValue, bundle: bundle)
+        return nib
+    }
 }

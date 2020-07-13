@@ -360,7 +360,7 @@ extension CometChatConversationList: UITableViewDelegate , UITableViewDataSource
     ///   - tableView: The table-view object requesting this information.
     ///   - section: An index number identifying a section of tableView.
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.CometChatConversationView.rawValue, for: indexPath) as! CometChatConversationView
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CometChatConversationView", for: indexPath) as! CometChatConversationView
         var conversation: Conversation?
         cell.searchedText = searchedText
         if isSearching() {
