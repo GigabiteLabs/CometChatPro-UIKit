@@ -106,7 +106,7 @@ public class CometChatOutgoingCall: UIViewController {
        - Author: CometChat Team
        - Copyright:  ©  2020 CometChat Inc.
        */
-    private func dismiss(){
+    private func dismiss() {
         CometChatSoundManager().play(sound: .outgoingCall, bool: false)
         self.dismiss(animated: true, completion: nil)
     }

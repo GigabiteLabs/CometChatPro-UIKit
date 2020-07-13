@@ -63,9 +63,7 @@ protocol SmartRepliesViewDelegate: class {
     private func setupCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
-        let cellType: CCPNibs = .SmartReplyCell
-        let SRCell = SmartReplyCell.sourceNib(cellType)
-        collectionView.register(SRCell, forCellWithReuseIdentifier: cellType.rawValue)
+        collectionView.register(.SmartReplyCell)
     }
 }
 
@@ -90,7 +88,7 @@ extension SmartRepliesView: UICollectionViewDataSource, UICollectionViewDelegate
     ///   - collectionView: An object that manages an ordered collection of data items and presents them using customizable layouts.
     ///   - indexPath: A list of indexes that together represent the path to a specific location in a tree of nested arrays.
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "smartReplyCell", for: indexPath) as! SmartReplyCell
+        let cell = collectionView.dequeReusableCell(with: .SmartReplyCell, for: indexPath) as! SmartReplyCell
         cell.delegate = self
         let title = buttontitles[safe: indexPath.row]
         cell.smartReplyButton.setTitle(title, for: .normal)

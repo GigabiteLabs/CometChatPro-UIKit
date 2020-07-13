@@ -28,7 +28,7 @@ public class CometChatUserInfo: UIViewController {
     
     override public func loadView() {
         super.loadView()
-        UIFont.loadAllFonts(bundleIdentifierString: CCPType.bundle.bundleIdentifier ?? "")
+        UIFont.loadCometChatFonts()
         view.backgroundColor = .white
         safeArea = view.layoutMarginsGuide
         self.setupTableView()
@@ -113,7 +113,7 @@ public class CometChatUserInfo: UIViewController {
      - Author: CometChat Team
      - Copyright:  ©  2020 CometChat Inc.
      */
-    private func setupItems(){
+    private func setupItems() {
         preferances = [ CometChatUserInfo.PRIVACY_AND_SECURITY_CELL]
     }
     
@@ -125,7 +125,7 @@ public class CometChatUserInfo: UIViewController {
     private func setupTableView() {
         if #available(iOS 13.0, *) {
             view.backgroundColor = .systemBackground
-        } else {}
+        } else { }
         tableView = UITableView()
         self.view.addSubview(self.tableView)
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -144,14 +144,10 @@ public class CometChatUserInfo: UIViewController {
      - Author: CometChat Team
      - Copyright:  ©  2020 CometChat Inc.
      */
-    private func registerCells(){
-        let ccUserType: CCPNibs = .CometChatUserView
-        let userNib = CometChatUserView.sourceNib(ccUserType)
-        self.tableView.register(userNib, forCellReuseIdentifier: ccUserType.rawValue)
-        
-        let ccSetttingsType: CCPNibs = .CometChatSettingsView
-        let settingsNib = CometChatSettingsView.sourceNib(ccSetttingsType)
-        self.tableView.register(settingsNib, forCellReuseIdentifier: ccSetttingsType.rawValue)
+    private func registerCells() {
+        // register cells using type
+        tableView.register(.CometChatUserView)
+        tableView.register(.CometChatSettingsView)
     }
     
     /**
@@ -159,7 +155,7 @@ public class CometChatUserInfo: UIViewController {
      - Author: CometChat Team
      - Copyright:  ©  2020 CometChat Inc.
      */
-    private func setupNavigationBar(){
+    private func setupNavigationBar() {
         if navigationController != nil{
             // NavigationBar Appearance
             if #available(iOS 13.0, *) {
@@ -219,7 +215,7 @@ extension CometChatUserInfo: UITableViewDelegate , UITableViewDataSource {
         if #available(iOS 13.0, *) {
             sectionTitle.textColor = .lightGray
             returnedView.backgroundColor = .systemBackground
-        } else {}
+        } else { }
         returnedView.addSubview(sectionTitle)
         return returnedView
     }
@@ -265,7 +261,7 @@ extension CometChatUserInfo: UITableViewDelegate , UITableViewDataSource {
         
         let cell:UITableViewCell = UITableViewCell()
         if indexPath.section == 0 && indexPath.row == 0 {
-            let userCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.CometChatUserView.rawValue, for: indexPath) as! CometChatUserView
+            let userCell = tableView.dequeReusableCell(with: .CometChatUserView, for: indexPath) as! CometChatUserView
             userCell.avatarWidth.constant = 80
             userCell.avatarHeight.constant = 80
             userCell.userAvatar.cornerRadius = 40
@@ -281,7 +277,7 @@ extension CometChatUserInfo: UITableViewDelegate , UITableViewDataSource {
             
         } else if indexPath.section == 1 {
             
-            let settingsCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.CometChatSettingsView.rawValue, for: indexPath) as! CometChatSettingsView
+            let settingsCell = tableView.dequeReusableCell(with: .CometChatSettingsView, for: indexPath) as! CometChatSettingsView
             
             switch preferances[safe:indexPath.row] {
             case CometChatUserInfo.PRIVACY_AND_SECURITY_CELL:
@@ -293,7 +289,7 @@ extension CometChatUserInfo: UITableViewDelegate , UITableViewDataSource {
                 break
             }
         } else if indexPath.section == 2 {
-            let _ = tableView.dequeueReusableCell(withIdentifier: CCPNibs.CometChatSettingsView.rawValue, for: indexPath) as! CometChatSettingsView
+            let _ = tableView.dequeReusableCell(with: .CometChatSettingsView, for: indexPath) as! CometChatSettingsView
             switch others[safe:indexPath.row] {
                 // what does this do?
             default:

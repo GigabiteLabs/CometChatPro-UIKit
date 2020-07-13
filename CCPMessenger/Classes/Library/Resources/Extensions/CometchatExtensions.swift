@@ -673,7 +673,7 @@ extension Bluring where Self: UIView {
 }
 
 // Conformance
-extension UIView: Bluring {}
+extension UIView: Bluring { }
 
 extension URL    {
     func checkFileExist() -> Bool {

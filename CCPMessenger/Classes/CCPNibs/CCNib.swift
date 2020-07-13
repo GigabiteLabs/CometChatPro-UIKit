@@ -7,9 +7,8 @@
 
 import Foundation
 
-public typealias CellNibs = CCPNibs
 /// Public enum of all nib files embedded in the framework
-public enum CCPNibs: String, CaseIterable {
+internal enum CCNib: String, CaseIterable {
     case AddMemberView
     case AdministratorView
     case AudioVisualizationView

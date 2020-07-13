@@ -30,7 +30,7 @@ public class CometChatBannedMembers: UIViewController {
     
     override public func loadView() {
         super.loadView()
-        UIFont.loadAllFonts(bundleIdentifierString: CCPType.bundle.bundleIdentifier ?? "")
+        UIFont.loadCometChatFonts()
         view.backgroundColor = .white
         safeArea = view.layoutMarginsGuide
         self.setupTableView()
@@ -118,7 +118,7 @@ public class CometChatBannedMembers: UIViewController {
      - Author: CometChat Team
      - Copyright:  ©  2020 CometChat Inc.
      */
-    fileprivate func addObservers(){
+    fileprivate func addObservers() {
         CometChat.groupdelegate = self
         NotificationCenter.default.addObserver(self, selector:#selector(self.didRefreshMembers(_:)), name: NSNotification.Name(rawValue: "didRefreshMembers"), object: nil)
     }
@@ -166,12 +166,10 @@ public class CometChatBannedMembers: UIViewController {
      - Author: CometChat Team
      - Copyright:  ©  2020 CometChat Inc.
      */
-    private func registerCells(){
-        let AddMemberView  = UINib.init(nibName: "AddMemberView", bundle: nil)
-        self.tableView.register(AddMemberView, forCellReuseIdentifier: "addMemberView")
-        
-        let MembersView  = UINib.init(nibName: "MembersView", bundle: nil)
-        self.tableView.register(MembersView, forCellReuseIdentifier: "membersView")
+    private func registerCells() {
+        // register cells using type
+        tableView.register(.AddMemberView)
+        tableView.register(.MembersView)
     }
     
     
@@ -180,7 +178,7 @@ public class CometChatBannedMembers: UIViewController {
      - Author: CometChat Team
      - Copyright:  ©  2020 CometChat Inc.
      */
-    private func setupNavigationBar(){
+    private func setupNavigationBar() {
         if navigationController != nil{
             // NavigationBar Appearance
             
@@ -211,7 +209,7 @@ public class CometChatBannedMembers: UIViewController {
      - Author: CometChat Team
      - Copyright:  ©  2020 CometChat Inc.
      */
-    @objc func closeButtonPressed(){
+    @objc func closeButtonPressed() {
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -293,7 +291,7 @@ extension CometChatBannedMembers: UITableViewDelegate , UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let  member =  bannedMembers[safe:indexPath.row]
-        let membersCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.MembersView.rawValue, for: indexPath) as! MembersView
+        let membersCell = tableView.dequeReusableCell(with: .MembersView, for: indexPath) as! MembersView
         membersCell.member = member
         return membersCell
     }

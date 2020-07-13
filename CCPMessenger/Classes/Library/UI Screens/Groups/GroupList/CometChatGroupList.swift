@@ -52,7 +52,7 @@ public class CometChatGroupList: UIViewController {
     
     override public func loadView() {
         super.loadView()
-        UIFont.loadAllFonts(bundleIdentifierString: CCPType.bundle.bundleIdentifier ?? "")
+        UIFont.loadCometChatFonts()
         view.backgroundColor = .white
         safeArea = view.layoutMarginsGuide
         self.setupTableView()
@@ -106,7 +106,7 @@ public class CometChatGroupList: UIViewController {
     - See Also:
    [CometChatGroupList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-2-comet-chat-group-list)
     */
-    private func fetchGroups(){
+    private func fetchGroups() {
         activityIndicator?.startAnimating()
         activityIndicator?.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
         tableView.tableFooterView = activityIndicator
@@ -143,7 +143,7 @@ public class CometChatGroupList: UIViewController {
      - See Also:
     [CometChatGroupList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-2-comet-chat-group-list)
      */
-    private func refreshGroups(){
+    private func refreshGroups() {
         groups.removeAll()
         activityIndicator?.startAnimating()
         activityIndicator?.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
@@ -182,7 +182,7 @@ public class CometChatGroupList: UIViewController {
      - See Also:
      [CometChatGroupList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-2-comet-chat-group-list)
      */
-    private func addObservers(){
+    private func addObservers() {
         NotificationCenter.default.addObserver(self, selector:#selector(self.didGroupDeleted(_:)), name: NSNotification.Name(rawValue: "didGroupDeleted"), object: nil)
         NotificationCenter.default.addObserver(self, selector:#selector(self.didGroupCreated(_:)), name: NSNotification.Name(rawValue: "didGroupCreated"), object: nil)
     }
@@ -256,10 +256,9 @@ public class CometChatGroupList: UIViewController {
     - See Also:
     [CometChatGroupList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-2-comet-chat-group-list)
     */
-    private func registerCells(){
-        let cellType: CCPNibs = .CometChatGroupView
-        let CCGroupView = CometChatGroupView.sourceNib(cellType)
-        self.tableView.register(CCGroupView, forCellReuseIdentifier: cellType.rawValue)
+    private func registerCells() {
+        // register cells using type
+        tableView.register(.CometChatGroupView)
     }
     
     /**
@@ -269,7 +268,7 @@ public class CometChatGroupList: UIViewController {
      - See Also:
      [CometChatGroupList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-2-comet-chat-group-list)
      */
-    private func setupNavigationBar(){
+    private func setupNavigationBar() {
         if navigationController != nil{
             if #available(iOS 13.0, *) {
                 let navBarAppearance = UINavigationBarAppearance()
@@ -312,7 +311,7 @@ public class CometChatGroupList: UIViewController {
      - See Also:
      [CometChatGroupList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-2-comet-chat-group-list)
      */
-    @objc func didCreateGroupPressed(){
+    @objc func didCreateGroupPressed() {
         let createGroup = CometChatCreateGroup()
         let navigationController: UINavigationController = UINavigationController(rootViewController: createGroup)
         createGroup.set(title: NSLocalizedString("CREATE_GROUP", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), mode: .automatic)
@@ -327,7 +326,7 @@ public class CometChatGroupList: UIViewController {
      - See Also:
      [CometChatGroupList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-2-comet-chat-group-list)
      */
-    private func setupSearchBar(){
+    private func setupSearchBar() {
         // SearchBar Apperance
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -335,13 +334,13 @@ public class CometChatGroupList: UIViewController {
         searchController.searchBar.delegate = self
         if #available(iOS 13.0, *) {
             searchController.searchBar.barTintColor = .systemBackground
-        } else {}
+        } else { }
         if #available(iOS 11.0, *) {
             if navigationController != nil{
                 navigationItem.searchController = searchController
             }else{
                 if let textfield = searchController.searchBar.value(forKey: "searchField") as? UITextField {
-                    if #available(iOS 13.0, *) {textfield.textColor = .label } else {}
+                    if #available(iOS 13.0, *) {textfield.textColor = .label } else { }
                     if let backgroundview = textfield.subviews.first{
                         backgroundview.backgroundColor = UIColor.init(white: 1, alpha: 0.5)
                         backgroundview.layer.cornerRadius = 10
@@ -350,7 +349,7 @@ public class CometChatGroupList: UIViewController {
                 }
                 tableView.tableHeaderView = searchController.searchBar
             }
-        } else {}
+        } else { }
     }
     
     /**
@@ -395,7 +394,7 @@ extension CometChatGroupList: UITableViewDelegate , UITableViewDataSource {
     ///   - section: An index number identifying a section of tableView .
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if isSearching(){
+        if isSearching() {
             return filteredGroups.count
         }else{
             return groups.count
@@ -522,7 +521,7 @@ extension CometChatGroupList: UITableViewDelegate , UITableViewDataSource {
     ///   - tableView: The table-view object requesting this information.
     ///   - section: An index number identifying a section of tableView.
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.CometChatGroupView.rawValue, for: indexPath) as! CometChatGroupView
+        let cell = tableView.dequeReusableCell(with: .CometChatGroupView, for: indexPath) as! CometChatGroupView
         let group: Group?
         
         if  groups.count != 0 {

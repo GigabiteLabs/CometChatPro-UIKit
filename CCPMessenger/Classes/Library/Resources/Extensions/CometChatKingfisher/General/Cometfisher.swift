@@ -46,7 +46,7 @@ public protocol CometChatKingfisherCompatible: AnyObject { }
 
 /// Represents a value type that is compatible with CometChatKingfisher. You can use `kf` property to get a
 /// value in the namespace of CometChatKingfisher.
-public protocol CometChatKingfisherCompatibleValue {}
+public protocol CometChatKingfisherCompatibleValue { }
 
 extension CometChatKingfisherCompatible {
     /// Gets a namespace holder for CometChatKingfisher compatible types.

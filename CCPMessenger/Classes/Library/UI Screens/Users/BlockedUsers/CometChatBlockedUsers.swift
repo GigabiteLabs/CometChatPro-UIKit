@@ -28,7 +28,7 @@ class CometChatBlockedUsers: UIViewController {
     
     override public func loadView() {
         super.loadView()
-        UIFont.loadAllFonts(bundleIdentifierString: Bundle.main.bundleIdentifier ?? "")
+        UIFont.loadCometChatFonts()
         view.backgroundColor = .white
         safeArea = view.layoutMarginsGuide
         self.setupTableView()
@@ -125,7 +125,7 @@ class CometChatBlockedUsers: UIViewController {
      - Author: CometChat Team
      - Copyright:  ©  2020 CometChat Inc.
      */
-    private func setupNavigationBar(){
+    private func setupNavigationBar() {
         if navigationController != nil{
             // NavigationBar Appearance
             
@@ -149,7 +149,7 @@ class CometChatBlockedUsers: UIViewController {
      - Author: CometChat Team
      - Copyright:  ©  2020 CometChat Inc.
      */
-    private func fetchBlockedUsers(){
+    private func fetchBlockedUsers() {
         activityIndicator?.startAnimating()
         activityIndicator?.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
         tableView.tableFooterView = activityIndicator

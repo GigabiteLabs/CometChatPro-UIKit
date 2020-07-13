@@ -24,7 +24,7 @@ public extension CCPHandler {
         })
     }
 
-    func logout(){
+    func logout() {
         print("attempting CometChat logout")
         let user = CometChat.getLoggedInUser()
         if let ccUser = user {
@@ -50,7 +50,7 @@ public extension CCPHandler {
         }
     }
 
-    private func processLogout(){
+    private func processLogout() {
         CometChat.logout(onSuccess: { (response) in
           // Logout success
             print("user logged out of CometChat, response: \(response)")

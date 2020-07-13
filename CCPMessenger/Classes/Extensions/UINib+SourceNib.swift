@@ -8,7 +8,7 @@
 import Foundation
 
 internal extension UINib {
-    class func sourceNib(_ nibName: CCPNibs) -> UINib {
+    class func sourceNib(_ nibName: CCNib) -> UINib {
         let bundle = Bundle(for: CCPType.self).podResource(name: "CCPMessenger")
         return UINib.init(nibName: nibName.rawValue, bundle: bundle)
     }

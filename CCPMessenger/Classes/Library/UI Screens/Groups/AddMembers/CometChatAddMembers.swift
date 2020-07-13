@@ -33,7 +33,7 @@ public class CometChatAddMembers: UIViewController {
     
     override public func loadView() {
         super.loadView()
-        UIFont.loadAllFonts(bundleIdentifierString: Bundle.main.bundleIdentifier ?? "")
+        UIFont.loadCometChatFonts()
         view.backgroundColor = .white
         safeArea = view.layoutMarginsGuide
         self.setupTableView()
@@ -144,7 +144,7 @@ public class CometChatAddMembers: UIViewController {
        - Author: CometChat Team
        - Copyright:  ©  2020 CometChat Inc.
        */
-    private func setupNavigationBar(){
+    private func setupNavigationBar() {
         if navigationController != nil{
             // NavigationBar Appearance
        
@@ -170,7 +170,7 @@ public class CometChatAddMembers: UIViewController {
     - Author: CometChat Team
     - Copyright:  ©  2020 CometChat Inc.
     */
-    @objc func closeButtonPressed(){
+    @objc func closeButtonPressed() {
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -180,7 +180,7 @@ public class CometChatAddMembers: UIViewController {
         - Author: CometChat Team
         - Copyright:  ©  2020 CometChat Inc.
         */
-    private func setupSearchBar(){
+    private func setupSearchBar() {
         // SearchBar Apperance
          searchController.searchResultsUpdater = self
                searchController.obscuresBackgroundDuringPresentation = false
@@ -188,14 +188,14 @@ public class CometChatAddMembers: UIViewController {
                searchController.searchBar.delegate = self
                if #available(iOS 13.0, *) {
                    searchController.searchBar.barTintColor = .systemBackground
-               } else {}
+               } else { }
         
         if #available(iOS 11.0, *) {
             if navigationController != nil{
                 navigationItem.searchController = searchController
             }else{
                 if let textfield = searchController.searchBar.value(forKey: "searchField") as? UITextField {
-                    if #available(iOS 13.0, *) {textfield.textColor = .label } else {}
+                    if #available(iOS 13.0, *) {textfield.textColor = .label } else { }
                     if let backgroundview = textfield.subviews.first{
                         backgroundview.backgroundColor = UIColor.init(white: 1, alpha: 0.5)
                         backgroundview.layer.cornerRadius = 10
@@ -204,7 +204,7 @@ public class CometChatAddMembers: UIViewController {
                 }
                 tableView.tableHeaderView = searchController.searchBar
             }
-        } else {}
+        } else { }
     }
     
     /**
@@ -212,7 +212,7 @@ public class CometChatAddMembers: UIViewController {
      - Author: CometChat Team
      - Copyright:  ©  2020 CometChat Inc.
      */
-    private func fetchUsers(){
+    private func fetchUsers() {
         activityIndicator?.startAnimating()
         activityIndicator?.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
         tableView.tableFooterView = activityIndicator
@@ -329,7 +329,7 @@ extension CometChatAddMembers: UITableViewDelegate , UITableViewDataSource {
       ///   - tableView: The table-view object requesting this information.
       ///   - section: An index number identifying a section of tableView .
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if isSearching(){
+        if isSearching() {
             return 0
         }else{
             return 25
@@ -342,7 +342,7 @@ extension CometChatAddMembers: UITableViewDelegate , UITableViewDataSource {
     ///   - section: An index number identifying a section of tableView .
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if isSearching(){
+        if isSearching() {
             return filteredUsers.count
         }else{
             return users.count
@@ -357,14 +357,14 @@ extension CometChatAddMembers: UITableViewDelegate , UITableViewDataSource {
         
         if isSearching() {
             let user = filteredUsers[safe:indexPath.row]
-            if sectionsArray[indexPath.section] == user?.name?.first?.uppercased(){
+            if sectionsArray[indexPath.section] == user?.name?.first?.uppercased() {
                 return 60
             }else{
                 return 0
             }
         }else{
             let user = users[safe:indexPath.row]
-            if sectionsArray[indexPath.section] == user?.name?.first?.uppercased(){
+            if sectionsArray[indexPath.section] == user?.name?.first?.uppercased() {
                 return 60
             }else{
                 return 0
@@ -387,7 +387,7 @@ extension CometChatAddMembers: UITableViewDelegate , UITableViewDataSource {
         } else {
             user = users[safe:indexPath.row]
         }
-            if sectionsArray[indexPath.section] == user?.name?.first?.uppercased(){
+            if sectionsArray[indexPath.section] == user?.name?.first?.uppercased() {
                 let userCell = tableView.dequeueReusableCell(withIdentifier: "userView", for: indexPath) as! CometChatUserView
                 userCell.user = user
                 return userCell
@@ -408,7 +408,7 @@ extension CometChatAddMembers: UITableViewDelegate , UITableViewDataSource {
         if #available(iOS 13.0, *) {
             sectionTitle?.textColor = .lightGray
             returnedView.backgroundColor = .systemBackground
-        } else {}
+        } else { }
         returnedView.addSubview(sectionTitle!)
         return returnedView
     }

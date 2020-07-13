@@ -356,7 +356,7 @@ extension ImageDownloader {
 }
 
 // Use the default implementation from extension of `AuthenticationChallengeResponsable`.
-extension ImageDownloader: AuthenticationChallengeResponsable {}
+extension ImageDownloader: AuthenticationChallengeResponsable { }
 
 // Use the default implementation from extension of `ImageDownloaderDelegate`.
-extension ImageDownloader: ImageDownloaderDelegate {}
+extension ImageDownloader: ImageDownloaderDelegate { }

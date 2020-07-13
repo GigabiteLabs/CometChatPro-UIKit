@@ -10,7 +10,7 @@
 
 import Foundation
 
-extension Never {}
+extension Never { }
 
 /// Represents all the errors which can happen in CometChatKingfisher framework.
 /// CometChatKingfisher related methods always throw a `CometChatKingfisherError` or invoke the callback with `CometChatKingfisherError`

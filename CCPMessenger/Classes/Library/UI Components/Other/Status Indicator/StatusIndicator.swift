@@ -25,13 +25,26 @@ import CometChatPro
     @IBInspectable var borderColor: UIColor = UIColor.black
     @IBInspectable var borderWidth: CGFloat = 0.5
     private var customBackgroundColor = UIColor.white
-    override public var backgroundColor: UIColor?{
+    override public var backgroundColor: UIColor? {
         didSet {
             customBackgroundColor = backgroundColor!
             super.backgroundColor = UIColor.clear
         }
     }
-    
+    /// Inspectable var to enable runtime defined user attribute hide
+    @IBInspectable var hide: Bool {
+        get {
+            return isHidden
+        }
+        set {
+            isHidden = newValue
+        }
+    }
+    @IBInspectable var setBackgroundColor: UIColor? {
+        didSet {
+            backgroundColor = setBackgroundColor
+        }
+    }
     // MARK: - Initialization of required Methods
     
     func setup() {
@@ -125,8 +138,13 @@ import CometChatPro
             self.backgroundColor = #colorLiteral(red: 0.6039215686, green: 0.8039215686, blue: 0.1960784314, alpha: 1)
         case .offline:
             self.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+        case .available:
+            print("ignoring UI update for status: .available")
         @unknown default:
-            break
+            // this should fatal error so we can catch
+            // any unhandled updates to UserStatus in development vs
+            // silencing them.
+            fatalError("unimplemented status uption introduced. update all status switch statements.")
         }
         return self
     }

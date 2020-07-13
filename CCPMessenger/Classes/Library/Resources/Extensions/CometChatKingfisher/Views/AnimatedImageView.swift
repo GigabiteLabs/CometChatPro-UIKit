@@ -57,8 +57,8 @@ public protocol AnimatedImageViewDelegate: AnyObject {
 }
 
 extension AnimatedImageViewDelegate {
-    public func animatedImageView(_ imageView: AnimatedImageView, didPlayAnimationLoops count: UInt) {}
-    public func animatedImageViewDidFinishAnimating(_ imageView: AnimatedImageView) {}
+    public func animatedImageView(_ imageView: AnimatedImageView, didPlayAnimationLoops count: UInt) { }
+    public func animatedImageViewDidFinishAnimating(_ imageView: AnimatedImageView) { }
 }
 
 #if swift(>=4.2)

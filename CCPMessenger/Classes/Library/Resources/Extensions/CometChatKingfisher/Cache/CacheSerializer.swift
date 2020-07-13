@@ -65,7 +65,7 @@ public struct DefaultCacheSerializer: CacheSerializer {
     
     /// The default general cache serializer used across CometChatKingfisher's cache.
     public static let `default` = DefaultCacheSerializer()
-    private init() {}
+    private init() { }
     
     /// - Parameters:
     ///   - image: The image needed to be serialized.

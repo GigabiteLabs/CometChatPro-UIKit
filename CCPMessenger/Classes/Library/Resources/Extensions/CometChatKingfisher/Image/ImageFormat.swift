@@ -62,7 +62,7 @@ public enum ImageFormat {
 }
 
 
-extension Data: CometChatKingfisherCompatibleValue {}
+extension Data: CometChatKingfisherCompatibleValue { }
 
 // MARK: - Misc Helpers
 extension CometChatKingfisherWrapper where Base == Data {

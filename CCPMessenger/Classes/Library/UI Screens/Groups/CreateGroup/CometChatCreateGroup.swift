@@ -77,7 +77,7 @@ class CometChatCreateGroup: UIViewController {
     
     // MARK: - Private Instance methods
     
-    private func setupSuperView(){
+    private func setupSuperView() {
         if #available(iOS 13.0, *) {
             view.backgroundColor = .systemBackground
             //typeView.layer.borderColor = UIColor.systemFill.cgColor
@@ -95,7 +95,7 @@ class CometChatCreateGroup: UIViewController {
         - Author: CometChat Team
         - Copyright:  ©  2020 CometChat Inc.
     */
-    private func setupNavigationBar(){
+    private func setupNavigationBar() {
         if navigationController != nil{
             // NavigationBar Appearance
             if #available(iOS 13.0, *) {
@@ -118,7 +118,7 @@ class CometChatCreateGroup: UIViewController {
     - Author: CometChat Team
     - Copyright:  ©  2020 CometChat Inc.
     */
-    fileprivate func addObservers(){
+    fileprivate func addObservers() {
         //Register Notifications
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(dismissKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -323,7 +323,7 @@ class CometChatCreateGroup: UIViewController {
     - Author: CometChat Team
     - Copyright:  ©  2020 CometChat Inc.
     */
-    @objc func closeButtonPressed(){
+    @objc func closeButtonPressed() {
         self.dismiss(animated: true, completion: nil)
     }
 }

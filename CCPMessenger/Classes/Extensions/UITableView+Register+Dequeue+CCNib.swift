@@ -8,9 +8,13 @@
 import Foundation
 
 internal extension UITableView {
-    /// 
-    func register(_ cometChatProCellType: CCPNibs) {
+    /// Registers a `UITableViewCell` by `CCNib`
+    func register(_ cometChatProCellType: CCNib) {
         let cellNib: UINib = .sourceNib(cometChatProCellType)
         register(cellNib, forCellReuseIdentifier: cometChatProCellType.rawValue)
+    }
+    /// Dequeues a reusable calle by `CCNib` for a given `IndexPath`.
+    func dequeReusableCell(with nib: CCNib, for indexPath: IndexPath) -> UITableViewCell {
+        return dequeueReusableCell(withIdentifier: nib.rawValue, for: indexPath)
     }
 }

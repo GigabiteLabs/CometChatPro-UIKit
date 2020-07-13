@@ -93,7 +93,7 @@ public struct RenderingModeImageModifier: ImageModifier {
 public struct FlipsForRightToLeftLayoutDirectionImageModifier: ImageModifier {
 
     /// Creates a `FlipsForRightToLeftLayoutDirectionImageModifier`.
-    public init() {}
+    public init() { }
 
     /// Modify an input `Image`. See `ImageModifier` protocol for more.
     public func modify(_ image: CFCrossPlatformImage) -> CFCrossPlatformImage {

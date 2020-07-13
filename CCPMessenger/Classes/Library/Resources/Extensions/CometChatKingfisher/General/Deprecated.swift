@@ -359,7 +359,7 @@ extension ImageCache {
             if let data = try diskStorage.value(forKey: computedKey, extendingExpiration: options.diskCacheAccessExtendingExpiration) {
                 return options.cacheSerializer.image(with: data, options: options)
             }
-        } catch {}
+        } catch { }
         return nil
     }
 
@@ -631,7 +631,7 @@ public struct DefaultImageModifier: ImageModifier {
 
     /// A default `DefaultImageModifier` which can be used everywhere.
     public static let `default` = DefaultImageModifier()
-    private init() {}
+    private init() { }
 
     /// Modifies an input `Image`. See `ImageModifier` protocol for more.
     public func modify(_ image: CFCrossPlatformImage) -> CFCrossPlatformImage { return image }

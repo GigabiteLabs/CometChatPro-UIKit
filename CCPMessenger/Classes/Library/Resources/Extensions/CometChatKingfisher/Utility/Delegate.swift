@@ -12,7 +12,7 @@ import Foundation
 
 /// A delegate helper type to "shadow" weak `self`, to prevent creating an unexpected retain cycle.
 class Delegate<Input, Output> {
-    init() {}
+    init() { }
     
     private var block: ((Input) -> Output?)?
     

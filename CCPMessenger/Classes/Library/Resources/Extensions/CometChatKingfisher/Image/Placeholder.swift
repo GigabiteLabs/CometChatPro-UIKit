@@ -40,7 +40,7 @@ extension CFCrossPlatformImage: Placeholder {
 /// added as a subview when adding and be removed from its super view when removing.
 ///
 /// To use your customize View type as placeholder, simply let it conforming to 
-/// `Placeholder` by `extension MyView: Placeholder {}`.
+/// `Placeholder` by `extension MyView: Placeholder { }`.
 extension Placeholder where Self: CFCrossPlatformView {
     
     /// How the placeholder should be added to a given image view.

@@ -35,6 +35,12 @@ import CometChatPro
             return Int(self.text ?? "0") ?? 0
         }
     }
+    /// Inspectable var to enable runtime defined user attribute hide
+    @IBInspectable var setTextColor: UIColor? {
+        didSet {
+            self.textColor = setTextColor
+        }
+    }
     
     // MARK: - Initialization of required Methods
     
@@ -53,7 +59,7 @@ import CometChatPro
         self.setup()
     }
     
-    func setup(){
+    func setup() {
         self.textColor = UIColor.white
         self.layer.cornerRadius = radius
         self.layer.borderColor = borderColor.cgColor

@@ -51,7 +51,7 @@ public class CometChatCallsList: UIViewController {
     
     override public func loadView() {
         super.loadView()
-        UIFont.loadAllFonts(bundleIdentifierString: CCPType.bundle.bundleIdentifier ?? "")
+        UIFont.loadCometChatFonts()
         view.backgroundColor = .white
         safeArea = view.layoutMarginsGuide
         self.setupTableView()
@@ -107,7 +107,7 @@ public class CometChatCallsList: UIViewController {
      - Author: CometChat Team
      - Copyright:  ©  2020 CometChat Inc.
      */
-    private func refreshCalls(){
+    private func refreshCalls() {
         DispatchQueue.main.async {
             self.tableView.setEmptyMessage(NSLocalizedString("", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""))
             self.activityIndicator?.startAnimating()
@@ -148,7 +148,7 @@ public class CometChatCallsList: UIViewController {
         - Author: CometChat Team
         - Copyright:  ©  2020 CometChat Inc.
         */
-    private func fetchPreviousCalls(){
+    private func fetchPreviousCalls() {
         DispatchQueue.main.async {
             self.activityIndicator?.startAnimating()
             self.activityIndicator?.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: self.tableView.bounds.width, height: CGFloat(44))
@@ -199,7 +199,7 @@ public class CometChatCallsList: UIViewController {
      - Copyright:  ©  2020 CometChat Inc.
     
      */
-    private  func setupDelegates(){
+    private  func setupDelegates() {
         CometChat.messagedelegate = self
     }
     
@@ -239,9 +239,9 @@ public class CometChatCallsList: UIViewController {
      - See Also:
      [CometChatUserList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-1-comet-chat-user-list)
      */
-    private func registerCells(){
-        let CometChatCallsView  = UINib.init(nibName: "CometChatCallsView", bundle: nil)
-        self.tableView.register(CometChatCallsView, forCellReuseIdentifier: "callsView")
+    private func registerCells() {
+        // register cells using type
+        tableView.register(.CometChatCallsView)
     }
     
     /**
@@ -250,7 +250,7 @@ public class CometChatCallsList: UIViewController {
      - Copyright:  ©  2020 CometChat Inc.
     
      */
-    private func setupNavigationBar(){
+    private func setupNavigationBar() {
         if navigationController != nil{
             if #available(iOS 13.0, *) {
                 let navBarAppearance = UINavigationBarAppearance()
@@ -333,7 +333,7 @@ public class CometChatCallsList: UIViewController {
     - Author: CometChat Team
     - Copyright:  ©  2020 CometChat Inc.
     */
-    @objc func didEditButtonPressed(){
+    @objc func didEditButtonPressed() {
         self.addEditButton(bool: false)
         tableView.isEditing = true
     }
@@ -344,7 +344,7 @@ public class CometChatCallsList: UIViewController {
        - Author: CometChat Team
        - Copyright:  ©  2020 CometChat Inc.
        */
-    @objc func didDoneButtonPressed(){
+    @objc func didDoneButtonPressed() {
         self.addEditButton(bool: true)
         tableView.isEditing = false
     }
@@ -355,7 +355,7 @@ public class CometChatCallsList: UIViewController {
           - Author: CometChat Team
           - Copyright:  ©  2020 CometChat Inc.
           */
-    @objc func didNewCallPressed(){
+    @objc func didNewCallPressed() {
         let newCallList = CometChatNewCallList()
         let navigationController = UINavigationController(rootViewController: newCallList)
          navigationController.modalPresentationStyle = .popover

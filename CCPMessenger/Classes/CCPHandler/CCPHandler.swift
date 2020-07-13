@@ -11,7 +11,7 @@ import FirebaseMessaging
 
 public final class CCPHandler: CCPType {
     public static let shared = CCPHandler()
-    private override init(){}
+    private override init() { }
 }
 
 internal extension URLRequest {

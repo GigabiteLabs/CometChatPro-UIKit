@@ -38,7 +38,7 @@ class CometChatUserDetail: UIViewController {
     
     override public func loadView() {
         super.loadView()
-        UIFont.loadAllFonts(bundleIdentifierString: CCPType.bundle.bundleIdentifier ?? "")
+        UIFont.loadCometChatFonts()
         view.backgroundColor = .white
         safeArea = view.layoutMarginsGuide
         self.setupTableView()
@@ -104,7 +104,7 @@ class CometChatUserDetail: UIViewController {
      - Author: CometChat Team
      - Copyright:  ©  2020 CometChat Inc.
      */
-    private func setupItems(){
+    private func setupItems() {
         settingItems = [CometChatUserDetail.USER_INFO_CELL]
         if currentGroup != nil {
             actionsItems = [CometChatUserDetail.SEND_MESSAGE_CELL, CometChatUserDetail.ADD_TO_CONTACTS_CELL]
@@ -122,7 +122,7 @@ class CometChatUserDetail: UIViewController {
     private func setupTableView() {
         if #available(iOS 13.0, *) {
             view.backgroundColor = .systemBackground
-        } else {}
+        } else { }
         tableView = UITableView()
         self.view.addSubview(self.tableView)
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -141,18 +141,12 @@ class CometChatUserDetail: UIViewController {
      - Author: CometChat Team
      - Copyright:  ©  2020 CometChat Inc.
      */
-    private func registerCells(){
-         let CometChatDetailView  = UINib.init(nibName: "CometChatDetailView", bundle: nil)
-         self.tableView.register(CometChatDetailView, forCellReuseIdentifier: "detailView")
-        
-        let NotificationsView  = UINib.init(nibName: "NotificationsView", bundle: nil)
-        self.tableView.register(NotificationsView, forCellReuseIdentifier: "notificationsView")
-        
-        let SupportView  = UINib.init(nibName: "SupportView", bundle: nil)
-        self.tableView.register(SupportView, forCellReuseIdentifier: "supportView")
-        
-        let SharedMediaView  = UINib.init(nibName: "SharedMediaView", bundle: nil)
-        self.tableView.register(SharedMediaView, forCellReuseIdentifier: "sharedMediaView")
+    private func registerCells() {
+        // register cells using type
+        tableView.register(.CometChatDetailView)
+        tableView.register(.NotificationsView)
+        tableView.register(.SupportView)
+        tableView.register(.SharedMediaView)
     }
     
     
@@ -161,7 +155,7 @@ class CometChatUserDetail: UIViewController {
      - Author: CometChat Team
      - Copyright:  ©  2020 CometChat Inc.
      */
-    private func setupNavigationBar(){
+    private func setupNavigationBar() {
         
         if navigationController != nil{
             // NavigationBar Appearance
@@ -181,7 +175,7 @@ class CometChatUserDetail: UIViewController {
         }
     }
     
-    @objc func closeButtonPressed(){
+    @objc func closeButtonPressed() {
         self.dismiss(animated: true, completion: nil)
     }  
 }
@@ -231,7 +225,7 @@ extension CometChatUserDetail: UITableViewDelegate , UITableViewDataSource {
         if #available(iOS 13.0, *) {
             sectionTitle.textColor = .lightGray
             returnedView.backgroundColor = .systemBackground
-        } else {}
+        } else { }
         returnedView.addSubview(sectionTitle)
         return returnedView
     }
@@ -274,7 +268,7 @@ extension CometChatUserDetail: UITableViewDelegate , UITableViewDataSource {
         case 0:
             switch settingItems[safe:indexPath.row] {
             case CometChatUserDetail.USER_INFO_CELL:
-                let userDetail = tableView.dequeueReusableCell(withIdentifier: CCPNibs.CometChatDetailView.rawValue, for: indexPath) as! CometChatDetailView
+                let userDetail = tableView.dequeReusableCell(with: .CometChatDetailView, for: indexPath) as! CometChatDetailView
                 userDetail.user = currentUser
                 userDetail.detailViewDelegate = self
                 userDetail.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
@@ -285,13 +279,13 @@ extension CometChatUserDetail: UITableViewDelegate , UITableViewDataSource {
             
             switch actionsItems[safe:indexPath.row] {
             case CometChatUserDetail.SEND_MESSAGE_CELL:
-                let supportCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.SupportView.rawValue, for: indexPath) as! SupportView
+                let supportCell = tableView.dequeReusableCell(with: .SupportView, for: indexPath) as! SupportView
                 supportCell.textLabel?.text = NSLocalizedString("SEND_MESSAGE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 supportCell.textLabel?.textColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
                 supportCell.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
                 return supportCell
             case CometChatUserDetail.ADD_TO_CONTACTS_CELL:
-                let supportCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.SupportView.rawValue, for: indexPath) as! SupportView
+                let supportCell = tableView.dequeReusableCell(with: .SupportView, for: indexPath) as! SupportView
                 
                 if let groupName = currentGroup?.name {
                     supportCell.textLabel?.text = NSLocalizedString("ADD_IN", tableName: nil, bundle: CCPType.bundle, value: "", comment: "") + " \(groupName)"
@@ -309,7 +303,7 @@ extension CometChatUserDetail: UITableViewDelegate , UITableViewDataSource {
             switch supportItems[safe:indexPath.row] {
             case CometChatUserDetail.BLOCK_USER_CELL:
                 
-                let supportCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.SupportView.rawValue, for: indexPath) as! SupportView
+                let supportCell = tableView.dequeReusableCell(with: .SupportView, for: indexPath) as! SupportView
                 
                 if currentUser?.blockedByMe == true {
                     supportCell.textLabel?.text = NSLocalizedString("UNBLOCK_USER", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
@@ -325,7 +319,7 @@ extension CometChatUserDetail: UITableViewDelegate , UITableViewDataSource {
             }
         case 3:
             if let user = currentUser {
-                let sharedMediaCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.SharedMediaView.rawValue, for: indexPath) as! SharedMediaView
+                let sharedMediaCell = tableView.dequeReusableCell(with: .SharedMediaView, for: indexPath) as! SharedMediaView
                  sharedMediaCell.refreshMediaMessages(for: user, type: .user)
                  sharedMediaCell.sharedMediaDelegate = self
                  sharedMediaCell.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
@@ -372,7 +366,7 @@ extension CometChatUserDetail: UITableViewDelegate , UITableViewDataSource {
                         let message = (self.currentUser?.name ?? "") + NSLocalizedString("ADDED_SUCCESSFULLY", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                         let snackbar: CometChatSnackbar = CometChatSnackbar.init(message: message, duration: .short)
                         snackbar.show()
-                        self.dismiss(animated: true) {}
+                        self.dismiss(animated: true) { }
                         
                     }
                 }) { (error) in
@@ -473,7 +467,7 @@ extension CometChatUserDetail :QLPreviewControllerDataSource, QLPreviewControlle
      - See Also:
      [CometChatMessageList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-4-comet-chat-message-list)
      */
-    private func presentQuickLook(){
+    private func presentQuickLook() {
         DispatchQueue.main.async {
             let previewController = QLPreviewController()
             previewController.modalPresentationStyle = .popover

@@ -52,8 +52,7 @@ import CometChatPro
     @objc public func set(controllers: [UIViewController]?){
         
         // Loading the fonts which required for the application.
-        UIFont.loadAllFonts(bundleIdentifierString: CCPType.bundleId)
-        print("all fonts loaded")
+        UIFont.loadCometChatFonts()
         
         // Adding Navigation controllers for view controllers.
         conversations.viewControllers = [conversationList]

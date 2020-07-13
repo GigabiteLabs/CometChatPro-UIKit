@@ -7,18 +7,18 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'CCPMessenger'
+  s.name             = 'CometChatProMessenger'
   s.version          = '0.1.1'
   s.summary          = 'A unified framework for CometChat Pro UIKit and binary framework.'
   s.description      = <<-DESC
 'A framework for CometChat Pro that combines the CometChat Pro UIKit library and public binary framework.'
                        DESC
 
-  s.homepage         = 'https://github.com/GigabiteLabs/CCPMessenger'
+  s.homepage         = 'https://github.com/GigabiteLabs/CometChatProMessenger'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'GigabiteLabs' => 'engineering@gigabitelabs.com' }
-  s.source           = { :git => 'https://github.com/GigabiteLabs/CCPMessenger.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/GigabiteLabs/CometChatProMessenger.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/gigabitelabs'
 
   s.ios.deployment_target = '13.0'

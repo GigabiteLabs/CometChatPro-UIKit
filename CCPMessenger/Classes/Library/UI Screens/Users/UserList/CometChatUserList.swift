@@ -54,7 +54,7 @@ public class CometChatUserList: UIViewController {
     
     override public func loadView() {
         super.loadView()
-        UIFont.loadAllFonts(bundleIdentifierString: CCPType.bundle.bundleIdentifier ?? "")
+        UIFont.loadCometChatFonts()
         view.backgroundColor = .white
         safeArea = view.layoutMarginsGuide
         self.setupTableView()
@@ -137,7 +137,7 @@ public class CometChatUserList: UIViewController {
      - See Also:
      [CometChatUserList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-1-comet-chat-user-list)
      */
-    private func fetchUsers(){
+    private func fetchUsers() {
         activityIndicator?.startAnimating()
         activityIndicator?.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
         tableView.tableFooterView = activityIndicator
@@ -182,7 +182,7 @@ public class CometChatUserList: UIViewController {
      - See Also:
      [CometChatUserList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-1-comet-chat-user-list)
      */
-    private func refreshUsers(){
+    private func refreshUsers() {
         self.sections.removeAll()
         self.users.removeAll()
         activityIndicator?.startAnimating()
@@ -255,9 +255,9 @@ public class CometChatUserList: UIViewController {
      - See Also:
      [CometChatUserList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-1-comet-chat-user-list)
      */
-    private func registerCells(){
-        let nibName: CCPNibs = .CometChatUserView
-        self.tableView.register(CometChatUserView.sourceNib(nibName), forCellReuseIdentifier: nibName.rawValue)
+    private func registerCells() {
+        // register cells using type
+        tableView.register(.CometChatUserView)
     }
     
     /**
@@ -267,7 +267,7 @@ public class CometChatUserList: UIViewController {
      - See Also:
      [CometChatUserList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-1-comet-chat-user-list)
      */
-    private func setupNavigationBar(){
+    private func setupNavigationBar() {
         if navigationController != nil{
             // NavigationBar Appearance
             if #available(iOS 13.0, *) {
@@ -289,7 +289,7 @@ public class CometChatUserList: UIViewController {
      - See Also:
      [CometChatUserList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-1-comet-chat-user-list)
      */
-    private func setupSearchBar(){
+    private func setupSearchBar() {
         // SearchBar Apperance
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -297,14 +297,14 @@ public class CometChatUserList: UIViewController {
         searchController.searchBar.delegate = self
         if #available(iOS 13.0, *) {
             searchController.searchBar.barTintColor = .systemBackground
-        } else {}
+        } else { }
         
         if #available(iOS 11.0, *) {
             if navigationController != nil{
                 navigationItem.searchController = searchController
             }else{
                 if let textfield = searchController.searchBar.value(forKey: "searchField") as? UITextField {
-                    if #available(iOS 13.0, *) {textfield.textColor = .label } else {}
+                    if #available(iOS 13.0, *) {textfield.textColor = .label } else { }
                     if let backgroundview = textfield.subviews.first{
                         backgroundview.backgroundColor = UIColor.init(white: 1, alpha: 0.5)
                         backgroundview.layer.cornerRadius = 10
@@ -313,7 +313,7 @@ public class CometChatUserList: UIViewController {
                 }
                 tableView.tableHeaderView = searchController.searchBar
             }
-        } else {}
+        } else { }
     }
     
     
@@ -378,7 +378,7 @@ extension CometChatUserList: UITableViewDelegate , UITableViewDataSource {
     ///   - tableView: The table-view object requesting this information.
     ///   - section: An index number identifying a section of tableView .
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if isSearching(){
+        if isSearching() {
             return 0
         }else{
             return 25
@@ -392,7 +392,7 @@ extension CometChatUserList: UITableViewDelegate , UITableViewDataSource {
     ///   - section: An index number identifying a section of tableView .
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if isSearching(){
+        if isSearching() {
             return filteredUsers.count
         }else{
             return users.count
@@ -408,14 +408,14 @@ extension CometChatUserList: UITableViewDelegate , UITableViewDataSource {
         
         if isSearching() {
             let user = filteredUsers[safe: indexPath.row]
-            if sections[safe: indexPath.section] == user?.name?.first?.uppercased(){
+            if sections[safe: indexPath.section] == user?.name?.first?.uppercased() {
                 return 60
             }else{
                 return 0
             }
         }else{
              let user = users[safe:indexPath.row]
-            if sections[safe: indexPath.section] == user?.name?.first?.uppercased(){
+            if sections[safe: indexPath.section] == user?.name?.first?.uppercased() {
                 return 60
             }else{
                 return 0
@@ -439,9 +439,9 @@ extension CometChatUserList: UITableViewDelegate , UITableViewDataSource {
             user = users[safe:indexPath.row]
         }
         print("user : \(String(describing: user?.stringValue()))")
-        if sections[safe: indexPath.section] == user?.name?.first?.uppercased(){
+        if sections[safe: indexPath.section] == user?.name?.first?.uppercased() {
             //let nibName: CCPNibs = .CometChatUserView
-            let userCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.CometChatUserView.rawValue, for: indexPath) as! CometChatUserView
+            let userCell = tableView.dequeReusableCell(with: .CometChatUserView, for: indexPath) as! CometChatUserView
             userCell.user = user
             return userCell
         }else{
@@ -462,7 +462,7 @@ extension CometChatUserList: UITableViewDelegate , UITableViewDataSource {
         if #available(iOS 13.0, *) {
             sectionTitle?.textColor = .lightGray
             returnedView.backgroundColor = .systemBackground
-        } else {}
+        } else { }
         returnedView.addSubview(sectionTitle!)
         return returnedView
     }

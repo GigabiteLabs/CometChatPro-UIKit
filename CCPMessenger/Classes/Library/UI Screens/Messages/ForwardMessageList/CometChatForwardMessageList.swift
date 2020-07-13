@@ -54,7 +54,7 @@ public class CometChatForwardMessageList: UIViewController {
     
     override public func loadView() {
         super.loadView()
-        UIFont.loadAllFonts(bundleIdentifierString: CCPType.bundle.bundleIdentifier ?? "")
+        UIFont.loadCometChatFonts()
         view.backgroundColor = .white
         safeArea = view.layoutMarginsGuide
         self.setupTableView()
@@ -119,7 +119,7 @@ public class CometChatForwardMessageList: UIViewController {
      - See Also:
      [CometChatForwardMessageList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-3-comet-chat-conversation-list)
      */
-    private func refreshConversations(){
+    private func refreshConversations() {
         DispatchQueue.main.async {
             self.activityIndicator?.startAnimating()
             self.activityIndicator?.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: self.tableView.bounds.width, height: CGFloat(44))
@@ -159,7 +159,7 @@ public class CometChatForwardMessageList: UIViewController {
      - See Also:
      [CometChatForwardMessageList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-3-comet-chat-conversation-list)
      */
-    private  func setupDelegates(){
+    private  func setupDelegates() {
         CometChat.messagedelegate = self
         CometChat.userdelegate = self
         CometChat.groupdelegate = self
@@ -202,9 +202,9 @@ public class CometChatForwardMessageList: UIViewController {
      - See Also:
      [CometChatUserList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-1-comet-chat-user-list)
      */
-    private func registerCells(){
-        let CometChatConversationView  = UINib.init(nibName: "CometChatConversationView", bundle: nil)
-        self.tableView.register(CometChatConversationView, forCellReuseIdentifier: "conversationView")
+    private func registerCells() {
+        // register cells using type
+        tableView.register(.CometChatConversationView)
     }
     
     /**
@@ -214,7 +214,7 @@ public class CometChatForwardMessageList: UIViewController {
      - See Also:
      [CometChatForwardMessageList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-3-comet-chat-conversation-list)
      */
-    private func setupNavigationBar(){
+    private func setupNavigationBar() {
         if navigationController != nil{
             if #available(iOS 13.0, *) {
                 let navBarAppearance = UINavigationBarAppearance()

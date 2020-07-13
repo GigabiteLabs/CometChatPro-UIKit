@@ -12,16 +12,12 @@ import CCPMessenger
 class ViewController: UIViewController {
 
     @IBAction func launch(_ sender: Any) {
-        let cc: CometChatUnified = .init(nibName: nil, bundle: CCPType.bundle)
-        cc.setup(withStyle: .formSheet)
-        present(cc, animated: true, completion: nil)
+        presentCometChatPro(nil, animated: true) {
+            print("presented comet chat pro")
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let bundle = CCPType.bundle.bundleIdentifier
-//        print("bundle identifier: \(bundle)")
-//        print("bundle path: \(CCPType.bundle.bundlePath)")
-        UIFont.loadAllFonts(bundleIdentifierString: CCPType.bundleId)
     }
 
     override func didReceiveMemoryWarning() {

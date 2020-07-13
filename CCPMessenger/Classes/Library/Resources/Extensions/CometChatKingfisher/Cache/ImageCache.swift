@@ -630,7 +630,7 @@ open class ImageCache {
                 if let handler = handler {
                     DispatchQueue.main.async { handler() }
                 }
-            } catch {}
+            } catch { }
         }
     }
 

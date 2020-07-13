@@ -27,7 +27,7 @@ class CometChatPrivacyAndSecurity: UIViewController {
     
     override public func loadView() {
         super.loadView()
-        UIFont.loadAllFonts(bundleIdentifierString: CCPType.bundle.bundleIdentifier ?? "")
+        UIFont.loadCometChatFonts()
         view.backgroundColor = .white
         safeArea = view.layoutMarginsGuide
         self.setupTableView()
@@ -80,7 +80,7 @@ class CometChatPrivacyAndSecurity: UIViewController {
     - Author: CometChat Team
     - Copyright:  ©  2020 CometChat Inc.
     */
-    fileprivate func addObservers(){
+    fileprivate func addObservers() {
         
         NotificationCenter.default.addObserver(self, selector:#selector(self.didUserBlocked(_:)), name: NSNotification.Name(rawValue: "didUserBlocked"), object: nil)
     }
@@ -99,7 +99,7 @@ class CometChatPrivacyAndSecurity: UIViewController {
        - Author: CometChat Team
        - Copyright:  ©  2020 CometChat Inc.
        */
-    private func setupItems(){
+    private func setupItems() {
         
         privacy = [CometChatPrivacyAndSecurity.GROUP_CELL,CometChatPrivacyAndSecurity.CALLS_CELL]
         
@@ -113,7 +113,7 @@ class CometChatPrivacyAndSecurity: UIViewController {
     private func setupTableView() {
         if #available(iOS 13.0, *) {
             view.backgroundColor = .systemBackground
-        } else {}
+        } else { }
         tableView = UITableView()
         self.view.addSubview(self.tableView)
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -132,10 +132,9 @@ class CometChatPrivacyAndSecurity: UIViewController {
     - Author: CometChat Team
     - Copyright:  ©  2020 CometChat Inc.
     */
-    private func registerCells(){
-        let adminViewType = CCPNibs.AdministratorView
-        let ccAdminView  = AdministratorView.sourceNib(adminViewType)
-        self.tableView.register(ccAdminView, forCellReuseIdentifier: adminViewType.rawValue)
+    private func registerCells() {
+        // register cells using type
+        tableView.register(.AdministratorView)
     }
     
     
@@ -144,7 +143,7 @@ class CometChatPrivacyAndSecurity: UIViewController {
         - Author: CometChat Team
         - Copyright:  ©  2020 CometChat Inc.
         */
-    private func setupNavigationBar(){
+    private func setupNavigationBar() {
         if navigationController != nil{
             // NavigationBar Appearance
             if #available(iOS 13.0, *) {
@@ -166,7 +165,7 @@ class CometChatPrivacyAndSecurity: UIViewController {
      - Author: CometChat Team
      - Copyright:  ©  2020 CometChat Inc.
      */
-    private func fetchBlockedUsersCount(){
+    private func fetchBlockedUsersCount() {
         blockedUserRequest = BlockedUserRequest.BlockedUserRequestBuilder(limit: 20).build()
         blockedUserRequest?.fetchNext(onSuccess: { (blockedUsers) in
             if let count =  blockedUsers?.count {
@@ -233,7 +232,7 @@ extension CometChatPrivacyAndSecurity : UITableViewDelegate , UITableViewDataSou
         if #available(iOS 13.0, *) {
             sectionTitle.textColor = .lightGray
             returnedView.backgroundColor = .systemBackground
-        } else {}
+        } else { }
         returnedView.addSubview(sectionTitle)
         return returnedView
     }
@@ -265,18 +264,18 @@ extension CometChatPrivacyAndSecurity : UITableViewDelegate , UITableViewDataSou
         
         let cell = UITableViewCell()
         if indexPath.section == 0 && indexPath.row == 0 {
-            let blockedUserCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.AdministratorView.rawValue, for: indexPath) as! AdministratorView
+            let blockedUserCell = tableView.dequeReusableCell(with: .AdministratorView, for: indexPath) as! AdministratorView
             blockedUserCell.title.text = NSLocalizedString("BLOCKED_USERS", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
             return blockedUserCell
         }else{
             switch privacy[safe:indexPath.row] {
             case CometChatPrivacyAndSecurity.GROUP_CELL:
-                let groupsCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.AdministratorView.rawValue, for: indexPath) as! AdministratorView
+                let groupsCell = tableView.dequeReusableCell(with: .AdministratorView, for: indexPath) as! AdministratorView
                 groupsCell.title.text = NSLocalizedString("Groups", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 return groupsCell
                 
             case CometChatPrivacyAndSecurity.CALLS_CELL:
-                let callsCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.AdministratorView.rawValue, for: indexPath) as! AdministratorView
+                let callsCell = tableView.dequeReusableCell(with: .AdministratorView, for: indexPath) as! AdministratorView
                 callsCell.title.text = NSLocalizedString("CALLS", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 return callsCell
             default: break

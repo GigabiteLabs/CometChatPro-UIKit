@@ -55,7 +55,7 @@ public class CometChatConversationList: UIViewController {
     
     override public func loadView() {
         super.loadView()
-        UIFont.loadAllFonts(bundleIdentifierString: CCPType.bundle.bundleIdentifier ?? "")
+        UIFont.loadCometChatFonts()
         view.backgroundColor = .white
         safeArea = view.layoutMarginsGuide
         self.setupTableView()
@@ -117,7 +117,7 @@ public class CometChatConversationList: UIViewController {
      - See Also:
      [CometChatConversationList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-3-comet-chat-conversation-list)
      */
-    private func refreshConversations(){
+    private func refreshConversations() {
         DispatchQueue.main.async {
             self.tableView.setEmptyMessage(NSLocalizedString("", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""))
             self.activityIndicator?.startAnimating()
@@ -158,7 +158,7 @@ public class CometChatConversationList: UIViewController {
      - See Also:
      [CometChatConversationList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-3-comet-chat-conversation-list)
      */
-    private  func setupDelegates(){
+    private  func setupDelegates() {
         CometChat.messagedelegate = self
         CometChat.userdelegate = self
         CometChat.groupdelegate = self
@@ -213,12 +213,9 @@ public class CometChatConversationList: UIViewController {
      - See Also:
      [CometChatUserList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-1-comet-chat-user-list)
      */
-    private func registerCells(){
-        print("registering cells")
-        let sourceNib: CCPNibs = .CometChatConversationView
-        let cccViewCell = CometChatConversationView.sourceNib(sourceNib)
-        self.tableView.register(cccViewCell, forCellReuseIdentifier: sourceNib.rawValue)
-        print("cell registered")
+    private func registerCells() {
+        // register cells using type
+        tableView.register(.CometChatConversationView)
     }
     
     /**
@@ -228,7 +225,7 @@ public class CometChatConversationList: UIViewController {
      - See Also:
      [CometChatConversationList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-3-comet-chat-conversation-list)
      */
-    private func setupNavigationBar(){
+    private func setupNavigationBar() {
         print("setupNavigationBar called")
         if navigationController != nil{
             if #available(iOS 13.0, *) {
@@ -251,7 +248,7 @@ public class CometChatConversationList: UIViewController {
      - See Also:
      [CometChatConversationList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-3-comet-chat-conversation-list)
      */
-    private func setupSearchBar(){
+    private func setupSearchBar() {
         print("setupSearchBar called")
         // SearchBar Apperance
         searchController.searchResultsUpdater = self
@@ -260,20 +257,20 @@ public class CometChatConversationList: UIViewController {
         searchController.searchBar.delegate = self
         if #available(iOS 13.0, *) {
             searchController.searchBar.barTintColor = .systemBackground
-        } else {}
+        } else { }
         if #available(iOS 11.0, *) {
             if navigationController != nil{
                 navigationItem.searchController = searchController
             }else{
                 if let textfield = searchController.searchBar.value(forKey: "searchField") as? UITextField {
-                    if #available(iOS 13.0, *) {textfield.textColor = .label } else {}
+                    if #available(iOS 13.0, *) {textfield.textColor = .label } else { }
                     if let backgroundview = textfield.subviews.first{
                         backgroundview.backgroundColor = UIColor.init(white: 1, alpha: 0.5)
                         backgroundview.layer.cornerRadius = 10
                         backgroundview.clipsToBounds = true
                     }}
                 tableView.tableHeaderView = searchController.searchBar
-            }} else {}
+            }} else { }
     }
     
     /**
@@ -340,7 +337,7 @@ extension CometChatConversationList: UITableViewDelegate , UITableViewDataSource
         } else{
             self.tableView.restore()
         }
-        if isSearching(){
+        if isSearching() {
             return filteredConversations.count
         }else{
             return conversations.count
@@ -360,7 +357,7 @@ extension CometChatConversationList: UITableViewDelegate , UITableViewDataSource
     ///   - tableView: The table-view object requesting this information.
     ///   - section: An index number identifying a section of tableView.
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CometChatConversationView", for: indexPath) as! CometChatConversationView
+        let cell = tableView.dequeReusableCell(with: .CometChatConversationView, for: indexPath) as! CometChatConversationView
         var conversation: Conversation?
         cell.searchedText = searchedText
         if isSearching() {

@@ -139,7 +139,7 @@ public struct DefaultImageProcessor: ImageProcessor {
     
     /// Creates a `DefaultImageProcessor`. Use `DefaultImageProcessor.default` to get an instance,
     /// if you do not have a good reason to create your own `DefaultImageProcessor`.
-    public init() {}
+    public init() { }
     
     /// Processes the input `ImageProcessItem` with this processor.
     ///
@@ -663,7 +663,7 @@ public struct BlackWhiteProcessor: ImageProcessor {
     public let identifier = "com.onevcat.CometChatKingfisher.BlackWhiteProcessor"
     
     /// Creates a `BlackWhiteProcessor`
-    public init() {}
+    public init() { }
     
     /// Processes the input `ImageProcessItem` with this processor.
     ///

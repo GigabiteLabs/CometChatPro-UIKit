@@ -36,7 +36,7 @@ public class CometChatAddModerators: UIViewController {
     
     override public func loadView() {
         super.loadView()
-        UIFont.loadAllFonts(bundleIdentifierString: CCPType.bundle.bundleIdentifier ?? "")
+        UIFont.loadCometChatFonts()
         view.backgroundColor = .white
         safeArea = view.layoutMarginsGuide
         self.setupTableView()
@@ -123,7 +123,7 @@ public class CometChatAddModerators: UIViewController {
      - Author: CometChat Team
      - Copyright:  ©  2020 CometChat Inc.
      */
-    fileprivate func addObservers(){
+    fileprivate func addObservers() {
         CometChat.groupdelegate = self
         NotificationCenter.default.addObserver(self, selector:#selector(self.didRefreshMembers(_:)), name: NSNotification.Name(rawValue: "didRefreshMembers"), object: nil)
     }
@@ -171,12 +171,10 @@ public class CometChatAddModerators: UIViewController {
      - Author: CometChat Team
      - Copyright:  ©  2020 CometChat Inc.
      */
-    private func registerCells(){
-        let AddMemberView  = UINib.init(nibName: "AddMemberView", bundle: nil)
-        self.tableView.register(AddMemberView, forCellReuseIdentifier: "addMemberView")
-        
-        let MembersView  = UINib.init(nibName: "MembersView", bundle: nil)
-        self.tableView.register(MembersView, forCellReuseIdentifier: "membersView")
+    private func registerCells() {
+        // register cells using type
+        tableView.register(.AddMemberView)
+        tableView.register(.MembersView)
     }
     
     
@@ -185,7 +183,7 @@ public class CometChatAddModerators: UIViewController {
      - Author: CometChat Team
      - Copyright:  ©  2020 CometChat Inc.
      */
-    private func setupNavigationBar(){
+    private func setupNavigationBar() {
         if navigationController != nil{
             // NavigationBar Appearance
             
@@ -216,7 +214,7 @@ public class CometChatAddModerators: UIViewController {
      - Author: CometChat Team
      - Copyright:  ©  2020 CometChat Inc.
      */
-    @objc func closeButtonPressed(){
+    @objc func closeButtonPressed() {
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -318,12 +316,12 @@ extension CometChatAddModerators: UITableViewDelegate , UITableViewDataSource {
         let cell = UITableViewCell()
         if mode == .fetchModerators {
             if indexPath.section == 0 {
-                let addAdminCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.AddMemberView.rawValue, for: indexPath) as! AddMemberView
+                let addAdminCell = tableView.dequeReusableCell(with: .AddMemberView, for: indexPath) as! AddMemberView
                 addAdminCell.textLabel?.text = NSLocalizedString("ADD_MODERATOR", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 return addAdminCell
             }else{
                 let  admin = moderators[safe:indexPath.row]
-                let membersCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.MembersView.rawValue, for: indexPath) as! MembersView
+                let membersCell = tableView.dequeReusableCell(with: .MembersView, for: indexPath) as! MembersView
                 membersCell.member = admin
                 if admin?.uid == currentGroup?.owner {
                     membersCell.scope.text = NSLocalizedString("OWNER", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
@@ -333,7 +331,7 @@ extension CometChatAddModerators: UITableViewDelegate , UITableViewDataSource {
             
         }else if mode == .fetchGroupMembers {
             let  member =  groupMembers[safe:indexPath.row]
-            let membersCell = tableView.dequeueReusableCell(withIdentifier: CCPNibs.MembersView.rawValue, for: indexPath) as! MembersView
+            let membersCell = tableView.dequeReusableCell(with: .MembersView, for: indexPath) as! MembersView
             membersCell.member = member
             return membersCell
         }

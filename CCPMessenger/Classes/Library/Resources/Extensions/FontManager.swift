@@ -7,13 +7,15 @@
 //
 import UIKit
 
-public extension UIFont {
-    
-    class func loadAllFonts(bundleIdentifierString: String) {
-        registerFontWithFilenameString(filenameString: "SF-Pro-Display-Black.otf", bundleIdentifierString: bundleIdentifierString)
-        registerFontWithFilenameString(filenameString: "SF-Pro-Display-Bold.otf", bundleIdentifierString: bundleIdentifierString)
+internal extension UIFont {
+    /// Loads all `UIFont` files for the framework and registers them with the framework's bundle.
+    class func loadCometChatFonts() {
+        let bundleIdentifierString = CCPType.bundleId
         registerFontWithFilenameString(filenameString: "SF-Pro-Display-Regular.otf", bundleIdentifierString: bundleIdentifierString)
         registerFontWithFilenameString(filenameString: "SF-Pro-Display-RegularItalic.otf", bundleIdentifierString: bundleIdentifierString)
+        registerFontWithFilenameString(filenameString: "SF-Pro-Display-Medium.otf", bundleIdentifierString: bundleIdentifierString)
+        registerFontWithFilenameString(filenameString: "SF-Pro-Display-Bold.otf", bundleIdentifierString: bundleIdentifierString)
+        registerFontWithFilenameString(filenameString: "SF-Pro-Display-Black.otf", bundleIdentifierString: bundleIdentifierString)
     }
     
     static func registerFontWithFilenameString(filenameString: String, bundleIdentifierString: String) {
