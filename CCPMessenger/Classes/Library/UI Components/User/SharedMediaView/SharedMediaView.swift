@@ -65,8 +65,7 @@ class SharedMediaView: UITableViewCell {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.dataSource = self
         collectionView.delegate = self
-        let SharedMediaCell = UINib(nibName: "SharedMediaCell", bundle: nil)
-        collectionView.register(SharedMediaCell, forCellWithReuseIdentifier: "sharedMediaCell")
+        collectionView.register(.SharedMediaCell)
     }
     
     
@@ -322,7 +321,7 @@ extension SharedMediaView : UICollectionViewDelegate , UICollectionViewDataSourc
     ///   - collectionView: An object that manages an ordered collection of data items and presents them using customizable layouts.
     ///   - indexPath: A list of indexes that together represent the path to a specific location in a tree of nested arrays.
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sharedMediaCell", for: indexPath) as! SharedMediaCell
+        let cell = collectionView.dequeueReusableCell(with: .SharedMediaCell, for: indexPath) as! SharedMediaCell
         switch self.mediaSelection.selectedSegmentIndex {
         case 0:
             if let photo = photos[safe:indexPath.row]{

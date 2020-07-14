@@ -264,18 +264,18 @@ extension CometChatPrivacyAndSecurity : UITableViewDelegate , UITableViewDataSou
         
         let cell = UITableViewCell()
         if indexPath.section == 0 && indexPath.row == 0 {
-            let blockedUserCell = tableView.dequeReusableCell(with: .AdministratorView, for: indexPath) as! AdministratorView
+            let blockedUserCell = tableView.dequeueReusableCell(with: .AdministratorView, for: indexPath) as! AdministratorView
             blockedUserCell.title.text = NSLocalizedString("BLOCKED_USERS", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
             return blockedUserCell
         }else{
             switch privacy[safe:indexPath.row] {
             case CometChatPrivacyAndSecurity.GROUP_CELL:
-                let groupsCell = tableView.dequeReusableCell(with: .AdministratorView, for: indexPath) as! AdministratorView
+                let groupsCell = tableView.dequeueReusableCell(with: .AdministratorView, for: indexPath) as! AdministratorView
                 groupsCell.title.text = NSLocalizedString("Groups", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 return groupsCell
                 
             case CometChatPrivacyAndSecurity.CALLS_CELL:
-                let callsCell = tableView.dequeReusableCell(with: .AdministratorView, for: indexPath) as! AdministratorView
+                let callsCell = tableView.dequeueReusableCell(with: .AdministratorView, for: indexPath) as! AdministratorView
                 callsCell.title.text = NSLocalizedString("CALLS", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 return callsCell
             default: break

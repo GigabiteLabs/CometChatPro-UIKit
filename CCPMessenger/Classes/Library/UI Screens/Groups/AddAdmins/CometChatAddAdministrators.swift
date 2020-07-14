@@ -316,12 +316,12 @@ extension CometChatAddAdministrators: UITableViewDelegate , UITableViewDataSourc
         let cell = UITableViewCell()
         if mode == .fetchAdministrators {
             if indexPath.section == 0 {
-                let addAdminCell = tableView.dequeReusableCell(with: .AddMemberView, for: indexPath) as! AddMemberView
+                let addAdminCell = tableView.dequeueReusableCell(with: .AddMemberView, for: indexPath) as! AddMemberView
                 addAdminCell.textLabel?.text = NSLocalizedString("ADD_ADMIN", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 return addAdminCell
             }else{
                 let  admin = administrators[safe:indexPath.row]
-                let membersCell = tableView.dequeReusableCell(with: .MembersView, for: indexPath) as! MembersView
+                let membersCell = tableView.dequeueReusableCell(with: .MembersView, for: indexPath) as! MembersView
                 membersCell.member = admin
                 if admin?.uid == currentGroup?.owner {
                     membersCell.scope.text = NSLocalizedString("OWNER", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
@@ -331,7 +331,7 @@ extension CometChatAddAdministrators: UITableViewDelegate , UITableViewDataSourc
             
         }else if mode == .fetchGroupMembers {
             let  member =  groupMembers[safe:indexPath.row]
-            let membersCell = tableView.dequeReusableCell(with: .MembersView, for: indexPath) as! MembersView
+            let membersCell = tableView.dequeueReusableCell(with: .MembersView, for: indexPath) as! MembersView
             membersCell.member = member
             return membersCell
         }
@@ -436,7 +436,9 @@ extension CometChatAddAdministrators: UITableViewDelegate , UITableViewDataSourc
                         }
                         let memberName = (tableView.cellForRow(at: indexPath) as? MembersView)?.member?.name ?? ""
                         let groupName = self.currentGroup?.name ?? ""
-                        return UIMenu(title: NSLocalizedString("ADD" , comment: "") + "\(memberName)" + NSLocalizedString(" as admin in ", comment: "") + "\(groupName)" + NSLocalizedString("GROUP?", tableName: nil, bundle: CCPType.bundle, value: "", comment: "") , children: [removeAdmin])
+                        let make = NSLocalizedString("MAKE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
+                        let anAdminOf = NSLocalizedString("AN_ADMIN_OF", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
+                        return UIMenu(title: "\(make) \(memberName) \(anAdminOf) \"\(groupName)\"?", children: [removeAdmin])
                     }
                 }
             }

@@ -411,7 +411,7 @@ extension CometChatGroupDetail: UITableViewDelegate , UITableViewDataSource {
         case 0:
             switch settingsItems[safe:indexPath.row] {
             case CometChatGroupDetail.GROUP_INFO_CELL:
-                let groupDetail = tableView.dequeReusableCell(with: .CometChatDetailView, for: indexPath) as! CometChatDetailView
+                let groupDetail = tableView.dequeueReusableCell(with: .CometChatDetailView, for: indexPath) as! CometChatDetailView
                 groupDetail.group = currentGroup
                 groupDetail.detailViewDelegate = self
                 groupDetail.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
@@ -426,19 +426,19 @@ extension CometChatGroupDetail: UITableViewDelegate , UITableViewDataSource {
                 return groupDetail
             
             case CometChatGroupDetail.ADMINISTRATOR_CELL:
-                let administratorCell = tableView.dequeReusableCell(with: .AdministratorView, for: indexPath) as! AdministratorView
+                let administratorCell = tableView.dequeueReusableCell(with: .AdministratorView, for: indexPath) as! AdministratorView
                 administratorCell.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
                 administratorCell.title.text = "Administrators"
                 return administratorCell
                 
             case CometChatGroupDetail.MODERATORS_CELL:
-                let administratorCell = tableView.dequeReusableCell(with: .AdministratorView, for: indexPath) as! AdministratorView
+                let administratorCell = tableView.dequeueReusableCell(with: .AdministratorView, for: indexPath) as! AdministratorView
                 administratorCell.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
                 administratorCell.title.text = "Moderators"
                 return administratorCell
                 
             case CometChatGroupDetail.BANNED_MEMBER_CELL:
-                let administratorCell = tableView.dequeReusableCell(with: .AdministratorView, for: indexPath) as! AdministratorView
+                let administratorCell = tableView.dequeueReusableCell(with: .AdministratorView, for: indexPath) as! AdministratorView
                 administratorCell.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
                 administratorCell.title.text = "Banned Members"
                 return administratorCell
@@ -446,14 +446,14 @@ extension CometChatGroupDetail: UITableViewDelegate , UITableViewDataSource {
             }
             
         case 1:
-            let addMemberCell = tableView.dequeReusableCell(with: .AddMemberView, for: indexPath) as! AddMemberView
+            let addMemberCell = tableView.dequeueReusableCell(with: .AddMemberView, for: indexPath) as! AddMemberView
             addMemberCell.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
             return addMemberCell
             
         case 2:
             
             if let member = members[safe: indexPath.row] {
-                let membersCell = tableView.dequeReusableCell(with: .MembersView, for: indexPath) as! MembersView
+                let membersCell = tableView.dequeueReusableCell(with: .MembersView, for: indexPath) as! MembersView
                 membersCell.member = member
                 if member.uid == currentGroup?.owner {
                     membersCell.scope.text = NSLocalizedString("Owner", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
@@ -464,13 +464,13 @@ extension CometChatGroupDetail: UITableViewDelegate , UITableViewDataSource {
         case 3:
             switch supportItems[safe:indexPath.row] {
             case CometChatGroupDetail.DELETE_AND_EXIT_CELL:
-                let supportCell = tableView.dequeReusableCell(with: .SupportView, for: indexPath) as! SupportView
+                let supportCell = tableView.dequeueReusableCell(with: .SupportView, for: indexPath) as! SupportView
                 supportCell.textLabel?.text = NSLocalizedString("DELETE_&_EXIT", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 supportCell.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
                 return supportCell
                 
             case CometChatGroupDetail.EXIT_CELL:
-                let supportCell = tableView.dequeReusableCell(with: .SupportView, for: indexPath) as! SupportView
+                let supportCell = tableView.dequeueReusableCell(with: .SupportView, for: indexPath) as! SupportView
                 supportCell.textLabel?.text = NSLocalizedString("LEAVE_GROUP", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 supportCell.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
                 return supportCell
@@ -478,7 +478,7 @@ extension CometChatGroupDetail: UITableViewDelegate , UITableViewDataSource {
             }
         case 4:
             if let group = currentGroup {
-                let sharedMediaCell = tableView.dequeReusableCell(with: .SharedMediaView, for: indexPath) as! SharedMediaView
+                let sharedMediaCell = tableView.dequeueReusableCell(with: .SharedMediaView, for: indexPath) as! SharedMediaView
                 sharedMediaCell.refreshMediaMessages(for: group, type: .group)
                 sharedMediaCell.sharedMediaDelegate = self
                 return sharedMediaCell

@@ -134,8 +134,7 @@ public class CometChatAddMembers: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.tableFooterView = UIView(frame: .zero)
-        let CometChatUserView  = UINib.init(nibName: "CometChatUserView", bundle: nil)
-        self.tableView.register(CometChatUserView, forCellReuseIdentifier: "userView")
+        tableView.register(.CometChatUserView)
     }
     
     
@@ -388,7 +387,7 @@ extension CometChatAddMembers: UITableViewDelegate , UITableViewDataSource {
             user = users[safe:indexPath.row]
         }
             if sectionsArray[indexPath.section] == user?.name?.first?.uppercased() {
-                let userCell = tableView.dequeueReusableCell(withIdentifier: "userView", for: indexPath) as! CometChatUserView
+                let userCell = tableView.dequeueReusableCell(with: .CometChatUserView, for: indexPath) as! CometChatUserView
                 userCell.user = user
                 return userCell
             }else{

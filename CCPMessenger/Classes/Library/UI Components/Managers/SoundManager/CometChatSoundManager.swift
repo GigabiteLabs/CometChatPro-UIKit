@@ -29,61 +29,51 @@ public final class CometChatSoundManager: NSObject {
     /**
        This method play or pause different types of sounds for incoming outgoing calls and messages.
          - Parameters:
-           - sound: Specifies an enum of Sound Types such as incomingCall, incomingMessage etc.
-              - bool:  Specifies boolean value to play or pause the sound.
+            - sound: Specifies an enum of Sound Types such as incomingCall, incomingMessage etc.
+            - pausingCurrentlyPlayingAudio: if set to true, pauses any currently playing audio
        - Author: CometChat Team
        - Copyright:  ©  2020 CometChat Inc.
        */
-    public func play(sound: Sound, bool: Bool){
-       if bool == true {
+    public func play(sound: Sound, pausingCurrentlyPlayingAudio: Bool) throws {
+       if pausingCurrentlyPlayingAudio == true {
        switch sound {
         case .incomingCall:
-            guard let soundURL = Bundle.main.url(forResource: "IncomingCall", withExtension: "wav") else { return }
-            do {
-                try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
-                try AVAudioSession.sharedInstance().setActive(true)
-                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-                audioPlayer?.numberOfLoops = -1
-                audioPlayer?.prepareToPlay()
-                audioPlayer?.play()
-            } catch { }
+            let soundURL: URL = .sourceBundle(.IncomingCall)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+            audioPlayer?.numberOfLoops = -1
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.play()
         case .incomingMessage:
-            guard let soundURL = Bundle.main.url(forResource: "IncomingMessage", withExtension: "wav") else { return }
-            do {
-                try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
-                try AVAudioSession.sharedInstance().setActive(true)
-                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-                audioPlayer?.prepareToPlay()
-                audioPlayer?.play()
-            } catch { }
+            let soundURL: URL = .sourceBundle(.IncomingMessage)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.play()
         case .outgoingCall:
-            guard let soundURL = Bundle.main.url(forResource: "OutgoingCall", withExtension: "wav") else { return }
-            do {
-                try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
-                try AVAudioSession.sharedInstance().setActive(true)
-                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-                audioPlayer?.numberOfLoops = -1
-                audioPlayer?.prepareToPlay()
-                audioPlayer?.play()
-            } catch { }
+            let soundURL: URL = .sourceBundle(.OutgoingCall)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+            audioPlayer?.numberOfLoops = -1
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.play()
         case .outgoingMessage:
-            guard let soundURL = Bundle.main.url(forResource: "OutgoingMessege", withExtension: "wav") else { return }
-            do {
-                try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
-                try AVAudioSession.sharedInstance().setActive(true)
-                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-                audioPlayer?.prepareToPlay()
-                audioPlayer?.play()
-            } catch { }
+            let soundURL: URL = .sourceBundle(.OutgoingMessage)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.play()
         case .incomingMessageForOther:
-            guard let soundURL = Bundle.main.url(forResource: "IncomingMessageOther", withExtension: "wav") else { return }
-            do {
-                try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
-                try AVAudioSession.sharedInstance().setActive(true)
-                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-                audioPlayer?.prepareToPlay()
-                audioPlayer?.play()
-            } catch { }
+            let soundURL: URL = .sourceBundle(.IncomingMessage)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.play()
         }
         }else{
         if audioPlayer?.isPlaying == true {

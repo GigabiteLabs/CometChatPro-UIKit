@@ -443,12 +443,12 @@ extension CometChatCallsList: UITableViewDelegate , UITableViewDataSource {
         
         switch segmentControl.selectedSegmentIndex {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "callsView", for: indexPath) as! CometChatCallsView
+            let cell = tableView.dequeueReusableCell(with: .CometChatCallsView, for: indexPath) as! CometChatCallsView
             let call = calls[safe:indexPath.row]
             cell.call = call
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "callsView", for: indexPath) as! CometChatCallsView
+            let cell = tableView.dequeueReusableCell(with: .CometChatCallsView, for: indexPath) as! CometChatCallsView
             let call = missedCalls[safe:indexPath.row]
             cell.call = call
             return cell

@@ -316,12 +316,12 @@ extension CometChatAddModerators: UITableViewDelegate , UITableViewDataSource {
         let cell = UITableViewCell()
         if mode == .fetchModerators {
             if indexPath.section == 0 {
-                let addAdminCell = tableView.dequeReusableCell(with: .AddMemberView, for: indexPath) as! AddMemberView
+                let addAdminCell = tableView.dequeueReusableCell(with: .AddMemberView, for: indexPath) as! AddMemberView
                 addAdminCell.textLabel?.text = NSLocalizedString("ADD_MODERATOR", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 return addAdminCell
             }else{
                 let  admin = moderators[safe:indexPath.row]
-                let membersCell = tableView.dequeReusableCell(with: .MembersView, for: indexPath) as! MembersView
+                let membersCell = tableView.dequeueReusableCell(with: .MembersView, for: indexPath) as! MembersView
                 membersCell.member = admin
                 if admin?.uid == currentGroup?.owner {
                     membersCell.scope.text = NSLocalizedString("OWNER", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
@@ -331,7 +331,7 @@ extension CometChatAddModerators: UITableViewDelegate , UITableViewDataSource {
             
         }else if mode == .fetchGroupMembers {
             let  member =  groupMembers[safe:indexPath.row]
-            let membersCell = tableView.dequeReusableCell(with: .MembersView, for: indexPath) as! MembersView
+            let membersCell = tableView.dequeueReusableCell(with: .MembersView, for: indexPath) as! MembersView
             membersCell.member = member
             return membersCell
         }
@@ -423,7 +423,8 @@ extension CometChatAddModerators: UITableViewDelegate , UITableViewDataSource {
                                DispatchQueue.main.async {
                                     if let errorMessage = error?.errorDescription {
                                         if error?.errorCode == "ERR_GROUP_NO_SCOPE_CLEARANCE" {
-                                            let snackbar: CometChatSnackbar = CometChatSnackbar.init(message: "You don't have privilege to make \(member.name!) as moderator.", duration: .short)
+                                            let errorMessage = NSLocalizedString("INSUFFICIENT_PRIVILEGES", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
+                                            let snackbar: CometChatSnackbar = CometChatSnackbar.init(message: errorMessage, duration: .short)
                                             snackbar.show()
                                         }else{
                                             let snackbar: CometChatSnackbar = CometChatSnackbar.init(message: errorMessage, duration: .short)
@@ -436,7 +437,7 @@ extension CometChatAddModerators: UITableViewDelegate , UITableViewDataSource {
                         }
                         let memberName = (tableView.cellForRow(at: indexPath) as? MembersView)?.member?.name ?? ""
                         let groupName = self.currentGroup?.name ?? ""
-                        return UIMenu(title: NSLocalizedString("ADD" , comment: "") + "\(memberName)" + NSLocalizedString(" as admin in ", comment: "") + "\(groupName)" + NSLocalizedString("GROUP?", tableName: nil, bundle: CCPType.bundle, value: "", comment: "") , children: [removeAdmin])
+                        return UIMenu(title: NSLocalizedString("MAKE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "") + " \(memberName) " + NSLocalizedString("A_MODERATOR_OF", tableName: nil, bundle: CCPType.bundle, value: "", comment: "") + " \(groupName)" + NSLocalizedString("GROUP?", tableName: nil, bundle: CCPType.bundle, value: "", comment: "") , children: [removeAdmin])
                     }
                 }
             }

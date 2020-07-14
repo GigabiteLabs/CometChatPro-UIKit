@@ -524,7 +524,7 @@ extension CometChatGroupList: UITableViewDelegate , UITableViewDataSource {
     ///   - tableView: The table-view object requesting this information.
     ///   - section: An index number identifying a section of tableView.
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeReusableCell(with: .CometChatGroupView, for: indexPath) as! CometChatGroupView
+        let cell = tableView.dequeueReusableCell(with: .CometChatGroupView, for: indexPath) as! CometChatGroupView
         let group: Group?
         
         if  groups.count != 0 {

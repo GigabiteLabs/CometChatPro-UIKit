@@ -261,7 +261,7 @@ extension CometChatUserInfo: UITableViewDelegate , UITableViewDataSource {
         
         let cell:UITableViewCell = UITableViewCell()
         if indexPath.section == 0 && indexPath.row == 0 {
-            let userCell = tableView.dequeReusableCell(with: .CometChatUserView, for: indexPath) as! CometChatUserView
+            let userCell = tableView.dequeueReusableCell(with: .CometChatUserView, for: indexPath) as! CometChatUserView
             userCell.avatarWidth.constant = 80
             userCell.avatarHeight.constant = 80
             userCell.userAvatar.cornerRadius = 40
@@ -277,7 +277,7 @@ extension CometChatUserInfo: UITableViewDelegate , UITableViewDataSource {
             
         } else if indexPath.section == 1 {
             
-            let settingsCell = tableView.dequeReusableCell(with: .CometChatSettingsView, for: indexPath) as! CometChatSettingsView
+            let settingsCell = tableView.dequeueReusableCell(with: .CometChatSettingsView, for: indexPath) as! CometChatSettingsView
             
             switch preferances[safe:indexPath.row] {
             case CometChatUserInfo.PRIVACY_AND_SECURITY_CELL:
@@ -289,7 +289,7 @@ extension CometChatUserInfo: UITableViewDelegate , UITableViewDataSource {
                 break
             }
         } else if indexPath.section == 2 {
-            let _ = tableView.dequeReusableCell(with: .CometChatSettingsView, for: indexPath) as! CometChatSettingsView
+            let _ = tableView.dequeueReusableCell(with: .CometChatSettingsView, for: indexPath) as! CometChatSettingsView
             switch others[safe:indexPath.row] {
                 // what does this do?
             default:

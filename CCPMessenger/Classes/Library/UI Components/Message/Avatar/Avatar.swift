@@ -122,7 +122,7 @@ import  CometChatPro
     
     
     @objc public func set(entity: AppEntity) {
-        
+        print("set entity from \(#file)")
         if let user = entity as? User {
             let url = URL(string: user.avatar ?? "")
             let imageView  = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))

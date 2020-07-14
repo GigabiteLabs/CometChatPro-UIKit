@@ -27,14 +27,29 @@ public class CometChatOutgoingCall: UIViewController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        CometChatSoundManager().play(sound: .outgoingCall, bool: true)
-         
+        playOutgoingCallSound(pausingCurrentAudio: true)
+    }
+    
+    private func playOutgoingCallSound(pausingCurrentAudio: Bool?) {
+        DispatchQueue.main.async {
+            do {
+                try CometChatSoundManager().play(sound: .outgoingCall, pausingCurrentlyPlayingAudio: pausingCurrentAudio ?? true)
+            } catch {
+                print("could not play incoming call sound, error: \(error)")
+            }
+        }
     }
     
     override public func viewWillAppear(_ animated: Bool) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            if let user = self.currentUser { self.setupAppearance(forEntity: user) }
-            if let group = self.currentGroup { self.setupAppearance(forEntity: group) }
+            if let user = self.currentUser {
+                print("setting up appearance for user")
+                self.setupAppearance(forEntity: user)
+            }
+            if let group = self.currentGroup {
+                print("setting up appearance for group")
+                self.setupAppearance(forEntity: group)
+            }
         }
         CometChatCallManager.outgoingCallDelegate = self
     }
@@ -55,7 +70,7 @@ public class CometChatOutgoingCall: UIViewController {
             let call = Call(receiverId: user.uid ?? "", callType: call, receiverType: .user)
             CometChat.initiateCall(call: call, onSuccess: { (ongoingCall) in
                 self.currentCall = ongoingCall
-                print("call is: \(String(describing: ongoingCall?.stringValue()))")
+                print("call info: \(String(describing: ongoingCall?.stringValue()))")
                 DispatchQueue.main.async {
                     let snackbar: CometChatSnackbar = CometChatSnackbar.init(message: "Calling \(name)", duration: .short)
                     snackbar.show()
@@ -97,6 +112,7 @@ public class CometChatOutgoingCall: UIViewController {
     - Copyright:  ©  2020 CometChat Inc.
     */
     private func setupAppearance(forEntity: AppEntity){
+        print("setting appearance for entity: \(forEntity)")
         if let user = forEntity as? User { avatar.set(entity: user) }
         if let group = forEntity as? Group { avatar.set(entity: group) }
     }
@@ -107,7 +123,7 @@ public class CometChatOutgoingCall: UIViewController {
        - Copyright:  ©  2020 CometChat Inc.
        */
     private func dismiss() {
-        CometChatSoundManager().play(sound: .outgoingCall, bool: false)
+        playOutgoingCallSound(pausingCurrentAudio: false)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -161,7 +177,7 @@ extension CometChatOutgoingCall: OutgoingCallDelegate {
     - Copyright:  ©  2020 CometChat Inc.
     */
     public func onOutgoingCallAccepted(acceptedCall: Call, error: CometChatException?) {
-        CometChatSoundManager().play(sound: .outgoingCall, bool: false)
+        playOutgoingCallSound(pausingCurrentAudio: false)
         if acceptedCall != nil {
             if let session = acceptedCall.sessionID {
                  DispatchQueue.main.async {
@@ -205,7 +221,6 @@ extension CometChatOutgoingCall: OutgoingCallDelegate {
        - Copyright:  ©  2020 CometChat Inc.
        */
     public func onOutgoingCallRejected(rejectedCall: Call, error: CometChatException?) {
-        
         if rejectedCall != nil {
             if let session = rejectedCall.sessionID {
                 CometChat.rejectCall(sessionID: session, status: .ended, onSuccess: {(cancelledCall) in

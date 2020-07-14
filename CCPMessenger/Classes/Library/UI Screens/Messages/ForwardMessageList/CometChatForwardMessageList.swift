@@ -228,8 +228,6 @@ public class CometChatForwardMessageList: UIViewController {
             }}
     }
     
-    
-    
     private func addForwardButton(bool: Bool){
         if bool == true {
             let forward = UIBarButtonItem(title: NSLocalizedString(
@@ -240,120 +238,132 @@ public class CometChatForwardMessageList: UIViewController {
     
     @objc func didForwardButtonPressed() {
         if selectedConversations.count <= 5 {
-            CometChatSoundManager().play(sound: .outgoingMessage, bool: true)
-            if let message = message {
-                for conversation in selectedConversations {
-                    switch conversation.conversationType {
-                    case .user:
-                        switch message.messageCategory {
-                        case .message:
-                            switch message.messageType {
-                            case .text:
-                                if let message = message as? TextMessage {
-                                    message.receiverUid = (conversation.conversationWith as? User)?.uid ?? ""
-                                    message.receiverType = .user
-                                    CometChat.sendTextMessage(message: message, onSuccess: { (message) in
-                                        print("message sent successfully.")
-                                        DispatchQueue.main.async {
-                                            self.navigationController?.popToRootViewController(animated: true)
-                                        }
-                                    }) { (error) in
-                                        print("unable to forward message:\(String(describing: error?.errorDescription)) ")
-                                        DispatchQueue.main.async {
-                                            if let name = (conversation.conversationWith as? User)?.name {
-                                                let snackbar: CometChatSnackbar = CometChatSnackbar.init(message: NSLocalizedString("UNABLE_TO_FORWARD" , tableName: nil, bundle: CCPType.bundle, value: "", comment: "") + name, duration: .short)
-                                                snackbar.show()
-                                            }
-                                        }
-                                    }
-                                }
-                            case .image, .video , .audio, .file:
-                                if let message = message as? MediaMessage {
-                                    CometChatSoundManager().play(sound: .outgoingMessage, bool: true)
-                                    let message = MediaMessage(receiverUid: (conversation.conversationWith as? User)?.uid ?? "", fileurl: message.attachment?.fileUrl ?? "", messageType: message.messageType, receiverType: message.receiverType)
-                                    message.receiverType = .user
-                                    CometChat.sendMediaMessage(message: message, onSuccess: { (message) in
-                                        print("message sent successfully.")
-                                        DispatchQueue.main.async {
-                                            self.navigationController?.popToRootViewController(animated: true)
-                                        }
-                                    }) { (error) in
-                                        print("unable to forward message:\(String(describing: error?.errorDescription)) ")
-                                        DispatchQueue.main.async {
-                                            if let name = (conversation.conversationWith as? User)?.name {
-                                               let snackbar: CometChatSnackbar = CometChatSnackbar.init(message: NSLocalizedString("UNABLE_TO_FORWARD" , tableName: nil, bundle: CCPType.bundle, value: "", comment: "") + name, duration: .short)
-                                               snackbar.show()
-                                            }
-                                        }
-                                    }
-                                }
-                            case .custom: break
-                            case .groupMember:break
-                            @unknown default: break
-                            }
-                        case .action: break
-                        case .call: break
-                        case .custom: break
-                        @unknown default: break }
-                        
-                    case .group:
-                        switch message.messageCategory {
-                        case .message:
-                            switch message.messageType {
-                            case .text:
-                                if let message = message as? TextMessage {
-                                    message.receiverUid = (conversation.conversationWith as? Group)?.guid ?? ""
-                                    message.receiverType = .group
-                                    CometChat.sendTextMessage(message: message, onSuccess: { (message) in
-                                        print("message sent successfully.")
-                                        DispatchQueue.main.async {
-                                            self.navigationController?.popToRootViewController(animated: true)
-                                        }
-                                    }) { (error) in
-                                        print("unable to forward message:\(String(describing: error?.errorDescription)) ")
-                                        DispatchQueue.main.async {
-                                            if let name = (conversation.conversationWith as? Group)?.name {
-                                                let snackbar: CometChatSnackbar = CometChatSnackbar.init(message: NSLocalizedString("UNABLE_TO_FORWARD" , tableName: nil, bundle: CCPType.bundle, value: "", comment: "") + name, duration: .short)
-                                                snackbar.show()
-                                            }
-                                        }
-                                    }
-                                }
-                            case .image, .video , .audio, .file:
-                                if let message = message as? MediaMessage {
-                                    let message = MediaMessage(receiverUid: (conversation.conversationWith as? Group)?.guid ?? "", fileurl: message.attachment?.fileUrl ?? "", messageType: message.messageType, receiverType: message.receiverType)
-                                    message.receiverType = .group
-                                    CometChat.sendMediaMessage(message: message, onSuccess: { (message) in
-                                        print("message sent successfully.")
-                                        DispatchQueue.main.async {
-                                            self.navigationController?.popToRootViewController(animated: true)
-                                        }
-                                    }) { (error) in
-                                        print("unable to forward message:\(String(describing: error?.errorDescription)) ")
-                                        DispatchQueue.main.async {
-                                            if let name = (conversation.conversationWith as? Group)?.name {
-                                               let snackbar: CometChatSnackbar = CometChatSnackbar.init(message: NSLocalizedString("UNABLE_TO_FORWARD" , tableName: nil, bundle: CCPType.bundle, value: "", comment: "") + name, duration: .short)
-                                                                                             snackbar.show()
-                                            }
-                                        }
-                                    }
-                                }
-                            case .custom: break
-                            case .groupMember:break
-                            @unknown default: break
-                            }
-                        case .action: break
-                        case .call: break
-                        case .custom: break
-                        @unknown default: break }
-                    case .none: break
-                    @unknown default: break
-                    }
-                }
-            }
+            playOutgoingMessageSound()
+            handleForward()
         }else{
             let snackbar: CometChatSnackbar = CometChatSnackbar.init(message: NSLocalizedString("FORWARD_TO_5_AT_A_TIME", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), duration: .short)
             snackbar.show()
+        }
+    }
+    // TODO: REFACTOR!!!
+    func handleForward() {
+        if let message = message {
+           for conversation in selectedConversations {
+               switch conversation.conversationType {
+               case .user:
+                   switch message.messageCategory {
+                   case .message:
+                       switch message.messageType {
+                       case .text:
+                           if let message = message as? TextMessage {
+                               message.receiverUid = (conversation.conversationWith as? User)?.uid ?? ""
+                               message.receiverType = .user
+                               CometChat.sendTextMessage(message: message, onSuccess: { (message) in
+                                   print("message sent successfully.")
+                                   DispatchQueue.main.async {
+                                       self.navigationController?.popToRootViewController(animated: true)
+                                   }
+                               }) { (error) in
+                                   print("unable to forward message:\(String(describing: error?.errorDescription)) ")
+                                   DispatchQueue.main.async {
+                                       if let name = (conversation.conversationWith as? User)?.name {
+                                           let snackbar: CometChatSnackbar = CometChatSnackbar.init(message: NSLocalizedString("UNABLE_TO_FORWARD" , tableName: nil, bundle: CCPType.bundle, value: "", comment: "") + name, duration: .short)
+                                           snackbar.show()
+                                       }
+                                   }
+                               }
+                           }
+                       case .image, .video , .audio, .file:
+                            if let message = message as? MediaMessage {
+                            playOutgoingMessageSound()
+                            let message = MediaMessage(receiverUid: (conversation.conversationWith as? User)?.uid ?? "", fileurl: message.attachment?.fileUrl ?? "", messageType: message.messageType, receiverType: message.receiverType)
+                               message.receiverType = .user
+                               CometChat.sendMediaMessage(message: message, onSuccess: { (message) in
+                                   print("message sent successfully.")
+                                   DispatchQueue.main.async {
+                                       self.navigationController?.popToRootViewController(animated: true)
+                                   }
+                               }) { (error) in
+                                   print("unable to forward message:\(String(describing: error?.errorDescription)) ")
+                                   DispatchQueue.main.async {
+                                       if let name = (conversation.conversationWith as? User)?.name {
+                                          let snackbar: CometChatSnackbar = CometChatSnackbar.init(message: NSLocalizedString("UNABLE_TO_FORWARD" , tableName: nil, bundle: CCPType.bundle, value: "", comment: "") + name, duration: .short)
+                                          snackbar.show()
+                                       }
+                                   }
+                               }
+                           }
+                       case .custom: break
+                       case .groupMember:break
+                       @unknown default: break
+                       }
+                   case .action: break
+                   case .call: break
+                   case .custom: break
+                   @unknown default: break }
+                   
+               case .group:
+                   switch message.messageCategory {
+                   case .message:
+                       switch message.messageType {
+                       case .text:
+                           if let message = message as? TextMessage {
+                               message.receiverUid = (conversation.conversationWith as? Group)?.guid ?? ""
+                               message.receiverType = .group
+                               CometChat.sendTextMessage(message: message, onSuccess: { (message) in
+                                   print("message sent successfully.")
+                                   DispatchQueue.main.async {
+                                       self.navigationController?.popToRootViewController(animated: true)
+                                   }
+                               }) { (error) in
+                                   print("unable to forward message:\(String(describing: error?.errorDescription)) ")
+                                   DispatchQueue.main.async {
+                                       if let name = (conversation.conversationWith as? Group)?.name {
+                                           let snackbar: CometChatSnackbar = CometChatSnackbar.init(message: NSLocalizedString("UNABLE_TO_FORWARD" , tableName: nil, bundle: CCPType.bundle, value: "", comment: "") + name, duration: .short)
+                                           snackbar.show()
+                                       }
+                                   }
+                               }
+                           }
+                       case .image, .video , .audio, .file:
+                           if let message = message as? MediaMessage {
+                               let message = MediaMessage(receiverUid: (conversation.conversationWith as? Group)?.guid ?? "", fileurl: message.attachment?.fileUrl ?? "", messageType: message.messageType, receiverType: message.receiverType)
+                               message.receiverType = .group
+                               CometChat.sendMediaMessage(message: message, onSuccess: { (message) in
+                                   print("message sent successfully.")
+                                   DispatchQueue.main.async {
+                                       self.navigationController?.popToRootViewController(animated: true)
+                                   }
+                               }) { (error) in
+                                   print("unable to forward message:\(String(describing: error?.errorDescription)) ")
+                                   DispatchQueue.main.async {
+                                       if let name = (conversation.conversationWith as? Group)?.name {
+                                          let snackbar: CometChatSnackbar = CometChatSnackbar.init(message: NSLocalizedString("UNABLE_TO_FORWARD" , tableName: nil, bundle: CCPType.bundle, value: "", comment: "") + name, duration: .short)
+                                                                                        snackbar.show()
+                                       }
+                                   }
+                               }
+                           }
+                       case .custom: break
+                       case .groupMember:break
+                       @unknown default: break
+                       }
+                   case .action: break
+                   case .call: break
+                   case .custom: break
+                   @unknown default: break }
+               case .none: break
+               @unknown default: break
+               }
+           }
+       }
+    }
+    /// Internal convenience func for playing outgoind sound.
+    private func playOutgoingMessageSound() {
+        do {
+            try CometChatSoundManager().play(sound: .outgoingMessage, pausingCurrentlyPlayingAudio: true)
+        } catch {
+            print("error playing audio file: \(error)")
         }
     }
 }
@@ -410,7 +420,7 @@ extension CometChatForwardMessageList: UITableViewDelegate , UITableViewDataSour
     ///   - tableView: The table-view object requesting this information.
     ///   - section: An index number identifying a section of tableView.
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "conversationView", for: indexPath) as! CometChatConversationView
+        let cell = tableView.dequeueReusableCell(with: .CometChatConversationView, for: indexPath) as! CometChatConversationView
         let  conversation = conversations[safe:indexPath.row]
         cell.conversation = conversation
         return cell

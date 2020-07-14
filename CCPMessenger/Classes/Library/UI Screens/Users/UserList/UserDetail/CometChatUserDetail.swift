@@ -268,7 +268,7 @@ extension CometChatUserDetail: UITableViewDelegate , UITableViewDataSource {
         case 0:
             switch settingItems[safe:indexPath.row] {
             case CometChatUserDetail.USER_INFO_CELL:
-                let userDetail = tableView.dequeReusableCell(with: .CometChatDetailView, for: indexPath) as! CometChatDetailView
+                let userDetail = tableView.dequeueReusableCell(with: .CometChatDetailView, for: indexPath) as! CometChatDetailView
                 userDetail.user = currentUser
                 userDetail.detailViewDelegate = self
                 userDetail.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
@@ -279,13 +279,13 @@ extension CometChatUserDetail: UITableViewDelegate , UITableViewDataSource {
             
             switch actionsItems[safe:indexPath.row] {
             case CometChatUserDetail.SEND_MESSAGE_CELL:
-                let supportCell = tableView.dequeReusableCell(with: .SupportView, for: indexPath) as! SupportView
+                let supportCell = tableView.dequeueReusableCell(with: .SupportView, for: indexPath) as! SupportView
                 supportCell.textLabel?.text = NSLocalizedString("SEND_MESSAGE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 supportCell.textLabel?.textColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
                 supportCell.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
                 return supportCell
             case CometChatUserDetail.ADD_TO_CONTACTS_CELL:
-                let supportCell = tableView.dequeReusableCell(with: .SupportView, for: indexPath) as! SupportView
+                let supportCell = tableView.dequeueReusableCell(with: .SupportView, for: indexPath) as! SupportView
                 
                 if let groupName = currentGroup?.name {
                     supportCell.textLabel?.text = NSLocalizedString("ADD_IN", tableName: nil, bundle: CCPType.bundle, value: "", comment: "") + " \(groupName)"
@@ -303,7 +303,7 @@ extension CometChatUserDetail: UITableViewDelegate , UITableViewDataSource {
             switch supportItems[safe:indexPath.row] {
             case CometChatUserDetail.BLOCK_USER_CELL:
                 
-                let supportCell = tableView.dequeReusableCell(with: .SupportView, for: indexPath) as! SupportView
+                let supportCell = tableView.dequeueReusableCell(with: .SupportView, for: indexPath) as! SupportView
                 
                 if currentUser?.blockedByMe == true {
                     supportCell.textLabel?.text = NSLocalizedString("UNBLOCK_USER", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
@@ -319,7 +319,7 @@ extension CometChatUserDetail: UITableViewDelegate , UITableViewDataSource {
             }
         case 3:
             if let user = currentUser {
-                let sharedMediaCell = tableView.dequeReusableCell(with: .SharedMediaView, for: indexPath) as! SharedMediaView
+                let sharedMediaCell = tableView.dequeueReusableCell(with: .SharedMediaView, for: indexPath) as! SharedMediaView
                  sharedMediaCell.refreshMediaMessages(for: user, type: .user)
                  sharedMediaCell.sharedMediaDelegate = self
                  sharedMediaCell.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
@@ -435,6 +435,7 @@ extension CometChatUserDetail: UITableViewDelegate , UITableViewDataSource {
             if  let selectedCell = (tableView.cellForRow(at: indexPath) as? CometChatDetailView){
                 let audioCall = UIAction(title: NSLocalizedString("AUDIO_CALL", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), image: .fromBundle(named: "audioCall")) { action in
                     if let user = selectedCell.user {
+                        print("calling user: \(user)")
                         CometChatCallManager().makeCall(call: .audio, to: user)
                     }
                 }

@@ -142,20 +142,6 @@ open class CometChatSnackbar: UIView {
         }
     }
     
-//    /// Border color of snackbar. Default is clear.
-//    @objc open dynamic override var borderColor: UIColor? = .clear {
-//        didSet {
-//            layer.borderColor = borderColor?.cgColor
-//        }
-//    }
-//
-//    /// Border width of snackbar. Default is 1.
-//    @objc open dynamic override var borderWidth: CGFloat = 1 {
-//        didSet {
-//            layer.borderWidth = borderWidth
-//        }
-//    }
-    
     /// Left margin. Default is 4
     @objc open dynamic var leftMargin: CGFloat = 5 {
         didSet {

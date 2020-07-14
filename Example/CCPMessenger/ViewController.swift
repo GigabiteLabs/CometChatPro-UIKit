@@ -12,12 +12,16 @@ import CCPMessenger
 class ViewController: UIViewController {
 
     @IBAction func launch(_ sender: Any) {
-        presentCometChatPro(nil, animated: true) {
-            print("presented comet chat pro")
-        }
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        presentCometChatPro(.fullScreen, animated: true) {
+            print("presented comet chat pro")
+        }
     }
 
     override func didReceiveMemoryWarning() {

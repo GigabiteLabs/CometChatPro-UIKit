@@ -14,7 +14,7 @@ internal extension UICollectionView {
         register(cellNib, forCellWithReuseIdentifier: cometChatProCellType.rawValue)
     }
     /// Dequeues a reusable cell  by `CCNib` for a given `IndexPath`.
-    func dequeReusableCell(with nib: CCNib, for indexPath: IndexPath) -> UICollectionViewCell {
+    func dequeueReusableCell(with nib: CCNib, for indexPath: IndexPath) -> UICollectionViewCell {
         return dequeueReusableCell(withReuseIdentifier: nib.rawValue, for: indexPath)
     }
 }

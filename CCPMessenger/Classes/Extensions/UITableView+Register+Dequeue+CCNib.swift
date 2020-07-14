@@ -14,7 +14,7 @@ internal extension UITableView {
         register(cellNib, forCellReuseIdentifier: cometChatProCellType.rawValue)
     }
     /// Dequeues a reusable calle by `CCNib` for a given `IndexPath`.
-    func dequeReusableCell(with nib: CCNib, for indexPath: IndexPath) -> UITableViewCell {
+    func dequeueReusableCell(with nib: CCNib, for indexPath: IndexPath) -> UITableViewCell {
         return dequeueReusableCell(withIdentifier: nib.rawValue, for: indexPath)
     }
 }

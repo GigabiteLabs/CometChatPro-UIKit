@@ -330,14 +330,14 @@ extension CometChatCallDetail: UITableViewDelegate , UITableViewDataSource {
             switch settingItems[safe:indexPath.row] {
             case CometChatCallDetail.CALL_INFO_CELL:
                 if currentUser != nil {
-                    let userDetail = tableView.dequeReusableCell(with: .CometChatDetailView, for: indexPath) as! CometChatDetailView
+                    let userDetail = tableView.dequeueReusableCell(with: .CometChatDetailView, for: indexPath) as! CometChatDetailView
                     userDetail.detailViewDelegate = self
                     userDetail.user = currentUser
                     userDetail.call.isHidden = false
                     userDetail.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
                     return userDetail
                 }else if currentGroup != nil {
-                    let groupDetail = tableView.dequeReusableCell(with: .CometChatDetailView, for: indexPath) as! CometChatDetailView
+                    let groupDetail = tableView.dequeueReusableCell(with: .CometChatDetailView, for: indexPath) as! CometChatDetailView
                     groupDetail.group = currentGroup
                     groupDetail.detailViewDelegate = self
                     groupDetail.call.isHidden = false
@@ -349,19 +349,19 @@ extension CometChatCallDetail: UITableViewDelegate , UITableViewDataSource {
             }
         case 1:
             if calls.isEmpty {
-                let progressIndicatorView = tableView.dequeReusableCell(with: .ProgressIndicatorView, for: indexPath) as! ProgressIndicatorView
+                let progressIndicatorView = tableView.dequeueReusableCell(with: .ProgressIndicatorView, for: indexPath) as! ProgressIndicatorView
                 
                 return progressIndicatorView
             }else{
                 let call = calls[safe: indexPath.row]
-                let detailLogCell = tableView.dequeReusableCell(with: .CometChatCallDetailLogView, for: indexPath) as! CometChatCallDetailLogView
+                let detailLogCell = tableView.dequeueReusableCell(with: .CometChatCallDetailLogView, for: indexPath) as! CometChatCallDetailLogView
                 detailLogCell.call = call
                 return detailLogCell
             }
         case 2:
             switch actionsItems[safe:indexPath.row] {
             case CometChatCallDetail.SEND_MESSAGE_CELL:
-                let supportCell = tableView.dequeReusableCell(with: .SupportView, for: indexPath) as! SupportView
+                let supportCell = tableView.dequeueReusableCell(with: .SupportView, for: indexPath) as! SupportView
                 supportCell.textLabel?.text = NSLocalizedString("SEND_MESSAGE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 supportCell.textLabel?.textColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
                 supportCell.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
@@ -372,7 +372,7 @@ extension CometChatCallDetail: UITableViewDelegate , UITableViewDataSource {
         case 3:
             switch supportItems[safe:indexPath.row] {
             case CometChatCallDetail.BLOCK_USER_CELL:
-                let supportCell = tableView.dequeReusableCell(with: .SupportView, for: indexPath) as! SupportView
+                let supportCell = tableView.dequeueReusableCell(with: .SupportView, for: indexPath) as! SupportView
                 if currentUser?.blockedByMe == true {
                     supportCell.textLabel?.text = NSLocalizedString("UNBLOCK_USER", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                     supportCell.textLabel?.textColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
@@ -384,7 +384,7 @@ extension CometChatCallDetail: UITableViewDelegate , UITableViewDataSource {
                 return supportCell
                 
             case CometChatCallDetail.LEAVE_GROUP_CELL:
-                let supportCell = tableView.dequeReusableCell(with: .SupportView, for: indexPath) as! SupportView
+                let supportCell = tableView.dequeueReusableCell(with: .SupportView, for: indexPath) as! SupportView
                 supportCell.textLabel?.text = NSLocalizedString("LEAVE_GROUP", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 supportCell.textLabel?.textColor = .red
                 supportCell.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)

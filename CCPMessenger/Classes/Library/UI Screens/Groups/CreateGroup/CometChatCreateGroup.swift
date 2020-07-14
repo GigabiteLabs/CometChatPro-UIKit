@@ -14,16 +14,17 @@ import CometChatPro
 class CometChatCreateGroup: UIViewController {
     
     // MARK: - Declaration of Outlets
-    
-    @IBOutlet weak var name: UITextField!
-    @IBOutlet weak var icon: Avatar!
+
     @IBOutlet weak var createGroup: UIButton!
-    @IBOutlet var backgroundView: UIView!
-    @IBOutlet weak var createGroupBtnBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var selectedGroupType: UILabel!
     @IBOutlet weak var passwordView: UIView!
+    @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var createGroupBtnBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var icon: Avatar!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var typeView: UIView!
-    @IBOutlet weak var selectedGroupType: UILabel!
+    
+    
     
     // MARK: - Declaration of Variables
     
@@ -122,7 +123,7 @@ class CometChatCreateGroup: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(dismissKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector:#selector(self.didGroupDeleted(_:)), name: NSNotification.Name(rawValue: "didGroupDeleted"), object: nil)
-        self.hideKeyboardWhenTappedArround()
+        self.hideKeyboardWhenBGTapped()
         
     }
     
@@ -169,9 +170,9 @@ class CometChatCreateGroup: UIViewController {
     - Author: CometChat Team
     - Copyright:  ©  2020 CometChat Inc.
     */
-    private func hideKeyboardWhenTappedArround() {
+    private func hideKeyboardWhenBGTapped() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        backgroundView.addGestureRecognizer(tap)
+        view.addGestureRecognizer(tap)
     }
     
      /**
@@ -190,8 +191,8 @@ class CometChatCreateGroup: UIViewController {
         }
     }
     
-    
     @IBAction func didSelectGroupPressed(_ sender: Any) {
+        
         let actionSheetController: UIAlertController = UIAlertController(title: nil, message: "Choose one of the group type to create group.", preferredStyle: .actionSheet)
         
         let publicGroup: UIAlertAction = UIAlertAction(title: NSLocalizedString("PUBLIC", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")  + " Group", style: .default) { action -> Void in
@@ -223,7 +224,7 @@ class CometChatCreateGroup: UIViewController {
         actionSheetController.addAction(cancelAction)
         
         // Added ActionSheet support for iPad
-        if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad ){
+        if ( UIDevice.current.userInterfaceIdiom == .pad ){
             if let currentPopoverpresentioncontroller =
                 actionSheetController.popoverPresentationController{
                 currentPopoverpresentioncontroller.sourceView = self.view

@@ -357,7 +357,7 @@ extension CometChatConversationList: UITableViewDelegate , UITableViewDataSource
     ///   - tableView: The table-view object requesting this information.
     ///   - section: An index number identifying a section of tableView.
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeReusableCell(with: .CometChatConversationView, for: indexPath) as! CometChatConversationView
+        let cell = tableView.dequeueReusableCell(with: .CometChatConversationView, for: indexPath) as! CometChatConversationView
         var conversation: Conversation?
         cell.searchedText = searchedText
         if isSearching() {
@@ -442,7 +442,13 @@ extension CometChatConversationList : CometChatMessageDelegate {
      [CometChatConversationList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-3-comet-chat-conversation-list)
      */
     public func onTextMessageReceived(textMessage: TextMessage) {
-        DispatchQueue.main.async { CometChatSoundManager().play(sound: .incomingMessageForOther, bool: true) }
+        DispatchQueue.main.async {
+            do {
+                try CometChatSoundManager().play(sound: .incomingMessageForOther, pausingCurrentlyPlayingAudio: true)
+            } catch {
+                print("audiofile could not be played, error: \(error)")
+            }
+        }
         refreshConversations()
     }
     
@@ -455,7 +461,13 @@ extension CometChatConversationList : CometChatMessageDelegate {
      [CometChatConversationList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-3-comet-chat-conversation-list)
      */
     public func onMediaMessageReceived(mediaMessage: MediaMessage) {
-        DispatchQueue.main.async { CometChatSoundManager().play(sound: .incomingMessageForOther, bool: true) }
+        DispatchQueue.main.async {
+            do {
+                try CometChatSoundManager().play(sound: .incomingMessageForOther, pausingCurrentlyPlayingAudio: true)
+            } catch {
+                print("audiofile could not be played, error: \(error)")
+            }
+        }
         refreshConversations()
     }
     
@@ -616,7 +628,13 @@ extension CometChatConversationList : CometChatGroupDelegate {
      [CometChatConversationList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-3-comet-chat-conversation-list)
      */
     public func onGroupMemberJoined(action: ActionMessage, joinedUser: User, joinedGroup: Group) {
-        DispatchQueue.main.async { CometChatSoundManager().play(sound: .incomingMessageForOther, bool: true) }
+        DispatchQueue.main.async {
+            do {
+                try CometChatSoundManager().play(sound: .incomingMessageForOther, pausingCurrentlyPlayingAudio: true)
+            } catch {
+                print("audiofile could not be played, error: \(error)")
+            }
+        }
         refreshConversations()
     }
     
@@ -632,7 +650,13 @@ extension CometChatConversationList : CometChatGroupDelegate {
      [CometChatConversationList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-3-comet-chat-conversation-list)
      */
     public func onGroupMemberLeft(action: ActionMessage, leftUser: User, leftGroup: Group) {
-        DispatchQueue.main.async { CometChatSoundManager().play(sound: .incomingMessageForOther, bool: true) }
+        DispatchQueue.main.async {
+            do {
+                try CometChatSoundManager().play(sound: .incomingMessageForOther, pausingCurrentlyPlayingAudio: true)
+            } catch {
+                print("audiofile could not be played, error: \(error)")
+            }
+        }
         refreshConversations()
     }
     
@@ -649,7 +673,13 @@ extension CometChatConversationList : CometChatGroupDelegate {
      [CometChatConversationList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-3-comet-chat-conversation-list)
      */
     public func onGroupMemberKicked(action: ActionMessage, kickedUser: User, kickedBy: User, kickedFrom: Group) {
-        DispatchQueue.main.async { CometChatSoundManager().play(sound: .incomingMessageForOther, bool: true) }
+        DispatchQueue.main.async {
+            do {
+                try CometChatSoundManager().play(sound: .incomingMessageForOther, pausingCurrentlyPlayingAudio: true)
+            } catch {
+                print("audiofile could not be played, error: \(error)")
+            }
+        }
         refreshConversations()
     }
     
@@ -666,7 +696,13 @@ extension CometChatConversationList : CometChatGroupDelegate {
      [CometChatConversationList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-3-comet-chat-conversation-list)
      */
     public func onGroupMemberBanned(action: ActionMessage, bannedUser: User, bannedBy: User, bannedFrom: Group) {
-        DispatchQueue.main.async { CometChatSoundManager().play(sound: .incomingMessageForOther, bool: true) }
+        DispatchQueue.main.async {
+            do {
+                try CometChatSoundManager().play(sound: .incomingMessageForOther, pausingCurrentlyPlayingAudio: true)
+            } catch {
+                print("audiofile could not be played, error: \(error)")
+            }
+        }
         refreshConversations()
     }
     
@@ -683,7 +719,13 @@ extension CometChatConversationList : CometChatGroupDelegate {
      [CometChatConversationList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-3-comet-chat-conversation-list)
      */
     public func onGroupMemberUnbanned(action: ActionMessage, unbannedUser: User, unbannedBy: User, unbannedFrom: Group) {
-        DispatchQueue.main.async { CometChatSoundManager().play(sound: .incomingMessageForOther, bool: true) }
+        DispatchQueue.main.async {
+            do {
+                try CometChatSoundManager().play(sound: .incomingMessageForOther, pausingCurrentlyPlayingAudio: true)
+            } catch {
+                print("audiofile could not be played, error: \(error)")
+            }
+        }
         refreshConversations()
     }
     
@@ -702,7 +744,13 @@ extension CometChatConversationList : CometChatGroupDelegate {
      [CometChatConversationList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-3-comet-chat-conversation-list)
      */
     public func onGroupMemberScopeChanged(action: ActionMessage, scopeChangeduser: User, scopeChangedBy: User, scopeChangedTo: String, scopeChangedFrom: String, group: Group) {
-        DispatchQueue.main.async { CometChatSoundManager().play(sound: .incomingMessageForOther, bool: true) }
+        DispatchQueue.main.async {
+            do {
+                try CometChatSoundManager().play(sound: .incomingMessageForOther, pausingCurrentlyPlayingAudio: true)
+            } catch {
+                print("audiofile could not be played, error: \(error)")
+            }
+        }
         refreshConversations()
     }
     
@@ -714,7 +762,13 @@ extension CometChatConversationList : CometChatGroupDelegate {
     ///   - addedUser: Specifies `User` Object
     ///   - addedTo: Specifies `Group` Object
     public func onMemberAddedToGroup(action: ActionMessage, addedBy: User, addedUser: User, addedTo: Group) {
-        DispatchQueue.main.async { CometChatSoundManager().play(sound: .incomingMessageForOther, bool: true) }
+        DispatchQueue.main.async {
+            do {
+                try CometChatSoundManager().play(sound: .incomingMessageForOther, pausingCurrentlyPlayingAudio: true)
+            } catch {
+                print("audiofile could not be played, error: \(error)")
+            }
+        }
         refreshConversations()
     } 
 }

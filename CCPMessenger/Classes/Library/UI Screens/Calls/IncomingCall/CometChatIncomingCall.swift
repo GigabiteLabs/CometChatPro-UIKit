@@ -55,6 +55,16 @@ public class CometChatIncomingCall: UIViewController {
     
     // MARK: - Private Instance methods
     
+    private func playIncomingCallSound(pausingCurrentAudio: Bool?) {
+        DispatchQueue.main.async {
+            do {
+                try CometChatSoundManager().play(sound: .incomingCall, pausingCurrentlyPlayingAudio: pausingCurrentAudio ?? true)
+            } catch {
+                print("could not play incoming call sound, error: \(error)")
+            }
+        }
+    }
+    
     /**
        This method setup Appearance for CometChatIncomingCall.
        - Parameter forEntity: This specifies `AppEntity` Object.
@@ -62,7 +72,7 @@ public class CometChatIncomingCall: UIViewController {
        - Copyright:  ©  2020 CometChat Inc.
        */
     private func setupAppearance(forCall: Call?) {
-        CometChatSoundManager().play(sound: .incomingCall, bool: true)
+        playIncomingCallSound(pausingCurrentAudio: true)
         DispatchQueue.main.async {
             self.incomingCallView.dropShadow()
         if let call = forCall {
@@ -98,7 +108,7 @@ public class CometChatIncomingCall: UIViewController {
     - Copyright:  ©  2020 CometChat Inc.
     */
     private func dismiss() {
-        CometChatSoundManager().play(sound: .incomingCall, bool: false)
+        playIncomingCallSound(pausingCurrentAudio: false)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -127,7 +137,7 @@ public class CometChatIncomingCall: UIViewController {
     */
     @IBAction func didAcceptButtonPressed(_ sender: Any) {
         if let call = currentCall  {
-            CometChatSoundManager().play(sound: .incomingCall, bool: false)
+            playIncomingCallSound(pausingCurrentAudio: false)
             CometChat.acceptCall(sessionID: call.sessionID ?? "", onSuccess: { (acceptedCall) in
                 if acceptedCall != nil {
                     DispatchQueue.main.async {

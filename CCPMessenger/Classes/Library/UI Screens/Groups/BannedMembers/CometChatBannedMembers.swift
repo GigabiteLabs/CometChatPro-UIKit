@@ -291,7 +291,7 @@ extension CometChatBannedMembers: UITableViewDelegate , UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let  member =  bannedMembers[safe:indexPath.row]
-        let membersCell = tableView.dequeReusableCell(with: .MembersView, for: indexPath) as! MembersView
+        let membersCell = tableView.dequeueReusableCell(with: .MembersView, for: indexPath) as! MembersView
         membersCell.member = member
         return membersCell
     }
