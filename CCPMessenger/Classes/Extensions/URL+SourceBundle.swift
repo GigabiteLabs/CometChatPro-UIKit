@@ -10,7 +10,14 @@ import Foundation
 internal extension URL {
     static func sourceBundle(_ audioFileName: CCAudioFileName) -> URL {
         let bundle = Bundle(for: CCPType.self).podResource(name: "CCPMessenger")
-        let url = bundle.path(forResource: audioFileName.rawValue, ofType: CCAudioFileName.filetype)
-        return URL(fileURLWithPath: url!)
+        let url = bundle.bundleURL.appendingPathComponent("\(audioFileName.rawValue).\(CCAudioFileName.filetype)")
+        print("sound URL: \(url)")
+        do {
+            let files = try FileManager.default.contentsOfDirectory(at: bundle.bundleURL, includingPropertiesForKeys: nil, options: [])
+            print(files)
+        } catch {
+            print("error: \(error)")
+        }
+        return url
     }
 }
