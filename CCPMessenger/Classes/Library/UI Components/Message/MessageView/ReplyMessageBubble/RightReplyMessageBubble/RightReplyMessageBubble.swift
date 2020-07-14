@@ -78,7 +78,9 @@ class RightReplyMessageBubble: UITableViewCell {
             case .file:  message.text = NSLocalizedString("YOU_DELETED_THIS_FILE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
             case .custom: message.text = NSLocalizedString("YOU_DELETED_THIS_CUSTOM_MESSAGE", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
             case .groupMember: break
-            @unknown default: break }
+            default:
+                break
+            }
             message.textColor = .darkGray
             message.font = UIFont (name: "SFProDisplay-RegularItalic", size: 17)
             timeStamp.text = String().setMessageTime(time: Int(deletedMessage?.sentAt ?? 0))

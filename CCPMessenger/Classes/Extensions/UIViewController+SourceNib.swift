@@ -14,7 +14,7 @@ public extension UIViewController {
         let nib = UINib(nibName: name.rawValue, bundle: bundle)
         return nib
     }
-    public class func fromCometChatNib<T: UIViewController>(_ nibName: CCNib) -> T {
+    class func fromCometChatNib<T: UIViewController>(_ nibName: CCNib) -> T {
         let bundle = Bundle(for: CCPType.self).podResource(name: "CCPMessenger")
         return T(nibName: nibName.rawValue, bundle: bundle)
     }

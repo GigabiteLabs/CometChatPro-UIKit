@@ -14,8 +14,8 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		9081C987FEA118E250C8214D /* libPods-CCPMessenger_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E13780687BC0AAAB724CFC53 /* libPods-CCPMessenger_Example.a */; };
-		FA41887AA7205FF2E86A7C91 /* libPods-CCPMessenger_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BAE109C5DD1EEE13798D0B /* libPods-CCPMessenger_Tests.a */; };
+		813BE52BF04F0ECE520C2527 /* Pods_CCPMessenger_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3A93EB1EB59E63381106F8D /* Pods_CCPMessenger_Tests.framework */; };
+		8CEF8891E199E9865F0E17CE /* Pods_CCPMessenger_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C42C6FCD266EC0A6AA35B7E0 /* Pods_CCPMessenger_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,7 +98,32 @@
 		376A2DCD24BA938500E4568E /* SupportView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SupportView.xib; sourceTree = "<group>"; };
 		376A2E5E24BABB0200E4568E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		37BBE2ED24BD972500210922 /* ViewController+PushNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+PushNotifications.swift"; sourceTree = "<group>"; };
-		50BAE109C5DD1EEE13798D0B /* libPods-CCPMessenger_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CCPMessenger_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8684D24BDD8880025D332 /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
+		37C8684E24BDD8880025D332 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37C8685424BDD9360025D332 /* CCPMessenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CCPMessenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8685624BDD9360025D332 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8685824BDD9360025D332 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8685A24BDD9360025D332 /* FirebaseInstallations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstallations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8685C24BDD9360025D332 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8685E24BDD9360025D332 /* FirebaseMessaging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseMessaging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8686024BDD9360025D332 /* GoogleDataTransport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleDataTransport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8686224BDD9360025D332 /* GoogleDataTransportCCTSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleDataTransportCCTSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8686424BDD9370025D332 /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8686624BDD9370025D332 /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8686A24BDD9370025D332 /* FBLPromises.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBLPromises.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8686C24BDD9370025D332 /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8686E24BDD9370025D332 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8687124BDD96E0025D332 /* CCPMessenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CCPMessenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8687324BDD96E0025D332 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8687524BDD96E0025D332 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8687724BDD96E0025D332 /* FirebaseInstallations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstallations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8687924BDD96E0025D332 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8687B24BDD96E0025D332 /* FirebaseMessaging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseMessaging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8687D24BDD96E0025D332 /* GoogleDataTransport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleDataTransport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8687F24BDD96E0025D332 /* GoogleDataTransportCCTSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleDataTransportCCTSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8688124BDD96E0025D332 /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8688324BDD96E0025D332 /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C8688524BDD9800025D332 /* CCPMessenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CCPMessenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* CCPMessenger_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCPMessenger_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,13 +133,14 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* CCPMessenger_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CCPMessenger_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F1E169CE37F29DA75723B62 /* Pods-CCPMessenger_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCPMessenger_Example.release.xcconfig"; path = "Target Support Files/Pods-CCPMessenger_Example/Pods-CCPMessenger_Example.release.xcconfig"; sourceTree = "<group>"; };
 		97BFC5A15F8FDCBB9E89F5DC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		BBB46377E7467DABAE3A86E3 /* Pods-CCPMessenger_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCPMessenger_Example.debug.xcconfig"; path = "Target Support Files/Pods-CCPMessenger_Example/Pods-CCPMessenger_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		C2182B283BF165DD8F716FCF /* Pods-CCPMessenger_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCPMessenger_Example.release.xcconfig"; path = "Target Support Files/Pods-CCPMessenger_Example/Pods-CCPMessenger_Example.release.xcconfig"; sourceTree = "<group>"; };
-		D241F507442C3F8C9E9308DC /* Pods-CCPMessenger_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCPMessenger_Tests.debug.xcconfig"; path = "Target Support Files/Pods-CCPMessenger_Tests/Pods-CCPMessenger_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		BD1033053D6B492F589392C2 /* Pods-CCPMessenger_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCPMessenger_Tests.debug.xcconfig"; path = "Target Support Files/Pods-CCPMessenger_Tests/Pods-CCPMessenger_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		C3A93EB1EB59E63381106F8D /* Pods_CCPMessenger_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CCPMessenger_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C42C6FCD266EC0A6AA35B7E0 /* Pods_CCPMessenger_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CCPMessenger_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7795187EF3F9227A55AE457 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		E13780687BC0AAAB724CFC53 /* libPods-CCPMessenger_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CCPMessenger_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E71EECDE25F078E2962ED632 /* Pods-CCPMessenger_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCPMessenger_Tests.release.xcconfig"; path = "Target Support Files/Pods-CCPMessenger_Tests/Pods-CCPMessenger_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		DFEBD52194E24540C45AD920 /* Pods-CCPMessenger_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCPMessenger_Example.debug.xcconfig"; path = "Target Support Files/Pods-CCPMessenger_Example/Pods-CCPMessenger_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		FDE10ECE562BFE402AAC30F0 /* Pods-CCPMessenger_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCPMessenger_Tests.release.xcconfig"; path = "Target Support Files/Pods-CCPMessenger_Tests/Pods-CCPMessenger_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9081C987FEA118E250C8214D /* libPods-CCPMessenger_Example.a in Frameworks */,
+				8CEF8891E199E9865F0E17CE /* Pods_CCPMessenger_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA41887AA7205FF2E86A7C91 /* libPods-CCPMessenger_Tests.a in Frameworks */,
+				813BE52BF04F0ECE520C2527 /* Pods_CCPMessenger_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,8 +166,32 @@
 		06D85F949A2754F7672867BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E13780687BC0AAAB724CFC53 /* libPods-CCPMessenger_Example.a */,
-				50BAE109C5DD1EEE13798D0B /* libPods-CCPMessenger_Tests.a */,
+				37C8688524BDD9800025D332 /* CCPMessenger.framework */,
+				37C8687124BDD96E0025D332 /* CCPMessenger.framework */,
+				37C8687324BDD96E0025D332 /* FirebaseCore.framework */,
+				37C8687524BDD96E0025D332 /* FirebaseCoreDiagnostics.framework */,
+				37C8687724BDD96E0025D332 /* FirebaseInstallations.framework */,
+				37C8687924BDD96E0025D332 /* FirebaseInstanceID.framework */,
+				37C8687B24BDD96E0025D332 /* FirebaseMessaging.framework */,
+				37C8687D24BDD96E0025D332 /* GoogleDataTransport.framework */,
+				37C8687F24BDD96E0025D332 /* GoogleDataTransportCCTSupport.framework */,
+				37C8688124BDD96E0025D332 /* GoogleUtilities.framework */,
+				37C8688324BDD96E0025D332 /* nanopb.framework */,
+				37C8685424BDD9360025D332 /* CCPMessenger.framework */,
+				37C8685624BDD9360025D332 /* FirebaseCore.framework */,
+				37C8685824BDD9360025D332 /* FirebaseCoreDiagnostics.framework */,
+				37C8685A24BDD9360025D332 /* FirebaseInstallations.framework */,
+				37C8685C24BDD9360025D332 /* FirebaseInstanceID.framework */,
+				37C8685E24BDD9360025D332 /* FirebaseMessaging.framework */,
+				37C8686024BDD9360025D332 /* GoogleDataTransport.framework */,
+				37C8686224BDD9360025D332 /* GoogleDataTransportCCTSupport.framework */,
+				37C8686424BDD9370025D332 /* GoogleUtilities.framework */,
+				37C8686624BDD9370025D332 /* nanopb.framework */,
+				37C8686A24BDD9370025D332 /* FBLPromises.framework */,
+				37C8686C24BDD9370025D332 /* Protobuf.framework */,
+				37C8686E24BDD9370025D332 /* SwiftyJSON.framework */,
+				C42C6FCD266EC0A6AA35B7E0 /* Pods_CCPMessenger_Example.framework */,
+				C3A93EB1EB59E63381106F8D /* Pods_CCPMessenger_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -594,6 +644,15 @@
 			path = "Privacy&SupportView";
 			sourceTree = "<group>";
 		};
+		37C8684C24BDD8880025D332 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				37C8684D24BDD8880025D332 /* Test.h */,
+				37C8684E24BDD8880025D332 /* Info.plist */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -602,6 +661,7 @@
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for CCPMessenger */,
 				607FACE81AFB9204008FA782 /* Tests */,
+				37C8684C24BDD8880025D332 /* Test */,
 				607FACD11AFB9204008FA782 /* Products */,
 				B1F35FAC5E3D033BC20CBD4A /* Pods */,
 				06D85F949A2754F7672867BB /* Frameworks */,
@@ -671,10 +731,10 @@
 		B1F35FAC5E3D033BC20CBD4A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BBB46377E7467DABAE3A86E3 /* Pods-CCPMessenger_Example.debug.xcconfig */,
-				C2182B283BF165DD8F716FCF /* Pods-CCPMessenger_Example.release.xcconfig */,
-				D241F507442C3F8C9E9308DC /* Pods-CCPMessenger_Tests.debug.xcconfig */,
-				E71EECDE25F078E2962ED632 /* Pods-CCPMessenger_Tests.release.xcconfig */,
+				DFEBD52194E24540C45AD920 /* Pods-CCPMessenger_Example.debug.xcconfig */,
+				7F1E169CE37F29DA75723B62 /* Pods-CCPMessenger_Example.release.xcconfig */,
+				BD1033053D6B492F589392C2 /* Pods-CCPMessenger_Tests.debug.xcconfig */,
+				FDE10ECE562BFE402AAC30F0 /* Pods-CCPMessenger_Tests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -686,12 +746,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "CCPMessenger_Example" */;
 			buildPhases = (
-				C63A34D268EEC60B9530C12A /* [CP] Check Pods Manifest.lock */,
+				FE576117E52685BFB54590E9 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				D59CF2FE8F01F648B30A969C /* [CP] Embed Pods Frameworks */,
-				779DA1B8E68A1BED67BC1ECE /* [CP] Copy Pods Resources */,
+				4E1411A37FF7A8F95A8A9B9F /* [CP] Embed Pods Frameworks */,
+				EA555DB12F9B4DAB88495DB0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -706,7 +766,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "CCPMessenger_Tests" */;
 			buildPhases = (
-				C9605BA9CEB7DBFB6C983A3D /* [CP] Check Pods Manifest.lock */,
+				F2E1DBD70068F812B6511D3C /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
@@ -786,7 +846,39 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		779DA1B8E68A1BED67BC1ECE /* [CP] Copy Pods Resources */ = {
+		4E1411A37FF7A8F95A8A9B9F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CCPMessenger_Example/Pods-CCPMessenger_Example-frameworks.sh",
+				"${PODS_ROOT}/CometChatPro/CometChatPro.framework",
+				"${PODS_ROOT}/CometChatPro/Vendors/JitsiMeet.framework",
+				"${PODS_ROOT}/CometChatPro/Vendors/WebRTC.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CometChatPro.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JitsiMeet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebRTC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CCPMessenger_Example/Pods-CCPMessenger_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA555DB12F9B4DAB88495DB0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -804,29 +896,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CCPMessenger_Example/Pods-CCPMessenger_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C63A34D268EEC60B9530C12A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CCPMessenger_Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C9605BA9CEB7DBFB6C983A3D /* [CP] Check Pods Manifest.lock */ = {
+		F2E1DBD70068F812B6511D3C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -848,26 +918,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D59CF2FE8F01F648B30A969C /* [CP] Embed Pods Frameworks */ = {
+		FE576117E52685BFB54590E9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CCPMessenger_Example/Pods-CCPMessenger_Example-frameworks.sh",
-				"${PODS_ROOT}/CometChatPro/CometChatPro.framework",
-				"${PODS_ROOT}/CometChatPro/Vendors/JitsiMeet.framework",
-				"${PODS_ROOT}/CometChatPro/Vendors/WebRTC.framework",
+			inputFileListPaths = (
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CometChatPro.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JitsiMeet.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebRTC.framework",
+				"$(DERIVED_FILE_DIR)/Pods-CCPMessenger_Example-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CCPMessenger_Example/Pods-CCPMessenger_Example-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1021,13 +1091,34 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BBB46377E7467DABAE3A86E3 /* Pods-CCPMessenger_Example.debug.xcconfig */;
+			baseConfigurationReference = DFEBD52194E24540C45AD920 /* Pods-CCPMessenger_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = CCPMessenger_Example.entitlements;
 				DEVELOPMENT_TEAM = QYU2SZHRLR;
 				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CCPMessenger/CCPMessenger.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore/FirebaseCore.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInstallations/FirebaseInstallations.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInstanceID/FirebaseInstanceID.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseMessaging/FirebaseMessaging.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransport/GoogleDataTransport.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransportCCTSupport/GoogleDataTransportCCTSupport.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities/GoogleUtilities.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC/FBLPromises.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Protobuf/Protobuf.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftyJSON/SwiftyJSON.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb/nanopb.framework/Headers\"",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"$(SDKROOT)/usr/include/libxml2",
+					"${PODS_ROOT}/Firebase/CoreOnly/Sources",
+					"\"${PODS_TARGET_SRCROOT}/Sources/FBLPromises/include\"",
+				);
 				INFOPLIST_FILE = CCPMessenger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -1044,13 +1135,34 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2182B283BF165DD8F716FCF /* Pods-CCPMessenger_Example.release.xcconfig */;
+			baseConfigurationReference = 7F1E169CE37F29DA75723B62 /* Pods-CCPMessenger_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = CCPMessenger_Example.entitlements;
 				DEVELOPMENT_TEAM = QYU2SZHRLR;
 				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CCPMessenger/CCPMessenger.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore/FirebaseCore.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInstallations/FirebaseInstallations.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInstanceID/FirebaseInstanceID.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseMessaging/FirebaseMessaging.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransport/GoogleDataTransport.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransportCCTSupport/GoogleDataTransportCCTSupport.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities/GoogleUtilities.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC/FBLPromises.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Protobuf/Protobuf.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftyJSON/SwiftyJSON.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb/nanopb.framework/Headers\"",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"$(SDKROOT)/usr/include/libxml2",
+					"${PODS_ROOT}/Firebase/CoreOnly/Sources",
+					"\"${PODS_TARGET_SRCROOT}/Sources/FBLPromises/include\"",
+				);
 				INFOPLIST_FILE = CCPMessenger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -1066,7 +1178,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D241F507442C3F8C9E9308DC /* Pods-CCPMessenger_Tests.debug.xcconfig */;
+			baseConfigurationReference = BD1033053D6B492F589392C2 /* Pods-CCPMessenger_Tests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = QYU2SZHRLR;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1089,7 +1201,7 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E71EECDE25F078E2962ED632 /* Pods-CCPMessenger_Tests.release.xcconfig */;
+			baseConfigurationReference = FDE10ECE562BFE402AAC30F0 /* Pods-CCPMessenger_Tests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = QYU2SZHRLR;
 				FRAMEWORK_SEARCH_PATHS = (

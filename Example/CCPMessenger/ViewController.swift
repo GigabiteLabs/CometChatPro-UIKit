@@ -42,6 +42,7 @@ class ViewController: UIViewController {
                     print("could not get reference to AppDelegate, cannot determine status")
                     return
                 }
+                //CometChat.calldelegate = appDelegate
                 CometChatCallManager().registerForCalls(application: appDelegate)
                 // register for notifications
                 if authorized {

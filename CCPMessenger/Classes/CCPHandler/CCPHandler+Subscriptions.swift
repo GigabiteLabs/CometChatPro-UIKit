@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import CometChatPro
+import FirebaseCore
 import FirebaseMessaging
 
 public extension CCPHandler {
