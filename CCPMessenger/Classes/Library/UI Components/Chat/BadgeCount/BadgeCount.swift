@@ -22,8 +22,6 @@ import CometChatPro
     
     // MARK: - Declaration of IBInspectable
     
-    @IBInspectable var borderColor: UIColor = UIColor.clear
-    @IBInspectable var borderWidth: CGFloat = 0.5
     @IBInspectable var radius: CGFloat = 25
     @IBInspectable var setBackgroundColor: UIColor? {
         didSet {
@@ -62,8 +60,8 @@ import CometChatPro
     func setup() {
         self.textColor = UIColor.white
         self.layer.cornerRadius = radius
-        self.layer.borderColor = borderColor.cgColor
-        self.layer.borderWidth = borderWidth
+        self.borderColor = UIColor.clear
+        self.borderWidth = 0.5
         self.clipsToBounds = true
     }
     

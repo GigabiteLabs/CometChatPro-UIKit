@@ -12,6 +12,33 @@ import CometChatPro
 
 extension UIView {
     
+    @IBInspectable
+    var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+
+    @IBInspectable
+    var borderColor: UIColor? {
+        get {
+            if let color = layer.borderColor {
+                return UIColor(cgColor: color)
+            }
+            return nil
+        }
+        set {
+            if let color = newValue {
+                layer.borderColor = color.cgColor
+            } else {
+                layer.borderColor = nil
+            }
+        }
+    }
+    
     func dropShadow() {
         DispatchQueue.main.async {  [weak self] in
                guard let this = self else { return }
@@ -133,7 +160,7 @@ extension UIViewController {
 
 
 
-public extension UIDevice {
+internal extension UIDevice {
     
     // This extention deals with the devices which you want to check the specific conditions and Do the UI Changes according with device size.
     
@@ -497,27 +524,27 @@ extension UILabel{
 }
 
 
-public struct Units {
+internal struct Units {
     
-    public let bytes: Int64
+    internal let bytes: Int64
     
-    public var kilobytes: Double {
+    internal var kilobytes: Double {
         return Double(bytes) / 1_024
     }
     
-    public var megabytes: Double {
+    internal var megabytes: Double {
         return kilobytes / 1_024
     }
     
-    public var gigabytes: Double {
+    internal var gigabytes: Double {
         return megabytes / 1_024
     }
     
-    public init(bytes: Int64) {
+    internal init(bytes: Int64) {
         self.bytes = bytes
     }
     
-    public func getReadableUnit() -> String {
+    internal func getReadableUnit() -> String {
         switch bytes {
         case 0..<1_024:
             return "\(bytes) bytes"
@@ -626,7 +653,7 @@ extension UITableView {
     }
 }
 
-public extension UIImage {
+internal extension UIImage {
     convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
         let rect = CGRect(origin: .zero, size: size)
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
@@ -638,6 +665,7 @@ public extension UIImage {
         self.init(cgImage: cgImage)
     }
 }
+
 
 //Blur the Image:
 protocol Bluring {

@@ -142,19 +142,19 @@ open class CometChatSnackbar: UIView {
         }
     }
     
-    /// Border color of snackbar. Default is clear.
-    @objc open dynamic var borderColor: UIColor? = .clear {
-        didSet {
-            layer.borderColor = borderColor?.cgColor
-        }
-    }
-    
-    /// Border width of snackbar. Default is 1.
-    @objc open dynamic var borderWidth: CGFloat = 1 {
-        didSet {
-            layer.borderWidth = borderWidth
-        }
-    }
+//    /// Border color of snackbar. Default is clear.
+//    @objc open dynamic override var borderColor: UIColor? = .clear {
+//        didSet {
+//            layer.borderColor = borderColor?.cgColor
+//        }
+//    }
+//
+//    /// Border width of snackbar. Default is 1.
+//    @objc open dynamic override var borderWidth: CGFloat = 1 {
+//        didSet {
+//            layer.borderWidth = borderWidth
+//        }
+//    }
     
     /// Left margin. Default is 4
     @objc open dynamic var leftMargin: CGFloat = 5 {
@@ -511,6 +511,8 @@ open class CometChatSnackbar: UIView {
             messageLabel.preferredMaxLayoutWidth = messageLabel.frame.size.width
             setNeedsLayout()
         }
+        borderColor = UIColor.clear
+        borderWidth = 1
         super.layoutSubviews()
     }
 }

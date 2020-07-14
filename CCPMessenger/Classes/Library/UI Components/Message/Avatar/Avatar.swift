@@ -25,8 +25,6 @@ import  CometChatPro
     // MARK: - Declaration of IBInspectable
     
     @IBInspectable var cornerRadius: CGFloat = 0
-    @IBInspectable var borderColor: UIColor = UIColor.lightGray
-    @IBInspectable var borderWidth: CGFloat = 0.5
     
     // MARK: - Initialization of required Methods
     
@@ -37,8 +35,8 @@ import  CometChatPro
     override public func layoutSubviews() {
         super.layoutSubviews()
         self.layer.cornerRadius = cornerRadius
-        self.layer.borderColor = borderColor.cgColor
-        self.layer.borderWidth = borderWidth
+        self.borderColor = UIColor.lightGray
+        self.borderWidth = 0.5
         self.clipsToBounds = true
     }
     

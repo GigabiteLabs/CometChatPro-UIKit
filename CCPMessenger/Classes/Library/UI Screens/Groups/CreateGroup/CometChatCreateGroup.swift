@@ -25,7 +25,6 @@ class CometChatCreateGroup: UIViewController {
     @IBOutlet weak var typeView: UIView!
     @IBOutlet weak var selectedGroupType: UILabel!
     
-    
     // MARK: - Declaration of Variables
     
     let modelName = UIDevice.modelName
@@ -80,13 +79,13 @@ class CometChatCreateGroup: UIViewController {
     private func setupSuperView() {
         if #available(iOS 13.0, *) {
             view.backgroundColor = .systemBackground
-            //typeView.layer.borderColor = UIColor.systemFill.cgColor
+            typeView.layer.borderColor = UIColor.systemFill.cgColor
         } else {
             view.backgroundColor = .white
-            //typeView.layer.borderColor = UIColor.lightGray.cgColor
+            typeView.layer.borderColor = UIColor.lightGray.cgColor
         }
-        //typeView.layer.borderWidth = 1
-        //typeView.clipsToBounds = true
+        typeView.layer.borderWidth = 1
+        typeView.clipsToBounds = true
     }
     
     
@@ -122,7 +121,7 @@ class CometChatCreateGroup: UIViewController {
         //Register Notifications
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(dismissKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
-          NotificationCenter.default.addObserver(self, selector:#selector(self.didGroupDeleted(_:)), name: NSNotification.Name(rawValue: "didGroupDeleted"), object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(self.didGroupDeleted(_:)), name: NSNotification.Name(rawValue: "didGroupDeleted"), object: nil)
         self.hideKeyboardWhenTappedArround()
         
     }

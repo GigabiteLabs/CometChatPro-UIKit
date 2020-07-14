@@ -2801,7 +2801,7 @@ extension CometChatMessageList: QLPreviewControllerDataSource, QLPreviewControll
             let previewController = QLPreviewController()
             
             // get view frame for self
-            let presentationViewFrame = self!.tableView!.frame
+            let presentationViewFrame = self!.view.frame
             // configure popover presentation
             previewController.modalPresentationStyle = .popover
             // restrict to no more than 50% of the size of the tableview

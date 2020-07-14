@@ -107,6 +107,7 @@ public class CometChatGroupList: UIViewController {
    [CometChatGroupList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-2-comet-chat-group-list)
     */
     private func fetchGroups() {
+        print("fetching groupd")
         activityIndicator?.startAnimating()
         activityIndicator?.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
         tableView.tableFooterView = activityIndicator
@@ -144,6 +145,7 @@ public class CometChatGroupList: UIViewController {
     [CometChatGroupList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-2-comet-chat-group-list)
      */
     private func refreshGroups() {
+        print("refreshing groups")
         groups.removeAll()
         activityIndicator?.startAnimating()
         activityIndicator?.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
@@ -312,7 +314,8 @@ public class CometChatGroupList: UIViewController {
      [CometChatGroupList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-2-comet-chat-group-list)
      */
     @objc func didCreateGroupPressed() {
-        let createGroup = CometChatCreateGroup()
+        let createGroupNib = CometChatCreateGroup.sourceNib(.CometChatCreateGroup)
+        let createGroup = createGroupNib.instantiate(withOwner: nil, options: nil)[0] as! CometChatCreateGroup
         let navigationController: UINavigationController = UINavigationController(rootViewController: createGroup)
         createGroup.set(title: NSLocalizedString("CREATE_GROUP", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), mode: .automatic)
         self.present(navigationController, animated: true, completion: nil)
@@ -552,6 +555,7 @@ extension CometChatGroupList : UISearchBarDelegate, UISearchResultsUpdating {
     [CometChatGroupList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-2-comet-chat-group-list)
     */
     public func updateSearchResults(for searchController: UISearchController) {
+        print("update search results")
         groupRequest  = GroupsRequest.GroupsRequestBuilder(limit: 20).set(searchKeyword: searchController.searchBar.text ?? "").build()
         groupRequest.fetchNext(onSuccess: { (groups) in
             print("fetchGroups onSuccess: \(groups)")
