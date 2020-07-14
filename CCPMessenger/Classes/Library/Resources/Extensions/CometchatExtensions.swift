@@ -518,7 +518,6 @@ public struct Units {
     }
     
     public func getReadableUnit() -> String {
-        
         switch bytes {
         case 0..<1_024:
             return "\(bytes) bytes"
@@ -535,7 +534,6 @@ public struct Units {
 }
 
 extension UIView {
-    
     func roundViewCorners(_ corners: CACornerMask, radius: CGFloat) {
         if #available(iOS 11.0, *) {
             self.layer.maskedCorners = corners

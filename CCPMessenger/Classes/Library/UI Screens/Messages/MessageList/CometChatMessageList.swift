@@ -2364,7 +2364,7 @@ extension CometChatMessageList: UITableViewDelegate , UITableViewDataSource {
         
         tableView.beginUpdates()
         
-        UIView.animate(withDuration: 1, delay: 0.0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0, options: [], animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0, options: [], animations: {
             
             if  let selectedCell = tableView.cellForRow(at: indexPath) as? RightTextMessageBubble, let message =  selectedCell.textMessage {
                 selectedCell.receiptStack.isHidden = false
@@ -2527,6 +2527,7 @@ extension CometChatMessageList: UITableViewDelegate , UITableViewDataSource {
             }
             
             if  let selectedCell = tableView.cellForRow(at: indexPath) as? RightAudioMessageBubble {
+                print("right audio message selected")
                 selectedCell.receiptStack.isHidden = false
                 if tableView.isEditing == true{
                     if !self.selectedMessages.contains(selectedCell.audioMessage) {
@@ -2537,7 +2538,12 @@ extension CometChatMessageList: UITableViewDelegate , UITableViewDataSource {
                         if success {
                             if let url = fileURL {
                                 self.previewItem = url as NSURL
-                                self.presentQuickLook()
+                                switch UIDevice.current.userInterfaceIdiom {
+                                case .pad:
+                                    self.presentQuickLookPopover(withSourceView: selectedCell.icon, permittedArrowDirections: [.right])
+                                default:
+                                    self.presentQuickLook()
+                                }
                             }
                         }
                     })
@@ -2728,7 +2734,7 @@ extension CometChatMessageList: UITableViewDelegate , UITableViewDataSource {
 
 // MARK: - UITextView Delegate
 
-extension CometChatMessageList : UITextViewDelegate {
+extension CometChatMessageList: UITextViewDelegate {
     
     
     /// This method triggers when  user stops typing in textView.
@@ -2770,7 +2776,7 @@ extension CometChatMessageList : UITextViewDelegate {
 
 // MARK: - QuickLook Preview Delegate
 
-extension CometChatMessageList:QLPreviewControllerDataSource, QLPreviewControllerDelegate {
+extension CometChatMessageList: QLPreviewControllerDataSource, QLPreviewControllerDelegate {
     
     
     /**
@@ -2783,9 +2789,32 @@ extension CometChatMessageList:QLPreviewControllerDataSource, QLPreviewControlle
     private func presentQuickLook() {
         DispatchQueue.main.async { [weak self] in
             let previewController = QLPreviewController()
-            previewController.modalPresentationStyle = .popover
+            previewController.modalPresentationStyle = .automatic
             previewController.dataSource = self
             previewController.navigationController?.title = ""
+            self?.present(previewController, animated: true, completion: nil)
+        }
+    }
+    
+    private func presentQuickLookPopover(withSourceView: UIView, permittedArrowDirections: UIPopoverArrowDirection.ArrayLiteralElement) {
+        DispatchQueue.main.async { [weak self] in
+            let previewController = QLPreviewController()
+            
+            // get view frame for self
+            let presentationViewFrame = self!.tableView!.frame
+            // configure popover presentation
+            previewController.modalPresentationStyle = .popover
+            // restrict to no more than 50% of the size of the tableview
+            let size = CGSize(width: presentationViewFrame.width * 0.50, height:  presentationViewFrame.height * 0.50)
+            previewController.preferredContentSize = size
+            // set the source
+            previewController.popoverPresentationController?.sourceRect = withSourceView.frame
+            previewController.popoverPresentationController?.sourceView = withSourceView
+            // setup permitted popover arrow directions
+            previewController.popoverPresentationController?.permittedArrowDirections = permittedArrowDirections
+            // setup datasource, final config, & present
+            previewController.dataSource = self
+            previewController.title = ""
             self?.present(previewController, animated: true, completion: nil)
         }
     }
