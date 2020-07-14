@@ -17,11 +17,40 @@ public extension CCPHandler {
             // Subscribe to comet chat push notifications through Firebase
             let userTopic = "\(CCPConfig.shared.appId)_user_\(user.uid.lowercased())_ios"
             self.subscribeTo(topic: userTopic)
+            self.subscribeToGroupNotifications()
             completion(true)
         }, onError: { (exception) in
-            print("error, CometChat login failed with exception: \(exception)")
-            completion(false)
+            switch exception.errorCode {
+            case "ERR_UID_NOT_FOUND":
+                self.createUser(user, immediateLogin: true) { (success) in
+                    switch success {
+                    case true:
+                        CCPConfig.userLoggedIn = success
+                        completion(true)
+                    case false:
+                        completion(false)
+                    }
+                    
+                }
+            default:
+                print("error, CometChat login failed with exception: \(exception.errorDescription)")
+                completion(false)
+            }
         })
+    }
+    
+    func subscribeToGroupNotifications() {
+        // Unsubscribe from all groups
+        CometChat.getJoinedGroups(onSuccess: { (groups) in
+            for group in groups {
+                
+                let groupString = "\(CCPConfig.shared.appId)_group_\(group.lowercased())_ios"
+                self.subscribeTo(topic: groupString)
+            }
+            print("finished group subscriptions")
+        }) { (error) in
+            print("there was an error: \(error?.errorDescription ?? "NO ERROR DESCRIPTION")")
+        }
     }
 
     func logout() {

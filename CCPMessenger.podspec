@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'CometChatProMessenger'
+  s.name             = 'CCPMessenger'
   s.version          = '0.1.1'
   s.summary          = 'A unified framework for CometChat Pro UIKit and binary framework.'
   s.description      = <<-DESC

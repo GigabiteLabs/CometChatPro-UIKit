@@ -1834,7 +1834,7 @@ extension CometChatMessageList: UIDocumentPickerDelegate {
             do {
                 try CometChatSoundManager().play(sound: .outgoingMessage, pausingCurrentlyPlayingAudio: pausingCurrentAudio ?? true)
             } catch {
-                print("could not play incoming call sound, error: \(error)")
+                print("could not play outgoing message sound, error: \(error)")
             }
         }
     }
@@ -1843,7 +1843,7 @@ extension CometChatMessageList: UIDocumentPickerDelegate {
             do {
                 try CometChatSoundManager().play(sound: .incomingMessage, pausingCurrentlyPlayingAudio: pausingCurrentAudio ?? true)
             } catch {
-                print("could not play incoming call sound, error: \(error)")
+                print("could not play incoming message sound, error: \(error)")
             }
         }
     }
@@ -1852,7 +1852,7 @@ extension CometChatMessageList: UIDocumentPickerDelegate {
             do {
                 try CometChatSoundManager().play(sound: .incomingMessageForOther, pausingCurrentlyPlayingAudio: pausingCurrentAudio ?? true)
             } catch {
-                print("could not play incoming call sound, error: \(error)")
+                print("could not play incoming other message sound, error: \(error)")
             }
         }
     }
@@ -3580,10 +3580,11 @@ extension CometChatMessageList : CometChatMessageDelegate {
      [CometChatMessageList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-4-comet-chat-message-list)
      */
     public func onTypingStarted(_ typingDetails: TypingIndicator) {
+        print("typing started...")
         DispatchQueue.main.async{ [weak self] in
             guard let strongSelf = self else { return }
-            if typingDetails.sender?.uid == strongSelf.currentUser?.uid && typingDetails.receiverType == .user{
-                
+            if typingDetails.sender?.uid == strongSelf.currentUser?.uid && typingDetails.receiverType == .user {
+                print("self started typing")
                 if let typingMetaData = typingDetails.metadata, let type = typingMetaData["type"] as? String ,let reaction = typingMetaData["reaction"] as? String {
                     if type == "live_reaction" {
                         if reaction == "heart" || reaction == "thumbsup" {
@@ -3598,7 +3599,7 @@ extension CometChatMessageList : CometChatMessageDelegate {
                 }
                 
             }else if typingDetails.receiverType == .group  && typingDetails.receiverID == strongSelf.currentGroup?.guid {
-                
+                print("other user started typing")
                 if let typingMetaData = typingDetails.metadata, let type = typingMetaData["type"] as? String ,let reaction = typingMetaData["reaction"] as? String {
                     if type == "live_reaction" {
                         if reaction == "heart" || reaction == "thumbsup" {

@@ -32,4 +32,19 @@ public class CCPConfig: CCPType {
             UserDefaults.standard.set(newValue, forKey: "CCUserLoggedIn")
         }
     }
+    
+    public static var ready: Bool {
+        get {
+            let status = UserDefaults.standard.bool(forKey: "CCReady")
+            switch status {
+            case true:
+                return true
+            default:
+                return false
+            }
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "CCReady")
+        }
+    }
 }

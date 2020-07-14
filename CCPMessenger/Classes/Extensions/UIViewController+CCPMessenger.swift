@@ -23,13 +23,15 @@ extension UIViewController {
     ///     - Default style for iPad is `.formSheet`
     ///
     public func presentCometChatPro(_ withStyle: UIModalPresentationStyle?, animated: Bool, completion: (() -> Void)?) {
-        guard let withStyle = withStyle else {
-            presentWithDefaultPresentationStyle(animated: animated, completion: completion)
-            return
+        DispatchQueue.main.async {
+            guard let withStyle = withStyle else {
+                self.presentWithDefaultPresentationStyle(animated: animated, completion: completion)
+                return
+            }
+            let unified = CometChatUnified()
+            unified.setup(withStyle: withStyle)
+            self.present(unified, animated: animated, completion: completion)
         }
-        let unified = CometChatUnified()
-        unified.setup(withStyle: withStyle)
-        present(unified, animated: animated, completion: completion)
     }
     /// Returns an instance of the `CometChatUnified` view controller. The view controller
     /// will be setup with the style option, if one is provided.

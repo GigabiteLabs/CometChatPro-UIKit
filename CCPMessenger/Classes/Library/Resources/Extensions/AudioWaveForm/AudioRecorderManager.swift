@@ -34,9 +34,13 @@ final class AudioRecorderManager: NSObject {
 
 	func askPermission(completion: ((Bool) -> Void)? = nil) {
 		AVAudioSession.sharedInstance().requestRecordPermission { [weak self] granted in
-			self?.isPermissionGranted = granted
-			completion?(granted)
-			print("Audio Recorder did not grant permission")
+            switch granted {
+            case true:
+                self?.isPermissionGranted = granted
+                completion?(granted)
+            case false:
+                print("Audio Recorder did not grant permission")
+            }
 		}
 	}
 

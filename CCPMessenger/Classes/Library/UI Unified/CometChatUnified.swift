@@ -102,7 +102,7 @@ import CometChatPro
     @objc public func setup(withStyle: UIModalPresentationStyle) {
         self.modalPresentationStyle = withStyle
         //set(controllers: [conversations,users,groups,more])
-        set(controllers: [conversations,users,groups,more])
+        set(controllers: [calls,conversations,users,groups,more])
     }
 }
  

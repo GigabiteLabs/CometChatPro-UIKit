@@ -18,4 +18,8 @@ internal enum CCAudioFileName: String, CaseIterable {
     internal static var filetype: String {
         return "wav"
     }
+    /// Returns a `String` value  of the type with`.wav` appended.
+    internal var withExtension: String {
+        return "\(self.rawValue).wav"
+    }
 }

@@ -75,30 +75,34 @@ public class CometChatIncomingCall: UIViewController {
         playIncomingCallSound(pausingCurrentAudio: true)
         DispatchQueue.main.async {
             self.incomingCallView.dropShadow()
-        if let call = forCall {
-            switch call.receiverType {
-            case .user where call.callType == .audio:
-                if let user = call.callInitiator as? User {
-                    self.set(name: user.name?.capitalized ?? "", avatarURL: user.avatar ?? "", callStatus: "Incoming Audio Call", callStatusIcon: .fromBundle(named: "incomingAudio"))
+            if let call = forCall {
+                switch call.receiverType {
+                case .user where call.callType == .audio:
+                    if let user = call.callInitiator as? User {
+                        self.set(name: user.name?.capitalized ?? "", avatarURL: user.avatar ?? "", callStatus: "Incoming Audio Call", callStatusIcon: .fromBundle(named: "incomingAudio"))
+                    }
+                case .user where call.callType == .video:
+                    if let user = call.callInitiator as? User {
+                        self.set(name: user.name?.capitalized ?? "", avatarURL: user.avatar ?? "", callStatus: "Incoming Video Call", callStatusIcon: .fromBundle(named: "incomingVideo"))
+                    }
+                case .group where call.callType == .audio:
+                    if let group = call.callReceiver as? Group {
+                        self.set(name: group.name?.capitalized ?? "", avatarURL: group.icon ?? "", callStatus: "Incoming Audio Call", callStatusIcon: .fromBundle(named: "incomingAudio"))
+                    }
+                case .group where call.callType == .video:
+                    if let group = call.callReceiver as? Group {
+                        self.set(name: group.name?.capitalized ?? "", avatarURL: group.icon ?? "", callStatus: "Incoming Video Call", callStatusIcon: .fromBundle(named: "incomingVideo"))
+                    }
+                case .user:
+                    print("breaking: \(#file):\(#line)")
+                    break
+                case .group:
+                    print("breaking: \(#file):\(#line)")
+                    break
+                @unknown default:
+                    break
                 }
-            case .user where call.callType == .video:
-                if let user = call.callInitiator as? User {
-                    self.set(name: user.name?.capitalized ?? "", avatarURL: user.avatar ?? "", callStatus: "Incoming Video Call", callStatusIcon: .fromBundle(named: "incomingVideo"))
-                }
-            case .group where call.callType == .audio:
-                if let group = call.callReceiver as? Group {
-                    self.set(name: group.name?.capitalized ?? "", avatarURL: group.icon ?? "", callStatus: "Incoming Audio Call", callStatusIcon: .fromBundle(named: "incomingAudio"))
-                }
-            case .group where call.callType == .video:
-                if let group = call.callReceiver as? Group {
-                    self.set(name: group.name?.capitalized ?? "", avatarURL: group.icon ?? "", callStatus: "Incoming Video Call", callStatusIcon: .fromBundle(named: "incomingVideo"))
-                }
-            case .user:  break
-            case .group: break
-            @unknown default:
-                break
             }
-        }
     }
     }
     

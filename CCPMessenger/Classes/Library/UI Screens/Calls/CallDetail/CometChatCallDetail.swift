@@ -196,16 +196,16 @@ class CometChatCallDetail: UIViewController {
             view.backgroundColor = .systemBackground
         } else { }
         tableView = UITableView()
-        self.view.addSubview(self.tableView)
-        self.tableView.translatesAutoresizingMaskIntoConstraints = false
-        self.tableView.topAnchor.constraint(equalTo: self.safeArea.topAnchor).isActive = true
-        self.tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.tableFooterView = UIView(frame: .zero)
-        self.registerCells()
+        view.addSubview(self.tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: self.safeArea.topAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView(frame: .zero)
+        registerCells()
     }
     
     /**
@@ -216,6 +216,7 @@ class CometChatCallDetail: UIViewController {
     private func registerCells() {
         // register cells using type
         tableView.register(.CometChatDetailView)
+        tableView.register(.CometChatCallDetailLogView)
         tableView.register(.NotificationsView)
         tableView.register(.SupportView)
         tableView.register(.ProgressIndicatorView)
@@ -513,6 +514,7 @@ extension CometChatCallDetail: UITableViewDelegate , UITableViewDataSource {
             if  let selectedCell = (tableView.cellForRow(at: indexPath) as? CometChatDetailView){
                 let audioCall = UIAction(title: NSLocalizedString("AUDIO_CALL", tableName: nil, bundle: CCPType.bundle, value: "", comment: ""), image: .fromBundle(named: "audioCall")) { action in
                     if let user = selectedCell.user {
+                        // Note: Call start
                         CometChatCallManager().makeCall(call: .audio, to: user)
                     }
                     if let group = selectedCell.group {

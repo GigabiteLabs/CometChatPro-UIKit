@@ -12,15 +12,21 @@ import CometChatPro
 import Firebase
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
+    let gcmMessageIDKey = "gcm.message_id"
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()
+        configFirebase()
         configCometChat()
         return true
+    }
+    
+    func configFirebase() {
+        FirebaseApp.configure()
+        Messaging.messaging().delegate = self
     }
     
     func configCometChat() {
@@ -28,20 +34,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CCPConfig.shared.apiKey = "e42664b7cd8a1ca4df5afcb42d459b22c1571880"
         CCPConfig.shared.appId = "21075774089df29"
         CCPConfig.shared.region = "US"
-        let user: CCPUser = .init(firstname: "test", lastname: "dan", uid: "UUID-TEST")
+        
+        // all CCP config builder
         let mySettings = AppSettings.AppSettingsBuilder().subscribePresenceForAllUsers().setRegion(region: CCPConfig.shared.region).build()
         let _ = CometChat(appId: CCPConfig.shared.appId,appSettings: mySettings,onSuccess: { (isSuccess) in
         if (isSuccess) {
             print("Chat intialized successfully.")
-            CCPHandler.shared.login(user: user) { (success) in
-                switch success {
-                case true:
-                    print("CometChat user login was successful")
-                    CometChat.calldelegate = self
-                case false:
-                    print("CometChat user login failed")
-                }
-            }
+            // important: calls will not work in BG if not set
         } }){(error) in print("Chat failed intialise with error: \(error.errorDescription)") }
     }
 
@@ -68,80 +67,65 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-extension AppDelegate: CometChatCallDelegate {
-   /**
-   This method triggers when incoming call received from Server.
-    - Parameters:
-     - incomingCall: Specifies a Call Object
-       - error:  triggers when error occurs
-   - Author: CometChat Team
-   - Copyright:  ©  2020 CometChat Inc.
-   */
-   func onIncomingCallReceived(incomingCall: Call?, error: CometChatException?) {
-       print(#function)
-       if let currentCall = incomingCall {
-           DispatchQueue.main.async {
-               let call = CometChatIncomingCall()
-               call.modalPresentationStyle = .custom
-               call.setCall(call: currentCall)
-               if let window = self.window, let rootViewController = window.rootViewController {
-                   var currentController = rootViewController
-                   while let presentedController = currentController.presentedViewController {
-                       currentController = presentedController
-                   }
-                   currentController.present(call, animated: true, completion: nil)
-               }
-               if let call = incomingCall {
-                   CometChatCallManager.incomingCallDelegate?.onIncomingCallReceived(incomingCall: call, error: error)
-               }
-           }
-       }
 
-   }
 
-   /**
-   This method triggers when outgoing call accepted from User or group.
-    - Parameters:
-     - acceptedCall: Specifies a Call Object
-       - error:  triggers when error occurs
-   - Author: CometChat Team
-   - Copyright:  ©  2020 CometChat Inc.
-   */
-   func onOutgoingCallAccepted(acceptedCall: Call?, error: CometChatException?) {
-       print(#function)
-       if let call = acceptedCall {
-           CometChatCallManager.outgoingCallDelegate?.onOutgoingCallAccepted(acceptedCall: call, error: error)
-       }
-   }
 
-   /**
-   This method triggers when ourgoing call rejected from User or group.
-    - Parameters:
-     - rejectedCall: Specifies a Call Object
-       - error:  triggers when error occurs
-   - Author: CometChat Team
-   - Copyright:  ©  2020 CometChat Inc.
-   */
-   func onOutgoingCallRejected(rejectedCall: Call?, error: CometChatException?) {
-       print(#function)
-       if let call = rejectedCall {
-           CometChatCallManager.outgoingCallDelegate?.onOutgoingCallRejected(rejectedCall: call, error: error)
-       }
-   }
 
-   /**
-   This method triggers when incoming call cancelled from User or group.
-    - Parameters:
-     - rejectedCall: Specifies a Call Object
-       - error:  triggers when error occurs
-   - Author: CometChat Team
-   - Copyright:  ©  2020 CometChat Inc.
-   */
-   func onIncomingCallCancelled(canceledCall: Call?, error: CometChatException?) {
-       print(#function)
-       if let call = canceledCall {
-           CometChatCallManager.incomingCallDelegate?.onIncomingCallCancelled(canceledCall: call, error: error)
-       }
-   }
+/// Extension for all push notification related functions
+extension AppDelegate {
+
+    // Presents the notification banner when user is in the app
+    func userNotificationCenter(_ center: UNUserNotificationCenter,willPresent notification: UNNotification, withCompletionHandler completionHandler:@escaping (UNNotificationPresentationOptions) -> Void) {
+        print("\n\nForeground message recieved\n\n")
+        print(notification)
+        print("current call delegate: \(CometChat.calldelegate)")
+        // commented to ignore
+        completionHandler(.alert)
+    }
+
+    func application (_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data){
+        print("device did register for push notifications")
+        // Firebase Config
+        Messaging.messaging().apnsToken = deviceToken
+    }
+
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+      print("Unable to register for remote notifications: \(error.localizedDescription)")
+    }
+
+    // Handles remote notifications in background,
+    // also handles user responses to notifications, like tapping on them, in fore and background
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print("\n\nUser tapped on notification \n\n")
+        // Firebase Config
+        Messaging.messaging().appDidReceiveMessage(userInfo)
+        // Print message ID.
+        if let messageID = userInfo[gcmMessageIDKey] {
+            print("Message ID: \(messageID)")
+        }
+
+        // Print full message.
+        print(userInfo)
+        completionHandler(UIBackgroundFetchResult.newData)
+    }
+
+    //Send notification status when app is opened by clicking notifications
+       func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        print("\n\nUser tapped on notification\n\n")
+        // Firebase Config
+        Messaging.messaging().appDidReceiveMessage(userInfo)
+    }
 }
 
+/// Firebase Cloud Messagin functions
+extension AppDelegate: MessagingDelegate
+{
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+      print("Firebase registration token: \(fcmToken)")
+
+      let dataDict:[String: String] = ["token": fcmToken]
+      NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+      // TODO: If necessary send token to application server.
+      // Note: This callback is fired at each app startup and whenever a new token is generated.
+    }
+}

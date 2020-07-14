@@ -41,7 +41,7 @@ class CometChatCallsView: UITableViewCell {
                         
                     }
                     callStatus.text = "Outgoing Audio"
-                    //callStatusIcon.image = .fromBundle(named: "outgoingAudio")
+                    callStatusIcon.image = .fromBundle(named: "outgoingAudio")
                     if #available(iOS 13.0, *) {
                         name.textColor = .label
                     } else {

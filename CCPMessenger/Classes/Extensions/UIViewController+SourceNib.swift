@@ -7,11 +7,15 @@
 
 import Foundation
 
-internal extension UIViewController {
+public extension UIViewController {
     /// Returns Nib of the cell
-    class func sourceNib(_ name: CCNib) -> UINib {
+    internal class func sourceNib(_ name: CCNib) -> UINib {
         let bundle = Bundle(for: CCPType.self).podResource(name: "CCPMessenger")
         let nib = UINib(nibName: name.rawValue, bundle: bundle)
         return nib
+    }
+    public class func fromCometChatNib<T: UIViewController>(_ nibName: CCNib) -> T {
+        let bundle = Bundle(for: CCPType.self).podResource(name: "CCPMessenger")
+        return T(nibName: nibName.rawValue, bundle: bundle)
     }
 }

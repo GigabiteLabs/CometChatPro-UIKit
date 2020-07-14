@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import CometChatPro
 
-extension UIView {
+internal extension UIView {
     
     @IBInspectable
     var borderWidth: CGFloat {
@@ -40,15 +40,15 @@ extension UIView {
     }
     
     func dropShadow() {
-        DispatchQueue.main.async {  [weak self] in
-               guard let this = self else { return }
-              this.layer.masksToBounds = false
-                  this.layer.shadowColor = UIColor.gray.cgColor
-                  this.layer.shadowOpacity = 0.3
-                  this.layer.shadowOffset = CGSize.zero
-                  this.layer.shadowRadius = 5
-                  this.layer.shouldRasterize = true
-                  this.layer.rasterizationScale = UIScreen.main.scale
+        print("setting drop shadow")
+        DispatchQueue.main.async {
+            self.layer.masksToBounds = false
+            self.layer.shadowColor = UIColor.gray.cgColor
+            self.layer.shadowOpacity = 0.3
+            self.layer.shadowOffset = CGSize.zero
+            self.layer.shadowRadius = 5
+            self.layer.shouldRasterize = true
+            self.layer.rasterizationScale = UIScreen.main.scale
         }
     }
 }

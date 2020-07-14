@@ -10,7 +10,7 @@ import AVFoundation
 
 // MARK: - Declaration of Enum
 
-public enum Sound {
+public enum Sound: String {
     case incomingCall
     case incomingMessage
     case incomingMessageForOther
@@ -68,7 +68,7 @@ public final class CometChatSoundManager: NSObject {
             audioPlayer?.prepareToPlay()
             audioPlayer?.play()
         case .incomingMessageForOther:
-            let soundURL: URL = .sourceBundle(.IncomingMessage)
+            let soundURL: URL = .sourceBundle(.IncomingMessageOther)
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
             try AVAudioSession.sharedInstance().setActive(true)
             audioPlayer = try AVAudioPlayer(contentsOf: soundURL)

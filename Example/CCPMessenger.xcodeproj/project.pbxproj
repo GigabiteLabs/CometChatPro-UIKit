@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		376A2E5F24BABB0200E4568E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 376A2E5E24BABB0200E4568E /* GoogleService-Info.plist */; };
+		37BBE2EE24BD972500210922 /* ViewController+PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BBE2ED24BD972500210922 /* ViewController+PushNotifications.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -28,7 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00D0659E179AF4226BF10086 /* CCPMessenger.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CCPMessenger.podspec; path = ../CCPMessenger.podspec; sourceTree = "<group>"; };
+		00D0659E179AF4226BF10086 /* CCPMessenger.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CCPMessenger.podspec; path = ../CCPMessenger.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		376A2B8F24BA740000E4568E /* CCPMessenger_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CCPMessenger_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		376A2BA124BA773D00E4568E /* CCPMessenger_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CCPMessenger_Example.entitlements; sourceTree = "<group>"; };
 		376A2D6224BA938400E4568E /* RightAudioMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightAudioMessageBubble.xib; sourceTree = "<group>"; };
@@ -96,6 +97,7 @@
 		376A2DCB24BA938500E4568E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		376A2DCD24BA938500E4568E /* SupportView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SupportView.xib; sourceTree = "<group>"; };
 		376A2E5E24BABB0200E4568E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		37BBE2ED24BD972500210922 /* ViewController+PushNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+PushNotifications.swift"; sourceTree = "<group>"; };
 		50BAE109C5DD1EEE13798D0B /* libPods-CCPMessenger_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CCPMessenger_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* CCPMessenger_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCPMessenger_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -626,6 +628,7 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				37BBE2ED24BD972500210922 /* ViewController+PushNotifications.swift */,
 			);
 			name = "Example for CCPMessenger";
 			path = CCPMessenger;
@@ -876,6 +879,7 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				37BBE2EE24BD972500210922 /* ViewController+PushNotifications.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -113,8 +113,12 @@ public class CometChatOutgoingCall: UIViewController {
     */
     private func setupAppearance(forEntity: AppEntity){
         print("setting appearance for entity: \(forEntity)")
-        if let user = forEntity as? User { avatar.set(entity: user) }
-        if let group = forEntity as? Group { avatar.set(entity: group) }
+        if let user = forEntity as? User {
+            avatar.set(entity: user)
+        }
+        if let group = forEntity as? Group {
+            avatar.set(entity: group)
+        }
     }
     
     /**

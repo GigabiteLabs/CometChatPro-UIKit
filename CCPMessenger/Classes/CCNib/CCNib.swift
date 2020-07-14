@@ -8,7 +8,7 @@
 import Foundation
 
 /// Public enum of all nib files embedded in the framework
-internal enum CCNib: String, CaseIterable {
+public enum CCNib: String, CaseIterable {
     case AddMemberView
     case AdministratorView
     case AudioVisualizationView
