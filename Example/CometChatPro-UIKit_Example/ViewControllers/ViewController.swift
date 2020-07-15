@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var submit: UIButton!
     
-    let defaultMessage = "Provide your first and last name to login."
+    let defaultMessage = "Enter your first & last names, and a simple (non-secure) password to login."
     
     @IBAction func launch(_ sender: Any) {
         getInput()
@@ -80,6 +80,7 @@ class ViewController: UIViewController {
     
     func launch(first: String, last: String, uuid: String) {
         let user: CCPUser = .init(firstname: first, lastname: last, uid: uuid)
+        
         CCPHandler.shared.login(user: user) { (success) in
             DispatchQueue.main.async {
                 switch success {

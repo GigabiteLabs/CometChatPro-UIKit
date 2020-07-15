@@ -88,7 +88,9 @@ extension ViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { _ in
             completion(false)
         }))
-        present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
 }

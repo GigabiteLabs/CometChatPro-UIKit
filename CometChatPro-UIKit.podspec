@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version          = '1.0.0'
   s.summary          = 'A unified framework for CometChat Pro UIKit and the CometChat SDK.'
   s.description      = <<-DESC
-'A framework for CometChat Pro that combines the CometChat Pro UIKit library and public binary framework.'
+'A unified framework for CometChat Pro that combines the CometChat Pro UIKit library CometChat binary SDK.'
                        DESC
   s.homepage         = 'https://github.com/GigabiteLabs/CometChatPro-UIKit'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
@@ -18,15 +18,13 @@ Pod::Spec.new do |s|
       'CometChatPro-UIKit' => ['CometChatPro-UIKit/Assets/**/*.{plist,png,xcassets,xib,storyboard,strings,wav,otf}']
   }
   s.ios.frameworks = 'UIKit', 'QuartzCore', 'AVKit', 'AVFoundation', 'QuickLook', 'AudioToolbox', 'Foundation', 'Accelerate', 'CoreImage', 'CoreGraphics', 'WebKit'
-  s.static_framework = true
   s.dependency 'CometChatPro', '2.0.12-Xcode11.4'
-  s.vendored_frameworks = '$(PODS_ROOT)/CometChatPro/CometChatPro.framework','$(PODS_ROOT)/CometChatPro/Vendors/JitsiMeet.framework','$(PODS_ROOT)/CometChatPro/Vendors/WebRTC.framework'
-  #s.dependency 'Firebase/Messaging'
+  s.dependency 'Firebase/Messaging'
   s.dependency 'SwiftyJSON'
-  # s.public_header_files = '$(PODS_ROOT)/CometChatPro/CometChatPro.framework/Headers/*.h'
+  s.vendored_frameworks = '$(PODS_ROOT)/CometChatPro/CometChatPro.framework','$(PODS_ROOT)/CometChatPro/Vendors/JitsiMeet.framework','$(PODS_ROOT)/CometChatPro/Vendors/WebRTC.framework'
   s.pod_target_xcconfig = {
       'FRAMEWORK_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/CometChatPro $(PODS_ROOT)/CometChatPro/Vendors',
-    'OTHER_LDFLAGS'          => '$(inherited) -lObjC'
+      'OTHER_LDFLAGS'          => '$(inherited) -lObjC'
   }
-  
+  s.static_framework = true
 end

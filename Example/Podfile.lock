@@ -2,6 +2,7 @@ PODS:
   - CometChatPro (2.0.12-Xcode11.4)
   - CometChatPro-UIKit (1.0.0):
     - CometChatPro (= 2.0.12-Xcode11.4)
+    - Firebase/Messaging
     - SwiftyJSON
   - Firebase (6.28.0):
     - Firebase/Core (= 6.28.0)
@@ -118,7 +119,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CometChatPro: 3eed774fe7a77f825927ab724b2d23d02946ef87
-  CometChatPro-UIKit: eaacd22076a7d69a6e96eea8acd791f7fcb21fa5
+  CometChatPro-UIKit: 8092834060e283ae4aa11f1cc6c3b04515db5eaa
   Firebase: dc81c6c4701aa965eda3b1433d1b993e3f291e7b
   FirebaseAnalytics: 5fa308e1b13f838d0f6dc74719ac2a72e8c5afc4
   FirebaseCore: aab9d4dd2d819197a0157166cb065ae88ff612b5
