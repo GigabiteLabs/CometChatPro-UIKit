@@ -5,9 +5,9 @@
 // Copyright © 2020 GigabiteLabs. All rights reserved.
 //
 
-
-
 import XCTest
+import CometChatPro
+import CCPMessenger
 
 class CCPMessenger_Tests: XCTestCase {
 

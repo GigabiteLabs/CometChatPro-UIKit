@@ -36,70 +36,6 @@
 		372C4E8524BE9C2B0096C42E /* CCPMessenger_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCPMessenger_Tests.swift; sourceTree = "<group>"; };
 		376A2B8F24BA740000E4568E /* CCPMessenger_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CCPMessenger_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		376A2BA124BA773D00E4568E /* CCPMessenger_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CCPMessenger_Example.entitlements; sourceTree = "<group>"; };
-		376A2D6224BA938400E4568E /* RightAudioMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightAudioMessageBubble.xib; sourceTree = "<group>"; };
-		376A2D6424BA938400E4568E /* LeftAudioMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftAudioMessageBubble.xib; sourceTree = "<group>"; };
-		376A2D6724BA938400E4568E /* LeftFileMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftFileMessageBubble.xib; sourceTree = "<group>"; };
-		376A2D6924BA938400E4568E /* RightFileMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightFileMessageBubble.xib; sourceTree = "<group>"; };
-		376A2D6C24BA938400E4568E /* LeftTextMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftTextMessageBubble.xib; sourceTree = "<group>"; };
-		376A2D6E24BA938400E4568E /* RightTextMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightTextMessageBubble.xib; sourceTree = "<group>"; };
-		376A2D7124BA938400E4568E /* RightVideoMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightVideoMessageBubble.xib; sourceTree = "<group>"; };
-		376A2D7324BA938400E4568E /* LeftVideoMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftVideoMessageBubble.xib; sourceTree = "<group>"; };
-		376A2D7624BA938400E4568E /* LeftLinkPreviewBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftLinkPreviewBubble.xib; sourceTree = "<group>"; };
-		376A2D7824BA938400E4568E /* RightLinkPreviewBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightLinkPreviewBubble.xib; sourceTree = "<group>"; };
-		376A2D7B24BA938400E4568E /* RightImageMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightImageMessageBubble.xib; sourceTree = "<group>"; };
-		376A2D7D24BA938400E4568E /* LeftImageMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftImageMessageBubble.xib; sourceTree = "<group>"; };
-		376A2D7F24BA938400E4568E /* ActionMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionMessageBubble.xib; sourceTree = "<group>"; };
-		376A2D8224BA938400E4568E /* LeftReplyMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftReplyMessageBubble.xib; sourceTree = "<group>"; };
-		376A2D8424BA938400E4568E /* RightReplyMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightReplyMessageBubble.xib; sourceTree = "<group>"; };
-		376A2D8624BA938400E4568E /* SharedMediaView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SharedMediaView.xib; sourceTree = "<group>"; };
-		376A2D8724BA938400E4568E /* SharedMediaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SharedMediaCell.xib; sourceTree = "<group>"; };
-		376A2D8924BA938400E4568E /* ChatView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatView.xib; sourceTree = "<group>"; };
-		376A2D8B24BA938400E4568E /* AudioVisualizationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioVisualizationView.xib; sourceTree = "<group>"; };
-		376A2D8D24BA938400E4568E /* CometChatMessageList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CometChatMessageList.xib; sourceTree = "<group>"; };
-		376A2D8F24BA938400E4568E /* ProgressIndicatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressIndicatorView.xib; sourceTree = "<group>"; };
-		376A2D9124BA938400E4568E /* CometChatDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CometChatDetailView.xib; sourceTree = "<group>"; };
-		376A2D9324BA938400E4568E /* CometChatCreateGroup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CometChatCreateGroup.xib; sourceTree = "<group>"; };
-		376A2D9524BA938400E4568E /* AdministratorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdministratorView.xib; sourceTree = "<group>"; };
-		376A2D9724BA938400E4568E /* CometChatCallDetailLogView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CometChatCallDetailLogView.xib; sourceTree = "<group>"; };
-		376A2D9924BA938400E4568E /* NotificationsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationsView.xib; sourceTree = "<group>"; };
-		376A2D9A24BA938400E4568E /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		376A2D9C24BA938400E4568E /* CometChatConversationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CometChatConversationView.xib; sourceTree = "<group>"; };
-		376A2D9E24BA938400E4568E /* SmartReplyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmartReplyCell.xib; sourceTree = "<group>"; };
-		376A2DA024BA938400E4568E /* CometChatOutgoingCall.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CometChatOutgoingCall.xib; sourceTree = "<group>"; };
-		376A2DA224BA938400E4568E /* CometChatCallsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CometChatCallsView.xib; sourceTree = "<group>"; };
-		376A2DA424BA938400E4568E /* IncomingCall.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = IncomingCall.wav; sourceTree = "<group>"; };
-		376A2DA524BA938400E4568E /* OutgoingCall.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = OutgoingCall.wav; sourceTree = "<group>"; };
-		376A2DA624BA938500E4568E /* IncomingMessage.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = IncomingMessage.wav; sourceTree = "<group>"; };
-		376A2DA724BA938500E4568E /* NewAnnouncement.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = NewAnnouncement.wav; sourceTree = "<group>"; };
-		376A2DA824BA938500E4568E /* IncomingMessageOther.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = IncomingMessageOther.wav; sourceTree = "<group>"; };
-		376A2DA924BA938500E4568E /* OutgoingMessege.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = OutgoingMessege.wav; sourceTree = "<group>"; };
-		376A2DAB24BA938500E4568E /* AddMemberView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMemberView.xib; sourceTree = "<group>"; };
-		376A2DAD24BA938500E4568E /* CometChatUserView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CometChatUserView.xib; sourceTree = "<group>"; };
-		376A2DAE24BA938500E4568E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		376A2DB024BA938500E4568E /* MembersView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MembersView.xib; sourceTree = "<group>"; };
-		376A2DB224BA938500E4568E /* CometChatSettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CometChatSettingsView.xib; sourceTree = "<group>"; };
-		376A2DB424BA938500E4568E /* CometChatGroupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CometChatGroupView.xib; sourceTree = "<group>"; };
-		376A2DB624BA938500E4568E /* SF-Pro-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Thin.otf"; sourceTree = "<group>"; };
-		376A2DB724BA938500E4568E /* SF-Pro-Display-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-SemiboldItalic.otf"; sourceTree = "<group>"; };
-		376A2DB824BA938500E4568E /* SF-Pro-Display-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-RegularItalic.otf"; sourceTree = "<group>"; };
-		376A2DB924BA938500E4568E /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
-		376A2DBA24BA938500E4568E /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
-		376A2DBB24BA938500E4568E /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
-		376A2DBC24BA938500E4568E /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
-		376A2DBD24BA938500E4568E /* SF-Pro-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Heavy.otf"; sourceTree = "<group>"; };
-		376A2DBE24BA938500E4568E /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
-		376A2DBF24BA938500E4568E /* SF-Pro-Display-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-MediumItalic.otf"; sourceTree = "<group>"; };
-		376A2DC024BA938500E4568E /* SF-Pro-Display-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-HeavyItalic.otf"; sourceTree = "<group>"; };
-		376A2DC124BA938500E4568E /* SF-Pro-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Ultralight.otf"; sourceTree = "<group>"; };
-		376A2DC224BA938500E4568E /* SF-Pro-Display-UltralightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-UltralightItalic.otf"; sourceTree = "<group>"; };
-		376A2DC324BA938500E4568E /* SF-Pro-Display-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-LightItalic.otf"; sourceTree = "<group>"; };
-		376A2DC424BA938500E4568E /* SF-Pro-Display-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-BlackItalic.otf"; sourceTree = "<group>"; };
-		376A2DC524BA938500E4568E /* SF-Pro-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Black.otf"; sourceTree = "<group>"; };
-		376A2DC624BA938500E4568E /* SF-Pro-Display-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-ThinItalic.otf"; sourceTree = "<group>"; };
-		376A2DC724BA938500E4568E /* SF-Pro-Display-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-BoldItalic.otf"; sourceTree = "<group>"; };
-		376A2DC924BA938500E4568E /* CometChatIncomingCall.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CometChatIncomingCall.xib; sourceTree = "<group>"; };
-		376A2DCB24BA938500E4568E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		376A2DCD24BA938500E4568E /* SupportView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SupportView.xib; sourceTree = "<group>"; };
 		376A2E5E24BABB0200E4568E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		37BBE2ED24BD972500210922 /* ViewController+PushNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+PushNotifications.swift"; sourceTree = "<group>"; };
 		37C8685424BDD9360025D332 /* CCPMessenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CCPMessenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,454 +136,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		376A2D5E24BA938400E4568E /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D5F24BA938400E4568E /* MessageView */,
-				376A2D8524BA938400E4568E /* SharedMediaView */,
-				376A2D8824BA938400E4568E /* ChatView */,
-				376A2D8A24BA938400E4568E /* AudioVisualizationView */,
-				376A2D8C24BA938400E4568E /* MessageList */,
-				376A2D8E24BA938400E4568E /* ProgressIndicatorView */,
-				376A2D9024BA938400E4568E /* DetailView */,
-				376A2D9224BA938400E4568E /* CreateGroup */,
-				376A2D9424BA938400E4568E /* AdministratorView */,
-				376A2D9624BA938400E4568E /* CallDetailLogView */,
-				376A2D9824BA938400E4568E /* NotificationsView */,
-				376A2D9A24BA938400E4568E /* .gitkeep */,
-				376A2D9B24BA938400E4568E /* ConversationView */,
-				376A2D9D24BA938400E4568E /* SmartReplyView */,
-				376A2D9F24BA938400E4568E /* OutgoingCall */,
-				376A2DA124BA938400E4568E /* CallsView */,
-				376A2DA324BA938400E4568E /* Ringtones */,
-				376A2DAA24BA938500E4568E /* AddMemberView */,
-				376A2DAC24BA938500E4568E /* UserView */,
-				376A2DAE24BA938500E4568E /* Images.xcassets */,
-				376A2DAF24BA938500E4568E /* MembersView */,
-				376A2DB124BA938500E4568E /* SettingsView */,
-				376A2DB324BA938500E4568E /* GroupView */,
-				376A2DB524BA938500E4568E /* Fonts */,
-				376A2DC824BA938500E4568E /* IncomingCall */,
-				376A2DCA24BA938500E4568E /* Localization */,
-				376A2DCC24BA938500E4568E /* Privacy&SupportView */,
-			);
-			name = Assets;
-			path = ../CCPMessenger/Assets;
-			sourceTree = "<group>";
-		};
-		376A2D5F24BA938400E4568E /* MessageView */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D6024BA938400E4568E /* AudioMessageBubble */,
-				376A2D6524BA938400E4568E /* FileMessageBubble */,
-				376A2D6A24BA938400E4568E /* TextMessageBubble */,
-				376A2D6F24BA938400E4568E /* VideoMessageBubble */,
-				376A2D7424BA938400E4568E /* LinkPreviewBubble */,
-				376A2D7924BA938400E4568E /* ImageMessageBubble */,
-				376A2D7E24BA938400E4568E /* ActionMessageBubble */,
-				376A2D8024BA938400E4568E /* ReplyMessageBubble */,
-			);
-			path = MessageView;
-			sourceTree = "<group>";
-		};
-		376A2D6024BA938400E4568E /* AudioMessageBubble */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D6124BA938400E4568E /* RightAudioMessageBubble */,
-				376A2D6324BA938400E4568E /* LeftAudioMessageBubble */,
-			);
-			path = AudioMessageBubble;
-			sourceTree = "<group>";
-		};
-		376A2D6124BA938400E4568E /* RightAudioMessageBubble */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D6224BA938400E4568E /* RightAudioMessageBubble.xib */,
-			);
-			path = RightAudioMessageBubble;
-			sourceTree = "<group>";
-		};
-		376A2D6324BA938400E4568E /* LeftAudioMessageBubble */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D6424BA938400E4568E /* LeftAudioMessageBubble.xib */,
-			);
-			path = LeftAudioMessageBubble;
-			sourceTree = "<group>";
-		};
-		376A2D6524BA938400E4568E /* FileMessageBubble */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D6624BA938400E4568E /* LeftFileMessageBubble */,
-				376A2D6824BA938400E4568E /* RightFileMessageBubble */,
-			);
-			path = FileMessageBubble;
-			sourceTree = "<group>";
-		};
-		376A2D6624BA938400E4568E /* LeftFileMessageBubble */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D6724BA938400E4568E /* LeftFileMessageBubble.xib */,
-			);
-			path = LeftFileMessageBubble;
-			sourceTree = "<group>";
-		};
-		376A2D6824BA938400E4568E /* RightFileMessageBubble */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D6924BA938400E4568E /* RightFileMessageBubble.xib */,
-			);
-			path = RightFileMessageBubble;
-			sourceTree = "<group>";
-		};
-		376A2D6A24BA938400E4568E /* TextMessageBubble */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D6B24BA938400E4568E /* LeftTextMessageBubble */,
-				376A2D6D24BA938400E4568E /* RightTextMessageBubble */,
-			);
-			path = TextMessageBubble;
-			sourceTree = "<group>";
-		};
-		376A2D6B24BA938400E4568E /* LeftTextMessageBubble */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D6C24BA938400E4568E /* LeftTextMessageBubble.xib */,
-			);
-			path = LeftTextMessageBubble;
-			sourceTree = "<group>";
-		};
-		376A2D6D24BA938400E4568E /* RightTextMessageBubble */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D6E24BA938400E4568E /* RightTextMessageBubble.xib */,
-			);
-			path = RightTextMessageBubble;
-			sourceTree = "<group>";
-		};
-		376A2D6F24BA938400E4568E /* VideoMessageBubble */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D7024BA938400E4568E /* RightVideoMessageBubble */,
-				376A2D7224BA938400E4568E /* LeftVideoMessageBubble */,
-			);
-			path = VideoMessageBubble;
-			sourceTree = "<group>";
-		};
-		376A2D7024BA938400E4568E /* RightVideoMessageBubble */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D7124BA938400E4568E /* RightVideoMessageBubble.xib */,
-			);
-			path = RightVideoMessageBubble;
-			sourceTree = "<group>";
-		};
-		376A2D7224BA938400E4568E /* LeftVideoMessageBubble */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D7324BA938400E4568E /* LeftVideoMessageBubble.xib */,
-			);
-			path = LeftVideoMessageBubble;
-			sourceTree = "<group>";
-		};
-		376A2D7424BA938400E4568E /* LinkPreviewBubble */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D7524BA938400E4568E /* LeftLinkPreviewBubble */,
-				376A2D7724BA938400E4568E /* RightLinkPreviewBubble */,
-			);
-			path = LinkPreviewBubble;
-			sourceTree = "<group>";
-		};
-		376A2D7524BA938400E4568E /* LeftLinkPreviewBubble */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D7624BA938400E4568E /* LeftLinkPreviewBubble.xib */,
-			);
-			path = LeftLinkPreviewBubble;
-			sourceTree = "<group>";
-		};
-		376A2D7724BA938400E4568E /* RightLinkPreviewBubble */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D7824BA938400E4568E /* RightLinkPreviewBubble.xib */,
-			);
-			path = RightLinkPreviewBubble;
-			sourceTree = "<group>";
-		};
-		376A2D7924BA938400E4568E /* ImageMessageBubble */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D7A24BA938400E4568E /* RightImageMessageBubble */,
-				376A2D7C24BA938400E4568E /* LeftImageMessageBubble */,
-			);
-			path = ImageMessageBubble;
-			sourceTree = "<group>";
-		};
-		376A2D7A24BA938400E4568E /* RightImageMessageBubble */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D7B24BA938400E4568E /* RightImageMessageBubble.xib */,
-			);
-			path = RightImageMessageBubble;
-			sourceTree = "<group>";
-		};
-		376A2D7C24BA938400E4568E /* LeftImageMessageBubble */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D7D24BA938400E4568E /* LeftImageMessageBubble.xib */,
-			);
-			path = LeftImageMessageBubble;
-			sourceTree = "<group>";
-		};
-		376A2D7E24BA938400E4568E /* ActionMessageBubble */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D7F24BA938400E4568E /* ActionMessageBubble.xib */,
-			);
-			path = ActionMessageBubble;
-			sourceTree = "<group>";
-		};
-		376A2D8024BA938400E4568E /* ReplyMessageBubble */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D8124BA938400E4568E /* LeftReplyMessageBubble */,
-				376A2D8324BA938400E4568E /* RightReplyMessageBubble */,
-			);
-			path = ReplyMessageBubble;
-			sourceTree = "<group>";
-		};
-		376A2D8124BA938400E4568E /* LeftReplyMessageBubble */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D8224BA938400E4568E /* LeftReplyMessageBubble.xib */,
-			);
-			path = LeftReplyMessageBubble;
-			sourceTree = "<group>";
-		};
-		376A2D8324BA938400E4568E /* RightReplyMessageBubble */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D8424BA938400E4568E /* RightReplyMessageBubble.xib */,
-			);
-			path = RightReplyMessageBubble;
-			sourceTree = "<group>";
-		};
-		376A2D8524BA938400E4568E /* SharedMediaView */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D8624BA938400E4568E /* SharedMediaView.xib */,
-				376A2D8724BA938400E4568E /* SharedMediaCell.xib */,
-			);
-			path = SharedMediaView;
-			sourceTree = "<group>";
-		};
-		376A2D8824BA938400E4568E /* ChatView */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D8924BA938400E4568E /* ChatView.xib */,
-			);
-			path = ChatView;
-			sourceTree = "<group>";
-		};
-		376A2D8A24BA938400E4568E /* AudioVisualizationView */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D8B24BA938400E4568E /* AudioVisualizationView.xib */,
-			);
-			path = AudioVisualizationView;
-			sourceTree = "<group>";
-		};
-		376A2D8C24BA938400E4568E /* MessageList */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D8D24BA938400E4568E /* CometChatMessageList.xib */,
-			);
-			path = MessageList;
-			sourceTree = "<group>";
-		};
-		376A2D8E24BA938400E4568E /* ProgressIndicatorView */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D8F24BA938400E4568E /* ProgressIndicatorView.xib */,
-			);
-			path = ProgressIndicatorView;
-			sourceTree = "<group>";
-		};
-		376A2D9024BA938400E4568E /* DetailView */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D9124BA938400E4568E /* CometChatDetailView.xib */,
-			);
-			path = DetailView;
-			sourceTree = "<group>";
-		};
-		376A2D9224BA938400E4568E /* CreateGroup */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D9324BA938400E4568E /* CometChatCreateGroup.xib */,
-			);
-			path = CreateGroup;
-			sourceTree = "<group>";
-		};
-		376A2D9424BA938400E4568E /* AdministratorView */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D9524BA938400E4568E /* AdministratorView.xib */,
-			);
-			path = AdministratorView;
-			sourceTree = "<group>";
-		};
-		376A2D9624BA938400E4568E /* CallDetailLogView */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D9724BA938400E4568E /* CometChatCallDetailLogView.xib */,
-			);
-			path = CallDetailLogView;
-			sourceTree = "<group>";
-		};
-		376A2D9824BA938400E4568E /* NotificationsView */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D9924BA938400E4568E /* NotificationsView.xib */,
-			);
-			path = NotificationsView;
-			sourceTree = "<group>";
-		};
-		376A2D9B24BA938400E4568E /* ConversationView */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D9C24BA938400E4568E /* CometChatConversationView.xib */,
-			);
-			path = ConversationView;
-			sourceTree = "<group>";
-		};
-		376A2D9D24BA938400E4568E /* SmartReplyView */ = {
-			isa = PBXGroup;
-			children = (
-				376A2D9E24BA938400E4568E /* SmartReplyCell.xib */,
-			);
-			path = SmartReplyView;
-			sourceTree = "<group>";
-		};
-		376A2D9F24BA938400E4568E /* OutgoingCall */ = {
-			isa = PBXGroup;
-			children = (
-				376A2DA024BA938400E4568E /* CometChatOutgoingCall.xib */,
-			);
-			path = OutgoingCall;
-			sourceTree = "<group>";
-		};
-		376A2DA124BA938400E4568E /* CallsView */ = {
-			isa = PBXGroup;
-			children = (
-				376A2DA224BA938400E4568E /* CometChatCallsView.xib */,
-			);
-			path = CallsView;
-			sourceTree = "<group>";
-		};
-		376A2DA324BA938400E4568E /* Ringtones */ = {
-			isa = PBXGroup;
-			children = (
-				376A2DA424BA938400E4568E /* IncomingCall.wav */,
-				376A2DA524BA938400E4568E /* OutgoingCall.wav */,
-				376A2DA624BA938500E4568E /* IncomingMessage.wav */,
-				376A2DA724BA938500E4568E /* NewAnnouncement.wav */,
-				376A2DA824BA938500E4568E /* IncomingMessageOther.wav */,
-				376A2DA924BA938500E4568E /* OutgoingMessege.wav */,
-			);
-			path = Ringtones;
-			sourceTree = "<group>";
-		};
-		376A2DAA24BA938500E4568E /* AddMemberView */ = {
-			isa = PBXGroup;
-			children = (
-				376A2DAB24BA938500E4568E /* AddMemberView.xib */,
-			);
-			path = AddMemberView;
-			sourceTree = "<group>";
-		};
-		376A2DAC24BA938500E4568E /* UserView */ = {
-			isa = PBXGroup;
-			children = (
-				376A2DAD24BA938500E4568E /* CometChatUserView.xib */,
-			);
-			path = UserView;
-			sourceTree = "<group>";
-		};
-		376A2DAF24BA938500E4568E /* MembersView */ = {
-			isa = PBXGroup;
-			children = (
-				376A2DB024BA938500E4568E /* MembersView.xib */,
-			);
-			path = MembersView;
-			sourceTree = "<group>";
-		};
-		376A2DB124BA938500E4568E /* SettingsView */ = {
-			isa = PBXGroup;
-			children = (
-				376A2DB224BA938500E4568E /* CometChatSettingsView.xib */,
-			);
-			path = SettingsView;
-			sourceTree = "<group>";
-		};
-		376A2DB324BA938500E4568E /* GroupView */ = {
-			isa = PBXGroup;
-			children = (
-				376A2DB424BA938500E4568E /* CometChatGroupView.xib */,
-			);
-			path = GroupView;
-			sourceTree = "<group>";
-		};
-		376A2DB524BA938500E4568E /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				376A2DB624BA938500E4568E /* SF-Pro-Display-Thin.otf */,
-				376A2DB724BA938500E4568E /* SF-Pro-Display-SemiboldItalic.otf */,
-				376A2DB824BA938500E4568E /* SF-Pro-Display-RegularItalic.otf */,
-				376A2DB924BA938500E4568E /* SF-Pro-Display-Light.otf */,
-				376A2DBA24BA938500E4568E /* SF-Pro-Display-Regular.otf */,
-				376A2DBB24BA938500E4568E /* SF-Pro-Display-Bold.otf */,
-				376A2DBC24BA938500E4568E /* SF-Pro-Display-Medium.otf */,
-				376A2DBD24BA938500E4568E /* SF-Pro-Display-Heavy.otf */,
-				376A2DBE24BA938500E4568E /* SF-Pro-Display-Semibold.otf */,
-				376A2DBF24BA938500E4568E /* SF-Pro-Display-MediumItalic.otf */,
-				376A2DC024BA938500E4568E /* SF-Pro-Display-HeavyItalic.otf */,
-				376A2DC124BA938500E4568E /* SF-Pro-Display-Ultralight.otf */,
-				376A2DC224BA938500E4568E /* SF-Pro-Display-UltralightItalic.otf */,
-				376A2DC324BA938500E4568E /* SF-Pro-Display-LightItalic.otf */,
-				376A2DC424BA938500E4568E /* SF-Pro-Display-BlackItalic.otf */,
-				376A2DC524BA938500E4568E /* SF-Pro-Display-Black.otf */,
-				376A2DC624BA938500E4568E /* SF-Pro-Display-ThinItalic.otf */,
-				376A2DC724BA938500E4568E /* SF-Pro-Display-BoldItalic.otf */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
-		376A2DC824BA938500E4568E /* IncomingCall */ = {
-			isa = PBXGroup;
-			children = (
-				376A2DC924BA938500E4568E /* CometChatIncomingCall.xib */,
-			);
-			path = IncomingCall;
-			sourceTree = "<group>";
-		};
-		376A2DCA24BA938500E4568E /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-				376A2DCB24BA938500E4568E /* Localizable.strings */,
-			);
-			path = Localization;
-			sourceTree = "<group>";
-		};
-		376A2DCC24BA938500E4568E /* Privacy&SupportView */ = {
-			isa = PBXGroup;
-			children = (
-				376A2DCD24BA938500E4568E /* SupportView.xib */,
-			);
-			path = "Privacy&SupportView";
-			sourceTree = "<group>";
-		};
 		37F330FB24BE9ECF003794F4 /* GBLMessenger */ = {
 			isa = PBXGroup;
 			children = (
@@ -660,7 +148,6 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				376A2D5E24BA938400E4568E /* Assets */,
 				376A2BA124BA773D00E4568E /* CCPMessenger_Example.entitlements */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for CCPMessenger */,
@@ -775,6 +262,8 @@
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
+				BD1F650D5402F12269B039AB /* [CP] Embed Pods Frameworks */,
+				948FEBE587C70C4CCBF2DFA0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -924,6 +413,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CCPMessenger_Example/Pods-CCPMessenger_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		948FEBE587C70C4CCBF2DFA0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CCPMessenger_Tests/Pods-CCPMessenger_Tests-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/CCPMessenger/CCPMessenger.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CCPMessenger.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CCPMessenger_Tests/Pods-CCPMessenger_Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD1F650D5402F12269B039AB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CCPMessenger_Tests/Pods-CCPMessenger_Tests-frameworks.sh",
+				"${PODS_ROOT}/CometChatPro/CometChatPro.framework",
+				"${PODS_ROOT}/CometChatPro/Vendors/JitsiMeet.framework",
+				"${PODS_ROOT}/CometChatPro/Vendors/WebRTC.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CometChatPro.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JitsiMeet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebRTC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CCPMessenger_Tests/Pods-CCPMessenger_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EA8D87BF5F707500D921FBDA /* [CP] Check Pods Manifest.lock */ = {

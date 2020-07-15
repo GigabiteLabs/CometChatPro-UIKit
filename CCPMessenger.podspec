@@ -5,11 +5,11 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
 'A framework for CometChat Pro that combines the CometChat Pro UIKit library and public binary framework.'
                        DESC
-  s.homepage         = 'https://github.com/GigabiteLabs/CometChatProMessenger'
+  s.homepage         = 'https://github.com/GigabiteLabs/CCPMessenger'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'GigabiteLabs' => 'engineering@gigabitelabs.com' }
-  s.source           = { :git => 'https://github.com/GigabiteLabs/CometChatProMessenger.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/GigabiteLabs/CCPMessenger.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/gigabitelabs'
   s.ios.deployment_target = '13.0'
   s.swift_version = '5.0'

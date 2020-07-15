@@ -20,5 +20,6 @@ target 'CCPMessenger_Example' do
   pod 'CCPMessenger', :path => '../'
   target 'CCPMessenger_Tests' do
     inherit! :search_paths
+    pod 'CCPMessenger', :path => '../'
   end
 end
