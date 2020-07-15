@@ -7,7 +7,8 @@
 
 import Foundation
 
-internal enum CCAudioFileName: String, CaseIterable {
+@objc internal enum CCAudioFileName: Int, CaseIterable {
+    typealias RawValue = Int
     case IncomingCall
     case IncomingMessage
     case IncomingMessageOther
@@ -20,6 +21,22 @@ internal enum CCAudioFileName: String, CaseIterable {
     }
     /// Returns a `String` value  of the type with`.wav` appended.
     internal var withExtension: String {
-        return "\(self.rawValue).wav"
+        return "\(self.filename).wav"
+    }
+    internal var filename: String {
+        switch self {
+        case .IncomingCall:
+            return "IncomingCall"
+        case .IncomingMessage:
+            return "IncomingMessage"
+        case .IncomingMessageOther:
+            return "IncomingMessageOther"
+        case .NewAnnouncement:
+            return "NewAnnouncement"
+        case .OutgoingCall:
+            return "OutgoingCall"
+        case .OutgoingMessage:
+            return "OutgoingMessage"
+        }
     }
 }

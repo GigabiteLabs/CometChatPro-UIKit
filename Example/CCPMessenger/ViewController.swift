@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import CCPMessenger
 import UserNotifications
+import CCPMessenger
 import CometChatPro
 
 class ViewController: UIViewController {
@@ -17,6 +17,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var message: UILabel!
+    @IBOutlet weak var activity: UIActivityIndicatorView!
+    @IBOutlet weak var submit: UIButton!
+    
     
 
     @IBAction func launch(_ sender: Any) {
@@ -51,7 +54,7 @@ class ViewController: UIViewController {
             let last = UserDefaults.standard.string(forKey: "last"),
             let uuid = UserDefaults.standard.string(forKey: "uuid")
         else {
-            message.text = "Provide a first and last name to log in"
+            message.text = "Provide your first and last name to login. This will be the name everyone can see, and you can change it later."
             return
         }
         launch(first: first, last: last, uuid: uuid)

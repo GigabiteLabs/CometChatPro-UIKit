@@ -10,6 +10,8 @@ import UIKit
 import CCPMessenger
 @_exported import CometChatPro
 import Firebase
+import FirebaseMessaging
+import IQKeyboardManager
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -19,10 +21,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        configureIQKeyboard()
         configFirebase()
         configCometChat()
         CometChat.calldelegate = self
         return true
+    }
+    
+    func configureIQKeyboard() {
+        // Configure IQKeyboard
+        IQKeyboardManager.shared().isEnabled = true
+        IQKeyboardManager.shared().isEnableAutoToolbar = false
+        IQKeyboardManager.shared().shouldShowToolbarPlaceholder = false
+        IQKeyboardManager.shared().shouldResignOnTouchOutside = true
     }
     
     func configFirebase() {
