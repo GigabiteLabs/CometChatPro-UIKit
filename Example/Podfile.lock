@@ -1,8 +1,8 @@
 PODS:
-  - CCPMessenger (0.2.1):
+  - CometChatPro (2.0.12-Xcode11.4)
+  - CometChatPro-UIKit (1.0.0):
     - CometChatPro (= 2.0.12-Xcode11.4)
     - SwiftyJSON
-  - CometChatPro (2.0.12-Xcode11.4)
   - Firebase (6.28.0):
     - Firebase/Core (= 6.28.0)
   - Firebase/Core (6.28.0):
@@ -87,8 +87,8 @@ PODS:
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
-  - CCPMessenger (from `../`)
   - CometChatPro (= 2.0.12-Xcode11.4)
+  - CometChatPro-UIKit (from `../`)
   - Firebase
   - Firebase/Messaging
   - IQKeyboardManager
@@ -113,12 +113,12 @@ SPEC REPOS:
     - SwiftyJSON
 
 EXTERNAL SOURCES:
-  CCPMessenger:
+  CometChatPro-UIKit:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CCPMessenger: f13b9ef5788d5b302a415ffaefb6bf6d27801d86
   CometChatPro: 3eed774fe7a77f825927ab724b2d23d02946ef87
+  CometChatPro-UIKit: eaacd22076a7d69a6e96eea8acd791f7fcb21fa5
   Firebase: dc81c6c4701aa965eda3b1433d1b993e3f291e7b
   FirebaseAnalytics: 5fa308e1b13f838d0f6dc74719ac2a72e8c5afc4
   FirebaseCore: aab9d4dd2d819197a0157166cb065ae88ff612b5
@@ -135,6 +135,6 @@ SPEC CHECKSUMS:
   Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 76ee7cf54e24c9fe59bc1c37e370219a011f305a
+PODFILE CHECKSUM: 35ec6ff5fc40aee755c8f02b440994242da4d029
 
 COCOAPODS: 1.9.3

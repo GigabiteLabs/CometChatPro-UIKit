@@ -12,14 +12,14 @@ use_frameworks!
 
 # Open Source Cocoapods
 source 'https://cdn.cocoapods.org'
-target 'CCPMessenger_Example' do
+target 'CometChatPro-UIKit_Example' do
   pod 'Firebase'
   pod 'Firebase/Messaging'
   pod 'CometChatPro', '2.0.12-Xcode11.4', :binary => true
   pod 'IQKeyboardManager', :binary => true
-  pod 'CCPMessenger', :path => '../'
-  target 'CCPMessenger_Tests' do
+  pod 'CometChatPro-UIKit', :path => '../'
+  target 'CometChatPro-UIKit_Example_Tests' do
     inherit! :search_paths
-    pod 'CCPMessenger', :path => '../'
+    pod 'CometChatPro-UIKit', :path => '../'
   end
 end

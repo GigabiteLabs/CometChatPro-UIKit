@@ -1,11 +1,13 @@
-# CCPMessenger
+# CometChatPro-UIKit
+
+(Not yet hooked up to CI, coming soon)
 
 [![CI Status](https://img.shields.io/travis/DanBurkhardt/CCPMessenger.svg?style=flat)](https://travis-ci.org/DanBurkhardt/CCPMessenger)
 [![Version](https://img.shields.io/cocoapods/v/CCPMessenger.svg?style=flat)](https://cocoapods.org/pods/CCPMessenger)
 [![License](https://img.shields.io/cocoapods/l/CCPMessenger.svg?style=flat)](https://cocoapods.org/pods/CCPMessenger)
 [![Platform](https://img.shields.io/cocoapods/p/CCPMessenger.svg?style=flat)](https://cocoapods.org/pods/CCPMessenger)
 
-A 
+A unified framework for CometChat Pro UIKit, and the CometChat SDK.
 
 ## Example
 

@@ -1,21 +1,21 @@
 Pod::Spec.new do |s|
-  s.name             = 'CometChatPro-unified'
-  s.version          = '0.2.1'
-  s.summary          = 'A unified framework for CometChat Pro UIKit and binary framework.'
+  s.name             = 'CometChatPro-UIKit'
+  s.version          = '1.0.0'
+  s.summary          = 'A unified framework for CometChat Pro UIKit and the CometChat SDK.'
   s.description      = <<-DESC
 'A framework for CometChat Pro that combines the CometChat Pro UIKit library and public binary framework.'
                        DESC
-  s.homepage         = 'https://github.com/GigabiteLabs/CometChatPro-unified'
+  s.homepage         = 'https://github.com/GigabiteLabs/CometChatPro-UIKit'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'GigabiteLabs' => 'engineering@gigabitelabs.com' }
-  s.source           = { :git => 'https://github.com/GigabiteLabs/CCPMessenger.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/GigabiteLabs/CometChatPro-UIKit.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/gigabitelabs'
   s.ios.deployment_target = '13.0'
   s.swift_version = '5.0'
-  s.source_files = 'CCPMessenger/Classes/**/*'
+  s.source_files = 'CometChatPro-UIKit/Classes/**/*'
   s.resource_bundles = {
-      'CCPMessenger' => ['CCPMessenger/Assets/**/*.{plist,png,xcassets,xib,storyboard,strings,wav,otf}']
+      'CometChatPro-UIKit' => ['CometChatPro-UIKit/Assets/**/*.{plist,png,xcassets,xib,storyboard,strings,wav,otf}']
   }
   s.ios.frameworks = 'UIKit', 'QuartzCore', 'AVKit', 'AVFoundation', 'QuickLook', 'AudioToolbox', 'Foundation', 'Accelerate', 'CoreImage', 'CoreGraphics', 'WebKit'
   s.static_framework = true

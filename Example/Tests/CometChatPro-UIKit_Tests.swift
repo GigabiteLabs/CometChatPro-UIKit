@@ -7,9 +7,9 @@
 
 import XCTest
 import CometChatPro
-import CCPMessenger
+import CometChatPro_UIKit
 
-class CCPMessenger_Tests: XCTestCase {
+class CometChatProUIKit_Tests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
