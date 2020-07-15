@@ -15,20 +15,23 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
+    @IBOutlet weak var password: UITextField!
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var submit: UIButton!
     
+    let defaultMessage = "Provide your first and last name to login."
     
-
     @IBAction func launch(_ sender: Any) {
+        activity.startAnimating()
         getInput()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        logo.layer.cornerRadius = logo.frame.height / 2
+        logo.clipsToBounds = true
+        logo.layer.cornerRadius = logo.bounds.height / 2
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,14 +41,20 @@ class ViewController: UIViewController {
     
     func getInput() {
         guard let first = firstName.text, !first.isEmpty else {
-            message.text = "first name cannot be blank"
+            message.text = "first name cannot be blank."
             return
         }
         guard let last = lastName.text, !last.isEmpty else {
-            message.text = "last name cannot be blank"
+            message.text = "last name cannot be blank."
             return
         }
-        launch(first: first, last: last, uuid: UUID().uuidString)
+        guard let pass = password.text, !pass.isEmpty else {
+            message.text = "password cannot be blank. if you made an account before, make sure to use the same one as before or you will be assigned a blank account."
+            return
+        }
+        // interpolate the info as a make-shift auth. high sec not
+        // really needed in this demo app
+        launch(first: first, last: last, uuid: "\(first)-\(pass)-\(last)".lowercased())
     }
     
     func checkLocal() {
@@ -54,22 +63,34 @@ class ViewController: UIViewController {
             let last = UserDefaults.standard.string(forKey: "last"),
             let uuid = UserDefaults.standard.string(forKey: "uuid")
         else {
-            message.text = "Provide your first and last name to login. This will be the name everyone can see, and you can change it later."
+            message.text = defaultMessage
+            firstName.isHidden = false
+            lastName.isHidden = false
+            password.isHidden = false
+            submit.isHidden = false
+            activity.stopAnimating()
             return
         }
+        message.text = "Login found. Starting messsenger..."
         launch(first: first, last: last, uuid: uuid)
     }
     
     func launch(first: String, last: String, uuid: String) {
         let user: CCPUser = .init(firstname: first, lastname: last, uid: uuid)
         CCPHandler.shared.login(user: user) { (success) in
-            switch success {
-            case true:
-                print("CometChat user login was successful")
-                self.presentCometChatPro(.fullScreen, animated: true, completion: nil)
-                self.saveLocal(first: first, last: last, uuid: uuid)
-            case false:
-                print("CometChat user login failed")
+            DispatchQueue.main.async {
+                switch success {
+                case true:
+                    self.activity.stopAnimating()
+                    self.message.text = "Login success!"
+                    print("CometChat user login was successful")
+                    self.presentCometChatPro(.fullScreen, animated: true, completion: nil)
+                    self.saveLocal(first: first, last: last, uuid: uuid)
+                case false:
+                    print("CometChat user login failed")
+                    self.message.text = "Oops. Something went wrong during login."
+                    self.activity.stopAnimating()
+                }
             }
         }
     }
@@ -78,6 +99,17 @@ class ViewController: UIViewController {
         UserDefaults.standard.set(first, forKey: "first")
         UserDefaults.standard.set(first, forKey: "last")
         UserDefaults.standard.set(first, forKey: "uuid")
+    }
+    
+    func reset() {
+        DispatchQueue.main.async {
+            self.firstName.isHidden = false
+            self.lastName.isHidden = false
+            self.password.isHidden = false
+            self.activity.stopAnimating()
+            self.message.text = self.defaultMessage
+            self.submit.isHidden = true
+        }
     }
     
     func registerForNotifications() {
@@ -94,93 +126,21 @@ class ViewController: UIViewController {
                 // register for notifications
                 if authorized {
                     UNUserNotificationCenter.current().delegate = appDelegate
+                } else {
+                    self.presentConfirmationAlert(title: "Push Notifications Disabled", message: "Push notifications are currently disabled, which means you won't be notified about new chats & calls. Tap ok to open settings to enable Push Notifications.") { (confirmed) in
+                        if confirmed {
+                            if let bundleId = Bundle.main.bundleIdentifier,
+                                let url = URL(string: "\(UIApplicationOpenSettingsURLString)&path=LOCATION/\(bundleId)")
+                            {
+                                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                            }
+                        }
+                    }
                 }
             }
         }
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
-}
-
-extension AppDelegate: CometChatCallDelegate {
-    
-   /**
-   This method triggers when incoming call received from Server.
-    - Parameters:
-     - incomingCall: Specifies a Call Object
-       - error:  triggers when error occurs
-   - Author: CometChat Team
-   - Copyright:  ©  2020 CometChat Inc.
-   */
-   func onIncomingCallReceived(incomingCall: Call?, error: CometChatException?) {
-       print("incoming call recieved")
-       if let currentCall = incomingCall {
-           DispatchQueue.main.async {
-            let call: CometChatIncomingCall = .fromCometChatNib(.CometChatIncomingCall)
-               call.modalPresentationStyle = .custom
-               call.setCall(call: currentCall)
-               if let window = self.window, let rootViewController = window.rootViewController {
-                   var currentController = rootViewController
-                   while let presentedController = currentController.presentedViewController {
-                       currentController = presentedController
-                   }
-                   currentController.present(call, animated: true, completion: nil)
-               }
-               if let call = incomingCall {
-                   CometChatCallManager.incomingCallDelegate?.onIncomingCallReceived(incomingCall: call, error: error)
-               }
-           }
-       }
-
-   }
-    
-    
-
-   /**
-   This method triggers when outgoing call accepted from User or group.
-    - Parameters:
-     - acceptedCall: Specifies a Call Object
-       - error:  triggers when error occurs
-   - Author: CometChat Team
-   - Copyright:  ©  2020 CometChat Inc.
-   */
-   func onOutgoingCallAccepted(acceptedCall: Call?, error: CometChatException?) {
-       print("outgoing call accepted")
-       if let call = acceptedCall {
-           CometChatCallManager.outgoingCallDelegate?.onOutgoingCallAccepted(acceptedCall: call, error: error)
-       }
-   }
-
-   /**
-   This method triggers when ourgoing call rejected from User or group.
-    - Parameters:
-     - rejectedCall: Specifies a Call Object
-       - error:  triggers when error occurs
-   - Author: CometChat Team
-   - Copyright:  ©  2020 CometChat Inc.
-   */
-   func onOutgoingCallRejected(rejectedCall: Call?, error: CometChatException?) {
-       print("outgoing call rejected")
-       if let call = rejectedCall {
-           CometChatCallManager.outgoingCallDelegate?.onOutgoingCallRejected(rejectedCall: call, error: error)
-       }
-   }
-
-   /**
-   This method triggers when incoming call cancelled from User or group.
-    - Parameters:
-     - rejectedCall: Specifies a Call Object
-       - error:  triggers when error occurs
-   - Author: CometChat Team
-   - Copyright:  ©  2020 CometChat Inc.
-   */
-   func onIncomingCallCancelled(canceledCall: Call?, error: CometChatException?) {
-       print("incoming call cancelled")
-       if let call = canceledCall {
-           CometChatCallManager.incomingCallDelegate?.onIncomingCallCancelled(canceledCall: call, error: error)
-       }
-   }
 }
