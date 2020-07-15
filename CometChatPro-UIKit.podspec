@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'CometChatPro-UIKit'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'A unified framework for CometChat Pro UIKit and the CometChat SDK.'
   s.description      = <<-DESC
 'A unified framework for CometChat Pro that combines the CometChat Pro UIKit library CometChat binary SDK.'
@@ -24,7 +24,15 @@ Pod::Spec.new do |s|
   s.vendored_frameworks = '$(PODS_ROOT)/CometChatPro/CometChatPro.framework','$(PODS_ROOT)/CometChatPro/Vendors/JitsiMeet.framework','$(PODS_ROOT)/CometChatPro/Vendors/WebRTC.framework'
   s.pod_target_xcconfig = {
       'FRAMEWORK_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/CometChatPro $(PODS_ROOT)/CometChatPro/Vendors',
+      'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/FirebaseMessaging/FirebaseMessaging/Sources',
       'OTHER_LDFLAGS'          => '$(inherited) -lObjC'
   }
   s.static_framework = true
+  # Adding tests with a swift dependency is a workaround in order to make pod lib lint work
+  # See: https://github.com/CocoaPods/CocoaPods/issues/8649
+  s.test_spec 'Tests' do |test_spec|
+      test_spec.dependency 'Firebase/Messaging'
+      test_spec.requires_app_host = true
+      test_spec.source_files = 'Example/Tests/*.{swift}'
+  end
 end
