@@ -24,8 +24,12 @@ pod 'CCPMessenger'
 
 ## Author
 
-DanBurkhardt, dan@gigabitelabs.com
+[Dan Burkhardt](https://github.com/DanBurkhardt)
+Founder, Lead Engineer @[GigabiteLabs](https://gigabitelabs.com).
+Get [in touch](mailto:engineering@gigabitelabs.com).
 
-## License
+## Licenses
 
 CCPMessenger is available under the MIT license. See the LICENSE file for more info.
+
+CometChat Pro UIKit & Binary framework is available unter the "CometChat" license. See COMETCHAT_LICENSE for more info.

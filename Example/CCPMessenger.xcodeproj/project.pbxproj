@@ -10,6 +10,7 @@
 		372C4E8624BE9C2B0096C42E /* CCPMessenger_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372C4E8524BE9C2B0096C42E /* CCPMessenger_Tests.swift */; };
 		376A2E5F24BABB0200E4568E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 376A2E5E24BABB0200E4568E /* GoogleService-Info.plist */; };
 		376A944A24BEE0F100CEDFBE /* AppDelegate+CometChatCallDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376A944924BEE0F100CEDFBE /* AppDelegate+CometChatCallDelegate.swift */; };
+		376A944C24BEE3EC00CEDFBE /* COMETCHAT_LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = 376A944B24BEE3EC00CEDFBE /* COMETCHAT_LICENSE.md */; };
 		37BBE2EE24BD972500210922 /* ViewController+PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BBE2ED24BD972500210922 /* ViewController+PushNotifications.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 		376A2BA124BA773D00E4568E /* CCPMessenger_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CCPMessenger_Example.entitlements; sourceTree = "<group>"; };
 		376A2E5E24BABB0200E4568E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		376A944924BEE0F100CEDFBE /* AppDelegate+CometChatCallDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+CometChatCallDelegate.swift"; sourceTree = "<group>"; };
+		376A944B24BEE3EC00CEDFBE /* COMETCHAT_LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = COMETCHAT_LICENSE.md; sourceTree = "<group>"; };
 		37BBE2ED24BD972500210922 /* ViewController+PushNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+PushNotifications.swift"; sourceTree = "<group>"; };
 		37C8685424BDD9360025D332 /* CCPMessenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CCPMessenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37C8685624BDD9360025D332 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,6 +220,7 @@
 			children = (
 				00D0659E179AF4226BF10086 /* CCPMessenger.podspec */,
 				97BFC5A15F8FDCBB9E89F5DC /* README.md */,
+				376A944B24BEE3EC00CEDFBE /* COMETCHAT_LICENSE.md */,
 				D7795187EF3F9227A55AE457 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
@@ -329,6 +332,7 @@
 				376A2E5F24BABB0200E4568E /* GoogleService-Info.plist in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				376A944C24BEE3EC00CEDFBE /* COMETCHAT_LICENSE.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
