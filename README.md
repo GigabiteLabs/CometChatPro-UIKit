@@ -32,6 +32,14 @@ A unified framework for CometChat Pro UIKit, and the CometChat SDK.
 
 - Full restoration of video & audio calling in progress, not totally functional in v1.0
 
+### Current Limitations
+
+The framework is fully functional when building iOS apps for iOS devices. 
+
+- This framework is iOS only at the moment. We've [opened a support ticket](https://github.com/cometchat-pro/ios-chat-sdk/issues/60#issuecomment-658752983) to introduce support for macCatalyst & will update when implemented
+- You will **not be able to build your application for iOS simulator / x86** due to a [known issue](https://forum.cometchat.com/t/xcode-11-3-1-cant-find-protocol-declaration-cometchatmessagedelegate/1632/2) (current as of 15 July). 
+- These two items are likely related && we will be watching out for resolutions
+
 ## Usage Examples
 
 > All of these functions are documented, see QuickHelp for more info.
