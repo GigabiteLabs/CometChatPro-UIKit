@@ -36,3 +36,6 @@ Carthage/Build
 #
 Pods/
 Example/Pods/
+
+# Ignore Firebase plist filr
+Example/CometChatPro-UIKit_Example/Resources/GoogleService-Info.plist
