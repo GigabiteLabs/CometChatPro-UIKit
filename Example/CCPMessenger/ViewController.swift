@@ -12,25 +12,69 @@ import UserNotifications
 import CometChatPro
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var firstName: UITextField!
+    @IBOutlet weak var lastName: UITextField!
+    @IBOutlet weak var logo: UIImageView!
+    @IBOutlet weak var message: UILabel!
+    
 
     @IBAction func launch(_ sender: Any) {
-        login()
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        getInput()
     }
     
-    func login() {
-        let user: CCPUser = .init(firstname: "iphone", lastname: "dan", uid: "UUID-TEST-2")
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        logo.layer.cornerRadius = logo.frame.height / 2
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        registerForNotifications()
+        checkLocal()
+    }
+    
+    func getInput() {
+        guard let first = firstName.text, !first.isEmpty else {
+            message.text = "first name cannot be blank"
+            return
+        }
+        guard let last = lastName.text, !last.isEmpty else {
+            message.text = "last name cannot be blank"
+            return
+        }
+        launch(first: first, last: last, uuid: UUID().uuidString)
+    }
+    
+    func checkLocal() {
+        guard
+            let first = UserDefaults.standard.string(forKey: "first"),
+            let last = UserDefaults.standard.string(forKey: "last"),
+            let uuid = UserDefaults.standard.string(forKey: "uuid")
+        else {
+            message.text = "Provide a first and last name to log in"
+            return
+        }
+        launch(first: first, last: last, uuid: uuid)
+    }
+    
+    func launch(first: String, last: String, uuid: String) {
+        let user: CCPUser = .init(firstname: first, lastname: last, uid: uuid)
         CCPHandler.shared.login(user: user) { (success) in
             switch success {
             case true:
                 print("CometChat user login was successful")
                 self.presentCometChatPro(.fullScreen, animated: true, completion: nil)
+                self.saveLocal(first: first, last: last, uuid: uuid)
             case false:
                 print("CometChat user login failed")
             }
         }
+    }
+    
+    func saveLocal(first: String, last: String, uuid: String) {
+        UserDefaults.standard.set(first, forKey: "first")
+        UserDefaults.standard.set(first, forKey: "last")
+        UserDefaults.standard.set(first, forKey: "uuid")
     }
     
     func registerForNotifications() {
@@ -51,14 +95,9 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        registerForNotifications()
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 }

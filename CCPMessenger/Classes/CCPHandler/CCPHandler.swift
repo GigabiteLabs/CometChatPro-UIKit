@@ -7,7 +7,7 @@
 
 import Foundation
 import CometChatPro
-import FirebaseMessaging
+//import FirebaseMessaging
 
 public final class CCPHandler: CCPType {
     public static let shared = CCPHandler()

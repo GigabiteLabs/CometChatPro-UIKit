@@ -20,7 +20,16 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'CCPMessenger/Classes/**/*.h'
   s.ios.frameworks = 'UIKit', 'QuartzCore', 'AVKit', 'AVFoundation', 'QuickLook', 'AudioToolbox', 'Foundation', 'Accelerate', 'CoreImage', 'CoreGraphics', 'WebKit'
   s.static_framework = true
-  s.dependency 'CometChatPro', '2.0.12-Xcode11.4'
-  s.dependency 'Firebase/Messaging'
+  # s.dependency 'CometChatPro', '2.0.12-Xcode11.4'
+  # s.vendored_frameworks = 'CometChatPro.framework'
+  #s.dependency 'Firebase/Messaging'
   s.dependency 'SwiftyJSON'
+  # s.public_header_files = '$(PODS_ROOT)/CometChatPro/CometChatPro.framework/Headers/*.h'
+  
+  s.pod_target_xcconfig = {
+     # 'FRAMEWORK_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/CometChatPro',
+      #'FRAMEWORK_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/GoogleMaps',
+    'OTHER_LDFLAGS'          => '$(inherited) -lObjC'
+  }
+  
 end

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "CCPMessenger_Example.app"
+               BuildableName = "Messenger.app"
                BlueprintName = "CCPMessenger_Example"
                ReferencedContainer = "container:CCPMessenger.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "CCPMessenger_Example.app"
+            BuildableName = "Messenger.app"
             BlueprintName = "CCPMessenger_Example"
             ReferencedContainer = "container:CCPMessenger.xcodeproj">
          </BuildableReference>
@@ -78,7 +78,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "CCPMessenger_Example.app"
+            BuildableName = "Messenger.app"
             BlueprintName = "CCPMessenger_Example"
             ReferencedContainer = "container:CCPMessenger.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "CCPMessenger_Example.app"
+            BuildableName = "Messenger.app"
             BlueprintName = "CCPMessenger_Example"
             ReferencedContainer = "container:CCPMessenger.xcodeproj">
          </BuildableReference>

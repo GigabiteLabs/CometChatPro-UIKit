@@ -8,7 +8,7 @@
 
 import UIKit
 import CCPMessenger
-import CometChatPro
+@_exported import CometChatPro
 import Firebase
 
 @UIApplicationMain

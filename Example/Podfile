@@ -1,4 +1,5 @@
 # Min target
+plugin 'cocoapods-binary'
 platform :ios, '13.0'
 
 ## Pod install settings
@@ -12,6 +13,8 @@ use_frameworks!
 # Open Source Cocoapods
 source 'https://cdn.cocoapods.org'
 target 'CCPMessenger_Example' do
+  pod 'Firebase/Messaging', :binary => true
+  pod 'CometChatPro', '2.0.12-Xcode11.4', :binary => true
   pod 'CCPMessenger', :path => '../'
   target 'CCPMessenger_Tests' do
     inherit! :search_paths

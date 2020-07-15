@@ -16,8 +16,8 @@ public extension CCPHandler {
             print("CCP Messenger login was successful.")
             // Subscribe to comet chat push notifications through Firebase
             let userTopic = "\(CCPConfig.shared.appId)_user_\(user.uid.lowercased())_ios"
-            self.subscribeTo(topic: userTopic)
-            self.subscribeToGroupNotifications()
+            //self.subscribeTo(topic: userTopic)
+            //self.subscribeToGroupNotifications()
             completion(true)
         }, onError: { (exception) in
             switch exception.errorCode {
@@ -39,19 +39,19 @@ public extension CCPHandler {
         })
     }
     
-    func subscribeToGroupNotifications() {
-        // Unsubscribe from all groups
-        CometChat.getJoinedGroups(onSuccess: { (groups) in
-            for group in groups {
-                
-                let groupString = "\(CCPConfig.shared.appId)_group_\(group.lowercased())_ios"
-                self.subscribeTo(topic: groupString)
-            }
-            print("finished group subscriptions")
-        }) { (error) in
-            print("there was an error: \(error?.errorDescription ?? "NO ERROR DESCRIPTION")")
-        }
-    }
+//    func subscribeToGroupNotifications() {
+//        // Unsubscribe from all groups
+//        CometChat.getJoinedGroups(onSuccess: { (groups) in
+//            for group in groups {
+//
+//                let groupString = "\(CCPConfig.shared.appId)_group_\(group.lowercased())_ios"
+//                self.subscribeTo(topic: groupString)
+//            }
+//            print("finished group subscriptions")
+//        }) { (error) in
+//            print("there was an error: \(error?.errorDescription ?? "NO ERROR DESCRIPTION")")
+//        }
+//    }
 
     func logout() {
         print("attempting CometChat logout")
@@ -62,7 +62,7 @@ public extension CCPHandler {
             CometChat.getJoinedGroups(onSuccess: { (groups) in
                 for group in groups {
                     let groupString = "\(CCPConfig.shared.appId)_group_\(group.lowercased())_ios"
-                    self.unSubscribe(topic: groupString)
+                    //self.unSubscribe(topic: groupString)
                 }
                 self.processLogout()
             }) { (error) in
@@ -73,7 +73,7 @@ public extension CCPHandler {
             guard let uid = ccUser.uid?.lowercased() else {
                 return
             }
-            unSubscribe(topic: "\(CCPConfig.shared.appId)_user_\(uid)_ios")
+            //unSubscribe(topic: "\(CCPConfig.shared.appId)_user_\(uid)_ios")
         }else{
             processLogout()
         }

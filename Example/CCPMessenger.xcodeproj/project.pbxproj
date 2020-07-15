@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		372C4E8624BE9C2B0096C42E /* CCPMessenger_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372C4E8524BE9C2B0096C42E /* CCPMessenger_Tests.swift */; };
 		376A2E5F24BABB0200E4568E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 376A2E5E24BABB0200E4568E /* GoogleService-Info.plist */; };
 		37BBE2EE24BD972500210922 /* ViewController+PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BBE2ED24BD972500210922 /* ViewController+PushNotifications.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		00D0659E179AF4226BF10086 /* CCPMessenger.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CCPMessenger.podspec; path = ../CCPMessenger.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		372C4E8524BE9C2B0096C42E /* CCPMessenger_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCPMessenger_Tests.swift; sourceTree = "<group>"; };
 		376A2B8F24BA740000E4568E /* CCPMessenger_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CCPMessenger_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		376A2BA124BA773D00E4568E /* CCPMessenger_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CCPMessenger_Example.entitlements; sourceTree = "<group>"; };
 		376A2D6224BA938400E4568E /* RightAudioMessageBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightAudioMessageBubble.xib; sourceTree = "<group>"; };
@@ -98,8 +100,6 @@
 		376A2DCD24BA938500E4568E /* SupportView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SupportView.xib; sourceTree = "<group>"; };
 		376A2E5E24BABB0200E4568E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		37BBE2ED24BD972500210922 /* ViewController+PushNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+PushNotifications.swift"; sourceTree = "<group>"; };
-		37C8684D24BDD8880025D332 /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
-		37C8684E24BDD8880025D332 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37C8685424BDD9360025D332 /* CCPMessenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CCPMessenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37C8685624BDD9360025D332 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37C8685824BDD9360025D332 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,7 +124,10 @@
 		37C8688124BDD96E0025D332 /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37C8688324BDD96E0025D332 /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37C8688524BDD9800025D332 /* CCPMessenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CCPMessenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		607FACD01AFB9204008FA782 /* CCPMessenger_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCPMessenger_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		37F330FC24BE9ECF003794F4 /* GBLMessenger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBLMessenger.h; sourceTree = "<group>"; };
+		37F330FD24BE9ECF003794F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37F3310224BE9EE6003794F4 /* CCPMessenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CCPMessenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACD01AFB9204008FA782 /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +169,7 @@
 		06D85F949A2754F7672867BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				37F3310224BE9EE6003794F4 /* CCPMessenger.framework */,
 				37C8688524BDD9800025D332 /* CCPMessenger.framework */,
 				37C8687124BDD96E0025D332 /* CCPMessenger.framework */,
 				37C8687324BDD96E0025D332 /* FirebaseCore.framework */,
@@ -644,13 +648,13 @@
 			path = "Privacy&SupportView";
 			sourceTree = "<group>";
 		};
-		37C8684C24BDD8880025D332 /* Test */ = {
+		37F330FB24BE9ECF003794F4 /* GBLMessenger */ = {
 			isa = PBXGroup;
 			children = (
-				37C8684D24BDD8880025D332 /* Test.h */,
-				37C8684E24BDD8880025D332 /* Info.plist */,
+				37F330FC24BE9ECF003794F4 /* GBLMessenger.h */,
+				37F330FD24BE9ECF003794F4 /* Info.plist */,
 			);
-			path = Test;
+			path = GBLMessenger;
 			sourceTree = "<group>";
 		};
 		607FACC71AFB9204008FA782 = {
@@ -661,7 +665,7 @@
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for CCPMessenger */,
 				607FACE81AFB9204008FA782 /* Tests */,
-				37C8684C24BDD8880025D332 /* Test */,
+				37F330FB24BE9ECF003794F4 /* GBLMessenger */,
 				607FACD11AFB9204008FA782 /* Products */,
 				B1F35FAC5E3D033BC20CBD4A /* Pods */,
 				06D85F949A2754F7672867BB /* Frameworks */,
@@ -672,7 +676,7 @@
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD01AFB9204008FA782 /* CCPMessenger_Example.app */,
+				607FACD01AFB9204008FA782 /* Messenger.app */,
 				607FACE51AFB9204008FA782 /* CCPMessenger_Tests.xctest */,
 			);
 			name = Products;
@@ -706,6 +710,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACE91AFB9204008FA782 /* Supporting Files */,
+				372C4E8524BE9C2B0096C42E /* CCPMessenger_Tests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -759,7 +764,7 @@
 			);
 			name = CCPMessenger_Example;
 			productName = CCPMessenger;
-			productReference = 607FACD01AFB9204008FA782 /* CCPMessenger_Example.app */;
+			productReference = 607FACD01AFB9204008FA782 /* Messenger.app */;
 			productType = "com.apple.product-type.application";
 		};
 		607FACE41AFB9204008FA782 /* CCPMessenger_Tests */ = {
@@ -800,7 +805,6 @@
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = QYU2SZHRLR;
 						LastSwiftMigration = 0900;
-						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
 			};
@@ -856,11 +860,15 @@
 				"${PODS_ROOT}/CometChatPro/CometChatPro.framework",
 				"${PODS_ROOT}/CometChatPro/Vendors/JitsiMeet.framework",
 				"${PODS_ROOT}/CometChatPro/Vendors/WebRTC.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${PODS_ROOT}/GoogleUtilities/GoogleUtilities.framework",
+				"${PODS_ROOT}/GoogleUtilities/GoogleUtilities.framework.dSYM",
+				"${PODS_ROOT}/PromisesObjC/FBLPromises.framework",
+				"${PODS_ROOT}/PromisesObjC/FBLPromises.framework.dSYM",
+				"${PODS_ROOT}/Protobuf/Protobuf.framework",
+				"${PODS_ROOT}/Protobuf/Protobuf.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/nanopb/nanopb.framework.dSYM",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -868,10 +876,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JitsiMeet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebRTC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/GoogleUtilities.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/FBLPromises.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Protobuf.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/nanopb.framework.dSYM",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -957,6 +969,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				372C4E8624BE9C2B0096C42E /* CCPMessenger_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1096,6 +1109,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = CCPMessenger_Example.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QYU2SZHRLR;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
@@ -1121,9 +1135,10 @@
 				);
 				INFOPLIST_FILE = CCPMessenger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.1;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gigabitelabs.Messenger;
+				PRODUCT_NAME = Messenger;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "CCPMessenger_Example-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1140,6 +1155,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = CCPMessenger_Example.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QYU2SZHRLR;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
@@ -1165,9 +1181,10 @@
 				);
 				INFOPLIST_FILE = CCPMessenger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.1;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gigabitelabs.Messenger;
+				PRODUCT_NAME = Messenger;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "CCPMessenger_Example-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -1180,6 +1197,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BD1033053D6B492F589392C2 /* Pods-CCPMessenger_Tests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = QYU2SZHRLR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -1195,7 +1213,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CCPMessenger_Example.app/CCPMessenger_Example";
 			};
 			name = Debug;
 		};
@@ -1203,6 +1220,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FDE10ECE562BFE402AAC30F0 /* Pods-CCPMessenger_Tests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = QYU2SZHRLR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -1214,7 +1232,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CCPMessenger_Example.app/CCPMessenger_Example";
 			};
 			name = Release;
 		};
