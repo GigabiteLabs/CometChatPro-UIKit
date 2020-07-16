@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
       'CometChatPro-UIKit' => ['CometChatPro-UIKit/Assets/**/*.{plist,png,xcassets,xib,storyboard,strings,wav,otf}']
   }
-  s.ios.frameworks = 'UIKit', 'QuartzCore', 'AVKit', 'AVFoundation', 'QuickLook', 'AudioToolbox', 'Foundation', 'Accelerate', 'CoreImage', 'CoreGraphics', 'WebKit'
+  s.ios.frameworks = 'UIKit', 'QuartzCore', 'AVKit', 'AVFoundation', 'QuickLook', 'AudioToolbox', 'Foundation', 'Accelerate', 'CoreImage', 'CoreGraphics', 'WebKit', 'MobileCoreServices'
   s.dependency 'CometChatPro', '2.0.12-Xcode11.4'
   s.dependency 'Firebase/Messaging'
   s.dependency 'SwiftyJSON'

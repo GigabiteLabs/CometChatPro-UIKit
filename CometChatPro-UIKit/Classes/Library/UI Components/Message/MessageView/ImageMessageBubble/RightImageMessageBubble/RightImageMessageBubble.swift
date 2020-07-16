@@ -11,7 +11,7 @@ import CometChatPro
 
 /*  ----------------------------------------------------------------------------------------- */
 
-class RightImageMessageBubble: UITableViewCell {
+class RightImageMessageBubble: CCPMediaMessageCell {
     
      // MARK: - Declaration of IBInspectable
     
@@ -38,7 +38,8 @@ class RightImageMessageBubble: UITableViewCell {
     }
     
     var mediaMessage: MediaMessage! {
-        didSet {
+        set {
+            imageMsg = newValue
             receiptStack.isHidden = true
             if mediaMessage.sentAt == 0 {
                 timeStamp.text = NSLocalizedString("SENDING", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
@@ -79,6 +80,9 @@ class RightImageMessageBubble: UITableViewCell {
                receipt.image = .fromBundle(named: "wait")
                timeStamp.text = NSLocalizedString("SENDING", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
             }
+        }
+        get {
+            return imageMsg
         }
     }
     

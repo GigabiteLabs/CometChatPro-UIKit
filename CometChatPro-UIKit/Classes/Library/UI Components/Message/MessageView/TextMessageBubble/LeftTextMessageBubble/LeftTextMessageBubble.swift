@@ -17,7 +17,7 @@ protocol LeftTextMessageBubbleDelegate: AnyObject {
 
 /*  ----------------------------------------------------------------------------------------- */
 
-class LeftTextMessageBubble: UITableViewCell {
+class LeftTextMessageBubble: CCPMediaMessageCell {
     
     // MARK: - Declaration of IBOutlets
     
@@ -52,7 +52,8 @@ class LeftTextMessageBubble: UITableViewCell {
     
     
     weak var textMessage: TextMessage? {
-        didSet {
+        set {
+            textMsg = newValue
             if let currentMessage = textMessage {
                 if let userName = currentMessage.sender?.name {
                     name.text = userName + ":"
@@ -70,6 +71,9 @@ class LeftTextMessageBubble: UITableViewCell {
                 }
                 timeStamp.text = String().setMessageTime(time: currentMessage.sentAt)
             }
+        }
+        get {
+            return textMsg
         }
     }
     

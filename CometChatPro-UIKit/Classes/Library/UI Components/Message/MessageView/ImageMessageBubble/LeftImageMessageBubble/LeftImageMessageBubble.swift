@@ -12,7 +12,7 @@ import CometChatPro
 
 /*  ----------------------------------------------------------------------------------------- */
 
-class LeftImageMessageBubble: UITableViewCell {
+class LeftImageMessageBubble: CCPMediaMessageCell {
     
     
     // MARK: - Declaration of IBInspectable
@@ -40,7 +40,8 @@ class LeftImageMessageBubble: UITableViewCell {
     }
     
     var mediaMessage: MediaMessage!{
-        didSet {
+        set {
+            imageMsg = newValue
             if let userName = mediaMessage.sender?.name {
                 name.text = userName + ":"
             }
@@ -71,6 +72,9 @@ class LeftImageMessageBubble: UITableViewCell {
                   parseThumbnailForImage(forMessage: mediaMessage)
               }
               parseImageForModeration(forMessage: mediaMessage)
+        }
+        get {
+            return imageMsg
         }
     }
     

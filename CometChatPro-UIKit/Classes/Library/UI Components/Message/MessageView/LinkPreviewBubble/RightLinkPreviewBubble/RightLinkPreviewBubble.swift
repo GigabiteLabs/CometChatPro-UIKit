@@ -11,7 +11,7 @@ import CometChatPro
 
 /*  ----------------------------------------------------------------------------------------- */
 
-class RightLinkPreviewBubble: UITableViewCell {
+class RightLinkPreviewBubble: CCPMediaMessageCell {
     
     // MARK: - Declaration of IBOutlets
     
@@ -40,10 +40,11 @@ class RightLinkPreviewBubble: UITableViewCell {
         }
     }
     
-    var url:String?
+    var url: String?
     var linkPreviewDelegate: LinkPreviewDelegate?
     var linkPreviewMessage: TextMessage! {
-        didSet{
+        set {
+            linkPreviewMsg = newValue
             receiptStack.isHidden = true
             parseLinkPreviewForMessage(message: linkPreviewMessage)
             if let url = url {
@@ -78,6 +79,9 @@ class RightLinkPreviewBubble: UITableViewCell {
                 receipt.image = .fromBundle(named: "wait")
                 timeStamp.text = NSLocalizedString("SENDING", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
             }
+        }
+        get {
+            return linkPreviewMsg
         }
     }
     

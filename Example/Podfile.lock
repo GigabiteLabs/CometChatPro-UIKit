@@ -4,26 +4,12 @@ PODS:
     - CometChatPro (= 2.0.12-Xcode11.4)
     - Firebase/Messaging
     - SwiftyJSON
-  - Firebase (6.28.0):
-    - Firebase/Core (= 6.28.0)
-  - Firebase/Core (6.28.0):
-    - Firebase/CoreOnly
-    - FirebaseAnalytics (= 6.6.2)
-  - Firebase/CoreOnly (6.28.0):
-    - FirebaseCore (= 6.9.0)
-  - Firebase/Messaging (6.28.0):
+  - Firebase/CoreOnly (6.28.1):
+    - FirebaseCore (= 6.9.1)
+  - Firebase/Messaging (6.28.1):
     - Firebase/CoreOnly
     - FirebaseMessaging (~> 4.6.0)
-  - FirebaseAnalytics (6.6.2):
-    - FirebaseCore (~> 6.8)
-    - FirebaseInstallations (~> 1.4)
-    - GoogleAppMeasurement (= 6.6.2)
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
-    - GoogleUtilities/MethodSwizzler (~> 6.0)
-    - GoogleUtilities/Network (~> 6.0)
-    - "GoogleUtilities/NSData+zlib (~> 6.0)"
-    - nanopb (~> 1.30905.0)
-  - FirebaseCore (6.9.0):
+  - FirebaseCore (6.9.1):
     - FirebaseCoreDiagnostics (~> 1.3)
     - GoogleUtilities/Environment (~> 6.7)
     - GoogleUtilities/Logger (~> 6.7)
@@ -50,12 +36,6 @@ PODS:
     - GoogleUtilities/Reachability (~> 6.7)
     - GoogleUtilities/UserDefaults (~> 6.7)
     - Protobuf (>= 3.9.2, ~> 3.9)
-  - GoogleAppMeasurement (6.6.2):
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
-    - GoogleUtilities/MethodSwizzler (~> 6.0)
-    - GoogleUtilities/Network (~> 6.0)
-    - "GoogleUtilities/NSData+zlib (~> 6.0)"
-    - nanopb (~> 1.30905.0)
   - GoogleDataTransport (7.0.0):
     - nanopb (~> 1.30905.0)
   - GoogleUtilities/AppDelegateSwizzler (6.7.0):
@@ -66,8 +46,6 @@ PODS:
     - PromisesObjC (~> 1.2)
   - GoogleUtilities/Logger (6.7.0):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (6.7.0):
-    - GoogleUtilities/Logger
   - GoogleUtilities/Network (6.7.0):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
@@ -90,7 +68,6 @@ PODS:
 DEPENDENCIES:
   - CometChatPro (= 2.0.12-Xcode11.4)
   - CometChatPro-UIKit (from `../`)
-  - Firebase
   - Firebase/Messaging
   - IQKeyboardManager
 
@@ -98,13 +75,11 @@ SPEC REPOS:
   trunk:
     - CometChatPro
     - Firebase
-    - FirebaseAnalytics
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseInstallations
     - FirebaseInstanceID
     - FirebaseMessaging
-    - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
     - IQKeyboardManager
@@ -120,14 +95,12 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   CometChatPro: 3eed774fe7a77f825927ab724b2d23d02946ef87
   CometChatPro-UIKit: 68215e8cca32b179f87f3fe15115bbcc92c24a19
-  Firebase: dc81c6c4701aa965eda3b1433d1b993e3f291e7b
-  FirebaseAnalytics: 5fa308e1b13f838d0f6dc74719ac2a72e8c5afc4
-  FirebaseCore: aab9d4dd2d819197a0157166cb065ae88ff612b5
+  Firebase: ed042590caa0029392257529a8003c25ee82bc18
+  FirebaseCore: 687b8e6a0a4337b898a6326d68254c2f80c143af
   FirebaseCoreDiagnostics: 7535fe695737f8c5b350584292a70b7f8ff0357b
   FirebaseInstallations: 3c520c951305cbf9ca54eb891ff9e6d1fd384881
   FirebaseInstanceID: 358d5cb393d2750a745569ede06827c35aea530b
   FirebaseMessaging: bdd4d573eab37ebee29bad4e7c4b0ef18fa1a952
-  GoogleAppMeasurement: 8cd1f289d60e629cf16ab03363b9e89c776b9651
   GoogleDataTransport: 8a40cb194ad242b6f6dfe72c14fe40fc67c4dcd7
   GoogleUtilities: 23ad5d79794b8ded1954466d5be6f8f694d3f7f3
   IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
@@ -136,6 +109,6 @@ SPEC CHECKSUMS:
   Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: a76a54f75f3945eb04a11eefea469d1450003fac
+PODFILE CHECKSUM: ef7027d9a07f9cca49e2f4d3f0b92007e3998df4
 
 COCOAPODS: 1.9.3

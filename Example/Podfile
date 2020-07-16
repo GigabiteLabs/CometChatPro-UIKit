@@ -15,7 +15,6 @@ source 'https://cdn.cocoapods.org'
 
 target 'CometChatPro-UIKit_Example' do
 
-  pod 'Firebase'
   pod 'Firebase/Messaging'
   pod 'CometChatPro', '2.0.12-Xcode11.4', :binary => true
   pod 'IQKeyboardManager', :binary => true

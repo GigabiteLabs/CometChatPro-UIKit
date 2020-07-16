@@ -14,7 +14,7 @@ import CometChatPro
 
 /*  ----------------------------------------------------------------------------------------- */
 
-class RightTextMessageBubble: UITableViewCell {
+class RightTextMessageBubble: CCPMediaMessageCell {
     
     // MARK: - Declaration of IBInspectable
     
@@ -40,7 +40,8 @@ class RightTextMessageBubble: UITableViewCell {
     }
     var indexPath: IndexPath?
     weak var textMessage: TextMessage? {
-        didSet {
+        set {
+            textMsg = newValue
             if let textmessage  = textMessage {
                 self.parseProfanityFilter(forMessage: textmessage)
                 if textmessage.readAt > 0 {
@@ -59,6 +60,9 @@ class RightTextMessageBubble: UITableViewCell {
             }
             receipt.contentMode = .scaleAspectFit
             message.textColor = .white
+        }
+        get {
+            return textMsg
         }
     }
     

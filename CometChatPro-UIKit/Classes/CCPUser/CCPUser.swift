@@ -11,6 +11,8 @@ public class CCPUser: CCPType {
     public var firstname: String
     public var lastname: String
     public var uid: String
+    public var profilePhoto: String?
+    public var bio: String?
     public init (firstname: String, lastname: String, uid: String) {
         self.firstname = firstname
         self.lastname = lastname
