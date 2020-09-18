@@ -319,7 +319,15 @@ extension CometChatUserInfo: UITableViewDelegate , UITableViewDataSource {
                 let privacyAndSeciruty = CometChatPrivacyAndSecurity()
                 navigationController?.pushViewController(privacyAndSeciruty, animated: true)
             case CometChatUserInfo.LOGOUT_CELL:
-                navigationController?.popToRootViewController(animated: true)
+                // process logout
+                CCPHandler.shared.logout()
+                // dismiss presented navctrller
+                navigationController?.dismiss(animated: true, completion: {
+                    print("dismissed navigation controller directly")
+                })
+                navigationController?.parent?.dismiss(animated: true, completion: {
+                    print("dismissed parent")
+                })
             default: break }
         }else if indexPath.section == 2{
             

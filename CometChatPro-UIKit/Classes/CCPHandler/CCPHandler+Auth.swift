@@ -103,8 +103,26 @@ public extension CCPHandler {
             print("attempting unsubscribe from all groups")
             CometChat.getJoinedGroups(onSuccess: { (groups) in
                 for group in groups {
-                    let groupString = "\(CCPConfig.shared.appId)_group_\(group.lowercased())_ios"
-                    self.unSubscribe(topic: groupString)
+                    var fixedString = group
+                    // bug fix
+                    if group.contains("Optional") {
+                        let components = group.split(separator: "\"")
+                        fixedString = "_\(components[1])"
+                    }
+                    // the eventual fill string
+                    var topicString = ""
+                    // add app id
+                    topicString += CCPConfig.shared.appId
+                    // add the type string if not already present
+                    if !group.contains("group") {
+                        topicString += "group_"
+                    }
+                    // add the properly formatted group
+                    // identifier and group GUID
+                    topicString += fixedString
+                    // sub to the iOS type
+                    topicString += "_ios"
+                    self.unSubscribe(topic: topicString)
                 }
                 self.processLogout()
             }) { (error) in
