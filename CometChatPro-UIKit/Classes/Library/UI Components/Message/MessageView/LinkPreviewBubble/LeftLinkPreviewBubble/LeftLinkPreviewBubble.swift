@@ -19,7 +19,7 @@ public protocol LinkPreviewDelegate {
 
 /*  ----------------------------------------------------------------------------------------- */
 
-class LeftLinkPreviewBubble: UITableViewCell, WKNavigationDelegate {
+class LeftLinkPreviewBubble: CCPMediaMessageCell, WKNavigationDelegate {
     
     // MARK: - Declaration of IBOutlets
     
@@ -54,7 +54,8 @@ class LeftLinkPreviewBubble: UITableViewCell, WKNavigationDelegate {
     var url:String?
     var linkPreviewDelegate: LinkPreviewDelegate?
     var linkPreviewMessage: TextMessage! {
-        didSet{
+        set {
+            linkPreviewMessage = newValue
             if let avatarURL = linkPreviewMessage.sender?.avatar  {
                 avatar.set(image: avatarURL, with: linkPreviewMessage.sender?.name ?? "")
             }
@@ -89,6 +90,9 @@ class LeftLinkPreviewBubble: UITableViewCell, WKNavigationDelegate {
             icon.roundViewCorners([.layerMinXMinYCorner,.layerMaxXMinYCorner], radius: 15)
             iconView.roundViewCorners([.layerMinXMinYCorner,.layerMaxXMinYCorner], radius: 15)
             visitButton.roundViewCorners([.layerMinXMaxYCorner,.layerMaxXMaxYCorner], radius: 15)
+        }
+        get {
+            return linkPreviewMsg
         }
     }
     

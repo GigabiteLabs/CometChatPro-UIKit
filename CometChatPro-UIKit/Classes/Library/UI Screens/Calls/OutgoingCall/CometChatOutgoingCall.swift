@@ -103,8 +103,6 @@ public class CometChatOutgoingCall: UIViewController {
             }
         }
     }
-    
-    
     /**
     This method setup Appearance for CometChatOutgoingCall.
     - Parameter forEntity: This specifies `AppEntity` Object.
@@ -120,7 +118,6 @@ public class CometChatOutgoingCall: UIViewController {
             avatar.set(entity: group)
         }
     }
-    
     /**
        This method dismiss the CometChatOutgoingCall controller when triggers..
        - Author: CometChat Team

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+//@_exported import CometChatPro
 
 public class CCPConfig: CCPType {
     public static var shared = CCPConfig()

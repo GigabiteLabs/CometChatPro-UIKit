@@ -11,7 +11,7 @@ import CometChatPro
 
 /*  ----------------------------------------------------------------------------------------- */
 
-class LeftFileMessageBubble: UITableViewCell {
+class LeftFileMessageBubble: CCPMediaMessageCell {
     
     // MARK: - Declaration of IBOutlets
     
@@ -39,7 +39,8 @@ class LeftFileMessageBubble: UITableViewCell {
     }
     
     var fileMessage: MediaMessage! {
-        didSet {
+        set {
+            file = newValue
             receiptStack.isHidden = true
             if fileMessage.receiverType == .group {
               nameView.isHidden = false
@@ -59,6 +60,9 @@ class LeftFileMessageBubble: UITableViewCell {
             if let avatarURL = fileMessage.sender?.avatar  {
                 avatar.set(image: avatarURL, with: fileMessage.sender?.name ?? "")
             }
+        }
+        get {
+            return file
         }
     }
     

@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import CometChatPro_UIKit
 @_exported import CometChatPro
-import Firebase
+import CometChatPro_UIKit
+import FirebaseCore
 import FirebaseMessaging
 import IQKeyboardManager
 
@@ -52,17 +52,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             fatalError("ERROR: One or more environment variables for CometChat config were nil. Reference README.MD for configuration instructions.")
         }
         
+        // configure for your account
         CCPConfig.shared.apiKey = ccAPIKey
         CCPConfig.shared.appId = ccAppID
         CCPConfig.shared.region = ccAppRegion
         
-        // all CCP config builder
+        // all CometChatPro's config builder
         let mySettings = AppSettings.AppSettingsBuilder().subscribePresenceForAllUsers().setRegion(region: CCPConfig.shared.region).build()
         let _ = CometChat(appId: CCPConfig.shared.appId,appSettings: mySettings,onSuccess: { (isSuccess) in
         if (isSuccess) {
             print("Chat intialized successfully.")
-            // important: calls will not work in BG if not set
-        } }){(error) in print("Chat failed intialise with error: \(error.errorDescription)") }
+        }}){ (error) in
+            print("CometChat failed intialise with error: \(error.errorDescription)")
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

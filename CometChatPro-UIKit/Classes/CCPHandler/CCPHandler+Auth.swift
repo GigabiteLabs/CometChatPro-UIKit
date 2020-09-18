@@ -30,7 +30,6 @@ public extension CCPHandler {
                     case false:
                         completion(false)
                     }
-                    
                 }
             default:
                 print("error, CometChat login failed with exception: \(exception.errorDescription)")
@@ -40,16 +39,28 @@ public extension CCPHandler {
     }
     
     func subscribeToGroupNotifications() {
-        // Unsubscribe from all groups
-        CometChat.getJoinedGroups(onSuccess: { (groups) in
+        CometChat.getJoinedGroups { (groups) in
+            // this process is a workaround for broken
+            // group names being passed as "Optional("")" objects in latest SDK
             for group in groups {
-
-                let groupString = "\(CCPConfig.shared.appId)_group_\(group.lowercased())_ios"
-                self.subscribeTo(topic: groupString)
+                var fixedString = group
+                if group.contains("Optional") {
+                    let components = group.split(separator: "\"")
+                    fixedString = "group_\(components[1])"
+                }
+                var topicString = ""
+                topicString += CCPConfig.shared.appId
+                topicString += "_"
+                topicString += fixedString
+                topicString += "_ios"
+                self.subscribeTo(topic: topicString)
             }
-            print("finished group subscriptions")
-        }) { (error) in
-            print("there was an error: \(error?.errorDescription ?? "NO ERROR DESCRIPTION")")
+        } onError: { (exception) in
+            guard let errorDesc = exception?.errorDescription else {
+                print("An error occured while retrieving the group list")
+                return
+            }
+            print("An error occured while retrieving the group list: \(errorDesc)")
         }
     }
 

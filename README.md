@@ -9,7 +9,14 @@
 
 A unified framework for CometChat Pro UIKit, and the CometChat SDK.
 
-## Features
+## Features / Updates
+
+**Version 1.1.0**
+
+- ✅ Ability to build for Xcode Simulator restored with incorporation CometChat Pro SDK 2.1.1
+- ✅ Fully tested for use with iOS 14
+- ✅ Push notification auto-registration reliability improvements
+- ✅ Improved media player window on iPad for voice memos
 
 **Version 1.0**
 
@@ -30,7 +37,9 @@ A unified framework for CometChat Pro UIKit, and the CometChat SDK.
 
 **Known Issues / WIP**
 
-- Full restoration of video & audio calling in progress, not totally functional in v1.0
+- In order to build locally, you need minimum Cocoapods version 1.10.0.rc.1
+    - if you are not running, either update to the latest release, or run `sudo gem install cocoapods --pre`
+- Full restoration of video & audio calling in progress, not totally functional in v1.1
 
 ### Current Limitations
 
@@ -140,8 +149,8 @@ pod 'CometChatPro-UIKit', :git => 'https://github.com/GigabiteLabs/CometChatPro-
 
 ## Requirements & Dependencies
 
-- Minimum version: iOS 13.0
-- CometChatPro SDK
+- Minimum version: iOS 13.0^
+- CometChatPro SDK 2.1.1
 - Firebase/Messaging framework (push notifications)
 
 There are a few dependencies required to use this framework.
@@ -190,14 +199,26 @@ end
 **AppDelegate Setup & Config**
 
 - Open your `AppDelegate` file
-- Add `import CometChatPro-UIKit` to the top of the file
 - In your `didFinishLaunching` function, add the following:
 
-	```swift
-	CCPConfig.shared.apiKey = “your api key”
-	CCPConfig.shared.appId = “your app id”
-	CCPConfig.shared.region = “your app region”
-	```
+```swift
+    // import at the top of AppDelegate
+    import CometChatPro_UIKit
+
+    // configure with your account credentials
+    CCPConfig.shared.apiKey = “your api key”
+    CCPConfig.shared.appId = “your app id”
+    CCPConfig.shared.region = “your app region”
+
+    // all CometChatPro's config builder
+    let mySettings = AppSettings.AppSettingsBuilder().subscribePresenceForAllUsers().setRegion(region: CCPConfig.shared.region).build()
+    let _ = CometChat(appId: CCPConfig.shared.appId,appSettings: mySettings,onSuccess: { (isSuccess) in
+    if (isSuccess) {
+        print("Chat intialized successfully.")
+    }}){ (error) in
+        print("CometChat failed intialise with error: \(error.errorDescription)")
+    }
+```
 
 - The `CCPConfig.shared` instance is the central point for all application configuration & setup
 
@@ -206,6 +227,17 @@ end
 > Note: All public files available from this framework are prefixed with '`CCP`', which stands for CometChatPro.
 
 <br>
+
+**Login**
+
+    ```swift
+    func launch(first: String, last: String, uuid: String) {
+        let user: CCPUser = .init(firstname: first, lastname: last, uid: uuid) // 1
+        CCPHandler.shared.login(user: user) { (success) in  // 2
+            self.presentCometChatPro(.fullScreen, animated: true, completion: nil) // 3
+        } // 4
+    }
+    ```
 
 **Xcode Project Config**
 

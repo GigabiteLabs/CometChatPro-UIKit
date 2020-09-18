@@ -11,7 +11,7 @@ import CometChatPro
 
 /*  ----------------------------------------------------------------------------------------- */
 
-class RightFileMessageBubble: UITableViewCell {
+class RightFileMessageBubble: CCPMediaMessageCell {
 
     // MARK: - Declaration of IBOutlets
     
@@ -37,36 +37,40 @@ class RightFileMessageBubble: UITableViewCell {
     }
     
     var fileMessage: MediaMessage! {
-        didSet {
-                   receiptStack.isHidden = true
-                   if fileMessage.sentAt == 0 {
-                       timeStamp.text = NSLocalizedString("SENDING", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
-                       name.text = NSLocalizedString("---", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
-                       type.text = NSLocalizedString("---", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
-                       size.text = NSLocalizedString("---", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
-                   }else{
-                       timeStamp.text = String().setMessageTime(time: fileMessage.sentAt)
-                    name.text = fileMessage.attachment?.fileName.capitalized
-                    type.text = fileMessage.attachment?.fileExtension.uppercased()
-                    if let fileSize = fileMessage.attachment?.fileSize {
-                        size.text = Units(bytes: Int64(fileSize)).getReadableUnit()
-                    }
-                   }
+        set {
+            file = newValue
+            receiptStack.isHidden = true
+            if fileMessage.sentAt == 0 {
+               timeStamp.text = NSLocalizedString("SENDING", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
+               name.text = NSLocalizedString("---", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
+               type.text = NSLocalizedString("---", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
+               size.text = NSLocalizedString("---", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
+            }else{
+               timeStamp.text = String().setMessageTime(time: fileMessage.sentAt)
+                name.text = fileMessage.attachment?.fileName.capitalized
+                type.text = fileMessage.attachment?.fileExtension.uppercased()
+                if let fileSize = fileMessage.attachment?.fileSize {
+                    size.text = Units(bytes: Int64(fileSize)).getReadableUnit()
+                }
+            }
     
-                  if fileMessage.readAt > 0 {
-                       receipt.image = .fromBundle(named: "read")
-                       timeStamp.text = String().setMessageTime(time: Int(fileMessage?.readAt ?? 0))
-                       }else if fileMessage.deliveredAt > 0 {
-                       receipt.image = .fromBundle(named: "delivered")
-                       timeStamp.text = String().setMessageTime(time: Int(fileMessage?.deliveredAt ?? 0))
-                       }else if fileMessage.sentAt > 0 {
-                       receipt.image = .fromBundle(named: "sent")
-                       timeStamp.text = String().setMessageTime(time: Int(fileMessage?.sentAt ?? 0))
-                       }else if fileMessage.sentAt == 0 {
-                          receipt.image = .fromBundle(named: "wait")
-                          timeStamp.text = NSLocalizedString("SENDING", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
-                       }
-               }
+            if fileMessage.readAt > 0 {
+               receipt.image = .fromBundle(named: "read")
+               timeStamp.text = String().setMessageTime(time: Int(fileMessage?.readAt ?? 0))
+            }else if fileMessage.deliveredAt > 0 {
+               receipt.image = .fromBundle(named: "delivered")
+               timeStamp.text = String().setMessageTime(time: Int(fileMessage?.deliveredAt ?? 0))
+            }else if fileMessage.sentAt > 0 {
+               receipt.image = .fromBundle(named: "sent")
+               timeStamp.text = String().setMessageTime(time: Int(fileMessage?.sentAt ?? 0))
+            }else if fileMessage.sentAt == 0 {
+                  receipt.image = .fromBundle(named: "wait")
+                  timeStamp.text = NSLocalizedString("SENDING", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
+            }
+        }
+        get {
+            return file
+        }
     }
     
     // MARK: - Initialization of required Methods

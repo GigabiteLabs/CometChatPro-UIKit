@@ -19,6 +19,8 @@ import AVFoundation
 import QuickLook
 import AudioToolbox
 import CometChatPro
+import Foundation
+import MobileCoreServices
 
 enum MessageMode {
     case edit
@@ -1433,12 +1435,13 @@ public class CometChatMessageList: UIViewController, AVAudioRecorderDelegate, AV
      [CometChatMessageList Documentation](https://prodocs.cometchat.com/docs/ios-ui-screens#section-4-comet-chat-message-list)
      */
     private func setupTableView() {
-        self.tableView?.delegate = self
-        self.tableView?.dataSource = self
-        self.tableView?.separatorColor = .clear
-        self.tableView?.allowsMultipleSelectionDuringEditing = true
-        self.tableView?.setEmptyMessage("Loading...")
-        self.addRefreshControl(inTableView: true)
+        tableView?.delegate = self
+        tableView?.dataSource = self
+        tableView?.dragDelegate = self
+        tableView?.separatorColor = .clear
+        tableView?.allowsMultipleSelectionDuringEditing = true
+        tableView?.setEmptyMessage("Loading...")
+        addRefreshControl(inTableView: true)
         //         Added Long Press
         let longPressOnMessage = UILongPressGestureRecognizer(target: self, action: #selector(didLongPressedOnMessage))
         tableView?.addGestureRecognizer(longPressOnMessage)
@@ -2751,6 +2754,77 @@ extension CometChatMessageList: UITableViewDelegate , UITableViewDataSource {
             }
         }
         tableView.endUpdates()
+    }
+}
+
+extension CometChatMessageList: UITableViewDragDelegate {
+    
+    public func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        // ensure the selected cell is castable to CCPMediaMessageCell
+        guard let selectedCell = tableView.cellForRow(at: indexPath) as? CCPMediaMessageCell else {
+            print("could not cast selected cell to CCPMediaMessageCell")
+            return []
+        }
+        // switch on type to determine how
+        // to handle the drag item type
+        switch selectedCell.mediaType {
+        case .file:
+            guard let urlString = selectedCell.file.attachment?.fileUrl else {
+                return []
+            }
+            print(selectedCell.file.metaData)
+            let fileURL = URL(fileURLWithPath: urlString)
+            guard let itemProvider = NSItemProvider(contentsOf: fileURL) else {
+                return []
+            }
+            guard let fileType = fileURL.typeIdentifier else {
+                print("could not get the filetype")
+                return []
+            }
+            print(fileType)
+            
+            guard let fileName = fileURL.localizedName else {
+                print("could not get the file name")
+                return []
+            }
+            // TODO: Resume here
+            let dragItem = UIDragItem(itemProvider: itemProvider)
+            itemProvider.loadDataRepresentation(forTypeIdentifier: fileType) { (data, error) in
+                dragItem.localObject = data
+            }
+            itemProvider.suggestedName = fileName
+            return [dragItem]
+
+        case .text:
+            guard let text = selectedCell.textMsg?.text as NSString? else {
+                return []
+            }
+            return [UIDragItem(itemProvider: NSItemProvider(object: text))]
+        case .link:
+            guard let text = selectedCell.linkPreviewMsg?.text as NSString? else {
+                return []
+            }
+            return [UIDragItem(itemProvider: NSItemProvider(object: text))]
+        case .image:
+            guard let mediaURL = selectedCell.imageMsg.metaData, let fileURL = mediaURL["fileURL"] as? String else {
+                return []
+            }
+            let components = fileURL.components(separatedBy: "/")
+            let filepath = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true).appendingPathComponent(components.last!)
+            let fileImage = UIImage(contentsOfFile: filepath.path)
+            guard let image = fileImage else {
+                return []
+            }
+            // use the retrieved image to
+            // return the drag item
+            let itemProvider = NSItemProvider(object: image)
+            let dragItem = UIDragItem(itemProvider: itemProvider)
+            dragItem.localObject = image
+            return [dragItem]
+        default:
+            print("ignoring type: \(selectedCell.mediaType?.description ?? "NULL MEDIA TYPE")")
+            return []
+        }
     }
 }
 
