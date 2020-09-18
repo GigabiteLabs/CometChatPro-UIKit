@@ -9,6 +9,7 @@
 import UIKit
 @_exported import CometChatPro
 import CometChatPro_UIKit
+import FirebaseCore
 import FirebaseMessaging
 import IQKeyboardManager
 

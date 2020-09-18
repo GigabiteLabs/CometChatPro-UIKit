@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'CometChatPro-UIKit'
-  s.version          = '1.0.1'
+  s.version          = '1.1.0'
   s.summary          = 'A unified framework for CometChat Pro UIKit and the CometChat SDK.'
   s.description      = <<-DESC
 'A unified framework for CometChat Pro that combines the CometChat Pro UIKit library CometChat binary SDK.'

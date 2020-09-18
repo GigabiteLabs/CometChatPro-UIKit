@@ -9,7 +9,14 @@
 
 A unified framework for CometChat Pro UIKit, and the CometChat SDK.
 
-## Features
+## Features / Updates
+
+**Version 1.1.0**
+
+- ✅ Ability to build for Xcode Simulator restored with incorporation CometChat Pro SDK 2.1.1
+- ✅ Fully tested for use with iOS 14
+- ✅ Push notification auto-registration reliability improvements
+- ✅ Improved media player window on iPad for voice memos
 
 **Version 1.0**
 
@@ -30,7 +37,9 @@ A unified framework for CometChat Pro UIKit, and the CometChat SDK.
 
 **Known Issues / WIP**
 
-- Full restoration of video & audio calling in progress, not totally functional in v1.0
+- In order to build locally, you need minimum Cocoapods version 1.10.0.rc.1
+    - if you are not running, either update to the latest release, or run `sudo gem install cocoapods --pre`
+- Full restoration of video & audio calling in progress, not totally functional in v1.1
 
 ## Usage Examples
 
@@ -132,8 +141,8 @@ pod 'CometChatPro-UIKit', :git => 'https://github.com/GigabiteLabs/CometChatPro-
 
 ## Requirements & Dependencies
 
-- Minimum version: iOS 13.0
-- CometChatPro SDK
+- Minimum version: iOS 13.0^
+- CometChatPro SDK 2.1.1
 - Firebase/Messaging framework (push notifications)
 
 There are a few dependencies required to use this framework.
