@@ -1,7 +1,7 @@
 PODS:
   - CometChatPro (2.1.1)
-  - CometChatPro-UIKit (1.0.1):
-    - CometChatPro (= 2.1.1)
+  - CometChatPro-UIKit (1.1.0):
+    - CometChatPro
     - Firebase/Messaging
     - SwiftyJSON
   - Firebase/CoreOnly (6.32.2):
@@ -66,6 +66,7 @@ PODS:
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
+  - CometChatPro (= 2.1.1)
   - CometChatPro-UIKit (from `../`)
   - IQKeyboardManager
 
@@ -92,7 +93,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CometChatPro: 30362d60b7a0961a3d44250f8da5b2a4cbe9737d
-  CometChatPro-UIKit: 329c219c49df694c0368fc17d34c019aceca73ef
+  CometChatPro-UIKit: a1f6f62ca5df1918b9c755b1d32c36bc40697b8b
   Firebase: 47176280bfba198e531f909cfb1612dad216cb96
   FirebaseCore: 1d697bb944bf2af5fc248f1a66e165c9dd88bf97
   FirebaseCoreDiagnostics: 7415bfb3883b3500c5a95c42b6ba66baae78f600
@@ -107,6 +108,6 @@ SPEC CHECKSUMS:
   Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: f2f91558ce5e38bd1bdc7dbbefbfb2c66c327ced
+PODFILE CHECKSUM: 68adf29c70de80d4bc4cd53b9444ceb04a88d422
 
 COCOAPODS: 1.10.0.rc.1

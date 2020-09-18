@@ -10,12 +10,9 @@ incremental_installation: true
 use_modular_headers!
 use_frameworks!
 
-# Open Source Cocoapods
-source 'https://cdn.cocoapods.org'
-
 target 'CometChatPro-UIKit_Example' do
   pod 'CometChatPro-UIKit', :path => '../'
-#  pod 'CometChatPro', '2.1.1', :binary => true
+  pod 'CometChatPro', '2.1.1'
   pod 'IQKeyboardManager'
   target 'CometChatPro-UIKit_Example_Tests' do
     inherit! :search_paths
