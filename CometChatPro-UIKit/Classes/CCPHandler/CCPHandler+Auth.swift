@@ -42,10 +42,24 @@ public extension CCPHandler {
     func subscribeToGroupNotifications() {
         // Unsubscribe from all groups
         CometChat.getJoinedGroups(onSuccess: { (groups) in
+            print(groups)
             for group in groups {
-
-                let groupString = "\(CCPConfig.shared.appId)_group_\(group.lowercased())_ios"
-                self.subscribeTo(topic: groupString)
+                print(group)
+                var fixedString = group
+                if group.contains("Optional") {
+                    let components = group.split(separator: "_")
+                    let secondComponents = components.last?.split(separator: "\"")
+                    if let groupId = secondComponents?.first {
+                        fixedString = "group_\(groupId)"
+                    }
+                }
+                var topicString = ""
+                topicString += CCPConfig.shared.appId
+                topicString += "_"
+                topicString += fixedString
+                topicString += "_ios"
+                print("topicstring: \(topicString)")
+                self.subscribeTo(topic: topicString)
             }
             print("finished group subscriptions")
         }) { (error) in

@@ -15,10 +15,10 @@
 		376A952C24BEEB5400CEDFBE /* AppDelegate+CometChatCallDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376A952A24BEEB5400CEDFBE /* AppDelegate+CometChatCallDelegate.swift */; };
 		376A952D24BEEB5400CEDFBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376A952B24BEEB5400CEDFBE /* AppDelegate.swift */; };
 		376A959024BEF57300CEDFBE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
-		405809F4906F1C81628B4C6F /* Pods_CometChatPro_UIKit_Example_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F15E0DD6603C40E19AEB968C /* Pods_CometChatPro_UIKit_Example_Tests.framework */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		8F1771695DD2F87B0A7FAB31 /* Pods_CometChatPro_UIKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F65D3535844611C5D49CF941 /* Pods_CometChatPro_UIKit_Example.framework */; };
+		76B7E04E2381DDDA9C14DDB1 /* Pods_CometChatPro_UIKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 059163D0A034671C967D0B6D /* Pods_CometChatPro_UIKit_Example.framework */; };
+		F640C1D3891FBC303DD9969E /* Pods_CometChatPro_UIKit_Example_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53BD3C10B1E17449DF8CCF13 /* Pods_CometChatPro_UIKit_Example_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +33,8 @@
 
 /* Begin PBXFileReference section */
 		00D0659E179AF4226BF10086 /* CometChatPro-UIKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "CometChatPro-UIKit.podspec"; path = "../CometChatPro-UIKit.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		059163D0A034671C967D0B6D /* Pods_CometChatPro_UIKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CometChatPro_UIKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		09942BF6A9CB6115CE95E079 /* Pods-CometChatPro-UIKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CometChatPro-UIKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-CometChatPro-UIKit_Example/Pods-CometChatPro-UIKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		372C4E8524BE9C2B0096C42E /* CometChatPro-UIKit_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CometChatPro-UIKit_Tests.swift"; sourceTree = "<group>"; };
 		376A2BA124BA773D00E4568E /* CometChatPro-UIKit_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CometChatPro-UIKit_Example.entitlements"; sourceTree = "<group>"; };
 		376A2E5E24BABB0200E4568E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resources/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -69,20 +71,18 @@
 		37F330FC24BE9ECF003794F4 /* GBLMessenger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBLMessenger.h; sourceTree = "<group>"; };
 		37F330FD24BE9ECF003794F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37F3310224BE9EE6003794F4 /* CCPMessenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CCPMessenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53BD3C10B1E17449DF8CCF13 /* Pods_CometChatPro_UIKit_Example_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CometChatPro_UIKit_Example_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* CometChatPro-UIKit_Example_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CometChatPro-UIKit_Example_Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8E1FC92AD84A7CFF3D52E046 /* Pods-CometChatPro-UIKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CometChatPro-UIKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-CometChatPro-UIKit_Example/Pods-CometChatPro-UIKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		930D30C3B49DD132ECBB4682 /* Pods-CometChatPro-UIKit_Example_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CometChatPro-UIKit_Example_Tests.release.xcconfig"; path = "Target Support Files/Pods-CometChatPro-UIKit_Example_Tests/Pods-CometChatPro-UIKit_Example_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		971B423B011B93AA4C0A5479 /* Pods-CometChatPro-UIKit_Example_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CometChatPro-UIKit_Example_Tests.debug.xcconfig"; path = "Target Support Files/Pods-CometChatPro-UIKit_Example_Tests/Pods-CometChatPro-UIKit_Example_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		97BFC5A15F8FDCBB9E89F5DC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		BDCF307B3EF901DE1ECE9BF4 /* Pods-CometChatPro-UIKit_Example_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CometChatPro-UIKit_Example_Tests.debug.xcconfig"; path = "Target Support Files/Pods-CometChatPro-UIKit_Example_Tests/Pods-CometChatPro-UIKit_Example_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		9D2649E9E7618C11334E2618 /* Pods-CometChatPro-UIKit_Example_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CometChatPro-UIKit_Example_Tests.release.xcconfig"; path = "Target Support Files/Pods-CometChatPro-UIKit_Example_Tests/Pods-CometChatPro-UIKit_Example_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D7795187EF3F9227A55AE457 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		F15E0DD6603C40E19AEB968C /* Pods_CometChatPro_UIKit_Example_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CometChatPro_UIKit_Example_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F595A14E13796666EE31C295 /* Pods-CometChatPro-UIKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CometChatPro-UIKit_Example.release.xcconfig"; path = "Target Support Files/Pods-CometChatPro-UIKit_Example/Pods-CometChatPro-UIKit_Example.release.xcconfig"; sourceTree = "<group>"; };
-		F65D3535844611C5D49CF941 /* Pods_CometChatPro_UIKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CometChatPro_UIKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D918DAEFA106394A1C0E7283 /* Pods-CometChatPro-UIKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CometChatPro-UIKit_Example.release.xcconfig"; path = "Target Support Files/Pods-CometChatPro-UIKit_Example/Pods-CometChatPro-UIKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F1771695DD2F87B0A7FAB31 /* Pods_CometChatPro_UIKit_Example.framework in Frameworks */,
+				76B7E04E2381DDDA9C14DDB1 /* Pods_CometChatPro_UIKit_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				405809F4906F1C81628B4C6F /* Pods_CometChatPro_UIKit_Example_Tests.framework in Frameworks */,
+				F640C1D3891FBC303DD9969E /* Pods_CometChatPro_UIKit_Example_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,8 +133,8 @@
 				37C8686A24BDD9370025D332 /* FBLPromises.framework */,
 				37C8686C24BDD9370025D332 /* Protobuf.framework */,
 				37C8686E24BDD9370025D332 /* SwiftyJSON.framework */,
-				F65D3535844611C5D49CF941 /* Pods_CometChatPro_UIKit_Example.framework */,
-				F15E0DD6603C40E19AEB968C /* Pods_CometChatPro_UIKit_Example_Tests.framework */,
+				059163D0A034671C967D0B6D /* Pods_CometChatPro_UIKit_Example.framework */,
+				53BD3C10B1E17449DF8CCF13 /* Pods_CometChatPro_UIKit_Example_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -250,10 +250,10 @@
 		B1F35FAC5E3D033BC20CBD4A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8E1FC92AD84A7CFF3D52E046 /* Pods-CometChatPro-UIKit_Example.debug.xcconfig */,
-				F595A14E13796666EE31C295 /* Pods-CometChatPro-UIKit_Example.release.xcconfig */,
-				BDCF307B3EF901DE1ECE9BF4 /* Pods-CometChatPro-UIKit_Example_Tests.debug.xcconfig */,
-				930D30C3B49DD132ECBB4682 /* Pods-CometChatPro-UIKit_Example_Tests.release.xcconfig */,
+				09942BF6A9CB6115CE95E079 /* Pods-CometChatPro-UIKit_Example.debug.xcconfig */,
+				D918DAEFA106394A1C0E7283 /* Pods-CometChatPro-UIKit_Example.release.xcconfig */,
+				971B423B011B93AA4C0A5479 /* Pods-CometChatPro-UIKit_Example_Tests.debug.xcconfig */,
+				9D2649E9E7618C11334E2618 /* Pods-CometChatPro-UIKit_Example_Tests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -265,12 +265,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "CometChatPro-UIKit_Example" */;
 			buildPhases = (
-				3F85D3A0B8F88C7551564EB8 /* [CP] Check Pods Manifest.lock */,
+				7A9894BD62D3FBF8A3D9B008 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				A884EB11D96324A93F1C9E9D /* [CP] Embed Pods Frameworks */,
-				96DEAFAEE452B94DEBFF819D /* [CP] Copy Pods Resources */,
+				2F1FDCE10C885DDB31648BAE /* [CP] Embed Pods Frameworks */,
+				E8B9329BE5FE02F9EC0702C0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -285,12 +285,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "CometChatPro-UIKit_Example_Tests" */;
 			buildPhases = (
-				F5E42D51DB76C8077545AAD5 /* [CP] Check Pods Manifest.lock */,
+				612EB047B036779EE54C6955 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				947E7ECED65CA530D713848A /* [CP] Embed Pods Frameworks */,
-				3FFED5367F6D55B457E40823 /* [CP] Copy Pods Resources */,
+				728FE1D094F6199176EDEA89 /* [CP] Embed Pods Frameworks */,
+				CD3AF763B8140C19916D81C7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -368,97 +368,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3F85D3A0B8F88C7551564EB8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CometChatPro-UIKit_Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3FFED5367F6D55B457E40823 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CometChatPro-UIKit_Example_Tests/Pods-CometChatPro-UIKit_Example_Tests-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/CometChatPro-UIKit/CometChatPro-UIKit.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CometChatPro-UIKit.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CometChatPro-UIKit_Example_Tests/Pods-CometChatPro-UIKit_Example_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		947E7ECED65CA530D713848A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CometChatPro-UIKit_Example_Tests/Pods-CometChatPro-UIKit_Example_Tests-frameworks.sh",
-				"${PODS_ROOT}/CometChatPro/CometChatPro.framework",
-				"${PODS_ROOT}/CometChatPro/Vendors/JitsiMeet.framework",
-				"${PODS_ROOT}/CometChatPro/Vendors/WebRTC.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CometChatPro.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JitsiMeet.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebRTC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CometChatPro-UIKit_Example_Tests/Pods-CometChatPro-UIKit_Example_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		96DEAFAEE452B94DEBFF819D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CometChatPro-UIKit_Example/Pods-CometChatPro-UIKit_Example-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/CometChatPro-UIKit/CometChatPro-UIKit.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CometChatPro-UIKit.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CometChatPro-UIKit_Example/Pods-CometChatPro-UIKit_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A884EB11D96324A93F1C9E9D /* [CP] Embed Pods Frameworks */ = {
+		2F1FDCE10C885DDB31648BAE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -494,7 +404,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CometChatPro-UIKit_Example/Pods-CometChatPro-UIKit_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F5E42D51DB76C8077545AAD5 /* [CP] Check Pods Manifest.lock */ = {
+		612EB047B036779EE54C6955 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -514,6 +424,96 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		728FE1D094F6199176EDEA89 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CometChatPro-UIKit_Example_Tests/Pods-CometChatPro-UIKit_Example_Tests-frameworks.sh",
+				"${PODS_ROOT}/CometChatPro/CometChatPro.framework",
+				"${PODS_ROOT}/CometChatPro/Vendors/JitsiMeet.framework",
+				"${PODS_ROOT}/CometChatPro/Vendors/WebRTC.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CometChatPro.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JitsiMeet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebRTC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CometChatPro-UIKit_Example_Tests/Pods-CometChatPro-UIKit_Example_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7A9894BD62D3FBF8A3D9B008 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CometChatPro-UIKit_Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD3AF763B8140C19916D81C7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CometChatPro-UIKit_Example_Tests/Pods-CometChatPro-UIKit_Example_Tests-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/CometChatPro-UIKit/CometChatPro-UIKit.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CometChatPro-UIKit.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CometChatPro-UIKit_Example_Tests/Pods-CometChatPro-UIKit_Example_Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8B9329BE5FE02F9EC0702C0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CometChatPro-UIKit_Example/Pods-CometChatPro-UIKit_Example-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/CometChatPro-UIKit/CometChatPro-UIKit.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CometChatPro-UIKit.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CometChatPro-UIKit_Example/Pods-CometChatPro-UIKit_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -669,7 +669,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8E1FC92AD84A7CFF3D52E046 /* Pods-CometChatPro-UIKit_Example.debug.xcconfig */;
+			baseConfigurationReference = 09942BF6A9CB6115CE95E079 /* Pods-CometChatPro-UIKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -715,7 +715,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F595A14E13796666EE31C295 /* Pods-CometChatPro-UIKit_Example.release.xcconfig */;
+			baseConfigurationReference = D918DAEFA106394A1C0E7283 /* Pods-CometChatPro-UIKit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -760,7 +760,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BDCF307B3EF901DE1ECE9BF4 /* Pods-CometChatPro-UIKit_Example_Tests.debug.xcconfig */;
+			baseConfigurationReference = 971B423B011B93AA4C0A5479 /* Pods-CometChatPro-UIKit_Example_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -786,7 +786,7 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 930D30C3B49DD132ECBB4682 /* Pods-CometChatPro-UIKit_Example_Tests.release.xcconfig */;
+			baseConfigurationReference = 9D2649E9E7618C11334E2618 /* Pods-CometChatPro-UIKit_Example_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";

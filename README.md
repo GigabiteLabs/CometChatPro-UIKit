@@ -182,14 +182,26 @@ end
 **AppDelegate Setup & Config**
 
 - Open your `AppDelegate` file
-- Add `import CometChatPro-UIKit` to the top of the file
 - In your `didFinishLaunching` function, add the following:
 
-	```swift
-	CCPConfig.shared.apiKey = “your api key”
-	CCPConfig.shared.appId = “your app id”
-	CCPConfig.shared.region = “your app region”
-	```
+```swift
+    // import at the top of AppDelegate
+    import CometChatPro_UIKit
+
+    // configure with your account credentials
+    CCPConfig.shared.apiKey = “your api key”
+    CCPConfig.shared.appId = “your app id”
+    CCPConfig.shared.region = “your app region”
+
+    // all CometChatPro's config builder
+    let mySettings = AppSettings.AppSettingsBuilder().subscribePresenceForAllUsers().setRegion(region: CCPConfig.shared.region).build()
+    let _ = CometChat(appId: CCPConfig.shared.appId,appSettings: mySettings,onSuccess: { (isSuccess) in
+    if (isSuccess) {
+        print("Chat intialized successfully.")
+    }}){ (error) in
+        print("CometChat failed intialise with error: \(error.errorDescription)")
+    }
+```
 
 - The `CCPConfig.shared` instance is the central point for all application configuration & setup
 
@@ -198,6 +210,17 @@ end
 > Note: All public files available from this framework are prefixed with '`CCP`', which stands for CometChatPro.
 
 <br>
+
+**Login**
+
+    ```swift
+    func launch(first: String, last: String, uuid: String) {
+        let user: CCPUser = .init(firstname: first, lastname: last, uid: uuid) // 1
+        CCPHandler.shared.login(user: user) { (success) in  // 2
+            self.presentCometChatPro(.fullScreen, animated: true, completion: nil) // 3
+        } // 4
+    }
+    ```
 
 **Xcode Project Config**
 

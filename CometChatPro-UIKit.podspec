@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
       'CometChatPro-UIKit' => ['CometChatPro-UIKit/Assets/**/*.{plist,png,xcassets,xib,storyboard,strings,wav,otf}']
   }
   s.ios.frameworks = 'UIKit', 'QuartzCore', 'AVKit', 'AVFoundation', 'QuickLook', 'AudioToolbox', 'Foundation', 'Accelerate', 'CoreImage', 'CoreGraphics', 'WebKit', 'MobileCoreServices'
-  s.dependency 'CometChatPro', '2.0.12-Xcode11.4'
+  s.dependency 'CometChatPro', '2.1.1'
   s.dependency 'Firebase/Messaging'
   s.dependency 'SwiftyJSON'
   s.vendored_frameworks = '$(PODS_ROOT)/CometChatPro/CometChatPro.framework','$(PODS_ROOT)/CometChatPro/Vendors/JitsiMeet.framework','$(PODS_ROOT)/CometChatPro/Vendors/WebRTC.framework'

@@ -9,7 +9,6 @@
 import UIKit
 import UserNotifications
 import CometChatPro_UIKit
-import CometChatPro
 
 class ViewController: UIViewController {
     
@@ -79,24 +78,10 @@ class ViewController: UIViewController {
     }
     
     func launch(first: String, last: String, uuid: String) {
-        let user: CCPUser = .init(firstname: first, lastname: last, uid: uuid)
-        
-        CCPHandler.shared.login(user: user) { (success) in
-            DispatchQueue.main.async {
-                switch success {
-                case true:
-                    self.activity.stopAnimating()
-                    self.message.text = "Login success!"
-                    print("CometChat user login was successful")
-                    self.presentCometChatPro(.fullScreen, animated: true, completion: nil)
-                    self.saveLocal(first: first, last: last, uuid: uuid)
-                case false:
-                    print("CometChat user login failed")
-                    self.message.text = "Oops. Something went wrong during login."
-                    self.activity.stopAnimating()
-                }
-            }
-        }
+        let user: CCPUser = .init(firstname: first, lastname: last, uid: uuid) // 1
+        CCPHandler.shared.login(user: user) { (success) in  // 2
+            self.presentCometChatPro(.fullScreen, animated: true, completion: nil) // 3
+        } // 4
     }
     
     func saveLocal(first: String, last: String, uuid: String) {
