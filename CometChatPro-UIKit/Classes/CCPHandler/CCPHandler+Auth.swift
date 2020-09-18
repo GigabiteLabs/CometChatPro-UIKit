@@ -44,15 +44,25 @@ public extension CCPHandler {
             // group names being passed as "Optional("")" objects in latest SDK
             for group in groups {
                 var fixedString = group
+                // bug fix
                 if group.contains("Optional") {
                     let components = group.split(separator: "\"")
-                    fixedString = "group_\(components[1])"
+                    fixedString = "_\(components[1])"
                 }
+                // the eventual fill string
                 var topicString = ""
+                // add app id
                 topicString += CCPConfig.shared.appId
-                topicString += "_"
+                // add the type string if not already present
+                if !group.contains("group") {
+                    topicString += "group_"
+                }
+                // add the properly formatted group
+                // identifier and group GUID
                 topicString += fixedString
+                // sub to the iOS type
                 topicString += "_ios"
+                // send the sub request
                 self.subscribeTo(topic: topicString)
             }
         } onError: { (exception) in
@@ -62,6 +72,27 @@ public extension CCPHandler {
             }
             print("An error occured while retrieving the group list: \(errorDesc)")
         }
+    }
+    /// Subscribes a user to a group by a given
+    /// group name.
+    func subscribeToGroup(guid: String) {
+        print("guid: \(guid)")
+        var topicString = ""
+        topicString += CCPConfig.shared.appId
+        topicString += "_"
+        topicString += guid
+        topicString += "_ios"
+        subscribeTo(topic: topicString)
+    }
+    /// Unsubscribes a user from a group by group name.
+    func unSubscribeFromGroup(guid: String) {
+        print("guid: \(guid)")
+        var topicString = ""
+        topicString += CCPConfig.shared.appId
+        topicString += "_"
+        topicString += guid
+        topicString += "_ios"
+        unSubscribe(topic: topicString)
     }
 
     func logout() {

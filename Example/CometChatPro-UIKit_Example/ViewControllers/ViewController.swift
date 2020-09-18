@@ -9,6 +9,9 @@
 import UIKit
 import UserNotifications
 import CometChatPro_UIKit
+#if DEBUG
+import Bagel
+#endif
 
 class ViewController: UIViewController {
     
@@ -28,6 +31,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        #if DEBUG
+        Bagel.start()
+        #endif
         logo.clipsToBounds = true
         logo.layer.cornerRadius = logo.bounds.height / 2
     }

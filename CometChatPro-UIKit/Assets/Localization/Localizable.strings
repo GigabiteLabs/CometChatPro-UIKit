@@ -100,7 +100,7 @@
 "AS_A_ADMIN" = "as an Admin";
 "ADD_MEMBERS" = "Add Members";
 "ACTIONS" = "ACTIONS";
-"PRIVACY_&_SUPPORT" = "PRIVACY & SUPPORT";
+"PRIVACY_&_SUPPORT" = "Privacy & Support";
 "SEND_MESSAGE" = "Send Message";
 "ADD_IN" = "Add user to";
 "ADD_CONTACT" = "Add Contact";
@@ -120,7 +120,7 @@
 "YOU_LEFT_FROM" = "You left from ";
 "REMOVE_MEMBER" = "Remove Member";
 "BAN_MEMBER" = "Ban Member";
-"UNBAN_MEMBER" = "Unban Member";
+"UNBAN_MEMBER" = "Un-ban Member";
 "CREATE_GROUP" = "Create Group";
 "YOU_JOINED" = "You joined ";
 "FORWARD_MESSAGE" = "Forward Message";
@@ -135,3 +135,4 @@
 "VIDEO_CALL" =  "Video Call";
 "AUDIO_CALL" =  "Audio Call";
 "MAY_CONTAIN_NEGATIVE_SENTIMENT" = "This message may contain sensitive content.";
+"LOGOUT" = "Logout";

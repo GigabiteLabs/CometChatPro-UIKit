@@ -494,6 +494,8 @@ extension CometChatGroupList: UITableViewDelegate , UITableViewDataSource {
                 messageList.set(conversationWith: group, type: .group)
                 messageList.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(messageList, animated: true)
+                // subscribe user to the topic for this group chat
+                CCPHandler.shared.subscribeToGroup(guid: group.guid)
             }
             
         }) { (error) in

@@ -22,6 +22,7 @@ public class CometChatUserInfo: UIViewController {
     
     static let VIEW_PROFILE_CELL = 0
     static let PRIVACY_AND_SECURITY_CELL = 1
+    static let LOGOUT_CELL = 2
     
     
     // MARK: - View controller lifecycle methods
@@ -114,7 +115,7 @@ public class CometChatUserInfo: UIViewController {
      - Copyright:  ©  2020 CometChat Inc.
      */
     private func setupItems() {
-        preferances = [ CometChatUserInfo.PRIVACY_AND_SECURITY_CELL]
+        preferances = [ CometChatUserInfo.PRIVACY_AND_SECURITY_CELL, CometChatUserInfo.LOGOUT_CELL]
     }
     
     /**
@@ -282,8 +283,13 @@ extension CometChatUserInfo: UITableViewDelegate , UITableViewDataSource {
             switch preferances[safe:indexPath.row] {
             case CometChatUserInfo.PRIVACY_AND_SECURITY_CELL:
                 settingsCell.settingsName.text = NSLocalizedString(
-                    "PRIVACY_&_SECURITY", comment: "")
+                    "PRIVACY_&_SECURITY", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
                 settingsCell.settingsIcon.image = .fromBundle(named: "􀉼")
+                return settingsCell
+            case CometChatUserInfo.LOGOUT_CELL:
+                settingsCell.settingsName.text = NSLocalizedString(
+                    "LOGOUT", tableName: nil, bundle: CCPType.bundle, value: "", comment: "")
+                settingsCell.settingsIcon.image = .fromBundle(named: "close")
                 return settingsCell
             default:
                 break
@@ -312,7 +318,8 @@ extension CometChatUserInfo: UITableViewDelegate , UITableViewDataSource {
             case CometChatUserInfo.PRIVACY_AND_SECURITY_CELL:
                 let privacyAndSeciruty = CometChatPrivacyAndSecurity()
                 navigationController?.pushViewController(privacyAndSeciruty, animated: true)
-                
+            case CometChatUserInfo.LOGOUT_CELL:
+                navigationController?.popToRootViewController(animated: true)
             default: break }
         }else if indexPath.section == 2{
             

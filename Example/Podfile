@@ -14,6 +14,7 @@ target 'CometChatPro-UIKit_Example' do
   pod 'CometChatPro-UIKit', :path => '../'
   pod 'CometChatPro', '2.1.1'
   pod 'IQKeyboardManager'
+  pod 'Bagel', '~>  1.3.2', :configurations => ['Debug']
   target 'CometChatPro-UIKit_Example_Tests' do
     inherit! :search_paths
   end

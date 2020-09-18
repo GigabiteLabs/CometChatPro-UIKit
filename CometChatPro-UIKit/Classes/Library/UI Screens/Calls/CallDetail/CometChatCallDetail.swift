@@ -484,6 +484,8 @@ extension CometChatCallDetail: UITableViewDelegate , UITableViewDataSource {
                                 let message =  NSLocalizedString("YOU_LEFT_FROM", tableName: nil, bundle: CCPType.bundle, value: "", comment: "") +  (self.currentGroup?.name ?? "") + "."
                                 let snackbar: CometChatSnackbar = CometChatSnackbar.init(message: message, duration: .short)
                                 snackbar.show()
+                                // unsubscribe user from group chat notifications
+                                CCPHandler.shared.unSubscribeFromGroup(guid: guid)
                             }
                             
                         }
